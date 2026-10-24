@@ -63,6 +63,15 @@ public final class UpdaterTests {
         for(int width:new int[]{320,424,854,1280})for(int height:new int[]{240,360,480,720}){
             var l=UpdateLayout.of(width,height);ok(l.x()>=0 && l.y()>=0 && l.x()+l.width()<=width && l.y()+l.height()<=height,"Panel outside screen");ok(l.notesBottom()>l.notesTop()+20 && l.notesBottom()<l.buttonsY()-18,"Notes overlap footer");ok(l.x()+24+l.buttonWidth()*3<=l.x()+l.width()-12,"Buttons outside panel");
         }
+        // Regression: observed title screen has neither a world nor a player.
+        ok(PromptGate.canOpen(true,false,false,false,false,20),"Title prompt incorrectly requires a world/player");
+        ok(!PromptGate.canOpen(true,false,false,false,true,40),"Prompt interrupted loading overlay");
+        ok(!PromptGate.canOpen(true,false,false,false,false,19),"Prompt opened before stable menu delay");
+        ok(!PromptGate.canOpen(false,false,false,true,false,40),"Prompt opened without a title/world");
+        ok(!PromptGate.canOpen(false,true,true,false,false,40),"Prompt interrupted inventory/settings");
+        ok(PromptGate.canOpen(false,true,true,true,false,20),"World fallback stopped working");
+        ok(!PromptGate.canOpen(false,true,false,true,false,40),"Prompt opened in incomplete world");
+        ok(!PromptGate.canOpen(false,false,false,false,false,40),"Prompt interrupted another modal screen");
         testAfterExit(args[0]);
         testChangedPlan(args[0]);
         System.out.println("PASS: "+checks+" updater checks; isolated filesystem and helper processes only; no Minecraft/server/world launched.");

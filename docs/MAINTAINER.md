@@ -6,7 +6,7 @@
 
 - 수정·검증한 **최신 전체 클라이언트 호환 JAR**을 base로 사용합니다. 오래된 ZIP에서 누락 모드나 이전 클래스를 복원하지 않습니다.
 - JDK17 이상, Python3, GitHub CLI가 필요합니다. 서버용 바이너리는 이 자동 배포에 섞지 않습니다.
-- 컴파일 classpath JSON 배열에 현재 Minecraft intermediary JAR, Fabric Loader/API의 networking/lifecycle/client-command 모듈과 기존 의존성을 넣습니다. 경로가 들어간 개인 classpath 파일은 커밋하지 않습니다.
+- 컴파일 classpath JSON 배열에 현재 Minecraft intermediary JAR, Fabric Loader/API의 networking/lifecycle/screen/client-command 모듈과 기존 의존성을 넣습니다. 경로가 들어간 개인 classpath 파일은 커밋하지 않습니다.
 - Ed25519 개인키는 저장소 밖에 보관합니다. `public-key.der`와 짝을 이루는 키를 계속 사용합니다. 개인키·개인 설정·토큰·월드·로그를 업로드하지 않습니다.
 
 ## 빌드

@@ -12,11 +12,12 @@ import net.minecraft.class_5481;
 /** Changelog is immediately visible; only the GitHub release uses collapsible details. */
 public final class UpdateScreen extends class_437 {
     private final SignedRelease release;
+    private final class_437 parent;
     private UpdateLayout box;
     private int scroll;
     private List<class_5481> cachedLines;
     private class_4185 apply,later;
-    public UpdateScreen(SignedRelease release){super(text("title"));this.release=release;}
+    public UpdateScreen(SignedRelease release,class_437 parent){super(text("title"));this.release=release;this.parent=parent;}
     private static class_2561 text(String key){return class_2561.method_43471("prominence.update."+key);}
     @Override protected void method_25426(){
         box=UpdateLayout.of(field_22789,field_22790);
@@ -38,6 +39,7 @@ public final class UpdateScreen extends class_437 {
         return cachedLines=List.copyOf(rows);
     }
     @Override public void method_25394(class_332 draw,int mouseX,int mouseY,float delta){
+        if(parent!=null)parent.method_25394(draw,-1,-1,delta);
         draw.method_25294(0,0,field_22789,field_22790,0x88000000);
         int x=box.x(),y=box.y(),w=box.width(),h=box.height();
         draw.method_25294(x-1,y-1,x+w+1,y+h+1,0xFF75688E);
@@ -76,4 +78,5 @@ public final class UpdateScreen extends class_437 {
         return super.method_25401(x,y,amount);
     }
     @Override public boolean method_25421(){return true;}
+    @Override public void method_25419(){field_22787.method_1507(parent);}
 }

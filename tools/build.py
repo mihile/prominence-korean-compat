@@ -44,6 +44,7 @@ def main():
  en={'title':'Korean Compatibility Update','apply':'Update','later':'Later','github':'GitHub','quit':'Quit game','retry':'Try again','keep_playing':'Keep playing','restart_hint':'Applies after the game closes.','downloading':'Downloading and verifying…','ready':'Ready · applies after game exit.','failed':'Update failed. Current file kept.','check_failed':'Cannot check for updates. Please try again later.','latest':'You have the latest build.','auto_on':'Automatic update checks enabled.','auto_off':'Automatic update checks disabled.'}
  for locale,values in [('ko_kr',ko),('en_us',en)]:
   values['up_to_date']='최신 상태' if locale=='ko_kr' else 'Up to date'
+  values.update({'menu':'패치 업데이트','checking':'업데이트를 확인하고 있어요…','check_again':'다시 확인','close':'닫기'} if locale=='ko_kr' else {'menu':'Patch updates','checking':'Checking for updates…','check_again':'Check again','close':'Close'})
   n=resource+'lang/'+locale+'.json';d=json.loads(new[n]);d.update({'prominence.update.'+k:v for k,v in values.items()});new[n]=enc(d)
  for p in sources:new['META-INF/prominence-korean-compat-source/auto-update/'+p.relative_to(ROOT/'src/main/java').as_posix()]=p.read_bytes()
  new['META-INF/notices/auto-update.txt']=b'Original signed client updater, MIT. Only this compatibility JAR is updated with approval, after game exit. No server, settings, other mods, resource packs or launcher hooks are updated. Signing key is not distributed.\n'

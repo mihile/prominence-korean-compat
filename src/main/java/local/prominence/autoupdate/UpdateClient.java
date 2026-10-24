@@ -10,10 +10,16 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
+import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
+import net.fabricmc.fabric.api.client.screen.v1.Screens;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.class_2561;
 import net.minecraft.class_310;
+import net.minecraft.class_437;
+import net.minecraft.class_442;
+import net.minecraft.class_4185;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,7 +27,8 @@ public final class UpdateClient implements ClientModInitializer {
     public enum Phase{AVAILABLE,DOWNLOADING,QUEUED,FAILED}
     private static final Logger LOG=LoggerFactory.getLogger("Prominence updater");
     private static final ExecutorService IO=Executors.newSingleThreadExecutor(r->{var t=new Thread(r,"Prominence Update Check");t.setDaemon(true);return t;});
-    private static final AtomicBoolean CHECKING=new AtomicBoolean(),INSTALLING=new AtomicBoolean();
+    private static final AtomicBoolean INSTALLING=new AtomicBoolean();
+    private static CompletableFuture<SignedRelease> inFlight;
     private static final Set<Long> SHOWN=new HashSet<>();
     static volatile Phase phase=Phase.AVAILABLE;
     static volatile long downloaded;
@@ -34,7 +41,7 @@ public final class UpdateClient implements ClientModInitializer {
     private static boolean enabled=true;
     private static volatile SignedRelease pending;
     private static long lastCheck;
-    private static int joinedTicks;
+    private static int readyTicks;
 
     @Override public void onInitializeClient(){
         try{
@@ -48,13 +55,29 @@ public final class UpdateClient implements ClientModInitializer {
             }
             preferences=loader.getConfigDir().resolve("prominence-korean-compat-updater.properties");
             if(Files.isRegularFile(preferences))enabled=Boolean.parseBoolean(SignedRelease.properties(Files.readAllBytes(preferences)).getProperty("enabled","true"));
-            ClientPlayConnectionEvents.JOIN.register((handler,sender,client)->{joinedTicks=0;if(enabled)check(false);});
+            ClientLifecycleEvents.CLIENT_STARTED.register(client->{if(enabled)check(false);});
+            ScreenEvents.AFTER_INIT.register((client,screen,width,height)->{
+                if(screen instanceof class_442){
+                    var buttons=Screens.getButtons(screen);
+                    int x=Math.max(6,width-104),y=6;
+                    // Prefer an unused corner over existing native menu controls.
+                    for(int candidate:new int[]{6,32,58,height-48}){
+                        boolean used=false;
+                        for(var button:buttons)if(button.field_22764 && x<button.method_46426()+button.method_25368() && x+98>button.method_46426() && candidate<button.method_46427()+button.method_25364() && candidate+20>button.method_46427()){used=true;break;}
+                        if(!used){y=candidate;break;}
+                    }
+                    buttons.add(class_4185.method_46430(class_2561.method_43471("prominence.update.menu"),b->openCheck(screen)).method_46434(x,y,98,20).method_46431());
+                    if(enabled)check(false);
+                }
+            });
+            ClientPlayConnectionEvents.JOIN.register((handler,sender,client)->{readyTicks=0;if(enabled)check(false);});
             ClientTickEvents.END_CLIENT_TICK.register(client->{
-                if(client.field_1687==null || client.field_1724==null){joinedTicks=0;return;}
-                joinedTicks++;
+                boolean title=client.field_1755 instanceof class_442;
+                boolean world=client.field_1687!=null,player=client.field_1724!=null,noScreen=client.field_1755==null,overlay=client.method_18506()!=null;
+                if(!overlay && (title || (world && player && noScreen)))readyTicks++;else readyTicks=0;
                 SignedRelease offer=pending;
-                if(offer!=null && joinedTicks>=40 && client.field_1755==null){
-                    pending=null;if(SHOWN.add(offer.build()))client.method_1507(new UpdateScreen(offer));
+                if(offer!=null && PromptGate.canOpen(title,world,player,noScreen,overlay,readyTicks)){
+                    pending=null;if(SHOWN.add(offer.build()))client.method_1507(new UpdateScreen(offer,title?client.field_1755:null));
                 }
             });
             ClientCommandRegistrationCallback.EVENT.register((dispatcher,access)->dispatcher.register(ClientCommandManager.literal("kpatch")
@@ -63,7 +86,7 @@ public final class UpdateClient implements ClientModInitializer {
                 .then(ClientCommandManager.literal("auto")
                     .then(ClientCommandManager.literal("on").executes(c->{setEnabled(true);return 1;}))
                     .then(ClientCommandManager.literal("off").executes(c->{setEnabled(false);return 1;})))));
-            LOG.info("Signed client updater ready: build={}, automatic={}; server and launcher hooks unchanged",build,enabled);
+            LOG.info("Signed client updater ready: build={}, automatic={}; startup and title-menu checks enabled; server and launcher hooks unchanged",build,enabled);
             IO.execute(UpdateClient::reportPrevious);
         }catch(Exception e){LOG.warn("Automatic updater disabled; compatibility features are unaffected",e);}
     }
@@ -80,14 +103,36 @@ public final class UpdateClient implements ClientModInitializer {
     private static void message(String key){
         class_310.method_1551().execute(()->{var player=class_310.method_1551().field_1724;if(player!=null)player.method_7353(class_2561.method_43471("prominence.update."+key),false);});
     }
+    private static synchronized CompletableFuture<SignedRelease> request(){
+        if(inFlight==null || inFlight.isDone())inFlight=CompletableFuture.supplyAsync(()->{
+            try{return SignedRelease.verify(new SafeHttp().manifest(),SignedRelease.publicKey());}
+            catch(Exception e){if(e instanceof InterruptedException)Thread.currentThread().interrupt();throw new CompletionException(e);}
+        },IO);
+        return inFlight;
+    }
+    static void openCheck(class_437 parent){
+        var client=class_310.method_1551();
+        if(release!=null && (phase==Phase.QUEUED || phase==Phase.DOWNLOADING)){client.method_1507(new UpdateScreen(release,parent));return;}
+        var screen=new UpdateCheckScreen(parent);client.method_1507(screen);
+        LOG.info("Checking client update from title/menu control");
+        request().whenComplete((next,error)->client.execute(()->{
+            if(client.field_1755!=screen)return;
+            if(error!=null){LOG.warn("Menu update check unavailable; current JAR unchanged",error);screen.failed();return;}
+            LOG.info("Menu update result: installed={}, published={}",build,next.build());
+            if(next.build()<build){screen.latest();return;}
+            release=next;SHOWN.add(next.build());pending=null;
+            if(phase!=Phase.QUEUED && phase!=Phase.DOWNLOADING)phase=Phase.AVAILABLE;
+            client.method_1507(new UpdateScreen(next,parent));
+        }));
+    }
     private static void check(boolean manual){
         if(phase==Phase.QUEUED || phase==Phase.DOWNLOADING){if(manual)message(phase==Phase.QUEUED?"ready":"downloading");return;}
         if(!manual && System.nanoTime()-lastCheck<TimeUnit.MINUTES.toNanos(3) && lastCheck!=0)return;
-        if(!CHECKING.compareAndSet(false,true))return;
         lastCheck=System.nanoTime();
-        IO.execute(()->{
-            try{
-                SignedRelease next=SignedRelease.verify(new SafeHttp().manifest(),SignedRelease.publicKey());
+        LOG.info("Checking client update: source={}",manual?"command":"startup/title/join");
+        request().whenComplete((next,error)->class_310.method_1551().execute(()->{
+                if(error!=null){LOG.warn("Update check unavailable; no files changed",error);if(manual)message("check_failed");return;}
+                LOG.info("Client update result: installed={}, published={}",build,next.build());
                 if(next.build()<=build){
                     if(manual && next.build()==build){
                         release=next;class_310.method_1551().execute(()->{SHOWN.remove(next.build());pending=next;});
@@ -101,9 +146,7 @@ public final class UpdateClient implements ClientModInitializer {
                     if(phase!=Phase.QUEUED && phase!=Phase.DOWNLOADING)phase=Phase.AVAILABLE;
                     pending=next;
                 });
-            }catch(Exception e){if(e instanceof InterruptedException)Thread.currentThread().interrupt();LOG.warn("Update check unavailable; no files changed: {}",e.getClass().getSimpleName());if(manual)message("check_failed");}
-            finally{CHECKING.set(false);}
-        });
+        }));
     }
     static void prepare(SignedRelease next){
         if(next.build()<=build)return;
