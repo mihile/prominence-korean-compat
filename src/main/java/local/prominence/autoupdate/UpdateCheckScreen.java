@@ -23,12 +23,12 @@ public final class UpdateCheckScreen extends class_437 {
         method_37063(class_4185.method_46430(text("close"),b->method_25419()).method_46434(box.x()+24+box.buttonWidth()*2,box.buttonsY(),box.buttonWidth(),20).method_46431());
     }
     @Override public void method_25394(class_332 draw,int mx,int my,float delta){
-        if(parent!=null)parent.method_25394(draw,-1,-1,delta);
-        draw.method_25294(0,0,field_22789,field_22790,0x88000000);
-        int x=box.x(),y=box.y(),w=box.width(),h=box.height();draw.method_25294(x-1,y-1,x+w+1,y+h+1,0xFF75688E);draw.method_25294(x,y,x+w,y+h,0xFA211E29);draw.method_25294(x,y,x+w,y+3,0xFFB59BE0);
+        UpdateRender.background(draw,parent,field_22789,field_22790,delta);
+        int x=box.x(),y=box.y(),w=box.width(),h=box.height();UpdateRender.panel(draw,box);
         draw.method_27535(field_22793,field_22785,x+14,y+14,0xFFF1E7FF);
         int line=y+65;for(var row:field_22793.method_1728(text(status),w-32)){draw.method_51430(field_22793,row,x+16,line,0xFFE3DFE8,false);line+=12;}
         super.method_25394(draw,mx,my,delta);
+        draw.method_51452();
     }
     @Override public void method_25419(){field_22787.method_1507(parent);}
     @Override public boolean method_25421(){return true;}

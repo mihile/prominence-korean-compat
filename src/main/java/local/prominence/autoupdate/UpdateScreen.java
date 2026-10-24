@@ -39,12 +39,9 @@ public final class UpdateScreen extends class_437 {
         return cachedLines=List.copyOf(rows);
     }
     @Override public void method_25394(class_332 draw,int mouseX,int mouseY,float delta){
-        if(parent!=null)parent.method_25394(draw,-1,-1,delta);
-        draw.method_25294(0,0,field_22789,field_22790,0x88000000);
+        UpdateRender.background(draw,parent,field_22789,field_22790,delta);
         int x=box.x(),y=box.y(),w=box.width(),h=box.height();
-        draw.method_25294(x-1,y-1,x+w+1,y+h+1,0xFF75688E);
-        draw.method_25294(x,y,x+w,y+h,0xFA211E29);
-        draw.method_25294(x,y,x+w,y+3,0xFFB59BE0);
+        UpdateRender.panel(draw,box);
         draw.method_27535(field_22793,field_22785,x+14,y+13,0xFFF1E7FF);
         draw.method_25303(field_22793,release.build()==UpdateClient.build?release.label():UpdateClient.label+"  →  "+release.label(),x+14,y+31,0xFFACA6B8);
         draw.method_25294(x+12,y+49,x+w-12,y+50,0xFF494153);
@@ -72,6 +69,7 @@ public final class UpdateScreen extends class_437 {
             draw.method_25294(x+14,box.buttonsY()-7,x+14+filled,box.buttonsY()-5,0xFFB59BE0);
         }
         super.method_25394(draw,mouseX,mouseY,delta);
+        draw.method_51452();
     }
     @Override public boolean method_25401(double x,double y,double amount){
         if(x>=box.x() && x<=box.x()+box.width() && y>=box.notesTop() && y<=box.notesBottom()){scroll-=(int)(amount*22);return true;}
