@@ -130,9 +130,10 @@ public final class UpdateClient implements ClientModInitializer {
                 UpdateFiles.writeBytes(root.resolve("manifest.properties"),next.envelope());
                 var self=ProcessHandle.current();Properties p=new Properties();p.setProperty("game",game.toRealPath().toString());p.setProperty("build",Long.toString(next.build()));p.setProperty("oldSha256",originalHash);p.setProperty("parentPid",Long.toString(self.pid()));p.setProperty("parentStarted",self.info().startInstant().orElseThrow().toString());
                 UpdateFiles.writeProperties(plan,p);
-                Path java=Path.of(System.getProperty("java.home"),"bin",System.getProperty("os.name","").startsWith("Windows")?"java.exe":"java");
+                Path java=Path.of(System.getProperty("java.home"),"bin",System.getProperty("os.name","").startsWith("Windows")?"javaw.exe":"java");
+                if(!Files.isRegularFile(java))throw new IOException("Background Java runtime is missing");
                 if(Files.isSymbolicLink(root.resolve("apply.log")))throw new IOException("Linked update log is not supported");
-                Process child=new ProcessBuilder(java.toString(),"-Djava.awt.headless=true","-cp",helper.toString(),ApplyUpdate.class.getName(),plan.toString())
+                Process child=new ProcessBuilder(java.toString(),"-Xms8m","-Xmx64m","-Djava.awt.headless=true","-cp",helper.toString(),ApplyUpdate.class.getName(),plan.toString())
                     .redirectErrorStream(true).redirectOutput(ProcessBuilder.Redirect.appendTo(root.resolve("apply.log").toFile())).start();
                 Properties worker=new Properties();worker.setProperty("pid",Long.toString(child.pid()));worker.setProperty("started",child.toHandle().info().startInstant().orElseThrow().toString());UpdateFiles.writeProperties(root.resolve("worker.properties"),worker);
                 Thread.sleep(350);
