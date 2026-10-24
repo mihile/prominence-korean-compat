@@ -46,6 +46,10 @@ public final class UpdateClient implements ClientModInitializer {
     @Override public void onInitializeClient(){
         try{
             var loader=FabricLoader.getInstance();game=loader.getGameDir().toAbsolutePath().normalize();
+            if(loader.isModLoaded("fancymenu")){
+                try{FancyMenuIsolation.register();LOG.info("Updater screen isolation registered with FancyMenu");}
+                catch(ReflectiveOperationException|LinkageError e){LOG.warn("FancyMenu screen isolation unavailable; independent updater rendering remains enabled",e);}
+            }
             target=UpdateFiles.target(game);root=UpdateFiles.directory(game.resolve(".prominence-update"));
             var origin=loader.getModContainer("prominence_korean_compat").orElseThrow().getOrigin().getPaths();
             if(origin.size()!=1 || !Files.isSameFile(target,origin.get(0)))throw new IOException("Compatibility JAR must use the original overwrite filename");

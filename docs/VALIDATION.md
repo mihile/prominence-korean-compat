@@ -9,3 +9,5 @@
 - 공개 GitHub 피드를 통해 내려받은 서명과 JAR의 재검증.
 
 테스트는 임시 폴더와 도우미 프로세스만 사용합니다. Minecraft 클라이언트·서버·월드를 실행하지 않습니다. 새 게임 화면의 실제 렌더링/버튼/종료 흐름은 적용 후 별도의 게임 검수가 필요합니다. 검증 결과를 게임 내 모든 기능 검수 완료로 해석하지 않습니다.
+
+build6의 flush만 적용한 화면은 사용자 스크린샷에서 겹침이 지속돼 실패로 확인됐습니다. build7은 부모 Screen.render 호출 자체를 제거하고 업데이트 두 화면만 FancyMenu 공개 blacklist rule에 등록합니다. `tools/verify.py --fancymenu FANCYMENU_JAR`로 설치된 실제 ScreenBlacklistRule 인터페이스와의 연동·대상 범위를 확인할 수 있습니다. 부모를 그리지 않는 컴파일 경계 검사는 기존 build6에서 실패하고 build7에서 통과합니다. 이 검사는 실제 GPU 화면 검수를 대신하지 않습니다.

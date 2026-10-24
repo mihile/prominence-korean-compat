@@ -14,8 +14,12 @@ public final class ModalRenderChecks {
         MethodNode bg=read(root,"UpdateRender").methods.stream().filter(m->m.name.equals("background")).findFirst().orElseThrow();
         List<String> calls=new ArrayList<>();
         for(var i:bg.instructions)if(i instanceof MethodInsnNode m)calls.add(m.owner+"."+m.name);
-        int parent=calls.indexOf("net/minecraft/class_437.method_25394"),flush=calls.indexOf("net/minecraft/class_332.method_51452"),overlay=calls.indexOf("net/minecraft/class_332.method_25294");
-        check(parent>=0 && flush>parent && overlay>flush,"Parent text/item batches can flush above modal");checks++;
+        int flush=calls.indexOf("net/minecraft/class_332.method_51452"),overlay=calls.indexOf("net/minecraft/class_332.method_25294");
+        check(calls.stream().noneMatch(s->s.startsWith("net/minecraft/class_437.")),"Parent render/FancyMenu lifecycle is still entered");checks++;
+        check(!bg.desc.contains("class_437"),"Background still accepts a parent Screen");checks++;
+        check(flush>=0 && overlay>flush,"Missing independent background boundary");checks++;
+        List<Integer> backgroundColors=new ArrayList<>();for(var i:bg.instructions)if(i instanceof LdcInsnNode l&&l.cst instanceof Integer color)backgroundColors.add(color);
+        check(backgroundColors.size()==1 && (backgroundColors.get(0)>>>24)==255,"Full background still exposes the previous screen");checks++;
         MethodNode panel=read(root,"UpdateRender").methods.stream().filter(m->m.name.equals("panel")).findFirst().orElseThrow();
         List<Integer> colors=new ArrayList<>();for(var i:panel.instructions)if(i instanceof LdcInsnNode l&&l.cst instanceof Integer color)colors.add(color);
         check(colors.size()==3 && colors.stream().allMatch(c->(c>>>24)==255),"Panel leaks parent pixels");checks++;

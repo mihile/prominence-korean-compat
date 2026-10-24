@@ -1,16 +1,14 @@
 package local.prominence.autoupdate;
 
 import net.minecraft.class_332;
-import net.minecraft.class_437;
 
-/** Keep parent text/item batches behind the modal instead of flushing them over its panel. */
+/** Independent modal surface. Never re-enter a different Screen's render/FancyMenu lifecycle. */
 public final class UpdateRender {
     private UpdateRender() {}
-    public static void background(class_332 draw,class_437 parent,int width,int height,float delta){
-        if(parent!=null)parent.method_25394(draw,-1,-1,delta);
-        // DrawContext buffers GUI, text and item render layers separately. Finish ALL parent layers first.
+    public static void background(class_332 draw,int width,int height){
+        // Flush earlier frame layers, then cover them without rendering the parent menu or its widgets.
         draw.method_51452();
-        draw.method_25294(0,0,width,height,0x88000000);
+        draw.method_25294(0,0,width,height,0xFF17141E);
     }
     public static void panel(class_332 draw,UpdateLayout box){
         int x=box.x(),y=box.y(),w=box.width(),h=box.height();

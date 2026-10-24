@@ -39,7 +39,7 @@ public final class UpdateScreen extends class_437 {
         return cachedLines=List.copyOf(rows);
     }
     @Override public void method_25394(class_332 draw,int mouseX,int mouseY,float delta){
-        UpdateRender.background(draw,parent,field_22789,field_22790,delta);
+        UpdateRender.background(draw,field_22789,field_22790);
         int x=box.x(),y=box.y(),w=box.width(),h=box.height();
         UpdateRender.panel(draw,box);
         draw.method_27535(field_22793,field_22785,x+14,y+13,0xFFF1E7FF);
