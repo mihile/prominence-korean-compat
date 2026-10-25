@@ -10,7 +10,7 @@ def main():
  argfile=args.build_dir/'test-compile.args';argfile.write_text('\n'.join('"'+s.replace('\\','/')+'"' for s in params),encoding='utf8');subprocess.run([str(javac),'-J-Dfile.encoding=UTF-8','@'+str(argfile)],check=True)
  with zipfile.ZipFile(args.build_dir/'prominence-korean-compat-1.0.0.jar') as z:(args.build_dir/'test-helper.jar').write_bytes(z.read('assets/prominence_korean_compat/update-helper.jar'))
  results=[]
- checks=[('UpdaterTests',[str(args.build_dir/'test-helper.jar')]),('VerifyBytecode',[str(classes)]),('ModalRenderChecks',[str(classes)]),('local.prominence.memory.ShaderParserCacheTests',[]),('local.prominence.memory.ShaderCacheGuardTests',[])]
+ checks=[('UpdaterTests',[str(args.build_dir/'test-helper.jar')]),('VerifyBytecode',[str(classes)]),('ModalRenderChecks',[str(classes)]),('local.prominence.memory.ShaderParserCacheTests',[]),('local.prominence.memory.ShaderCacheGuardTests',[]),('local.prominence.memory.BackpackListenerTests',[])]
  if args.fancymenu:checks.append(('FancyMenuIsolationChecks',[str(args.fancymenu)]))
  for entry,params in checks:
   p=subprocess.run([str(java),'-ea','-cp',str(tests)+os.pathsep+cp,entry,*params],capture_output=True,text=True,encoding='utf8',errors='replace');(args.build_dir/(entry+'.log')).write_text(p.stdout+p.stderr,encoding='utf8');assert p.returncode==0,p.stdout+p.stderr;print(p.stdout.strip());results.append(p.stdout.strip())
