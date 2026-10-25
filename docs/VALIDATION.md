@@ -82,3 +82,7 @@ Only the reviewed VoxyClientInstance storage open is made temporarily nullable f
 ## Backpack inline reforge (build 2026102516)
 
 See [implementation and validation](BACKPACK_INLINE_REFORGE.md). Native seven-target/414-method Mixin transformation includes both legacy anvil UI mixins. A data-only fixture uses the production adapter and actual Porting/Fabric inventory code without constructing a player or world. Previous403classes and updater helper remain byte-identical; one external-screen button class is intentionally replaced. Live GUI and multiplayer validation remain pending.
+
+## Weapon ability HUD and interaction priority (build 2026102601)
+
+See [weapon input and native cooldown validation](WEAPON_ABILITY_HUD.md). Six native targets/116 methods transform with the existing Spell Engine input mixin and HUD equipment scope. The transformed native cooldown manager/entry passes countdown/progress/expiry checks without creating an item or world.211 press-intent checks cover container/entity/menu consumption, release and dedicated keys. Previous423classes and helper remain exact; the feature is client-only. Live GUI/interaction validation remains pending.

@@ -1,0 +1,28 @@
+{
+  "simplyswords": {
+    "version": "1.70.2-1.20.1",
+    "classes": {
+      "net/sweenus/simplyswords/client/AbilityKeybindHandler.class": "41a088dd00949c9b68c112e1e4b79e68c5ff8cbbae9739a392292dc35eadfb36",
+      "net/sweenus/simplyswords/item/interfaces/UniqueWeaponActiveAbility.class": "cf5e17b6667e553114bee7dba568714f3549b2fb24afcb9b7f95c4a2c9365eeb",
+      "net/sweenus/simplyswords/power/GemPower.class": "a8167b27f6df33f51a6ffe43835c11b8977300eb451249131d2dd6a8d2b1c334",
+      "net/sweenus/simplyswords/power/GemPowerComponent.class": "e737e2aed495f859bc5521c6c205e55388f94247402bb8ee9c8351571e3cdec8",
+      "net/sweenus/simplyswords/item/RunicSwordItem.class": "cf25d267ca41eeee7591cc14d3363485ccf24b5b132d12b7522f37b9f76e7e7c",
+      "net/sweenus/simplyswords/api/SimplySwordsAPI.class": "da68e80c7007affce53480c7b9daac431bcb310448149911fae650b33638e5a8",
+      "net/sweenus/simplyswords/api/AwakeningApi.class": "fcb04348eb516083086b716e16be56c21001707c89bddff728c9143b16c63ef1",
+      "net/sweenus/simplyswords/entity/ThrownSwordEntity.class": "6875ae56b96856e14174c71d0606e1768dace9f5209f045935f07ebf19d2c8c7",
+      "net/sweenus/simplyswords/item/custom/LivyatanSwordItem.class": "7f2afabc71e97a01b58c9d7d87f9c5615dd7cf62b7f4235187f111d5a673f347",
+      "net/sweenus/simplyswords/entity/LivyatanEntity.class": "ab325b5e1e1cab3627d6b5773908eb10c7cd5e9f77c11687dd7f635fb95371fd"
+    }
+  },
+  "spell_engine": {
+    "version": "0.15.12+1.20.1",
+    "classes": {
+      "net/spell_engine/client/gui/HudRenderHelper.class": "f8d2e5bcdba771bb6b9d040d6197b0b203b513e0e71abf86b3da214b1ad5ed3d",
+      "net/spell_engine/client/gui/HudRenderHelper$SpellHotBarWidget.class": "c6f2aacc9cb07036fc74be8a0af8c29a090d684975516ca5c94bfdc454f1b05b",
+      "net/spell_engine/client/gui/HudRenderHelper$SpellHotBarWidget$ViewModel.class": "d3d6abc63a7a5eb228e12bcc8c203df821078837a9d951edd44c88b2c187bdaf",
+      "net/spell_engine/client/gui/HudRenderHelper$SpellHotBarWidget$SpellViewModel.class": "5f107031b28652b8d43ff42ccca1d75fcdc418da77294a91a7a7f14b5eee18af",
+      "net/spell_engine/client/gui/HudRenderHelper$SpellHotBarWidget$KeyBindingViewModel.class": "0f052beee4a3ae5d1943c79a48cf81b57e67b3ec3b9c80fe207787429e915807",
+      "net/spell_engine/mixin/client/control/KeybindingAccessor.class": "66e835caf3eaf7e638535da3ac1dd115711cdb50206380d55c3912e557ddf347"
+    }
+  }
+}

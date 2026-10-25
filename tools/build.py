@@ -23,7 +23,7 @@ def main():
  meta=json.loads(old['fabric.mod.json']);assert meta['id']=='prominence_korean_compat' and meta['version']=='1.0.0'
  new=dict(old)
  # These explicitly owned modules may be rebuilt; all other compatibility classes stay exact.
- managed_prefixes=('local/prominence/autoupdate/','local/prominence/memory/','local/prominence/backpackinline/',
+ managed_prefixes=('local/prominence/autoupdate/','local/prominence/memory/','local/prominence/backpackinline/','local/prominence/weaponhud/',
   'local/prominence/backpackcompat/client/PortableReforgeButton.class')
  for n in list(new):
   if n.startswith((*managed_prefixes,'META-INF/prominence-korean-compat-source/auto-update/')):del new[n]
@@ -39,6 +39,9 @@ def main():
  new[resource+'update-build.properties']=f'build={args.build}\nlabel={args.label}\nchannel=client\npack=4.1.3\nhelperSha256={sha(helper_jar)}\n'.encode('utf8')
  entry='local.prominence.autoupdate.UpdateClient';client=meta.setdefault('entrypoints',{}).setdefault('client',[])
  if entry not in client:client.append(entry)
+ if (ROOT/'src/main/java/local/prominence/weaponhud/WeaponAbilityClient.java').exists():
+  entry='local.prominence.weaponhud.WeaponAbilityClient'
+  if entry not in client:client.append(entry)
  if (ROOT/'src/main/java/local/prominence/backpackinline/InlineReforge.java').exists():
   entry='local.prominence.backpackinline.InlineReforge';main=meta.setdefault('entrypoints',{}).setdefault('main',[])
   if entry not in main:main.append(entry)

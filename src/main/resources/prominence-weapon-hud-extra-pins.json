@@ -1,0 +1,67 @@
+{
+  "soulsweapons": {
+    "version": "1.3.1-1.20.1-fabric",
+    "classes": {
+      "net/soulsweaponry/items/ChargeToUseItem.class": "62822b4b97396da1cd1bfca2a10896fff63b38c69811153c34cb68b2aa760574",
+      "net/soulsweaponry/items/TestItem.class": "3451f3c4f1aba5180b6ec69722bdf6f3aaa46c5dd46e06fe7f9f392013718997",
+      "net/soulsweaponry/items/TranslucentWeapon.class": "93d669ff30f2ce1d07c771b24b8e6298452dddffab9e1bcc21e6efd5e8632726",
+      "net/soulsweaponry/items/UltraHeavyWeapon.class": "359a566ee05d0293b8feb436d7ceeaa9d8d86cfef7f08636de1878527f32c88c",
+      "net/soulsweaponry/items/UmbralTrespassItem.class": "4887362317ce0ffc58def907c4a681523763d17e2f68c3b52c671b3117eb61ae",
+      "net/soulsweaponry/items/axe/LeviathanAxe.class": "5dfcbd298b78be23c7c14aaa349dbfe17a52fea8ec12f64df4da5c554e92e0a5",
+      "net/soulsweaponry/items/hammer/Mjolnir.class": "b9af683c046509f70826565bc989c35b89068f87a74727dd4c2af0aca0223b82",
+      "net/soulsweaponry/items/hammer/Nightfall.class": "475876b4d634bf894eb76aad42d2c8cbdb8642610e3751d7dd6bd610549a652d",
+      "net/soulsweaponry/items/hammer/Supernova.class": "1510708b89cd4fefc78038bdc8990e18a7304bb2892ca97f8b5aec89f5231e01",
+      "net/soulsweaponry/items/hammer/Tonitrus.class": "8778ed7607f9a5175fb347cdd700cac1378bece1a738f4b67c845f27cef968cb",
+      "net/soulsweaponry/items/katana/Moonveil.class": "e535101c0a45df9b87f792129f21f461995d6f3d4c4bafc955b3bace1a7803f1",
+      "net/soulsweaponry/items/scythe/DarkinScythePrime.class": "cf3f03153ad6cbb78a4bc215723368dd01ce64a48acd594f1a75bd17ce4c317e",
+      "net/soulsweaponry/items/scythe/ForlornScythe.class": "19f53db5dcb515d2e548df4fc8a4d4aafac475f98bb7b0ab3a1d34944fd3452c",
+      "net/soulsweaponry/items/scythe/ShadowAssassinScythe.class": "3333d725188f2ae21fd93273e15097bcd9daae373596a853616d247c99a523cf",
+      "net/soulsweaponry/items/scythe/SoulReaper.class": "8d6360d6babfc64028f06bf940ad3d3cc09cb17e7846c4d70e7473ecfb2f94f9",
+      "net/soulsweaponry/items/spear/CometSpear.class": "240631a8402c8dc23b7dd7f2109f5bf02d6fe6bbcffa023cb8dfaf0d974f7f38",
+      "net/soulsweaponry/items/spear/DragonslayerSwordspear.class": "98c9010d4396582f0572c5a54a7040497033f36a844cd1417c4b79fb54bf7bc8",
+      "net/soulsweaponry/items/spear/DraupnirSpear.class": "df3eae5398f1ae24466da2a2d54babcde2201809452c0ea525416c6477345289",
+      "net/soulsweaponry/items/spear/GlaiveOfHodir.class": "4e15f01670626658bc56b4f2cb633e74e4283b8e2eeac190ae21858e4a628436",
+      "net/soulsweaponry/items/staff/ChungusStaff.class": "929a132fce90c9bce0bcc7dab1e70432129d15baf9173d7e795d50b8071011f0",
+      "net/soulsweaponry/items/staff/DragonStaff.class": "10e3309866404fc3cb2d9f9d8f0ab87f7bb3103c4c8b1eaccd5207baaccef83f",
+      "net/soulsweaponry/items/staff/WitheredWabbajack.class": "e0cbf7224ba3cd2409c6aa54349f16499421534a9b55e4a87ca90b4c44caecd5",
+      "net/soulsweaponry/items/sword/AbstractDawnbreaker.class": "35019e9831bad2e5ad875f8db0496af240dc4adb4015328595d849a38a008b89",
+      "net/soulsweaponry/items/sword/BluemoonGreatsword.class": "d24b28fb859c78230bc34fa5c54f0bdab661410ba9d4febfd0e04814b0d27cbd",
+      "net/soulsweaponry/items/sword/DarkMoonGreatsword.class": "d1fd6f56ea5a1c835dcbe4faee0422ac895b97fece5e2c7d638004cd962f533d",
+      "net/soulsweaponry/items/sword/DarkinBlade.class": "dcb10b0e70c17c937b8c994530407da120f340b5a1825d1e312fa05cb07d372f",
+      "net/soulsweaponry/items/sword/Dawnbreaker.class": "46234b51c1f4129cc2b8ee17e2940d0a122c726fc21a29165a47c61cc6b8017f",
+      "net/soulsweaponry/items/sword/DragonslayerSwordBerserk.class": "8f526b4fda4d70f28fde460551f8976bf7d6b8bb8c69a57204c36b7723bc2570",
+      "net/soulsweaponry/items/sword/EmpoweredDawnbreaker.class": "be7d8f5ff847c915ebc16e66177a94ad6ece96961aadc1a023fdd0ba21c60844",
+      "net/soulsweaponry/items/sword/Excalibur.class": "ccc39fdbb90514ad49978b0ed595886489a2c7d1ff48394b0e1736ae41c0af2d",
+      "net/soulsweaponry/items/sword/Featherlight.class": "6e4935e5dd70dcb415c420d0decf4661cb95159d4b14565d912090d636939c70",
+      "net/soulsweaponry/items/sword/FreyrSword.class": "bf7445872f48ad65f0c6ed94ab5938cacb1ec655bf71f4d802f74110833c5d19",
+      "net/soulsweaponry/items/sword/Frostmourne.class": "6827b8945bc32e34053b1afc32570a77022dcff58f01679f5a2cf24c1b972efe",
+      "net/soulsweaponry/items/sword/HolyMoonlightGreatsword.class": "179cc4d5aa06017b994e155ab06dffabb097a34fe4fd47a15937c6c78a77233d",
+      "net/soulsweaponry/items/sword/MasterSword.class": "ccab94ffbbb28b4e0f3af05a744ef431ac1e573952179ddff3deef6287e33dd1",
+      "net/soulsweaponry/items/sword/MoonlightGreatsword.class": "37edc60d73d8377fa9e3a72dca412aab4976e0c073d74685f231d4a7121f44ec",
+      "net/soulsweaponry/items/sword/NightsEdgeItem.class": "1ce24e2f2c8c672d3d7a49012e3579d7535bc0d1bf357d643ec2a00a8c67f774",
+      "net/soulsweaponry/items/sword/PureMoonlightGreatsword.class": "15796e421eff34e3f48a92d0aa96aa0a2e746d27427ad19d7e7fa67266c00039",
+      "net/soulsweaponry/items/sword/WhirligigSawblade.class": "20f5e224a97439d2227f97375dd98cf4817c8c4036c7745b697ed7c27c8ad2ab"
+    }
+  },
+  "archon": {
+    "version": "1.1.5",
+    "classes": {
+      "safro/archon/item/SpellWeaponItem.class": "62abbeedc84feec68ecbd2389edd87ba6caffef16c9c020ad3220b37664ebef0",
+      "safro/archon/item/earth/TerraneanAxeItem.class": "675261a01129777df3d4e9317c0e8ab522105d192f4405f88253dba3a95e1f97"
+    }
+  },
+  "minecells": {
+    "version": "2.0.0",
+    "classes": {
+      "com/github/mim1q/minecells/item/weapon/FlintItem.class": "008c598683055c3ba6514c99cfff2c9b5c8d237ed42bdbf7df7007d229136e61",
+      "com/github/mim1q/minecells/item/weapon/HattorisKatanaItem.class": "43be74e3026890f49ca5f336d1b9a14061e3b30b43b44d5b423738cef8eaf9d1",
+      "com/github/mim1q/minecells/item/weapon/TentacleItem.class": "d8e3c54adc8a0cdcac333242fc82d6e4f25f5822648218e1e257f5e30fb52d3e"
+    }
+  },
+  "the_bumblezone": {
+    "version": "7.9.10+1.20.1-fabric",
+    "classes": {
+      "com/telepathicgrunt/the_bumblezone/items/StingerSpearItem.class": "1c3ace8624fbfac3510128ede849888923d720d9bc5b999b65f0060b92d25804"
+    }
+  }
+}

@@ -1,0 +1,1 @@
+{"required":true,"minVersion":"0.8","package":"local.prominence.weaponhud.mixin","plugin":"local.prominence.weaponhud.WeaponHudGuard","compatibilityLevel":"JAVA_17","client":["WeaponInteractionMixin","AbilityBindingMixin","AbilityKeysAccess","WeaponHudMixin","CooldownTicksMixin","CooldownEntryAccess","ProjectileStackAccess"],"injectors":{"defaultRequire":1}}
