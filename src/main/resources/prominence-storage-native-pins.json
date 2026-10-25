@@ -1,0 +1,21 @@
+{
+  "voxy": {
+    "version": "0.2.20-beta+1.20.1-port.9",
+    "classes": {
+      "me/cortex/voxy/commonImpl/VoxyInstance.class": "b12f222438cb4e1f990acc97d4dec3cbb9bb63c685e5f8a73a3a97515c52b79a",
+      "me/cortex/voxy/commonImpl/WorldIdentifier.class": "38e4e60684aa96e7142f4ffae8c2e3cdfb91108b8e1ad123c2df93393de1a92c",
+      "me/cortex/voxy/client/mixin/minecraft/MixinLevelRenderer.class": "dee0fc8fb7344f97827d6dc386c4da01b583f22f72250b58d24ca4d0d577c3e1",
+      "me/cortex/voxy/client/VoxyClientInstance.class": "a5dd238e1921bb1709b3da7d5948f583a5459d42e53b770c3eae3694d3ba9c35",
+      "me/cortex/voxy/common/config/storage/rocksdb/RocksDBStorageBackend.class": "2333a1470fc2a2c0f2b01de0740c7f883ae7f9f28b568738617eeb3eb762ed50",
+      "me/cortex/voxy/client/core/IGetVoxyRenderSystem.class": "a1984aa75f86c91c3078e874b0460d335760dfb3750a5a9e269ee592f6e7bf17"
+    }
+  },
+  "org_rocksdb_rocksdbjni": {
+    "version": "10.2.1",
+    "classes": {
+      "org/rocksdb/RocksDBException.class": "64c3e6f9fa9dbc3c0df2b349af6eac42e30b3448a06e9e012e9cf3227ee31ea9",
+      "org/rocksdb/Status.class": "c467458f2f70c5c49b7a0b52afa94d743f8771426ae943a6bb4e677598022e7e",
+      "org/rocksdb/Status$Code.class": "4526f5372b88a4839727ff83e964e505af188d8cd482b0ea1c5859433b08b91e"
+    }
+  }
+}

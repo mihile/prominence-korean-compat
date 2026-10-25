@@ -15,6 +15,7 @@ def main():
  checks.append(('local.prominence.memory.TransientHolderTests',[]))
  checks.append(('local.prominence.memory.BatchMemoryTests',[]))
  checks.append(('local.prominence.memory.ShaderSourceCacheTests',[]))
+ checks.append(('local.prominence.memory.StorageRecoveryTests',[]))
  if args.fancymenu:checks.append(('FancyMenuIsolationChecks',[str(args.fancymenu)]))
  for entry,params in checks:
   p=subprocess.run([str(java),'-ea','-cp',str(tests)+os.pathsep+cp,entry,*params],capture_output=True,text=True,encoding='utf8',errors='replace');(args.build_dir/(entry+'.log')).write_text(p.stdout+p.stderr,encoding='utf8');assert p.returncode==0,p.stdout+p.stderr;print(p.stdout.strip());results.append(p.stdout.strip())
