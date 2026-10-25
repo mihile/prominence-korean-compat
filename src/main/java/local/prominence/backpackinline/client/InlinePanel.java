@@ -7,8 +7,8 @@ import net.minecraft.class_2960;
 import net.minecraft.class_310;
 import net.minecraft.class_332;
 import net.minecraft.class_4185;
+import net.minecraft.class_437;
 import net.minecraft.class_5244;
-import net.minecraft.class_7919;
 import net.p3pp3rf1y.sophisticatedcore.client.gui.controls.WidgetBase;
 import net.p3pp3rf1y.sophisticatedcore.client.gui.utils.Dimension;
 import net.p3pp3rf1y.sophisticatedcore.client.gui.utils.Position;
@@ -28,10 +28,13 @@ public final class InlinePanel extends WidgetBase {
     }
     @Override protected void renderWidget(class_332 draw,int mx,int my,float delta){
         if(!active())return;var s=state();button.method_46421(x+40);button.method_46419(y+32);button.field_22763=s.ready();
-        button.method_47400(class_7919.method_47407(class_2561.method_43471(s.ready()?"prominence.inline.reforge":"prominence.inline.inputs")));
         button.method_25394(draw,mx,my,delta);
         var label=class_2561.method_43471(s.ready()?"prominence.inline.ready":"prominence.inline.slots");
         draw.method_51439(minecraft.field_1772,label,x+(97-minecraft.field_1772.method_27525(label))/2,y+56,s.ready()?0x347326:0x404040,false);
+    }
+    @Override public void renderTooltip(class_437 screen,class_332 draw,int mx,int my){
+        if(visible&&active()&&mx>=x+40&&mx<x+58&&my>=y+32&&my<y+50)
+            draw.method_51434(minecraft.field_1772,InlineReforgeTooltip.lines(state()),mx,my);
     }
     @Override public boolean method_25402(double mx,double my,int key){return visible&&active()&&button.method_25402(mx,my,key);}
     @Override public boolean method_25404(int key,int scan,int modifiers){return visible&&active()&&button.method_25404(key,scan,modifiers);}
