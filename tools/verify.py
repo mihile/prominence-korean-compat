@@ -16,6 +16,8 @@ def main():
  checks.append(('local.prominence.memory.BatchMemoryTests',[]))
  checks.append(('local.prominence.memory.ShaderSourceCacheTests',[]))
  checks.append(('local.prominence.memory.StorageRecoveryTests',[]))
+ checks.append(('local.prominence.memory.WorldCacheTests',[]))
+ checks.append(('local.prominence.memory.ShaderHashScratchTests',[]))
  checks.append(('local.prominence.weaponhud.WeaponUseFenceTests',[]))
  if args.mods:checks.append(('local.prominence.weaponhud.WeaponHudPinChecks',[str(args.mods)]))
  if args.fancymenu:checks.append(('FancyMenuIsolationChecks',[str(args.fancymenu)]))

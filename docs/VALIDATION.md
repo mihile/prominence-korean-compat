@@ -86,3 +86,9 @@ See [implementation and validation](BACKPACK_INLINE_REFORGE.md). Native seven-ta
 ## Weapon ability HUD and interaction priority (build 2026102601)
 
 See [weapon input and native cooldown validation](WEAPON_ABILITY_HUD.md). Six native targets/116 methods transform with the existing Spell Engine input mixin and HUD equipment scope. The transformed native cooldown manager/entry passes countdown/progress/expiry checks without creating an item or world.211 press-intent checks cover container/entity/menu consumption, release and dedicated keys. Previous423classes and helper remain exact; the feature is client-only. Live GUI/interaction validation remains pending.
+
+## World-cache lifetimes and hash scratch (build2026102602)
+
+See [scope and preservation checks](WORLD_CACHE_LIFETIMES.md). Four independently version/fingerprint-guarded client cache cleanups use the existing weak transition detector and END_CLIENT_TICK.73checks reproduce the actual Guava weak-value key/value cycle, demonstrate old owner collection, and preserve current/server/replacement values.10native fingerprints and runtime field shapes guard optional integrations. The merged Balm field was also verified in the previously captured live heap. No new Minecraft mixin or modified native damage/preview/inventory implementation is introduced.
+
+43hash compatibility/UTF-16/buffer boundary/concurrency checks and the optional54-check production-baseline comparison pass. The existing disk key format stays identical. The five-call/500defines allocation fixture drops41,527,864→45,496bytes; this does not measure whole-game RAM or frame time. Native Iris/Euphoria18methods and151real pack preprocessing checks plus the existing regression suite pass. In-game cleanup activation, reclaimed RAM and post-travel GC are still unmeasured.

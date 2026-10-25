@@ -93,18 +93,22 @@ public final class ShaderSourceDiskCache implements AutoCloseable {
     static byte[] hash(byte[] data) {
         try{return MessageDigest.getInstance("SHA-256").digest(data);}catch(Exception e){throw new IllegalStateException(e);}
     }
-    private static void update(MessageDigest md,String s) {
+    private static void length(MessageDigest md,int length,byte[] scratch) {
+        scratch[0]=(byte)(length>>>24);scratch[1]=(byte)(length>>>16);scratch[2]=(byte)(length>>>8);scratch[3]=(byte)length;
+        md.update(scratch,0,4);
+    }
+    private static void update(MessageDigest md,String s,byte[] chunk) {
         // Encode UTF-16 code units with lengths: unambiguous even for malformed surrogates.
-        md.update(ByteBuffer.allocate(4).putInt(s.length()).array());
-        byte[] chunk=new byte[8192];int offset=0;
+        length(md,s.length(),chunk);
+        int offset=0;
         for(int i=0;i<s.length();i++){char c=s.charAt(i);chunk[offset++]=(byte)(c>>>8);chunk[offset++]=(byte)c;
             if(offset==chunk.length){md.update(chunk);offset=0;}}
         if(offset!=0)md.update(chunk,0,offset);
     }
     String key(String source,List<Define> defines) {
-        try {MessageDigest md=MessageDigest.getInstance("SHA-256");update(md,namespace);update(md,source);
-            md.update(ByteBuffer.allocate(4).putInt(defines.size()).array());
-            for(Define d:defines){update(md,d.key());update(md,d.value());}
+        try {MessageDigest md=MessageDigest.getInstance("SHA-256");byte[] scratch=new byte[8192];update(md,namespace,scratch);update(md,source,scratch);
+            length(md,defines.size(),scratch);
+            for(Define d:defines){update(md,d.key(),scratch);update(md,d.value(),scratch);}
             return HexFormat.of().formatHex(md.digest());
         }catch(Exception e){throw new IllegalStateException(e);}
     }

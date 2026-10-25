@@ -1,0 +1,50 @@
+{
+  "iceberg": [
+    {
+      "mod": "iceberg",
+      "version": "1.1.25",
+      "classes": {
+        "com/anthonyhilyard/iceberg/util/EntityCollector.class": "06a5ec7c7e1965c81f05773d42b996403b0e0317b22ca6ca6adce66d11c80d14",
+        "com/anthonyhilyard/iceberg/renderer/CustomItemRenderer.class": "4fba514d3d063aa45db59bb3b70bcfd88a3891c4fdf10eb946dee5eaefb0f46e"
+      }
+    }
+  ],
+  "inventories": [
+    {
+      "mod": "fabric-transfer-api-v1",
+      "version": "3.3.6+8dd72ea377",
+      "classes": {
+        "net/fabricmc/fabric/impl/transfer/item/InventoryStorageImpl.class": "6a385fa0f361768083e61cb32c5db11f7744e94718d104ddd63674d777f134f8"
+      }
+    },
+    {
+      "mod": "zenith",
+      "version": "2.0.2",
+      "classes": {
+        "dev/shadowsoffire/apotheosis/ench/table/ApothEnchantTile.class": "c4734ada36212da877e018bd2312bdcecb56e30f39c6dfe792197a40d2bb750a",
+        "dev/shadowsoffire/apotheosis/ench/table/ApothEnchantTile$1.class": "a7a49dadb2f664e4e16c0ac9f01740628afdba2f1667994720dc698ffd38f2ec"
+      }
+    }
+  ],
+  "mi": [
+    {
+      "mod": "modern_industrialization",
+      "version": "1.8.6",
+      "classes": {
+        "aztech/modern_industrialization/items/armor/MIKeyMap.class": "310b1e411fd41b8e889e33ee8d0a3ee3c3e40a2defd156ab24945921b5342d3a",
+        "aztech/modern_industrialization/items/armor/ClientKeyHandler.class": "35c747abbada555a8229ed1a9aac3f2a6a67250ec9c77fd26f65974fddfadfa2",
+        "aztech/modern_industrialization/ModernIndustrialization.class": "f7082d6dde31fdfca3069aec1521f2379660ea19aee40282299d5f9c089c6a33"
+      }
+    }
+  ],
+  "balm": [
+    {
+      "mod": "balm",
+      "version": "7.3.41",
+      "classes": {
+        "net/blay09/mods/balm/mixin/LivingEntityMixin.class": "146ed23970d6b9cbd3f65ecd6f8a50a81ccf00baea70e1a6611648deb2e615cd",
+        "net/blay09/mods/balm/api/event/LivingFallEvent.class": "7b7e6ffcd6900f779ac23eae81f85cbf08ae579223b4b10195a446fd7b1e8041"
+      }
+    }
+  ]
+}
