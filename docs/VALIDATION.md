@@ -91,6 +91,10 @@ The native server tab packet updates the wrapper's selected tab ID, while `Upgra
 
 See [weapon input and native cooldown validation](WEAPON_ABILITY_HUD.md). Six native targets/116 methods transform with the existing Spell Engine input mixin and HUD equipment scope. The transformed native cooldown manager/entry passes countdown/progress/expiry checks without creating an item or world.211 press-intent checks cover container/entity/menu consumption, release and dedicated keys. Previous423classes and helper remain exact; the feature is client-only. Live GUI/interaction validation remains pending.
 
+## Xaero biome writer world lifetime (build2026102606)
+
+See [the scoped reference and validation](XAERO_BIOME_LIFETIME.md). Two exact native fingerprints plus Minecraft/Xaero/MixinExtras versions gate the optional client module. Real Mixin transformation verifies2targets/63methods and preserves58native call sequences, including the calculator's original preparation/blending.20production scope checks use the actual transformed calculator with a data-only world stand-in: arguments, return values, incremental jobs without prepare, unchanged bounds, nested scopes, exceptions and old-owner collection while the writer remains alive.9guard checks and the existing suite pass. No per-frame world/map/cache scan, new ThreadLocal, forced game GC or cache-capacity reduction is added. All445previous classes and the updater helper remain identical. Actual game RAM savings and post-update map rendering remain unmeasured.
+
 ## World-cache lifetimes and hash scratch (build2026102602)
 
 See [scope and preservation checks](WORLD_CACHE_LIFETIMES.md). Four independently version/fingerprint-guarded client cache cleanups use the existing weak transition detector and END_CLIENT_TICK.73checks reproduce the actual Guava weak-value key/value cycle, demonstrate old owner collection, and preserve current/server/replacement values.10native fingerprints and runtime field shapes guard optional integrations. The merged Balm field was also verified in the previously captured live heap. No new Minecraft mixin or modified native damage/preview/inventory implementation is introduced.

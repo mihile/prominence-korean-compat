@@ -1,0 +1,1 @@
+Original MIT compatibility code. Uses the installed Xaero Minimap implementation; no native mod classes are bundled. Keeps native color blending and map data while bounding the calculator's world reference to one writer call. Exact native versions and class fingerprints are required.
