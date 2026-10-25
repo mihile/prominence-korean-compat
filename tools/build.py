@@ -38,6 +38,9 @@ def main():
  new[resource+'update-build.properties']=f'build={args.build}\nlabel={args.label}\nchannel=client\npack=4.1.3\nhelperSha256={sha(helper_jar)}\n'.encode('utf8')
  entry='local.prominence.autoupdate.UpdateClient';client=meta.setdefault('entrypoints',{}).setdefault('client',[])
  if entry not in client:client.append(entry)
+ if (ROOT/'src/main/java/local/prominence/memory/WorldReferencesClient.java').exists():
+  entry='local.prominence.memory.WorldReferencesClient'
+  if entry not in client:client.append(entry)
  meta.setdefault('contact',{}).update(homepage='https://github.com/mihile/prominence-korean-compat',sources='https://github.com/mihile/prominence-korean-compat',issues='https://github.com/mihile/prominence-korean-compat/issues')
  meta.setdefault('custom',{})['prominenceAutoUpdate']={'build':args.build,'channel':'client','pack':'4.1.3'}
  for p in sorted((ROOT/'src/main/resources').rglob('*')):
