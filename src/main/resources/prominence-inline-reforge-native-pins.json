@@ -1,0 +1,41 @@
+{
+  "sophisticatedbackpacks": {
+    "version": "1.20.1-3.23.4.5.110",
+    "classes": {
+      "net/p3pp3rf1y/sophisticatedbackpacks/upgrades/anvil/AnvilUpgradeContainer$PersistableAnvilMenu$1.class": "9320afcbabeaff8aa0655399a9379bad590a5975e6a8b03d9b6bda91f0a827d9",
+      "net/p3pp3rf1y/sophisticatedbackpacks/upgrades/anvil/AnvilUpgradeContainer$PersistableAnvilMenu$2.class": "ace33fbb2a9581fce343f193b0acc70eeb7d0ecd5a071c4bda30a288a1403a91",
+      "net/p3pp3rf1y/sophisticatedbackpacks/upgrades/anvil/AnvilUpgradeContainer$PersistableAnvilMenu.class": "794494a61d52f519e7a4c2e5059d5b693c460c9b3c34713dab67e7b7ebcf6e44",
+      "net/p3pp3rf1y/sophisticatedbackpacks/upgrades/anvil/AnvilUpgradeContainer.class": "5b346988ef47eb826a3039e24250d298d6554394898e108f6400f6b35607d21a",
+      "net/p3pp3rf1y/sophisticatedbackpacks/upgrades/anvil/AnvilUpgradeItem.class": "ccb2b1c7ee017ce414e0466517ca3c085d3f072b95914186cf4f97c855ddefd7",
+      "net/p3pp3rf1y/sophisticatedbackpacks/upgrades/anvil/AnvilUpgradeTab$1.class": "e1ac8764373394400a0c77d515ac7c3d2dc5f56d55137d0d510105cc0a6c152d",
+      "net/p3pp3rf1y/sophisticatedbackpacks/upgrades/anvil/AnvilUpgradeTab.class": "b2ae90ab6520fe20af13715824963200f8ddfc4cb0b9811d9a01f71c884c9a8a",
+      "net/p3pp3rf1y/sophisticatedbackpacks/upgrades/anvil/AnvilUpgradeWrapper$1.class": "d08fbda40d86c9e5a8db473c57e8dd2035f8b13fcbcac212ad13fc1d099a17ec",
+      "net/p3pp3rf1y/sophisticatedbackpacks/upgrades/anvil/AnvilUpgradeWrapper.class": "3384eab6bfdde718875357fc793646c1544c1dca2b04ea1520c09a58e0acbe40"
+    }
+  },
+  "sophisticatedcore": {
+    "version": "1.20.1-1.2.7.15.166",
+    "classes": {
+      "net/p3pp3rf1y/sophisticatedcore/common/gui/StorageContainerMenuBase.class": "424154d8f2c1c621c44f58cc49298fb8668f569e430c62c64dfc24d8b7bb3550",
+      "net/p3pp3rf1y/sophisticatedcore/common/gui/UpgradeContainerBase.class": "c925e395ed2f47900220cbfdf180cf569dd65e2072585787c65218800b814603",
+      "net/p3pp3rf1y/sophisticatedcore/upgrades/IUpgradeItem.class": "b82c3dd29341ec0eaf6c0c739c6942a1116db5dac59b97e51ebfc0ab7e991aba"
+    }
+  },
+  "tiered": {
+    "version": "1.2.0",
+    "classes": {
+      "elocindev/tierify/network/TieredClientPacket.class": "1bd2df9e646e46bbcd547335a0ae5b93fbf0a3bd62464da518f379a487a5210c",
+      "elocindev/tierify/network/TieredServerPacket.class": "7931c7c5f90b159991dbb5e495fefcead963a30dc45f6e2e87a19c690cb3c860",
+      "elocindev/tierify/screen/ReforgeScreenHandler$1.class": "5776f21e3dfb27cced26be07e3d7c6ef88f16ae1c82adf7133d66425e59d8b51",
+      "elocindev/tierify/screen/ReforgeScreenHandler$2.class": "9a94867dce519880cffcc2fe704240afe2a7265b72f4ab6a218d4516c55304de",
+      "elocindev/tierify/screen/ReforgeScreenHandler.class": "f1ae71265c2db4cba87038b5612da6a9da57cd5e5c915351874206051a9f3c2f"
+    }
+  },
+  "porting_lib_transfer": {
+    "version": "2.3.13+1.20.1",
+    "classes": {
+      "io/github/fabricators_of_create/porting_lib/transfer/item/ItemStackHandler.class": "f59f9fc0387be12a125fb4c9f6dbd3061714c982392615d95df2ac119177ae67",
+      "io/github/fabricators_of_create/porting_lib/transfer/item/ItemStackHandlerSlot.class": "93f436b4ba5bfddf62a2c5eac50b33934af37ddd57e2ddba7dd13e9dbcaeceb2"
+    }
+  }
+}

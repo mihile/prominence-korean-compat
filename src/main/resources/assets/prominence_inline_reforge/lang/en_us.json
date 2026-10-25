@@ -1,0 +1,10 @@
+{
+  "prominence.inline.reforge": "Reforge",
+  "prominence.inline.anvil": "Back to anvil",
+  "prominence.inline.switch": "Switch between anvil and reforging in this backpack panel.",
+  "prominence.inline.server_required": "The server also needs the inline backpack reforging patch.",
+  "prominence.inline.reopen": "Reopen the backpack to enable its reforging panel.",
+  "prominence.inline.inputs": "Insert a repaired item, its base material and a reforge addition.",
+  "prominence.inline.ready": "Ready to reforge",
+  "prominence.inline.slots": "Inputs required"
+}

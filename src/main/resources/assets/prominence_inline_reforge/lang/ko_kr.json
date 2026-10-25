@@ -1,0 +1,10 @@
+{
+  "prominence.inline.reforge": "재단조",
+  "prominence.inline.anvil": "모루로 돌아가기",
+  "prominence.inline.switch": "이 배낭 패널에서 모루와 재단조를 전환합니다.",
+  "prominence.inline.server_required": "이 기능을 사용하려면 서버에도 배낭 재단조 패치가 필요합니다.",
+  "prominence.inline.reopen": "배낭을 다시 열면 재단조 패널을 사용할 수 있습니다.",
+  "prominence.inline.inputs": "수리된 장비와 전용 재료, 재단조 첨가제를 넣으세요.",
+  "prominence.inline.ready": "재단조 가능",
+  "prominence.inline.slots": "재료 · 장비 · 첨가제"
+}

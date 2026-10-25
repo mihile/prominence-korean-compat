@@ -23,7 +23,8 @@ def main():
  meta=json.loads(old['fabric.mod.json']);assert meta['id']=='prominence_korean_compat' and meta['version']=='1.0.0'
  new=dict(old)
  # These explicitly owned modules may be rebuilt; all other compatibility classes stay exact.
- managed_prefixes=('local/prominence/autoupdate/','local/prominence/memory/')
+ managed_prefixes=('local/prominence/autoupdate/','local/prominence/memory/','local/prominence/backpackinline/',
+  'local/prominence/backpackcompat/client/PortableReforgeButton.class')
  for n in list(new):
   if n.startswith((*managed_prefixes,'META-INF/prominence-korean-compat-source/auto-update/')):del new[n]
  added={p.relative_to(classes).as_posix():p.read_bytes() for p in classes.rglob('*.class')};new.update(added)
@@ -38,6 +39,11 @@ def main():
  new[resource+'update-build.properties']=f'build={args.build}\nlabel={args.label}\nchannel=client\npack=4.1.3\nhelperSha256={sha(helper_jar)}\n'.encode('utf8')
  entry='local.prominence.autoupdate.UpdateClient';client=meta.setdefault('entrypoints',{}).setdefault('client',[])
  if entry not in client:client.append(entry)
+ if (ROOT/'src/main/java/local/prominence/backpackinline/InlineReforge.java').exists():
+  entry='local.prominence.backpackinline.InlineReforge';main=meta.setdefault('entrypoints',{}).setdefault('main',[])
+  if entry not in main:main.append(entry)
+  entry='local.prominence.backpackinline.client.InlineReforgeClient'
+  if entry not in client:client.append(entry)
  if (ROOT/'src/main/java/local/prominence/memory/WorldReferencesClient.java').exists():
   entry='local.prominence.memory.WorldReferencesClient'
   if entry not in client:client.append(entry)
@@ -63,6 +69,8 @@ def main():
   values.update({'menu':'패치 업데이트','checking':'업데이트를 확인하고 있어요…','check_again':'다시 확인','close':'닫기'} if locale=='ko_kr' else {'menu':'Patch updates','checking':'Checking for updates…','check_again':'Check again','close':'Close'})
   n=resource+'lang/'+locale+'.json';d=json.loads(new[n]);d.update({'prominence.update.'+k:v for k,v in values.items()});new[n]=enc(d)
  for p in sources:new['META-INF/prominence-korean-compat-source/auto-update/'+p.relative_to(ROOT/'src/main/java').as_posix()]=p.read_bytes()
+ legacy=ROOT/'src/main/java/local/prominence/backpackcompat/client/PortableReforgeButton.java'
+ if legacy.exists():new['META-INF/prominence-korean-compat-source/backpack-workstations/local/prominence/backpackcompat/client/PortableReforgeButton.java']=legacy.read_bytes()
  new['META-INF/notices/auto-update.txt']=b'Original signed client updater, MIT. Only this compatibility JAR is updated with approval, after game exit. No server, settings, other mods, resource packs or launcher hooks are updated. Signing key is not distributed.\n'
  preserve=[n for n in old if n.endswith('.class') and not n.startswith(managed_prefixes)];assert all(new[n]==old[n] for n in preserve)
  jar=packed(new);args.output.mkdir(parents=True,exist_ok=True);(args.output/'prominence-korean-compat-1.0.0.jar').write_bytes(jar)
