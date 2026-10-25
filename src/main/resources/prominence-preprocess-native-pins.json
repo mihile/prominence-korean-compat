@@ -1,0 +1,59 @@
+{
+  "iris": {
+    "version": "1.7.6+mc1.20.1",
+    "classes": {
+      "net/irisshaders/iris/helpers/StringPair.class": "07f9a98dc16714caee5c6a5be77907f9d16dc1de6ceef74c3ccdd5df49b9fec3",
+      "net/irisshaders/iris/pipeline/PipelineManager.class": "26913dfb9b326ee3f650938fa47928a913fc5056f1562b417be6752086c2db74",
+      "net/irisshaders/iris/shaderpack/preprocessor/GlslCollectingListener.class": "b4d4865df38ec880b05e5a496cad09f69361c1de3ca70cf596980cc7b0aa5bfe",
+      "net/irisshaders/iris/shaderpack/preprocessor/JcppProcessor.class": "d257f9e21fd9b3f5dd529b27cffb1ec1848b3c8b3a776b8236f233e624a1d730"
+    }
+  },
+  "org_anarres_jcpp": {
+    "version": "1.4.14",
+    "classes": {
+      "org/anarres/cpp/Argument.class": "f6fead2129a47d654cfa528e47ee9556ad224280e6ac42a246d661c6cd033b58",
+      "org/anarres/cpp/BuildMetadata.class": "42003576077d6e36f66a00ada8d7e6c6740ab5b88c2980c64d38514b1e77d677",
+      "org/anarres/cpp/ChrootFileSystem$ChrootFile.class": "fa6545a4b0f20ca4c52ddf1d760a95c8d23fdea6a9d446144ada7a01905faa25",
+      "org/anarres/cpp/ChrootFileSystem.class": "86d67e524fde03305e9b01420a64f0b10ce09a265034787e5a0c7771b923b2c7",
+      "org/anarres/cpp/CppReader$1.class": "ae7a7fc1c25d8167a63f867b18380a3a36a96f6e8c77cf2916acfbff480a7b29",
+      "org/anarres/cpp/CppReader.class": "3ba2f15329accf72be2e01d85f596b05d9e549f5ffdbc8f38f2dfe75694f13e5",
+      "org/anarres/cpp/CppTask$1.class": "4fbeaa106b39a8eb7922138dd8f7f4caa708061cfe54544025875f5afb86a4cc",
+      "org/anarres/cpp/CppTask$Listener.class": "6c2d9928071ccfbbb1fc868b4e84690f24e3039086d2110f2ee1262cb88566c4",
+      "org/anarres/cpp/CppTask$Macro.class": "4c2181156ac217b440f6627b10941414312a5462da5e304f24850deff93fe461",
+      "org/anarres/cpp/CppTask.class": "9649f8b221e9659527deeaeff1b55a5f054cab66df648ce50d9e0833602df23d",
+      "org/anarres/cpp/DefaultPreprocessorListener.class": "1bee43cf3124f799afdeaf9c51bd031f560c401625c5207dbf2ce0ec466c9b47",
+      "org/anarres/cpp/Feature.class": "b5deda618405d15227d58632cca2eecf1a49ddae67beb2a75e7567d5399aa0e7",
+      "org/anarres/cpp/FileLexerSource.class": "9c88d577515aa3ac6a10535fe66a5e355bff11c9568c481b324b5f75cbcd7baf",
+      "org/anarres/cpp/FixedTokenSource.class": "890bd26a43a68ab1cf8dc00b4f0915ec1dd9f335d367ec01dffc0d3bfb2c8742",
+      "org/anarres/cpp/InputLexerSource.class": "185a6acf6fe891f06b82bad5b61266a285f26c1d9deefe97f67e7a0638e6638c",
+      "org/anarres/cpp/InternalException.class": "4edd305774f12857fa8c81886c2609a903f8d0b8a478a4ab544ed5603be7ff39",
+      "org/anarres/cpp/JavaFileSystem$JavaFile.class": "8cfa4831769bda65e742d6c93634754ab0d911f98467710801c6ac13f475a205",
+      "org/anarres/cpp/JavaFileSystem.class": "ea8b280594b20d45a70bf033e26d95a7c592ddd064c0df529dfd2b0f2e2ffdcc",
+      "org/anarres/cpp/JoinReader.class": "69907a2524ffa6ebf4f7251e2faa53aab317a468d2c1f1aff8bbac9bafa3dfff",
+      "org/anarres/cpp/LexerException.class": "c8ce73755fa07eb28cb3584f0909c3af54779ad684480c707af3b3abc8ffb0c0",
+      "org/anarres/cpp/LexerSource.class": "8f18168e808cba01f7d67ead64792a382923213489afeb86b974d4129bb02d6c",
+      "org/anarres/cpp/Macro.class": "8bc9543eda354e0117d3eeb44827fa2d28bc9449e0c251f75954725174e3e566",
+      "org/anarres/cpp/MacroTokenSource.class": "17d7104107fcd502a8dd1238bc6b4ffdde6afd2b600130e3469bc626cb38677b",
+      "org/anarres/cpp/Main.class": "5ad7077e9994c7c05860f08cc7fcf11e513ace726bb9d12b6501ed138d7eebfe",
+      "org/anarres/cpp/NumericValue.class": "eca40c6add96622e4cf045e0020c8b202789208e27222d0c279a7c2eb477f9a4",
+      "org/anarres/cpp/Preprocessor$1.class": "20e74843529c2b7e3158e32ff417c37182e92eb421e173d04aefa3a1840e1712",
+      "org/anarres/cpp/Preprocessor$2.class": "86554520db1c1d726b1ab2fefae8cdb14318f8bec87cb692af7f90f52b84d0fc",
+      "org/anarres/cpp/Preprocessor.class": "28fdb09b89c30535a0ecd7f6e685fe7c63017d4d20a29a0ed0d97f6eb23124fb",
+      "org/anarres/cpp/PreprocessorCommand.class": "abfe14f309b892c4e513baee7a10eda75579960ef7c809bfbebb52ebf6720cb4",
+      "org/anarres/cpp/PreprocessorListener$SourceChangeEvent.class": "5df6c793893227d309673192ef19ccf1764187fa66413257e7111e1105c3a0ac",
+      "org/anarres/cpp/PreprocessorListener.class": "a50d84a46688e1dd9d286a010701a0a6d6889e50538254cac7f9ac0448efe050",
+      "org/anarres/cpp/ResourceFileSystem$ResourceFile.class": "11a0c303c45c4e5b4c3607062ca462fdbc057d54cdea158513e4a479ea18574d",
+      "org/anarres/cpp/ResourceFileSystem.class": "f8bfc17b589a6cbc9976fce89e1b3266198971d4d986163e686d11d935cdd98b",
+      "org/anarres/cpp/Source.class": "51b2ad6b7eb5a1dd06127baf769345068a1d137bc493c3122b994b23f588a021",
+      "org/anarres/cpp/SourceIterator.class": "c53852a6fb6e681a033acc9ebe0d3abbefe7df2d44cb89bff71bc312f446244e",
+      "org/anarres/cpp/State.class": "da1c2a34a78c271f08e47f73820bcb38d7b50c6ee06446dd71daf9259a3e4dfa",
+      "org/anarres/cpp/StringLexerSource.class": "2d566ac85c5ea32f384ca5acfcfb038661656194bd1617385f215b4bc9ecf2b9",
+      "org/anarres/cpp/Token.class": "db81a39a9ff58dda3ef7a0861d9949f77359148d081e53cef4b8216ddae1d786",
+      "org/anarres/cpp/TokenSnifferSource.class": "fe43068859e8de8eba95e56eec4886f15d1a4010a9da71bbf88d66d15245f23d",
+      "org/anarres/cpp/TokenType.class": "0bfdbc63238a1325193a3ff166fd9fba6158d5f8c9f411a2bc1a5126f978d59f",
+      "org/anarres/cpp/VirtualFile.class": "35a9bd268bae2346981cec7e8d01eee836170397df856a7d2e722b96a82386b7",
+      "org/anarres/cpp/VirtualFileSystem.class": "4bb89f3a64556b849ad58c5dba9c9b73c1570d0982e84ac0150849fb8211eec5",
+      "org/anarres/cpp/Warning.class": "e75b4402632dd2680ab171b24d28efa7ce2d7d841700a0ddf078cfd2f40c9e18"
+    }
+  }
+}
