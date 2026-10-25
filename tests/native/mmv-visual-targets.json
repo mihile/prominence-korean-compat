@@ -1,0 +1,31 @@
+{
+  "targets": [
+    "net.minecraft.class_929",
+    "net.minecraft.class_882",
+    "net.minecraft.class_884",
+    "net.minecraft.class_4606",
+    "net.minecraft.class_932",
+    "net.minecraft.class_941",
+    "net.minecraft.class_994",
+    "net.minecraft.class_946",
+    "net.minecraft.class_949",
+    "net.minecraft.class_969",
+    "net.minecraft.class_968"
+  ],
+  "sources": [
+    "com.github.nyuppo.mixin.CatRendererMixin",
+    "com.github.nyuppo.mixin.ChickenRendererMixin",
+    "com.github.nyuppo.mixin.CowRendererMixin",
+    "com.github.nyuppo.mixin.CustomEyesFeatureMixin",
+    "com.github.nyuppo.mixin.PigRendererMixin",
+    "com.github.nyuppo.mixin.SheepRendererMixin",
+    "com.github.nyuppo.mixin.SheepWoolFeatureMixin",
+    "com.github.nyuppo.mixin.SkeletonRendererMixin",
+    "com.github.nyuppo.mixin.SpiderRendererMixin",
+    "com.github.nyuppo.mixin.WolfRendererMixin",
+    "com.github.nyuppo.mixin.ZombieRendererMixin"
+  ],
+  "consumedNbtKeys": [
+    "VariantID"
+  ]
+}

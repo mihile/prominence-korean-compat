@@ -34,3 +34,8 @@ python tools/publish.py --build-dir build --changes changes.json --signing-key P
 다운로드나 서명 검증 실패는 기존 JAR을 바꾸지 않습니다. 교체 전 설치 SHA가 달라졌으면 수동 업데이트를 보존하고 중단합니다. 적용 결과는 `.prominence-update/last-update.properties`, 자세한 로컬 로그는 `apply.log`, 백업은 `backups/`에 있습니다. 실패 시 다음 접속에서 `/kpatch update`로 다시 준비할 수 있습니다. 강제 종료나 외부 프로세스 종료 도구가 도우미까지 죽인 경우에는 다시 준비하거나 백업을 수동 복구합니다.
 
 이 프로토콜은 JAR 한 개만 교체합니다. 리소스팩·퀘스트·개인 설정을 업데이트 대상으로 조용히 확장하지 않습니다. 지원 팩 버전 변경이나 서명키 교체는 별도의 호환·배포 계획이 필요합니다.
+
+
+### Client profiling workflow
+
+Use existing valid JFR/MAT evidence to implement and offline-verify a group of independently guarded improvements, then ask for one restart and combined validation. Do not ask the player to restart after each small change. Capture additional data only for a missing fact or a material behavior risk. Clearly distinguish confirmed previous fixes, newly staged changes and unresolved candidates. After a reported capture completion, finish any needed post-recording heap immediately and tell the player they may close the game; continue offline without requiring it open.

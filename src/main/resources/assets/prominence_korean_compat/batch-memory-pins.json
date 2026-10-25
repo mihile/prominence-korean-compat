@@ -1,0 +1,138 @@
+{
+  "footsteps": {
+    "mixins": [
+      "FootstepQueueMixin",
+      "FootstepPendingMixin"
+    ],
+    "dependencies": [
+      {
+        "mod": "presencefootsteps",
+        "version": "1.10.1+1.20.1",
+        "classes": {
+          "eu/ha3/presencefootsteps/sound/player/DelayedSoundPlayer.class": "7ed394549694a7cefa4108a0deaa25a697044f86023cfddbfece243c47f8f62a",
+          "eu/ha3/presencefootsteps/sound/player/DelayedSoundPlayer$PendingSound.class": "9c2c4289ac94975deda920862ccae7f00da54ecb548f30ea40cd7c6c7a7de4ed",
+          "eu/ha3/presencefootsteps/sound/player/SoundPlayer.class": "0f5c31933095cc45afb6490cff05f0bcba6cad8036e7e61acad8752112c36c6a"
+        }
+      }
+    ]
+  },
+  "azure": {
+    "mixins": [
+      "AzureRendererWorldMixin"
+    ],
+    "dependencies": [
+      {
+        "mod": "azurelib",
+        "version": "3.0.27",
+        "classes": {
+          "mod/azure/azurelib/renderer/GeoEntityRenderer.class": "52bd00857c35454bef9557d3d8dc083fa5625664636b6ecb0731cdbce6576141",
+          "mod/azure/azurelib/renderer/GeoRenderer.class": "772e0d390a243fd187e6d54510b9f0a9390f8d9bac108375f6788384b2963d27"
+        }
+      }
+    ]
+  },
+  "aquamirae": {
+    "mixins": [
+      "AquamiraeWeakMolangMixin"
+    ],
+    "dependencies": [
+      {
+        "mod": "aquamirae",
+        "version": "7.1.14",
+        "classes": {
+          "dev/obscuria/aquamirae/client/model/ModelScuttler.class": "458f5f4633d1290075301af1e7edf0fd48e4eb889c711526a22dc62c2ef8d404"
+        }
+      },
+      {
+        "mod": "geckolib",
+        "version": "4.8.4",
+        "classes": {
+          "software/bernie/geckolib/core/molang/MolangParser.class": "3a35d73ea946c30be2eba8c8778379c1f0d37e6af0be0f9240a95104eefba796"
+        }
+      }
+    ]
+  },
+  "emptyStack": {
+    "mixins": [
+      "EmptyStackHolderMixin"
+    ],
+    "dependencies": [
+      {
+        "mod": "minecraft",
+        "version": "1.20.1",
+        "classes": {
+          "net/minecraft/class_1799.class": "ab95538ac5fde26a5d78cbc01c77073fb31596f45d19aa1579ca7778627fe2f5"
+        },
+        "classLoaderResource": true
+      }
+    ]
+  },
+  "armor": {
+    "mixins": [
+      "ArmorLayerTrackingMixin"
+    ],
+    "dependencies": [
+      {
+        "mod": "geckolib",
+        "version": "4.8.4",
+        "classes": {
+          "software/bernie/geckolib/mixins/fabric/MixinHumanoidArmorLayer.class": "78a9c4fee8c51567cab562c7289911870def3058ec7a84b2f83be11cfb160b48"
+        }
+      },
+      {
+        "mod": "azurelibarmor",
+        "version": "2.0.14",
+        "classes": {
+          "mod/azure/azurelibarmor/mixin/MixinHumanoidArmorLayer.class": "462627dd2e7c6d69af1f7eba05f434ae2d27816d4cf43cc3a94599b6c3a24ca5"
+        }
+      },
+      {
+        "mod": "minecraft",
+        "version": "1.20.1",
+        "classes": {
+          "net/minecraft/class_970.class": "3169bfba0fcf968472a14de4db967b81eb9c5d0352c30ce23ce52d6bdde58979"
+        },
+        "classLoaderResource": true
+      }
+    ]
+  },
+  "variants": {
+    "mixins": [
+      "VariantRendererMarkerMixin"
+    ],
+    "dependencies": [
+      {
+        "mod": "moremobvariants",
+        "version": "1.3.1",
+        "classes": {
+          "com/github/nyuppo/mixin/CatFluffMixin.class": "21091a81b49cee3a5493c4c3d3fbff2fd0ceb2f0a6156421d25f5e8b215c9fd6",
+          "com/github/nyuppo/mixin/CatRendererMixin.class": "8cbf20e9ccdd18f2ea5c488ad77a23ba44faa31ba7f61bbc86f57f829c8212ec",
+          "com/github/nyuppo/mixin/CatVariantsMixin.class": "45d7a52afd5c9ca041573ee1207d893aeb2efaff341227c20f728ee77df1aa62",
+          "com/github/nyuppo/mixin/ChickenEggMixin.class": "f4962f03b88c4227c2cf9e00fdcc724922a9a13005099946fc417b85ed70a0b8",
+          "com/github/nyuppo/mixin/ChickenRendererMixin.class": "890c9ba57eb9bdc0265c1d4eb7dfd8489117652a10d7e063d3ced59695fbe1a4",
+          "com/github/nyuppo/mixin/ChickenVariantsMixin.class": "6386e5b8e60e585dc4f0cdac574151b5408c0bb629c3fcf5664aec90293375b0",
+          "com/github/nyuppo/mixin/CowRendererMixin.class": "ce2adb96f7944bbb84cf70a6be1e87dd26ecd0742771629f2fd683cb2aba7a7c",
+          "com/github/nyuppo/mixin/CowVariantsMixin.class": "efd885d101adbd1b5dd5248e8eff611e4af96d573433afb0d74cb2102680b0e0",
+          "com/github/nyuppo/mixin/CustomEyesFeatureMixin.class": "c4cb3077e2edafdd8999178ba96fd948155b9f5c5a9e02d66eb4849d3ec71a89",
+          "com/github/nyuppo/mixin/MobEntityVariantsMixin.class": "f2e215d3c383e823cee1ce0b60bdb209d32906ca30111724a2e990b977be8c0e",
+          "com/github/nyuppo/mixin/PigFlowerMixin.class": "c58ece40deb4d53b6cc7f545a990e2d5e1e673c835f9f0a401fb883f4f8d1ae8",
+          "com/github/nyuppo/mixin/PigRendererMixin.class": "049e6a993ade6557ec011747d5420b395a713daa11beb813b9f2d030fc9a87fc",
+          "com/github/nyuppo/mixin/PigVariantsMixin.class": "d96f49551ae8821af0b3d108628b4bf16c7f2e95c163e78c5dc5224789e084db",
+          "com/github/nyuppo/mixin/QuadrupedEntityModelPartAccessor.class": "711bf4e5cbabd77ce913201337712af814e4159065b32c98c94096142283d836",
+          "com/github/nyuppo/mixin/SheepRendererMixin.class": "25307f047cc0fbedd21fecd9decee1f7832a15c140be464de7c97b9b4ed8f1c8",
+          "com/github/nyuppo/mixin/SheepVariantsMixin.class": "2839b41d8446a95cfd7291140fd84076d334142251d533dc514d13bf23bf5395",
+          "com/github/nyuppo/mixin/SheepWoolFeatureMixin.class": "dfd153f14c01a68636a6d42708a0b3e8939271d31d718e08b1350242ed35e986",
+          "com/github/nyuppo/mixin/SkeletonRendererMixin.class": "85304bd53c9d402591f351194ebd0227dad7108f0ac7f7bafea3ef13da90c40a",
+          "com/github/nyuppo/mixin/SkeletonVariantsMixin.class": "21ff87865912de090ce906105cecb152c1bbb3c61fe9fa43983568260fba463f",
+          "com/github/nyuppo/mixin/SpiderRendererMixin.class": "7422dfc4b6a27fff236db6845845a899a1164d6fecef0ca3fb442fbeeba80460",
+          "com/github/nyuppo/mixin/SpiderVariantsMixin.class": "9c249c162fe975b0b936f0c81c1bdbf0f27c16e335c7d592552064b218a6a546",
+          "com/github/nyuppo/mixin/WolfRendererMixin.class": "e5dfa46ad628e6bd7d0199d493ea486172927e492ed60d3a86003c642ce9622c",
+          "com/github/nyuppo/mixin/WolfVariantsMixin.class": "925056427b287bd9a2767021568a48b6cdf06a719b5476709018b62877ef02c0",
+          "com/github/nyuppo/mixin/ZombieRendererMixin.class": "1c06d12f4467436a32ab77b77c8af77ca9b9b9924492b73ede631e5e185bbdcd",
+          "com/github/nyuppo/mixin/ZombieVariantsMixin.class": "57082a9d2a02496cd11a9b5120b3a8c40d3f3b5aea36253094210f0eea73987f",
+          "com/github/nyuppo/variant/MobVariant.class": "37e64d2f5bee4283e02f9593c1b6b4a30199d8d253ef72bfb3c7fcffe49676ef"
+        }
+      }
+    ]
+  }
+}

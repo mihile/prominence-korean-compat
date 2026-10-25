@@ -44,6 +44,9 @@ def main():
  if (ROOT/'src/main/java/local/prominence/memory/TransientHoldersClient.java').exists():
   entry='local.prominence.memory.TransientHoldersClient'
   if entry not in client:client.append(entry)
+ if (ROOT/'src/main/java/local/prominence/memory/BatchMemoryClient.java').exists():
+  entry='local.prominence.memory.BatchMemoryClient'
+  if entry not in client:client.append(entry)
  meta.setdefault('contact',{}).update(homepage='https://github.com/mihile/prominence-korean-compat',sources='https://github.com/mihile/prominence-korean-compat',issues='https://github.com/mihile/prominence-korean-compat/issues')
  meta.setdefault('custom',{})['prominenceAutoUpdate']={'build':args.build,'channel':'client','pack':'4.1.3'}
  for p in sorted((ROOT/'src/main/resources').rglob('*')):
