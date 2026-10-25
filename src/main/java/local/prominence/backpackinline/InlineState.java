@@ -38,7 +38,7 @@ public final class InlineState {
     public boolean ready(){return ready;}
     public void remote(boolean mode,boolean ready){if(player.method_37908().field_9236){this.mode=mode;this.ready=ready;}}
     public List<class_1735> activeSlots(){return owner.getSlots().subList(mode?3:0,mode?6:3);}
-    public boolean slotActive(class_1735 slot){return owner.isOpen()&&activeSlots().contains(slot);}
+    public boolean slotActive(class_1735 slot){return InlineReforge.isOpen(owner,player)&&activeSlots().contains(slot);}
     private class_2487 saved(){return owner.getUpgradeStack().method_7948().method_10562("craftingInventory");}
     public void changed(){if(!batching&&!player.method_37908().field_9236)refresh();}
     private void refresh(){
@@ -46,9 +46,9 @@ public final class InlineState {
         ready=((ReforgeInventoryAccess)(Object)delegate).prominence$ready()&&ReforgeScreenHandler.isValidAddition(inventory.method_5438(2));
         lastSaved=saved();InlineReforge.sync(this);
     }
-    public void poll(){if(owner.isOpen()&&!player.method_37908().field_9236&&lastSaved!=saved())refresh();}
+    public void poll(){if(InlineReforge.isOpen(owner,player)&&!player.method_37908().field_9236&&lastSaved!=saved())refresh();}
     public void action(int action){
-        if(player.method_37908().field_9236||!owner.isOpen())return;
+        if(player.method_37908().field_9236||!InlineReforge.isOpen(owner,player))return;
         if(action==0||action==1){mode=action==1;refresh();return;}
         if(action==3){refresh();return;}
         if(action!=2||!mode)return;

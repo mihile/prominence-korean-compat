@@ -23,6 +23,13 @@ public final class InlineReforge implements ModInitializer {
         return InlineGuard.enabled()&&(player instanceof class_3222 server?ServerPlayNetworking.canSend(server,CHANNEL)
             &&((HandshakeAccess)(Object)server.field_13987).prominence$inlineAgreed():clientCapability.test(player));
     }
+    /** Core only initializes UpgradeContainerBase.isOpen on the server at menu creation.
+     * Later tab packets update the wrapper's selected ID, not that cached flag. */
+    public static boolean isOpen(UpgradeContainerBase<?,?> owner,class_1657 player){
+        return player.field_7512 instanceof BackpackContainer bag
+            &&bag.getUpgradeContainers().get(owner.getUpgradeContainerId())==owner
+            &&bag.getOpenContainer().orElse(null)==owner;
+    }
     public void onInitialize(){
         if(!InlineGuard.enabled())return;
         ServerPlayNetworking.registerGlobalReceiver(CHANNEL,(server,player,network,buffer,sender)->{
@@ -39,7 +46,7 @@ public final class InlineReforge implements ModInitializer {
                 }
                 if(!available(player)||!(player.field_7512 instanceof BackpackContainer bag)||bag.field_7763!=sync||!bag.method_7597(player))return;
                 var container=bag.getUpgradeContainers().get(id);
-                if(!(container instanceof AnvilUpgradeContainer)||!container.isOpen())return;
+                if(!(container instanceof AnvilUpgradeContainer)||!isOpen(container,player))return;
                 InlineState state=state(container);if(state==null||state.player()!=player)return;
                 state.action(action);
             });
