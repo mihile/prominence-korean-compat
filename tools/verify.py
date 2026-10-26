@@ -21,6 +21,7 @@ def main():
  checks.append(('local.prominence.memory.XaeroBiomeTests',[]))
  checks.append(('local.prominence.weaponhud.WeaponUseFenceTests',[]))
  checks.append(('local.prominence.swingscope.SwingScopeTests',[]))
+ checks.append(('local.prominence.localization.TranslationOverrideTests',[]))
  if args.mods:checks.append(('local.prominence.weaponhud.WeaponHudPinChecks',[str(args.mods)]))
  if args.fancymenu:checks.append(('FancyMenuIsolationChecks',[str(args.fancymenu)]))
  for entry,params in checks:
