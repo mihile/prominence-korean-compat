@@ -1,0 +1,1 @@
+Original MIT CaramelChat/FTB single-line input adapter. Links to the user's installed CaramelChat (LGPL-3.0) and FTB Library; no original mod classes, native libraries or test facades are redistributed. Windows and exact native version/hash guards only.

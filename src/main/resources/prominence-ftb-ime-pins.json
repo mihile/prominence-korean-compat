@@ -1,0 +1,29 @@
+{
+  "caramelchat": {
+    "version": "1.2.2",
+    "classes": {
+      "moe/caramel/chat/wrapper/AbstractIMEWrapper.class": "c1b7a2fc25b99a8d2dc6a49348d0c955641598d3e6b2b5f61dab6626c23e5186",
+      "moe/caramel/chat/driver/arch/win/WinController.class": "c47f67aa891dd48eb7c7560ebee14f98744fcb0e125cae5b094f78bc4f845f62",
+      "moe/caramel/chat/driver/arch/win/WinOperator.class": "e76e8cb82975dbf0e8eb6eb34226023e19736f16298ebb527bdde4842661c149",
+      "moe/caramel/chat/mixin/MixinMinecraft.class": "7e91ecd67a29ff771248bd51c74e2c4cfc1702f4a7611eafcfc198b7eae0d405"
+    }
+  },
+  "ftblibrary": {
+    "version": "2001.2.12",
+    "classes": {
+      "dev/ftb/mods/ftblibrary/ui/TextBox.class": "441909a12ea7b988b567ce88179d57ee18b0b801c6362fac68d7eb6c3585b65b",
+      "dev/ftb/mods/ftblibrary/ui/Widget.class": "6c6db48be4cc2961a80a4fac7707f6c5ee833fa1fc1309b5ff299f2e8c17ae6e",
+      "dev/ftb/mods/ftblibrary/ui/Panel.class": "44d7a745364785662637bc8c1e9414bc47f7388289c7daf7dff09532951f151d",
+      "dev/ftb/mods/ftblibrary/ui/BaseScreen.class": "078c8d05911ef966cfee3e1f119fedff901d94bd64d5e86dc814160f2a63b1d7",
+      "dev/ftb/mods/ftblibrary/ui/ScreenWrapper.class": "b2c6d57b11fbd9973cb17e4440074594e88a33f021db11f8005d8b2d61ee6bf9",
+      "dev/ftb/mods/ftblibrary/ui/misc/AbstractButtonListScreen.class": "a311f19e68b8339a0806cd8e426ae6b68f3768135a47b587a7b20348829dd681"
+    }
+  },
+  "ftbquests": {
+    "version": "2001.4.18",
+    "classes": {
+      "dev/ftb/mods/ftbquests/client/gui/quests/QuestScreen.class": "6ed7be6239afc80f887b725bddc4c83ff1d889b7e3ef811a1c6f1cfae4627779",
+      "dev/ftb/mods/ftbquests/client/gui/SelectQuestObjectScreen.class": "5cbc0dca6b9d9b15cef99b0ff5c538144707531f8021485abfabeca646314f15"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "required": true,
+  "package": "local.prominence.ftbime.mixin",
+  "plugin": "local.prominence.ftbime.FtbImeGuard",
+  "compatibilityLevel": "JAVA_17",
+  "client": ["FtbTextBoxMixin", "FtbWidgetCloseMixin"],
+  "injectors": {"defaultRequire": 1}
+}

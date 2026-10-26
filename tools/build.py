@@ -23,7 +23,7 @@ def main():
  meta=json.loads(old['fabric.mod.json']);assert meta['id']=='prominence_korean_compat' and meta['version']=='1.0.0'
  new=dict(old)
  # These explicitly owned modules may be rebuilt; all other compatibility classes stay exact.
- managed_prefixes=('local/prominence/autoupdate/','local/prominence/memory/','local/prominence/backpackinline/','local/prominence/weaponhud/','local/prominence/swingscope/','local/prominence/localization/',
+ managed_prefixes=('local/prominence/autoupdate/','local/prominence/memory/','local/prominence/backpackinline/','local/prominence/weaponhud/','local/prominence/swingscope/','local/prominence/localization/','local/prominence/ftbime/',
   'local/prominence/backpackcompat/client/PortableReforgeButton.class')
  for n in list(new):
   if n.startswith((*managed_prefixes,'META-INF/prominence-korean-compat-source/auto-update/')):del new[n]
