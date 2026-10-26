@@ -37,8 +37,9 @@ public final class WeaponAbilityClient implements ClientModInitializer {
         if(client.field_1765 instanceof class_3965 hit&&hit.method_17783().name().equals("BLOCK")&&!client.field_1724.method_5715()){
             var pos=hit.method_17777();container=client.field_1687.method_8320(pos).method_26196(client.field_1687,pos)!=null;
         }
-        if(container)FENCE.consume();
-        return FENCE.blocks(true,use.method_1434()||container,container,client.field_1724.method_5715());
+        boolean mining=client.field_1761!=null&&client.field_1761.method_2923();
+        if(container||mining)FENCE.consume();
+        return FENCE.blocks(true,use.method_1434()||container||mining,container,client.field_1724.method_5715());
     }
     public static boolean blockedDefault(class_1657 player,class_1268 hand){
         return player==class_310.method_1551().field_1724&&WeaponSupport.weapon(player.method_5998(hand))&&blocked(class_310.method_1551().field_1690.field_1904);

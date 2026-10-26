@@ -1,0 +1,17 @@
+{
+  "simplyswords": {
+    "version": "1.70.2-1.20.1",
+    "classes": {
+      "net/sweenus/simplyswords/mixin/LivingEntityMixin.class": "3a0edffcf29b625e063d1a4c2cdeecb1183e5032511f94b54115f775add2c1b1",
+      "net/sweenus/simplyswords/mixin/compat/BetterCombatServerNetworkMixin.class": "cd3f2976431eeedc2ae9a01b0b1f0fd6ecace86be1150f27f7c673599de206f0",
+      "net/sweenus/simplyswords/compat/bettercombat/BetterCombatCompat.class": "42795630acdfdc48a6e8aed611cffc88762743ec12a070d699e34c40f75b8132",
+      "net/sweenus/simplyswords/api/SimplySwordsAPI.class": "da68e80c7007affce53480c7b9daac431bcb310448149911fae650b33638e5a8"
+    }
+  },
+  "bettercombat": {
+    "version": "1.9.0+1.20.1",
+    "classes": {
+      "net/bettercombat/network/ServerNetwork.class": "f7276d03eb896337a97a8026ee2daf390b3aaffc4ca861d1408a8485b1a6fc66"
+    }
+  }
+}

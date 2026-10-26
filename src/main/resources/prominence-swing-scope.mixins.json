@@ -1,0 +1,8 @@
+{
+  "required": true,
+  "package": "local.prominence.swingscope.mixin",
+  "plugin": "local.prominence.swingscope.SwingScopeGuard",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": ["AnimationSwingMixin", "WeaponSwingApiMixin"],
+  "injectors": {"defaultRequire": 1}
+}

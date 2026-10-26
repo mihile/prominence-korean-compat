@@ -1,0 +1,1 @@
+Original MIT compatibility code. Separates vanilla arm animations from authoritative Better Combat attacks. Exact native mod version/hash guards and missing-hook fallback. Original native mod code is not redistributed by this module.
