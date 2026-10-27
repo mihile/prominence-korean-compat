@@ -6,12 +6,14 @@ r=Path(__file__).resolve().parents[1];w=a.build_dir/'native-contention';c=w/'cla
 cp=[str((a.build_dir/'prominence-korean-compat-1.0.0.jar').resolve()),*json.loads(a.classpath.read_text('utf8'))]
 def run(cmd,name):
  q=subprocess.run(list(map(str,cmd)),capture_output=True,text=True,encoding='utf8',errors='replace');(w/name).write_text(q.stdout+q.stderr,'utf8');assert q.returncode==0,q.stdout+q.stderr;print(q.stdout[-2000:])
-run([j/'javac.exe','--release','17','-encoding','UTF-8','-proc:none','-cp',os.pathsep.join(cp),'-d',c,r/'tests/native/batchverification/VerifyMixinTransforms.java',r/'tests/native/workverification/VerifyJoinContention.java',r/'tests/native/workverification/VerifyIngestScratch.java',r/'tests/RemoteIngestScratchTests.java',r/'tests/native/workverification/RecipeNativeExecution.java',r/'tests/ModelWorkSliceTests.java',r/'tests/JoinGuardTests.java'],'compile.log')
+run([j/'javac.exe','--release','17','-encoding','UTF-8','-proc:none','-cp',os.pathsep.join(cp),'-d',c,r/'tests/native/batchverification/VerifyMixinTransforms.java',r/'tests/native/workverification/VerifyJoinContention.java',r/'tests/native/workverification/VerifyIngestScratch.java',r/'tests/native/workverification/VerifyLodDecode.java',r/'tests/LodBulkDecodeTests.java',r/'tests/RemoteIngestScratchTests.java',r/'tests/native/workverification/RecipeNativeExecution.java',r/'tests/ModelWorkSliceTests.java',r/'tests/JoinGuardTests.java'],'compile.log')
 s=c/'META-INF/services';s.mkdir(parents=True,exist_ok=True)
 for key,value in {'org.spongepowered.asm.service.IMixinService':'batchverification.VerifyMixinTransforms','org.spongepowered.asm.service.IMixinServiceBootstrap':'batchverification.VerifyMixinTransforms$Bootstrap','org.spongepowered.asm.service.IGlobalPropertyService':'batchverification.VerifyMixinTransforms$Props'}.items():(s/key).write_text(value+'\n','utf8')
 classpath=os.pathsep.join([str(c.resolve()),*cp])
 run([j/'java.exe','-cp',classpath,'local.prominence.work.ModelWorkSliceTests'],'slice.log')
 run([j/'java.exe','-cp',classpath,'local.prominence.work.RemoteIngestScratchTests'],'ingest-scratch.log')
+run([j/'java.exe','-Xmx512m','-cp',classpath,'local.prominence.work.LodBulkDecodeTests'],'lod-decode.log')
+run([j/'java.exe','-cp',classpath,'workverification.VerifyLodDecode',w/'lod-cfg'],'lod-transform.log')
 run([j/'java.exe','-cp',classpath,'workverification.VerifyIngestScratch',w/'ingest-cfg'],'ingest-transform.log')
 run([j/'java.exe','-cp',classpath,'local.prominence.join.JoinGuardTests',r/'src/main/resources/prominence-emi-home-pins.json'],'guards.log')
 run([j/'java.exe','-cp',classpath,'workverification.VerifyJoinContention',w/'cfg'],'transform.log')

@@ -153,5 +153,15 @@
         "me/cortex/voxy/common/voxelization/WorldVoxilizedSectionMipper.class": "001993669a93343aa38350d74da1b7193b9857fe95857a5f009f6513b150a007"
       }
     }
+  },
+  "remoteIngestDecode": {
+    "voxyserver": {
+      "version": "1.2.4+1.20.1-port.3",
+      "classes": {
+        "com/dripps/voxyserver/network/LODBulkPayload.class": "b0b8ad96626eabfdc8f01cb27b4a8f2fdc569ae4be29bc0a5b35046fad60f3e4",
+        "com/dripps/voxyserver/network/LODSectionPayload.class": "a5282116e7ff9baf040f0e54703bfc82dd26846bc7f1df7d52e711826893e80e",
+        "com/dripps/voxyserver/network/PreSerializedLodPayload.class": "c179c6088c6ed5071a844422f081deb956660c8084e390eeabfb637f95ee87ce"
+      }
+    }
   }
 }

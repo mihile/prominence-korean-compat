@@ -17,7 +17,8 @@
     "EmiRecipeInsertionMixin",
     "VoxyModelWorkSliceMixin",
     "RemoteIngestTaskMixin",
-    "RemoteIngestSectionMixin"
+    "RemoteIngestSectionMixin",
+    "LodBulkDecodeMixin"
   ],
   "injectors": {
     "defaultRequire": 1
