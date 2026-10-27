@@ -13,7 +13,9 @@
     "EmiCreativeTimingMixin",
     "EmiAttributeScopeMixin",
     "AttributeCandidateIterationMixin",
-    "VoxyServerEarlyRendererMixin"
+    "VoxyServerEarlyRendererMixin",
+    "EmiRecipeInsertionMixin",
+    "VoxyModelWorkSliceMixin"
   ],
   "injectors": {
     "defaultRequire": 1

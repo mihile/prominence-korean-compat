@@ -2,7 +2,9 @@
   "voxyEarlyRenderer": {
     "voxyserver": {
       "version": "1.2.4+1.20.1-port.3",
-      "classes": {"com/dripps/voxyserver/client/ClientLodReceiver.class": "eaf6e2347deb7568a2ca6fd51cf0ffa7c0d6226ecbf6093295f66a69a8a27e35"}
+      "classes": {
+        "com/dripps/voxyserver/client/ClientLodReceiver.class": "eaf6e2347deb7568a2ca6fd51cf0ffa7c0d6226ecbf6093295f66a69a8a27e35"
+      }
     },
     "voxy": {
       "version": "0.2.20-beta+1.20.1-port.9",
@@ -14,7 +16,9 @@
     },
     "iris": {
       "version": "1.7.6+mc1.20.1",
-      "classes": {"net/irisshaders/iris/pipeline/IrisRenderingPipeline.class": "c62bb0ed3892e7fadeb1e87142cbb35028e69fb411dd33e6151f6052c03290e9"}
+      "classes": {
+        "net/irisshaders/iris/pipeline/IrisRenderingPipeline.class": "c62bb0ed3892e7fadeb1e87142cbb35028e69fb411dd33e6151f6052c03290e9"
+      }
     }
   },
   "terrain": {
@@ -101,6 +105,35 @@
       "classes": {
         "net/minecraft/class_2370.class": "84cbd3842d7638bde30d70c4ed34e0e8416715cc5b7d8bded28e859a91c41d01",
         "net/minecraft/class_2348.class": "fe31ac722f39e4a1e2ff40829c20cccce8d05f50eab17eb098183a2c2f8995ac"
+      }
+    }
+  },
+  "recipeInsertion": {
+    "emi": {
+      "version": "1.1.24+1.20.1+fabric",
+      "classes": {
+        "dev/emi/emi/registry/EmiRecipes$Manager.class": "ed7dd4ccf307198aec64c6f639367e090cff0f8d4b2a65c334c90e9f14511f62",
+        "dev/emi/emi/registry/EmiStackList$ComparisonHashStrategy.class": "fc35979c4d3699ffb103ebcae4cb0ed87ef2d6bd275d4d0fe518083306b03549",
+        "dev/emi/emi/api/stack/ItemEmiStack.class": "6672b20adb00d50b279bd96b98ea6979d07248d7124932c425e102f62bf89499",
+        "dev/emi/emi/api/stack/EmiStack.class": "a9527f852735696d55a8a52a9c1e3681716096e6f13c277eceb664a89068f360",
+        "dev/emi/emi/api/stack/Comparison.class": "f95bf639aa7d91d180c46381791f5091ab5b2dadb12a8a375e05df9dffde6ac6",
+        "dev/emi/emi/registry/EmiComparisonDefaults.class": "3eb3130970a82faf6e59e54b1b047106d24ebcee28e3d8c32fbd81c565c98294"
+      }
+    }
+  },
+  "voxyModelSlice": {
+    "voxy": {
+      "version": "0.2.20-beta+1.20.1-port.9",
+      "classes": {
+        "me/cortex/voxy/client/core/model/ModelFactory.class": "dca6b00b7fdd9d107555f60ac497ff3701e5be06b6900d1b7967a3073cb9d818",
+        "me/cortex/voxy/client/core/model/ModelBakerySubsystem.class": "c3fb5d0e6e84f055cc8c2c063c3db2d589e35b99f39f00d84565f4b16e69b700"
+      }
+    },
+    "emi": {
+      "version": "1.1.24+1.20.1+fabric",
+      "classes": {
+        "dev/emi/emi/runtime/EmiReloadManager.class": "2e221b6c48eac92a110847ecea0b213dc74eb0e8aa129e8d01e48dee9105c32b",
+        "dev/emi/emi/runtime/EmiReloadManager$ReloadWorker.class": "008f48bb5dd34acde623ce3f27654aa672ba7053d6d5084828e247b0c0e231e4"
       }
     }
   }

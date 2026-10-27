@@ -24,7 +24,7 @@ public final class InitialWork {
         public synchronized void close() {
             if(closed)return;closed=true;
             if(ACTIVE.decrementAndGet()==0)LoggerFactory.getLogger("Prominence compatibility").info(
-                "EMI initial terrain coordination finished: limitedBudgetCalls={} (native scheduling restored)",LIMITED.getAndSet(0));
+                "EMI initial terrain coordination finished: limitedBudgetCalls={}, voxyModelYields={} (native scheduling restored)",LIMITED.getAndSet(0),ModelWorkSlice.takeYields());
         }
     }
 }

@@ -1,0 +1,1 @@
+package net.minecraft; public class class_2487 { public String text;public class_2487(String s){text=s;} public class_2487 method_10553(){return new class_2487(text);}public boolean equals(Object b){return b instanceof class_2487 t&&text.equals(t.text);}public int hashCode(){return text.hashCode();} }

@@ -147,6 +147,28 @@ def mat(run,state,report=None):
  assert reply.returncode==0 and len(reports)>=3 and all(zipfile.is_zipfile(p) for p in reports),'MAT failed or did not produce all three report archives; inspect mat.log'
  return reports
 
+def sample_gpu(run,done):
+ # A terminated nvidia-smi --filename loop can lose its buffered tail. Each
+ # short query now exits normally; commit only complete CSV rows, then flush.
+ samples=errors=0;first=last=None;max_query_ms=0.0
+ with (run/'gpu.csv').open('w',encoding='utf8',newline='') as out, (run/'gpu.log').open('w',encoding='utf8') as log:
+  writer=csv.writer(out);header=None
+  while not done.is_set():
+   started=time.monotonic()
+   try:
+    reply=command(['nvidia-smi','--query-gpu=timestamp,utilization.gpu,memory.used','--format=csv'],timeout=3)
+    rows=list(csv.reader(reply.stdout.splitlines()))
+    assert reply.returncode==0 and len(rows)>=2 and len(rows[0])==3 and rows[0][0].strip()=='timestamp','Incomplete GPU sample'
+    assert all(len(row)==3 and row[0].strip() for row in rows[1:]),'Malformed GPU row'
+    if header is None:header=rows[0];writer.writerow(header)
+    assert rows[0]==header,'GPU header changed'
+    for row in rows[1:]:writer.writerow(row);samples+=1;first=first or row[0];last=row[0]
+    out.flush()
+   except Exception as error:errors+=1;log.write(stamp()+' '+repr(error)+'\n');log.flush()
+   max_query_ms=max(max_query_ms,(time.monotonic()-started)*1000)
+   done.wait(max(0,1-(time.monotonic()-started)))
+ write(run/'gpu-summary.json',{'rows':samples,'errors':errors,'first':first,'last':last,'maxQueryMs':max_query_ms,'normalExitQueries':True})
+
 def worker(run):
  state=json.loads((run/'state.json').read_text('utf8'));instance=Path(state['instance']);cfg=settings(instance);pid=state['pid'];handle=KERNEL.OpenProcess(0x0400|0x0010,False,pid)
  java=Path(state['runtimeJava']);jcmd=java/'bin/jcmd.exe';name='client_profile_'+state['runId'];active=instance/'KoreanPatch/profiler/capture.lock';token={'ownerPid':os.getpid(),'runId':state['runId']};recording=False;frames=gpu=None;logs=[];done=threading.Event();sampler=None
@@ -168,7 +190,7 @@ def worker(run):
    log=(run/'presentmon.log').open('w',encoding='utf8');logs.append(log);session='CodexClient_'+state['runId'];state['presentSession']=session
    frames=subprocess.Popen([state['presentMon'],'--process_id',str(pid),'--session_name',session,'--v2_metrics','--qpc_time','--no_console_stats','--no_track_input','--timed',str(state['durationSeconds']),'--terminate_after_timed','--output_file',str(run/'frames-qpc.csv')],stdout=log,stderr=subprocess.STDOUT,creationflags=FLAGS)
    if shutil.which('nvidia-smi'):
-    log=(run/'gpu.log').open('w',encoding='utf8');logs.append(log);gpu=subprocess.Popen(['nvidia-smi','--query-gpu=timestamp,utilization.gpu,memory.used','--format=csv','--loop=1','--filename='+str(run/'gpu.csv')],stdout=log,stderr=subprocess.STDOUT,creationflags=FLAGS)
+    gpu=threading.Thread(target=sample_gpu,args=(run,done),daemon=True);gpu.start()
   sampler=threading.Thread(target=sample,args=(handle,run/'process-memory.jsonl',done),daemon=True);sampler.start();start=time.monotonic()
   phase('recording',recordingStartedUtc=stamp(),heapDumpPending=True,canCloseClient=False)
   while time.monotonic()-start<state['durationSeconds'] and not (run/'stop-request').exists() and alive(handle):time.sleep(.25)
@@ -177,7 +199,7 @@ def worker(run):
    diagnostic([state['presentMon'],'--session_name',state['presentSession'],'--terminate_existing_session'],'presentmon-stop.log')
    try:frames.wait(timeout=10)
    except subprocess.TimeoutExpired:frames.terminate();frames.wait(timeout=5)
-  if gpu and gpu.poll() is None:gpu.terminate();gpu.wait(timeout=5)
+  if gpu:gpu.join(timeout=5)
   reply=diagnostic([java/'bin/jfr.exe','summary',run/'capture.jfr'],'jfr-summary.txt');assert reply.returncode==0 and 'Duration:' in reply.stdout,'JFR save not confirmed'
   phase('trace-saved',validJfr=True,traceSavedUtc=stamp());state['frameSummary']=normalize_frames(run,state)
   assert alive(handle),'Client exited before required post-recording heap dump'
@@ -204,7 +226,7 @@ def worker(run):
   done.set()
   if recording and alive(handle):diagnostic([jcmd,pid,'JFR.stop','name='+name,'filename='+jcpath(run/'capture.jfr')],'emergency-jfr-stop.log')
   if frames and frames.poll() is None:frames.terminate()
-  if gpu and gpu.poll() is None:gpu.terminate()
+  if gpu:gpu.join(timeout=5)
   for log in logs:log.close()
   release_lease(active,token)
   if handle:KERNEL.CloseHandle(handle)

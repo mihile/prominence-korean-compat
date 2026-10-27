@@ -4,6 +4,27 @@ P=pathlib.Path(__file__).resolve().parent
 spec=importlib.util.spec_from_file_location('profiler',P/'profile.py');profiler=importlib.util.module_from_spec(spec);spec.loader.exec_module(profiler)
 
 class Tests(unittest.TestCase):
+ def test_gpu_complete_rows_and_flush(self):
+  import threading,csv
+  with tempfile.TemporaryDirectory() as temp:
+   run=pathlib.Path(temp);done=threading.Event();calls=[]
+   def query(args,timeout):
+    calls.append(args);n=len(calls)
+    if n==3:done.set()
+    text='timestamp, utilization.gpu [%], memory.used [MiB]\n2026/10/27 17:00:0'+str(n)+'.000, 20 %, 500 MiB\n'
+    if n==2:text='timestamp, utilization.gpu [%], memory.used [MiB]\npartial'
+    return subprocess.CompletedProcess(args,0,text,'')
+   with patch.object(profiler,'command',side_effect=query),patch.object(done,'wait',return_value=False):profiler.sample_gpu(run,done)
+   rows=list(csv.reader((run/'gpu.csv').read_text('utf8').splitlines()));self.assertEqual(len(rows),3)
+   result=json.loads((run/'gpu-summary.json').read_text('utf8'));self.assertEqual(result['rows'],2);self.assertEqual(result['errors'],1)
+   self.assertTrue(result['last'].endswith('03.000'));self.assertTrue(all('--loop=1' not in args for args in calls))
+ def test_gpu_timeout_does_not_break_capture(self):
+  import threading
+  with tempfile.TemporaryDirectory() as temp:
+   run=pathlib.Path(temp);done=threading.Event()
+   def timeout(*args,**kwargs):done.set();raise subprocess.TimeoutExpired('nvidia-smi',3)
+   with patch.object(profiler,'command',side_effect=timeout):profiler.sample_gpu(run,done)
+   result=json.loads((run/'gpu-summary.json').read_text('utf8'));self.assertEqual(result['rows'],0);self.assertEqual(result['errors'],1)
  def test_client_selection(self):
   root=pathlib.Path('C:/test/PrismInstance')
   rows=[{'ProcessId':1,'CommandLine':'java org.prismlauncher.EntryPoint C:/test/PrismInstance/minecraft'},{'ProcessId':2,'CommandLine':'java server.jar C:/test/PrismInstance'}]
