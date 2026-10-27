@@ -11,6 +11,14 @@ class Tests(unittest.TestCase):
   with self.assertRaises(RuntimeError):profiler.target(rows+rows,root)
   with self.assertRaises(RuntimeError):profiler.target(rows,pathlib.Path('C:/other'))
   with self.assertRaises(RuntimeError):profiler.target([{'ProcessId':3,'CommandLine':'java org.prismlauncher.EntryPoint C:/test/PrismInstance-copy/minecraft'}],root)
+  actual=[{'ProcessId':4,'CommandLine':'javaw "-Djava.library.path=C:/test/PrismInstance/natives" -cp launch.jar org.prismlauncher.EntryPoint'}]
+  self.assertEqual(profiler.target(actual,root)['ProcessId'],4)
+  alternate=[{'ProcessId':5,'CommandLine':'javaw -Djava.library.path="C:/test/PrismInstance/natives" org.prismlauncher.EntryPoint'}]
+  self.assertEqual(profiler.target(alternate,root)['ProcessId'],5)
+  for cmd in ('javaw "-Djava.library.path=C:/test/PrismInstance-copy/natives" org.prismlauncher.EntryPoint',
+              'javaw "-Djava.library.path=C:/test/PrismInstance/natives-extra" org.prismlauncher.EntryPoint',
+              'javaw "-Djava.library.path=C:/test/PrismInstance/natives" server.jar'):
+   with self.assertRaises(RuntimeError):profiler.target([{'ProcessId':6,'CommandLine':cmd}],root)
  def test_frame_clock_and_missing_interval(self):
   with tempfile.TemporaryDirectory() as temp:
    run=pathlib.Path(temp);(run/'frames-qpc.csv').write_text('CPUStartQPC,FrameTime\n10000,20\n10200,20\n30200,20\n','utf8')

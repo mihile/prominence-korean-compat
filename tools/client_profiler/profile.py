@@ -35,10 +35,16 @@ def processes():
 def target(rows,instance,pid=None,fixture_nonce=None):
  root=str(instance.resolve()).replace('\\','/').casefold();found=[]
  for row in rows:
-  text=(row.get('CommandLine') or '').replace('\\','/');valid='org.prismlauncher.EntryPoint' in text and any(root+suffix in text.casefold() for suffix in ['/minecraft','/.minecraft'])
+  text=(row.get('CommandLine') or '').replace('\\','/');lower=text.casefold()
+  # Prism's actual JVM command may identify the instance only through the
+  # exact java.library.path property, while the game directory is its cwd.
+  native=re.search(r'(?:^|\s)(?:"-Djava\.library\.path=([^"]+)"|-Djava\.library\.path=(?:"([^"]+)"|(\S+)))',text,re.IGNORECASE)
+  native_path=next((v for v in native.groups() if v is not None),'').rstrip('/').casefold() if native else ''
+  game_path=any(re.search(re.escape(root+suffix)+r'(?=$|[/"\s;])',lower) for suffix in ['/minecraft','/.minecraft'])
+  valid='org.prismlauncher.EntryPoint' in text and (native_path==root+'/natives' or game_path)
   if fixture_nonce is not None:valid='ClientProfileFixture' in text and fixture_nonce in text and pid==row['ProcessId']
   if valid and (pid is None or pid==row['ProcessId']):found.append(row)
- if len(found)!=1:raise RuntimeError('Expected one matching client JVM; found '+str([r['ProcessId'] for r in found]))
+ if len(found)!=1:raise RuntimeError('Could not identify exactly one client for this instance; start it in Prism and wait at the server list. Matching PIDs: '+str([r['ProcessId'] for r in found]))
  return found[0]
 def current(instance):
  path=instance/'KoreanPatch/profiler/latest.json';return Path(json.loads(path.read_text('utf8'))['run']) if path.exists() else None
