@@ -163,5 +163,23 @@
         "com/dripps/voxyserver/network/PreSerializedLodPayload.class": "c179c6088c6ed5071a844422f081deb956660c8084e390eeabfb637f95ee87ce"
       }
     }
+  },
+  "voxyMeshAdmission": {
+    "voxy": {
+      "version": "0.2.20-beta+1.20.1-port.9",
+      "classes": {
+        "me/cortex/voxy/client/core/rendering/building/RenderGenerationService.class": "6c6aba2fc227b24df7fa646003a6de45e31740426efea2bc6f05307c2f492771",
+        "me/cortex/voxy/common/thread/Service.class": "454f056714beabb0940b3d8cb939b9972b345ad8f8f381fa20ca92eb85336678",
+        "me/cortex/voxy/common/thread/ServiceManager.class": "5d641ff83e9ad7aef210eb7a638f6973bc905140d4452b6d4a96429ea90ebbd6",
+        "me/cortex/voxy/common/thread/MultiThreadPrioritySemaphore.class": "684cde36934d2649ad2b29c78012995c7d49d3ae7efee4f5b12ced54cbc28c74",
+        "me/cortex/voxy/common/thread/UnifiedServiceThreadPool.class": "b7c4022b549622bf545b7efab4859493bd4960e740eff61748e5f3bbd1f9b253"
+      }
+    },
+    "emi": {
+      "version": "1.1.24+1.20.1+fabric",
+      "classes": {
+        "dev/emi/emi/runtime/EmiReloadManager$ReloadWorker.class": "008f48bb5dd34acde623ce3f27654aa672ba7053d6d5084828e247b0c0e231e4"
+      }
+    }
   }
 }

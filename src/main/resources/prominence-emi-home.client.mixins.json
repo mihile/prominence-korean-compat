@@ -18,7 +18,9 @@
     "VoxyModelWorkSliceMixin",
     "RemoteIngestTaskMixin",
     "RemoteIngestSectionMixin",
-    "LodBulkDecodeMixin"
+    "LodBulkDecodeMixin",
+    "VoxyMeshServiceMixin",
+    "VoxyMeshRunMixin"
   ],
   "injectors": {
     "defaultRequire": 1
