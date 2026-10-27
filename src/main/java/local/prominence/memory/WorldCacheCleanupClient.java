@@ -16,7 +16,8 @@ import org.slf4j.LoggerFactory;
 /** Runs after actual world/player changes, when render/input/event stacks have returned. */
 public final class WorldCacheCleanupClient implements ClientModInitializer {
     private final WorldReferencePruner changes=new WorldReferencePruner();
-    private boolean iceberg,inventories,mi,balm;
+    private boolean iceberg,inventories,mi,balm,azureQueries;
+    private AzureQueryPruner azurePruner;
     private Field wrappers,previews,wrappedWorld,inventoryWrappers,zenithOwner,keyMap,fallLocal;
     private Class<?> collectorType,zenithInventoryType,fallType;
     private Method fallEntity;
@@ -24,8 +25,10 @@ public final class WorldCacheCleanupClient implements ClientModInitializer {
     public void onInitializeClient() {
         iceberg=WorldCacheGuard.installed("iceberg");inventories=WorldCacheGuard.installed("inventories");
         mi=WorldCacheGuard.installed("mi");balm=WorldCacheGuard.installed("balm");
+        azureQueries=WorldCacheGuard.installed("azureQueries");
         LoggerFactory.getLogger("Prominence compatibility").info("Client world cache lifetimes: iceberg={}, inventories={}, mi={}, balm={}",state(iceberg),state(inventories),state(mi),state(balm));
-        if(iceberg||inventories||mi||balm)ClientTickEvents.END_CLIENT_TICK.register(this::afterTick);
+        LoggerFactory.getLogger("Prominence compatibility").info("Client AzureLib stale query cleanup: {}",state(azureQueries));
+        if(iceberg||inventories||mi||balm||azureQueries)ClientTickEvents.END_CLIENT_TICK.register(this::afterTick);
     }
     private static String state(boolean enabled){return enabled?"enabled":"disabled";}
     private static Class<?> type(String name)throws ClassNotFoundException{return Class.forName(name,false,WorldCacheCleanupClient.class.getClassLoader());}
@@ -108,14 +111,21 @@ public final class WorldCacheCleanupClient implements ClientModInitializer {
     }
     private void afterTick(class_310 client) {
         if(!changes.transition(client.field_1687,client.field_1724))return;
-        int a=0,b=0,c=0,d=0;
+        int a=0,b=0,c=0,d=0,azureReleased=0;
         if(iceberg)try{a=iceberg(client.field_1687);}catch(ReflectiveOperationException|RuntimeException|LinkageError e){iceberg=false;warn("iceberg",e);}
         if(inventories)try{b=inventories(client.field_1687);}catch(ReflectiveOperationException|RuntimeException|LinkageError e){inventories=false;warn("inventories",e);}
         // MI's native HashMap is shared with the integrated-server thread. Do not add
         // cross-thread writes there; multiplayer clients have no local server writer.
         if(mi&&client.method_1576()==null)try{c=mi(client.field_1687,client.field_1724);}catch(ReflectiveOperationException|RuntimeException|LinkageError e){mi=false;warn("mi",e);}
         if(balm)try{d=balm(client.field_1687);}catch(ReflectiveOperationException|RuntimeException|LinkageError e){balm=false;warn("balm",e);}
+        if(azureQueries)try{
+            if(azurePruner==null)azurePruner=new AzureQueryPruner(type("mod.azure.azurelib.model.GeoModel"));
+            azureReleased=azurePruner.release(mod.azure.azurelib.core.molang.MolangParser.VARIABLES,owner->
+                owner instanceof class_638 world&&world!=client.field_1687
+                ||owner instanceof class_1297 entity&&entity.method_37908() instanceof class_638 entityWorld&&entityWorld!=client.field_1687);
+        }catch(ReflectiveOperationException|RuntimeException|LinkageError error){azureQueries=false;warn("azureQueries",error);}
         if(a+b+c+d>0)LoggerFactory.getLogger("Prominence compatibility").info("Client obsolete cache entries released: iceberg={}, inventories={}, mi={}, balm={}",a,b,c,d);
+        if(azureReleased>0)LoggerFactory.getLogger("Prominence compatibility").info("Client AzureLib obsolete query providers released: {}",azureReleased);
     }
     private static void warn(String module,Throwable e){LoggerFactory.getLogger("Prominence compatibility").warn("Disabling world-cache cleanup for {}; preserving native behavior",module,e);}
 }

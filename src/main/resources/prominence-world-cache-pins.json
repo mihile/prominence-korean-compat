@@ -46,5 +46,18 @@
         "net/blay09/mods/balm/api/event/LivingFallEvent.class": "7b7e6ffcd6900f779ac23eae81f85cbf08ae579223b4b10195a446fd7b1e8041"
       }
     }
+  ],
+  "azureQueries": [
+    {
+      "mod": "azurelib",
+      "version": "3.0.27",
+      "classes": {
+        "mod/azure/azurelib/model/GeoModel.class": "3ef5b706057b8f100c5bae1883f2b1909f2ded6ba899f55069d9757e05d6b6a4",
+        "mod/azure/azurelib/core/molang/MolangParser.class": "1e347880409d9373f1e5e36801d20821e301e38d7f2435c27d6db16249da1600",
+        "mod/azure/azurelib/core/molang/MolangParser$1.class": "4b6f75577d9afd14e6cde0a15432fdc0cb952a66bb8cdbdf6acc762636c9b59f",
+        "mod/azure/azurelib/core/molang/LazyVariable.class": "5023b89dec2935598e3d963cffb689a09ace9ccdea6775384c630659157a8390",
+        "mod/azure/azurelib/core/molang/MolangQueries.class": "1a18d8afa7b73c6e231f582663fc53844d583e0c8d9b9203639c688fecf7b8ee"
+      }
+    }
   ]
 }

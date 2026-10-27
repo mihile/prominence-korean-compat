@@ -17,6 +17,7 @@ def main():
  checks.append(('local.prominence.memory.ShaderSourceCacheTests',[]))
  checks.append(('local.prominence.memory.StorageRecoveryTests',[]))
  checks.append(('local.prominence.memory.WorldCacheTests',[]))
+ checks.append(('local.prominence.memory.AzureQueryPrunerTests',[]))
  checks.append(('local.prominence.memory.ShaderHashScratchTests',[]))
  checks.append(('local.prominence.memory.XaeroBiomeTests',[]))
  checks.append(('local.prominence.weaponhud.WeaponUseFenceTests',[]))
