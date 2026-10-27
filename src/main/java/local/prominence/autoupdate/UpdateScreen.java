@@ -58,10 +58,11 @@ public final class UpdateScreen extends class_437 {
         }
         var phase=UpdateClient.phase;
         String status=switch(phase){case AVAILABLE->"restart_hint";case DOWNLOADING->"downloading";case QUEUED->"ready";case FAILED->"failed";};
-        boolean current=release.build()<=UpdateClient.build;
-        draw.method_27535(field_22793,text(current?"latest":status),x+14,box.buttonsY()-19,phase==UpdateClient.Phase.FAILED?0xFFE8A0A0:0xFFB8A6D2);
+        boolean returning=release.build()<=UpdateClient.build && release.track().equals("main") && UpdateClient.installedTrack.equals("nightly");
+        boolean current=release.build()<=UpdateClient.build && !returning;
+        draw.method_27535(field_22793,text(current?"latest":returning && phase==UpdateClient.Phase.AVAILABLE?"return_hint":status),x+14,box.buttonsY()-19,phase==UpdateClient.Phase.FAILED?0xFFE8A0A0:0xFFB8A6D2);
         apply.field_22763=!current && phase!=UpdateClient.Phase.DOWNLOADING;
-        apply.method_25355(text(current?"up_to_date":phase==UpdateClient.Phase.QUEUED?"quit":phase==UpdateClient.Phase.FAILED?"retry":"apply"));
+        apply.method_25355(text(current?"up_to_date":returning && phase==UpdateClient.Phase.AVAILABLE?"return_main":phase==UpdateClient.Phase.QUEUED?"quit":phase==UpdateClient.Phase.FAILED?"retry":"apply"));
         later.method_25355(text(phase==UpdateClient.Phase.QUEUED?"keep_playing":"later"));
         if(phase==UpdateClient.Phase.DOWNLOADING){
             int bar=w-28,filled=(int)Math.min(bar,bar*UpdateClient.downloaded/Math.max(1,release.size()));

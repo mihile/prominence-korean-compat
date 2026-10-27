@@ -39,6 +39,8 @@ public final class UpdateClient implements ClientModInitializer {
     private static Path game,target,root,preferences;
     private static String originalHash;
     private static boolean enabled=true;
+    static String track="main", installedTrack="main";
+    private static String inFlightTrack;
     private static volatile SignedRelease pending;
     private static long lastCheck;
     private static int readyTicks;
@@ -57,8 +59,13 @@ public final class UpdateClient implements ClientModInitializer {
             try(var in=UpdateClient.class.getResourceAsStream("/assets/prominence_korean_compat/update-build.properties")){
                 var p=SignedRelease.properties(Objects.requireNonNull(in).readAllBytes());build=Long.parseLong(SignedRelease.required(p,"build"));label=SignedRelease.required(p,"label");helperHash=SignedRelease.required(p,"helperSha256");
             }
+            installedTrack=UpdateFiles.installedTrack(target);
             preferences=loader.getConfigDir().resolve("prominence-korean-compat-updater.properties");
-            if(Files.isRegularFile(preferences))enabled=Boolean.parseBoolean(SignedRelease.properties(Files.readAllBytes(preferences)).getProperty("enabled","true"));
+            if(Files.isRegularFile(preferences)){
+                Properties pref=SignedRelease.properties(Files.readAllBytes(preferences));
+                enabled=Boolean.parseBoolean(pref.getProperty("enabled","true"));
+                if("nightly".equals(pref.getProperty("track")))track="nightly";
+            }
             ClientLifecycleEvents.CLIENT_STARTED.register(client->{if(enabled)check(false);});
             ScreenEvents.AFTER_INIT.register((client,screen,width,height)->{
                 if(screen instanceof class_442){
@@ -95,7 +102,7 @@ public final class UpdateClient implements ClientModInitializer {
         }catch(Exception e){LOG.warn("Automatic updater disabled; compatibility features are unaffected",e);}
     }
     private static void setEnabled(boolean value){
-        try{Properties p=new Properties();p.setProperty("enabled",Boolean.toString(value));UpdateFiles.writeProperties(preferences,p);enabled=value;if(!value)pending=null;message(value?"auto_on":"auto_off");}
+        try{Properties p=new Properties();p.setProperty("track",track);p.setProperty("enabled",Boolean.toString(value));UpdateFiles.writeProperties(preferences,p);enabled=value;if(!value)pending=null;message(value?"auto_on":"auto_off");}
         catch(IOException e){LOG.warn("Cannot save updater preference",e);message("failed");}
     }
     private static void reportPrevious(){
@@ -107,34 +114,46 @@ public final class UpdateClient implements ClientModInitializer {
     private static void message(String key){
         class_310.method_1551().execute(()->{var player=class_310.method_1551().field_1724;if(player!=null)player.method_7353(class_2561.method_43471("prominence.update."+key),false);});
     }
+    static void setTrack(String selected)throws IOException {
+        if(!selected.equals("main") && !selected.equals("nightly"))throw new IOException("Invalid track");
+        Properties p=new Properties();p.setProperty("enabled",Boolean.toString(enabled));p.setProperty("track",selected);
+        UpdateFiles.writeProperties(preferences,p);track=selected;pending=null;lastCheck=0;SHOWN.clear();
+    }
     private static synchronized CompletableFuture<SignedRelease> request(){
-        if(inFlight==null || inFlight.isDone())inFlight=CompletableFuture.supplyAsync(()->{
-            try{return SignedRelease.verify(new SafeHttp().manifest(),SignedRelease.publicKey());}
+        String selected=track;
+        if(inFlight==null || inFlight.isDone() || !selected.equals(inFlightTrack)){
+            inFlightTrack=selected;inFlight=CompletableFuture.supplyAsync(()->{
+            try{SignedRelease result=SignedRelease.verify(new SafeHttp().manifest(selected),SignedRelease.publicKey());if(!result.track().equals(selected))throw new IOException("Wrong update track");return result;}
             catch(Exception e){if(e instanceof InterruptedException)Thread.currentThread().interrupt();throw new CompletionException(e);}
-        },IO);
+        },IO);}
         return inFlight;
     }
     static void openCheck(class_437 parent){
         var client=class_310.method_1551();
         if(release!=null && (phase==Phase.QUEUED || phase==Phase.DOWNLOADING)){client.method_1507(new UpdateScreen(release,parent));return;}
         var screen=new UpdateCheckScreen(parent);client.method_1507(screen);
+    }
+    static void lookup(UpdateCheckScreen screen,class_437 parent){
+        var client=class_310.method_1551();
         LOG.info("Checking client update from title/menu control");
         request().whenComplete((next,error)->client.execute(()->{
-            if(client.field_1755!=screen)return;
+            if(client.field_1755!=screen || !screen.track().equals(track))return;
             if(error!=null){LOG.warn("Menu update check unavailable; current JAR unchanged",error);screen.failed();return;}
             LOG.info("Menu update result: installed={}, published={}",build,next.build());
-            if(next.build()<build){screen.latest();return;}
+            if(next.build()<build && !(track.equals("main") && installedTrack.equals("nightly"))){screen.latest();return;}
             release=next;SHOWN.add(next.build());pending=null;
             if(phase!=Phase.QUEUED && phase!=Phase.DOWNLOADING)phase=Phase.AVAILABLE;
             client.method_1507(new UpdateScreen(next,parent));
         }));
     }
     private static void check(boolean manual){
+        String requested=track;
         if(phase==Phase.QUEUED || phase==Phase.DOWNLOADING){if(manual)message(phase==Phase.QUEUED?"ready":"downloading");return;}
         if(!manual && System.nanoTime()-lastCheck<TimeUnit.MINUTES.toNanos(3) && lastCheck!=0)return;
         lastCheck=System.nanoTime();
         LOG.info("Checking client update: source={}",manual?"command":"startup/title/join");
         request().whenComplete((next,error)->class_310.method_1551().execute(()->{
+                if(!requested.equals(track))return;
                 if(error!=null){LOG.warn("Update check unavailable; no files changed",error);if(manual)message("check_failed");return;}
                 LOG.info("Client update result: installed={}, published={}",build,next.build());
                 if(next.build()<=build){
@@ -153,7 +172,7 @@ public final class UpdateClient implements ClientModInitializer {
         }));
     }
     static void prepare(SignedRelease next){
-        if(next.build()<=build)return;
+        if(next.build()<=build && !(track.equals("main") && installedTrack.equals("nightly") && next.track().equals("main")))return;
         if(!INSTALLING.compareAndSet(false,true))return;
         phase=Phase.DOWNLOADING;downloaded=0;
         IO.execute(()->{
@@ -175,7 +194,7 @@ public final class UpdateClient implements ClientModInitializer {
                 }
                 if(Files.isSymbolicLink(helper) || !UpdateFiles.sha(helper).equals(helperHash))throw new IOException("Invalid bundled helper");
                 UpdateFiles.writeBytes(root.resolve("manifest.properties"),next.envelope());
-                var self=ProcessHandle.current();Properties p=new Properties();p.setProperty("game",game.toRealPath().toString());p.setProperty("build",Long.toString(next.build()));p.setProperty("oldSha256",originalHash);p.setProperty("parentPid",Long.toString(self.pid()));p.setProperty("parentStarted",self.info().startInstant().orElseThrow().toString());
+                var self=ProcessHandle.current();Properties p=new Properties();p.setProperty("approvedMainReturn",Boolean.toString(next.build()<=build && track.equals("main") && installedTrack.equals("nightly") && next.track().equals("main")));p.setProperty("game",game.toRealPath().toString());p.setProperty("build",Long.toString(next.build()));p.setProperty("oldSha256",originalHash);p.setProperty("parentPid",Long.toString(self.pid()));p.setProperty("parentStarted",self.info().startInstant().orElseThrow().toString());
                 UpdateFiles.writeProperties(plan,p);
                 Path java=Path.of(System.getProperty("java.home"),"bin",System.getProperty("os.name","").startsWith("Windows")?"javaw.exe":"java");
                 if(!Files.isRegularFile(java))throw new IOException("Background Java runtime is missing");

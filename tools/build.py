@@ -11,7 +11,7 @@ def packed(d):
    info=zipfile.ZipInfo(n,(2026,1,1,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED;info.external_attr=0o100644<<16;z.writestr(info,b)
  return out.getvalue()
 def main():
- a=argparse.ArgumentParser();a.add_argument('--base',type=Path,required=True);a.add_argument('--classpath',type=Path,required=True);a.add_argument('--java-home',type=Path,required=True);a.add_argument('--build',type=int,required=True);a.add_argument('--label',required=True);a.add_argument('--output',type=Path,required=True);args=a.parse_args()
+ a=argparse.ArgumentParser();a.add_argument('--base',type=Path,required=True);a.add_argument('--classpath',type=Path,required=True);a.add_argument('--java-home',type=Path,required=True);a.add_argument('--build',type=int,required=True);a.add_argument('--label',required=True);a.add_argument('--track',choices=['main','nightly'],default='main');a.add_argument('--output',type=Path,required=True);args=a.parse_args()
  work=args.output/'work';work.mkdir(parents=True,exist_ok=True);classes=work/'classes';classes.mkdir(exist_ok=True)
  cp=[str(args.base.resolve()),*json.loads(args.classpath.read_text('utf8'))]
  sources=sorted((ROOT/'src/main/java').rglob('*.java'))
@@ -36,7 +36,7 @@ def main():
  helper['META-INF/MANIFEST.MF']=b'Manifest-Version: 1.0\nMain-Class: local.prominence.autoupdate.ApplyUpdate\n\n'
  helper_jar=packed(helper);resource='assets/prominence_korean_compat/'
  new[resource+'update-helper.jar']=helper_jar;new[resource+'update-public-key.der']=pub
- new[resource+'update-build.properties']=f'build={args.build}\nlabel={args.label}\nchannel=client\npack=4.1.3\nhelperSha256={sha(helper_jar)}\n'.encode('utf8')
+ new[resource+'update-build.properties']=f'build={args.build}\nlabel={args.label}\nchannel=client\npack=4.1.3\ntrack={args.track}\nhelperSha256={sha(helper_jar)}\n'.encode('utf8')
  entry='local.prominence.autoupdate.UpdateClient';client=meta.setdefault('entrypoints',{}).setdefault('client',[])
  if entry not in client:client.append(entry)
  if (ROOT/'src/main/java/local/prominence/weaponhud/WeaponAbilityClient.java').exists():
@@ -71,6 +71,7 @@ def main():
  ko={'title':'한국어 호환 패치 업데이트','apply':'업데이트','later':'나중에','github':'GitHub','quit':'게임 종료','retry':'다시 시도','keep_playing':'계속 플레이','restart_hint':'게임 종료 후 적용 · 다음 실행부터 사용','downloading':'다운로드·검증 중…','ready':'준비 완료 · 게임 종료 후 적용','failed':'준비 실패 · 기존 파일은 유지됩니다.','check_failed':'업데이트를 확인하지 못했어요. 나중에 다시 시도해 주세요.','latest':'현재 최신 빌드입니다.','auto_on':'접속 시 업데이트 자동 확인을 켰습니다.','auto_off':'업데이트 자동 확인을 껐습니다.'}
  en={'title':'Korean Compatibility Update','apply':'Update','later':'Later','github':'GitHub','quit':'Quit game','retry':'Try again','keep_playing':'Keep playing','restart_hint':'Applies after the game closes.','downloading':'Downloading and verifying…','ready':'Ready · applies after game exit.','failed':'Update failed. Current file kept.','check_failed':'Cannot check for updates. Please try again later.','latest':'You have the latest build.','auto_on':'Automatic update checks enabled.','auto_off':'Automatic update checks disabled.'}
  for locale,values in [('ko_kr',ko),('en_us',en)]:
+  values.update({'track_main':'안정판 (main)','track_nightly':'시험판 (nightly)','choose_track':'업데이트 채널을 선택하세요.','return_main':'안정판으로 돌아가기','return_hint':'안정판 복귀 · 게임 종료 후 적용'} if locale=='ko_kr' else {'track_main':'Stable (main)','track_nightly':'Nightly','choose_track':'Select an update channel.','return_main':'Return to stable','return_hint':'Return to stable after game exit'})
   values['up_to_date']='최신 상태' if locale=='ko_kr' else 'Up to date'
   values.update({'menu':'패치 업데이트','checking':'업데이트를 확인하고 있어요…','check_again':'다시 확인','close':'닫기'} if locale=='ko_kr' else {'menu':'Patch updates','checking':'Checking for updates…','check_again':'Check again','close':'Close'})
   n=resource+'lang/'+locale+'.json';d=json.loads(new[n]);d.update({'prominence.update.'+k:v for k,v in values.items()});new[n]=enc(d)
