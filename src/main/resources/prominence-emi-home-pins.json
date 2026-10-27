@@ -136,5 +136,22 @@
         "dev/emi/emi/runtime/EmiReloadManager$ReloadWorker.class": "008f48bb5dd34acde623ce3f27654aa672ba7053d6d5084828e247b0c0e231e4"
       }
     }
+  },
+  "remoteIngestScratch": {
+    "voxyserver": {
+      "version": "1.2.4+1.20.1-port.3",
+      "classes": {
+        "com/dripps/voxyserver/client/service/RemoteIngestService.class": "f059d9d6ad121dc8a42de3365b26b432578f66ab43c827c189b38ab4c2ce1020",
+        "com/dripps/voxyserver/client/service/RemoteIngestService$IngestTask.class": "5191ce6563909c864ccad35dec88208e49bada0c0f8cfe78c95dd01a93b1f483"
+      }
+    },
+    "voxy": {
+      "version": "0.2.20-beta+1.20.1-port.9",
+      "classes": {
+        "me/cortex/voxy/common/world/WorldUpdater.class": "f14e2639bef93eff1670a4f0462a5ca6f5a4e3eda564eada5066058f74377cac",
+        "me/cortex/voxy/common/voxelization/VoxelizedSection.class": "c5bd8e2430d141786aef379dbb16892fa26598fa5efaa6f67911986dfc1e3fc3",
+        "me/cortex/voxy/common/voxelization/WorldVoxilizedSectionMipper.class": "001993669a93343aa38350d74da1b7193b9857fe95857a5f009f6513b150a007"
+      }
+    }
   }
 }

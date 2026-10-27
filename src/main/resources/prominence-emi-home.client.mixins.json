@@ -15,7 +15,9 @@
     "AttributeCandidateIterationMixin",
     "VoxyServerEarlyRendererMixin",
     "EmiRecipeInsertionMixin",
-    "VoxyModelWorkSliceMixin"
+    "VoxyModelWorkSliceMixin",
+    "RemoteIngestTaskMixin",
+    "RemoteIngestSectionMixin"
   ],
   "injectors": {
     "defaultRequire": 1
