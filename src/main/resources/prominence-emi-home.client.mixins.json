@@ -4,6 +4,15 @@
   "package": "local.prominence.work.mixin",
   "compatibilityLevel": "JAVA_17",
   "plugin": "local.prominence.work.WorkGuard",
-  "client": ["EmiInitialWorkMixin", "TerrainInitialBudgetMixin", "ItemPropertyParsedIdMixin", "LootStableKeyMixin"],
-  "injectors": {"defaultRequire": 1}
+  "client": [
+    "EmiInitialWorkMixin",
+    "TerrainInitialBudgetMixin",
+    "ItemPropertyParsedIdMixin",
+    "LootStableKeyMixin",
+    "FacadeCreativeBuildMixin",
+    "EmiCreativeTimingMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }

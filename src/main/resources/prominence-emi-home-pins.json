@@ -36,5 +36,31 @@
         "elocindev/customitemattributes/api/ItemProperty.class": "4d687eff5abbf852ff7c36682d403bb9e43990438a83aeee1b1dfffb16aa37a2"
       }
     }
+  },
+  "facades": {
+    "ae2": {
+      "version": "15.4.11",
+      "classes": {
+        "appeng/core/FacadeCreativeTab.class": "e9bd9c44bce0f8a0009fa7a688931dea94efab432de284da1858a4f7fb36809d",
+        "appeng/items/parts/FacadeItem.class": "521ba18e88ffdc7629a1302bac348172a0924dda61fad521b3107e52e45d2d17"
+      }
+    },
+    "minecraft": {
+      "version": "1.20.1",
+      "classes": {
+        "net/minecraft/class_7708.class": "127418dbfecb7427ed1902ac3dcec6ea0dcd098d1ec918399520bcb930c9162d",
+        "net/minecraft/class_1799.class": "ab95538ac5fde26a5d78cbc01c77073fb31596f45d19aa1579ca7778627fe2f5",
+        "net/minecraft/class_1747.class": "52a7c61b290955c9d2a4ef42ef50817891e0079e59bc96b1f0eb42ee9cdccfdc",
+        "net/minecraft/class_7708$1.class": "5ea9f3eaf037fdb311a79a3b4bfd9de06844901facff9960447c8c77ab34194a"
+      }
+    }
+  },
+  "creativeTiming": {
+    "emi": {
+      "version": "1.1.24+1.20.1+fabric",
+      "classes": {
+        "dev/emi/emi/registry/EmiStackList.class": "4e05d2d9e9323af194e8b9eef3a637c525d76100e078d21a34294cb380e3093c"
+      }
+    }
   }
 }
