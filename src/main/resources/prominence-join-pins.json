@@ -1,0 +1,26 @@
+{
+  "music": {
+    "reactivemusic": {
+      "version": "1.3.5",
+      "classes": {
+        "circuitlord/reactivemusic/PlayerThread.class": "7e7dac6a7568ee68c79d20c458c7c4142068a5ad02aecd025063873a50943623"
+      }
+    }
+  },
+  "menu": {
+    "fancymenu": {
+      "version": "3.7.0",
+      "classes": {
+        "de/keksuccino/fancymenu/util/mcef/MCEFUtil.class": "134d802bf7b5fd34b07b74dc7267c7bccd6e082fb3e19c27e1493d95994d0331"
+      }
+    }
+  },
+  "material": {
+    "iris": {
+      "version": "1.7.6+mc1.20.1",
+      "classes": {
+        "net/irisshaders/iris/shaderpack/materialmap/BlockMaterialMapping.class": "9ce4dffd7f1e722aa03f1230f6cd4698fa898b0bd3c379821476bdd1c405b78e"
+      }
+    }
+  }
+}
