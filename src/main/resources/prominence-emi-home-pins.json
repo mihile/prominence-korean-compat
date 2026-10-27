@@ -1,0 +1,40 @@
+{
+  "terrain": {
+    "emi": {
+      "version": "1.1.24+1.20.1+fabric",
+      "classes": {
+        "dev/emi/emi/runtime/EmiReloadManager.class": "2e221b6c48eac92a110847ecea0b213dc74eb0e8aa129e8d01e48dee9105c32b",
+        "dev/emi/emi/runtime/EmiReloadManager$ReloadWorker.class": "008f48bb5dd34acde623ce3f27654aa672ba7053d6d5084828e247b0c0e231e4"
+      }
+    },
+    "sodium": {
+      "version": "0.5.13+mc1.20.1",
+      "classes": {
+        "me/jellysquid/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder.class": "96fd5a1c354be0b2cf99b7737a679dd9665acf7e31d97ab7af6a430f97c3e999",
+        "me/jellysquid/mods/sodium/client/render/chunk/RenderSectionManager.class": "a6aaa416a34ef6a7b07538306570ab70a49928f8cd4cfc6b039111ce743ff779"
+      }
+    }
+  },
+  "keys": {
+    "emi_loot": {
+      "version": "0.7.9+1.20.1+fabric",
+      "classes": {
+        "fzzyhmstrs/emi_loot/util/stack/EmiStackWithTitle.class": "39601e9418d614f07480f2838fa9b0b563bfd3eaef841d59fda3eced53fc703c"
+      }
+    },
+    "emi": {
+      "version": "1.1.24+1.20.1+fabric",
+      "classes": {
+        "dev/emi/emi/api/stack/EmiStack.class": "a9527f852735696d55a8a52a9c1e3681716096e6f13c277eceb664a89068f360"
+      }
+    }
+  },
+  "itemIds": {
+    "customitemattributes": {
+      "version": "2.0.0",
+      "classes": {
+        "elocindev/customitemattributes/api/ItemProperty.class": "4d687eff5abbf852ff7c36682d403bb9e43990438a83aeee1b1dfffb16aa37a2"
+      }
+    }
+  }
+}
