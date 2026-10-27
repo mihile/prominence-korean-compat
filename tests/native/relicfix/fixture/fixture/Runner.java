@@ -1,0 +1,3 @@
+package fixture;
+import net.minecraft.*; import elocindev.prominent.recovery.*;
+public class Runner {public static void run(){class_3222 p=new class_3222();class_1799 x=new class_1799("hourglass",1);RelicRecoveryManager.grantOrFlagRelic(p,x);if(!"hourglass".equals(Recorder.name)||p.inv.inserted!=1||!x.method_7960())throw new AssertionError("wrong name/insertion");p.inv.accept=false;x=new class_1799("beer",1);Recorder.name=null;RelicRecoveryManager.grantOrFlagRelic(p,x);if(Recorder.name!=null||RelicRecoveryState.stored!=1||x.count!=1)throw new AssertionError("failure path");RelicRecoveryManager.grantOrFlagRelic(null,x);System.out.println("PASS: inserted relic retains original name; full inventory recovery unchanged; null player");}}

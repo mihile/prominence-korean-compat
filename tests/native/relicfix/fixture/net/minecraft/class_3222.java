@@ -1,0 +1,1 @@
+package net.minecraft; public class class_3222 { public class_1661 inv=new class_1661();public net.minecraft.server.MinecraftServer server=new net.minecraft.server.MinecraftServer();public class_1661 method_31548(){return inv;} public net.minecraft.server.MinecraftServer method_5682(){return server;} public java.util.UUID method_5667(){return new java.util.UUID(0,1);} }

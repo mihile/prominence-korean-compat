@@ -1,0 +1,1 @@
+package elocindev.prominent.recovery; public class RelicRecoveryState {public static int stored;public static RelicRecoveryState getServerState(net.minecraft.server.MinecraftServer s){return new RelicRecoveryState();} public void addRecoveredItem(java.util.UUID id,net.minecraft.class_1799 s){stored+=s.count;}}
