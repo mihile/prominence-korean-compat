@@ -21,9 +21,9 @@ import java.util.function.Supplier;
 public final class ShaderSourceDiskCache implements AutoCloseable {
     public record Define(String key, String value) {}
     public record Compilation(String text, boolean clean) {}
-    public record Stats(long hits, long misses, long bypasses, long writes, long readNanos, long nativeNanos) {}
+    public record Stats(long hits, long misses, long bypasses, long writes, long readNanos, long nativeNanos, long skippedDirty, long skippedOversize, long droppedQueue, long writeFailures, long evictions, long queued, long pendingBytes) {}
     private static final int MAGIC=0x50475332, HEADER=72;
-    private static final long PENDING_LIMIT=4L*1024*1024;
+    private static final long PENDING_LIMIT=16L*1024*1024;
     private final Path directory;
     private final String namespace;
     private final long maxBytes;
@@ -31,16 +31,17 @@ public final class ShaderSourceDiskCache implements AutoCloseable {
     private final ThreadPoolExecutor writer;
     private final AtomicLong pending=new AtomicLong(), hits=new AtomicLong(), misses=new AtomicLong(), bypasses=new AtomicLong();
     private final AtomicLong writes=new AtomicLong(), readNanos=new AtomicLong(), nativeNanos=new AtomicLong();
+    private final AtomicLong skippedDirty=new AtomicLong(), skippedOversize=new AtomicLong(), droppedQueue=new AtomicLong(), writeFailures=new AtomicLong(), evictions=new AtomicLong(), queued=new AtomicLong();
     private volatile boolean closed;
     private volatile boolean readDirectoryReady;
 
     public ShaderSourceDiskCache(Path directory,String namespace) {
-        this(directory,namespace,128L*1024*1024,2*1024*1024,1024);
+        this(directory,namespace,384L*1024*1024,2*1024*1024,3072);
     }
     ShaderSourceDiskCache(Path directory,String namespace,long maxBytes,int maxEntry,int maxEntries) {
         this.directory=directory.toAbsolutePath().normalize();this.namespace=namespace;
         this.maxBytes=maxBytes;this.maxEntry=maxEntry;this.maxEntries=maxEntries;
-        writer=new ThreadPoolExecutor(0,1,2,TimeUnit.SECONDS,new ArrayBlockingQueue<>(16),r->{
+        writer=new ThreadPoolExecutor(0,1,2,TimeUnit.SECONDS,new ArrayBlockingQueue<>(64),r->{
             Thread t=new Thread(r,"Prominence shader text cache");t.setDaemon(true);t.setPriority(Thread.MIN_PRIORITY);return t;
         },new ThreadPoolExecutor.AbortPolicy());
     }
@@ -51,7 +52,7 @@ public final class ShaderSourceDiskCache implements AutoCloseable {
         if(cached!=null){hits.incrementAndGet();return cached;}
         misses.incrementAndGet();start=System.nanoTime();Compilation result;
         try {result=nativeCompiler.get();} finally {nativeNanos.addAndGet(System.nanoTime()-start);}
-        if(result.clean() && result.text()!=null) enqueue(key,result.text());
+        if(result.clean() && result.text()!=null) enqueue(key,result.text()); else skippedDirty.incrementAndGet();
         return result.text();
     }
     // These builtins can depend on time/filesystem; token pasting can manufacture their names.
@@ -143,21 +144,21 @@ public final class ShaderSourceDiskCache implements AutoCloseable {
         }catch(IOException|SecurityException|IllegalArgumentException e){return null;}
     }
     private void enqueue(String key,String text) {
-        long bytes=2L*text.length();if(bytes>maxEntry||bytes+HEADER>maxBytes||closed)return;
-        long total=pending.addAndGet(bytes);if(total>PENDING_LIMIT){pending.addAndGet(-bytes);return;}
-        try{writer.execute(()->{try{write(key,text);}finally{pending.addAndGet(-bytes);}});}
-        catch(RuntimeException e){pending.addAndGet(-bytes);}
+        long bytes=2L*text.length();if(bytes>maxEntry||bytes+HEADER>maxBytes||closed){skippedOversize.incrementAndGet();return;}
+        long total=pending.addAndGet(bytes);if(total>PENDING_LIMIT){pending.addAndGet(-bytes);droppedQueue.incrementAndGet();return;}
+        try{writer.execute(()->{try{write(key,text);}finally{pending.addAndGet(-bytes);}});queued.incrementAndGet();}
+        catch(RuntimeException e){pending.addAndGet(-bytes);droppedQueue.incrementAndGet();}
     }
     private void write(String key,String text) {
         Path temporary=null;
         try {
-            if(!safeDirectory(true))return;readDirectoryReady=true;int bytes=text.length()*2;
+            if(!safeDirectory(true)){writeFailures.incrementAndGet();return;}readDirectoryReady=true;int bytes=text.length()*2;
             prune(bytes+HEADER);
             byte[] payload=new byte[bytes];ByteBuffer.wrap(payload).asCharBuffer().put(text);
             ByteBuffer b=ByteBuffer.allocate(HEADER+bytes);b.putInt(MAGIC).putInt(text.length());b.put(HexFormat.of().parseHex(key));b.put(hash(payload));b.put(payload);
             temporary=Files.createTempFile(directory,"writing-",".tmp");Files.write(temporary,b.array());
             Files.move(temporary,directory.resolve(key+".bin"),StandardCopyOption.ATOMIC_MOVE,StandardCopyOption.REPLACE_EXISTING);temporary=null;writes.incrementAndGet();
-        }catch(IOException|SecurityException e){/* Optional cache failure keeps native output. */}
+        }catch(IOException|SecurityException e){writeFailures.incrementAndGet(); /* Optional cache failure keeps native output. */}
         finally {if(temporary!=null)try{Files.deleteIfExists(temporary);}catch(IOException|SecurityException ignored){}}
     }
     private record Entry(Path path,long size,long time) {}
@@ -176,9 +177,9 @@ public final class ShaderSourceDiskCache implements AutoCloseable {
         }
         entries.sort(Comparator.comparingLong(Entry::time));int count=entries.size();
         for(Entry entry:entries){if(size+incoming<=maxBytes&&count<maxEntries)break;
-            Files.deleteIfExists(entry.path());size-=entry.size();count--;}
+            if(Files.deleteIfExists(entry.path()))evictions.incrementAndGet();size-=entry.size();count--;}
     }
-    public Stats stats(){return new Stats(hits.get(),misses.get(),bypasses.get(),writes.get(),readNanos.get(),nativeNanos.get());}
+    public Stats stats(){return new Stats(hits.get(),misses.get(),bypasses.get(),writes.get(),readNanos.get(),nativeNanos.get(),skippedDirty.get(),skippedOversize.get(),droppedQueue.get(),writeFailures.get(),evictions.get(),queued.get(),pending.get());}
     long pendingBytes(){return pending.get();}
     void awaitWrites() throws InterruptedException {
         long end=System.nanoTime()+TimeUnit.SECONDS.toNanos(30);

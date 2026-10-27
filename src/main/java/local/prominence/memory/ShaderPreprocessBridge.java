@@ -42,7 +42,7 @@ public final class ShaderPreprocessBridge {
         if(nanos<100_000_000L)return;
         var s=Holder.CACHE.stats();
         LoggerFactory.getLogger("Prominence compatibility").info(
-            "Client pipeline preparation: dimension={}, totalMs={}, shaderTextHits={}, misses={}, bypasses={}, writes={}, nativePreprocessMs={}, cacheReadMs={}",
-            dimension,nanos/1_000_000L,s.hits(),s.misses(),s.bypasses(),s.writes(),s.nativeNanos()/1_000_000L,s.readNanos()/1_000_000L);
+            "Client pipeline preparation: dimension={}, totalMs={}, shaderTextHits={}, misses={}, bypasses={}, writes={}, nativePreprocessMs={}, cacheReadMs={}, dirty={}, oversized={}, queueDropped={}, writeFailed={}, evicted={}, queued={}, pendingBytes={}",
+            dimension,nanos/1_000_000L,s.hits(),s.misses(),s.bypasses(),s.writes(),s.nativeNanos()/1_000_000L,s.readNanos()/1_000_000L,s.skippedDirty(),s.skippedOversize(),s.droppedQueue(),s.writeFailures(),s.evictions(),s.queued(),s.pendingBytes());
     }
 }

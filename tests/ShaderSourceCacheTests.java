@@ -83,7 +83,7 @@ public final class ShaderSourceCacheTests {
             for(String dynamic:List.of("__TIME__","__DATE__","__TIMESTAMP__","__COUNTER__","__FILE__","__BASE_FILE__","__INCLUDE_LEVEL__","A ## B","#include \"x\"","#/**/include \"x\"","#inc\\\nlude \"x\"","%:include \"x\"")){
                 long b=cache.stats().bypasses();cache.preprocess(dynamic,defs,compiler);check(cache.stats().bypasses()==b+1,"Dynamic input cached: "+dynamic);}
             long b=cache.stats().bypasses();cache.preprocess("source",List.of(new ShaderSourceDiskCache.Define("A","__TIME__")),compiler);check(cache.stats().bypasses()==b+1,"Dynamic define cached");
-            cache.preprocess("dirty",defs,()->new ShaderSourceDiskCache.Compilation("partial",false));cache.awaitWrites();check(!Files.exists(dir.resolve("cache").resolve(cache.key("dirty",defs)+".bin")),"Dirty output persisted");
+            cache.preprocess("dirty",defs,()->new ShaderSourceDiskCache.Compilation("partial",false));cache.awaitWrites();check(!Files.exists(dir.resolve("cache").resolve(cache.key("dirty",defs)+".bin")),"Dirty output persisted");check(cache.stats().skippedDirty()>0,"Dirty counter missing");
             try{cache.preprocess("throw",defs,()->{throw new IllegalStateException("native failure");});throw new AssertionError("Exception swallowed");}catch(IllegalStateException expected){check(expected.getMessage().equals("native failure"),"Native exception replaced");}
             try(var changed=new ShaderSourceDiskCache(dir.resolve("cache"),"schema2")){check(!changed.key("source",defs).equals(key),"Native schema change ignored");}
             var pins=ShaderPreprocessGuard.pins();Map<String,String> versions=Map.of("minecraft","1.20.1","iris","1.7.6+mc1.20.1","org_anarres_jcpp","1.4.14");
@@ -97,8 +97,8 @@ public final class ShaderSourceCacheTests {
             Files.createDirectories(dir.resolve("bounded"));Path unrelated=dir.resolve("bounded/user.bin");Files.writeString(unrelated,"preserve");
             for(int i=0;i<10;i++){small.preprocess("s"+i,defs,()->new ShaderSourceDiskCache.Compilation("x".repeat(90),true));small.awaitWrites();}
             try(var files=Files.list(dir.resolve("bounded"))){var owned=files.filter(p->p.getFileName().toString().matches("[0-9a-f]{64}\\.bin")).toList();check(owned.size()<=3,"Entry limit exceeded");long total=0;for(Path p:owned)total+=Files.size(p);check(total<=1000,"Disk byte limit exceeded");}
-            check(Files.readString(unrelated).equals("preserve"),"Unrelated file removed");
-            long w=small.stats().writes();small.preprocess("oversize",defs,()->new ShaderSourceDiskCache.Compilation("x".repeat(101),true));small.awaitWrites();check(small.stats().writes()==w,"Oversized output queued");check(small.pendingBytes()==0,"Queued memory retained");
+            check(Files.readString(unrelated).equals("preserve"),"Unrelated file removed");check(small.stats().evictions()>0,"Eviction counter missing");
+            long w=small.stats().writes();small.preprocess("oversize",defs,()->new ShaderSourceDiskCache.Compilation("x".repeat(101),true));small.awaitWrites();check(small.stats().writes()==w,"Oversized output queued");check(small.pendingBytes()==0,"Queued memory retained");check(small.stats().skippedOversize()>0,"Oversize counter missing");
         }
         Path blocked=dir.resolve("blocked");Files.writeString(blocked,"not a directory");
         try(var cache=new ShaderSourceDiskCache(blocked.resolve("cache"),"blocked")){
@@ -109,10 +109,13 @@ public final class ShaderSourceCacheTests {
             var executor=(java.util.concurrent.ThreadPoolExecutor)field.get(cache);var gate=new java.util.concurrent.CountDownLatch(1);
             executor.execute(()->{try{gate.await();}catch(InterruptedException e){Thread.currentThread().interrupt();}});
             try {for(int i=0;i<32;i++)cache.preprocess("queued"+i,defs,()->new ShaderSourceDiskCache.Compilation("q".repeat(200_000),true));
-                check(cache.pendingBytes()>0&&cache.pendingBytes()<=4L*1024*1024,"Pending text byte budget exceeded");
-                check(executor.getQueue().size()<=16,"Pending task count exceeded");
+                check(cache.pendingBytes()>0&&cache.pendingBytes()<=16L*1024*1024,"Pending text byte budget exceeded");
+                check(executor.getQueue().size()<=64,"Pending task count exceeded");
             }finally{gate.countDown();}
             cache.awaitWrites();check(cache.pendingBytes()==0,"Completed queue retains text budget");
+            check(cache.stats().writes()==32 && cache.stats().queued()==32 && cache.stats().droppedQueue()==0 && cache.stats().pendingBytes()==0,"Burst entries lost");
+            long hitsBefore=cache.stats().hits();for(int i=0;i<32;i++){final int index=i;cache.preprocess("queued"+i,defs,()->{throw new AssertionError("Cache miss "+index);});}
+            check(cache.stats().hits()-hitsBefore==32,"Burst not retained");
         }
         System.out.println("PASS: "+checks+" disk cache data/invalidation/bounds/native fingerprint checks; no game or OpenGL");
     }
