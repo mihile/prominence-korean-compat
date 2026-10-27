@@ -16,19 +16,20 @@ public final class UpdateCheckScreen extends class_437 {
     private class_4185 retry;
     public UpdateCheckScreen(class_437 parent){super(text("title"));this.parent=parent;}
     private static class_2561 text(String key){return class_2561.method_43471("prominence.update."+key);}
+    public void checking(){status="checking";retry.field_22763=false;}
     public void failed(){status="check_failed";retry.field_22763=true;}
     public void latest(){status="latest";retry.field_22763=true;}
     @Override protected void method_25426(){
         box=UpdateLayout.of(field_22789,field_22790);
         int half=(box.width()-30)/2;
-        method_37063(class_4185.method_46430(text("track_main"),b->select("main")).method_46434(box.x()+12,box.y()+38,half,20).method_46431());
-        method_37063(class_4185.method_46430(text("track_nightly"),b->select("nightly")).method_46434(box.x()+18+half,box.y()+38,half,20).method_46431());
+        method_37063(class_4185.method_46430(text(selected.equals("main")?"track_main_selected":"track_main"),b->select("main")).method_46434(box.x()+12,box.y()+38,half,20).method_46431());
+        method_37063(class_4185.method_46430(text(selected.equals("nightly")?"track_nightly_selected":"track_nightly"),b->select("nightly")).method_46434(box.x()+18+half,box.y()+38,half,20).method_46431());
         retry=method_37063(class_4185.method_46430(text("check_again"),b->select(selected)).method_46434(box.x()+12,box.buttonsY(),box.buttonWidth(),20).method_46431());retry.field_22763=true;
         method_37063(class_4185.method_46430(text("github"),b->class_156.method_668().method_670("https://github.com/"+SignedRelease.REPO+"/releases/latest")).method_46434(box.x()+18+box.buttonWidth(),box.buttonsY(),box.buttonWidth(),20).method_46431());
         method_37063(class_4185.method_46430(text("close"),b->method_25419()).method_46434(box.x()+24+box.buttonWidth()*2,box.buttonsY(),box.buttonWidth(),20).method_46431());
     }
     private void select(String value){
-        try{UpdateClient.setTrack(value);UpdateClient.openCheck(parent); UpdateClient.lookup((UpdateCheckScreen)field_22787.field_1755,parent); }
+        try{UpdateClient.setTrack(value);UpdateClient.openCheck(parent); }
         catch(java.io.IOException e){failed();}
     }
     @Override public void method_25394(class_332 draw,int mx,int my,float delta){

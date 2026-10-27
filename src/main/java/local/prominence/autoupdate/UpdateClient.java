@@ -131,11 +131,17 @@ public final class UpdateClient implements ClientModInitializer {
     static void openCheck(class_437 parent){
         var client=class_310.method_1551();
         if(release!=null && (phase==Phase.QUEUED || phase==Phase.DOWNLOADING)){client.method_1507(new UpdateScreen(release,parent));return;}
-        var screen=new UpdateCheckScreen(parent);client.method_1507(screen);
+        var screen=new UpdateCheckScreen(parent);client.method_1507(screen);lookup(screen,parent);
+    }
+    static void openChoose(class_437 parent){
+        var client=class_310.method_1551();
+        if(phase==Phase.QUEUED || phase==Phase.DOWNLOADING)return;
+        client.method_1507(new UpdateCheckScreen(parent));
     }
     static void lookup(UpdateCheckScreen screen,class_437 parent){
         var client=class_310.method_1551();
-        LOG.info("Checking client update from title/menu control");
+        screen.checking();
+        LOG.info("Checking client update from title/menu control: track={}",track);
         request().whenComplete((next,error)->client.execute(()->{
             if(client.field_1755!=screen || !screen.track().equals(track))return;
             if(error!=null){LOG.warn("Menu update check unavailable; current JAR unchanged",error);screen.failed();return;}
