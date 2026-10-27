@@ -62,5 +62,28 @@
         "dev/emi/emi/registry/EmiStackList.class": "4e05d2d9e9323af194e8b9eef3a637c525d76100e078d21a34294cb380e3093c"
       }
     }
+  },
+  "attributeCandidates": {
+    "emi": {
+      "version": "1.1.24+1.20.1+fabric",
+      "classes": {
+        "dev/emi/emi/search/EmiSearch.class": "7af27b19e5efae80937406172e9605e63d3545e50a9974a1c1904a0b0d01f86a"
+      }
+    },
+    "customitemattributes": {
+      "version": "2.0.0",
+      "classes": {
+        "elocindev/customitemattributes/builder/AttributeBuilderCallback.class": "5a8e1517f27c2959e9ba88d98388641d35bc6fbb550e140e5d3067ea0e9eb192",
+        "elocindev/customitemattributes/api/ItemProperty.class": "4d687eff5abbf852ff7c36682d403bb9e43990438a83aeee1b1dfffb16aa37a2",
+        "elocindev/customitemattributes/config/CIAConfig.class": "e1f39a0b686f76a27d9c46de4f83af185947fa3017ce9ec3f58840a2dbb43b66"
+      }
+    },
+    "minecraft": {
+      "version": "1.20.1",
+      "classes": {
+        "net/minecraft/class_2370.class": "84cbd3842d7638bde30d70c4ed34e0e8416715cc5b7d8bded28e859a91c41d01",
+        "net/minecraft/class_2348.class": "fe31ac722f39e4a1e2ff40829c20cccce8d05f50eab17eb098183a2c2f8995ac"
+      }
+    }
   }
 }

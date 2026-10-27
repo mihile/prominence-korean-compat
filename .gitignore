@@ -5,3 +5,7 @@ build/
 *.key
 *.pem
 __pycache__/
+settings.local.json
+*.jfr
+*.hprof
+*.hprof.gz

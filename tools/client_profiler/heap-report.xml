@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://www.eclipse.org/mat/report.xsd" name="Client retained memory">
+ <param key="filename_suffix" value="Client_Retention"/>
+ <query name="Largest retained owners"><param key="format" value="csv"/><param key="limit" value="200"/><command>dominator_tree</command></query>
+ <query name="Object histogram"><param key="format" value="csv"/><param key="limit" value="300"/><command>histogram</command></query>
+ <query name="Current client world"><param key="format" value="csv"/><param key="limit" value="10"/><command>oql "SELECT c.field_1687 AS world,c.field_1724 AS player FROM net.minecraft.class_310 c"</command></query>
+ <query name="All client worlds"><param key="format" value="csv"/><param key="limit" value="100"/><command>oql "SELECT c,c.@retainedHeapSize AS retained FROM net.minecraft.class_638 c"</command></query>
+ <query name="EMI search indexes"><param key="format" value="csv"/><param key="limit" value="100"/><command>oql "SELECT c,c.@retainedHeapSize AS retained FROM dev.emi.emi.search.SuffixArray c"</command></query>
+</section>

@@ -10,7 +10,9 @@
     "ItemPropertyParsedIdMixin",
     "LootStableKeyMixin",
     "FacadeCreativeBuildMixin",
-    "EmiCreativeTimingMixin"
+    "EmiCreativeTimingMixin",
+    "EmiAttributeScopeMixin",
+    "AttributeCandidateIterationMixin"
   ],
   "injectors": {
     "defaultRequire": 1
