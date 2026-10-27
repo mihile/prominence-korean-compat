@@ -12,7 +12,8 @@
     "FacadeCreativeBuildMixin",
     "EmiCreativeTimingMixin",
     "EmiAttributeScopeMixin",
-    "AttributeCandidateIterationMixin"
+    "AttributeCandidateIterationMixin",
+    "VoxyServerEarlyRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

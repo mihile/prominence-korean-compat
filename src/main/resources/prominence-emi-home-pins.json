@@ -1,4 +1,22 @@
 {
+  "voxyEarlyRenderer": {
+    "voxyserver": {
+      "version": "1.2.4+1.20.1-port.3",
+      "classes": {"com/dripps/voxyserver/client/ClientLodReceiver.class": "eaf6e2347deb7568a2ca6fd51cf0ffa7c0d6226ecbf6093295f66a69a8a27e35"}
+    },
+    "voxy": {
+      "version": "0.2.20-beta+1.20.1-port.9",
+      "classes": {
+        "me/cortex/voxy/client/mixin/minecraft/MixinLevelRenderer.class": "dee0fc8fb7344f97827d6dc386c4da01b583f22f72250b58d24ca4d0d577c3e1",
+        "me/cortex/voxy/client/mixin/iris/MixinIrisRenderingPipeline.class": "98ad939ac21469d6e5a8920de3a75fe985e0e86609c19c82d617596fc171ed6c",
+        "me/cortex/voxy/client/core/IGetVoxyRenderSystem.class": "a1984aa75f86c91c3078e874b0460d335760dfb3750a5a9e269ee592f6e7bf17"
+      }
+    },
+    "iris": {
+      "version": "1.7.6+mc1.20.1",
+      "classes": {"net/irisshaders/iris/pipeline/IrisRenderingPipeline.class": "c62bb0ed3892e7fadeb1e87142cbb35028e69fb411dd33e6151f6052c03290e9"}
+    }
+  },
   "terrain": {
     "emi": {
       "version": "1.1.24+1.20.1+fabric",
