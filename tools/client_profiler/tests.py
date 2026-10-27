@@ -1,4 +1,5 @@
-import argparse,datetime as dt,importlib.util,json,pathlib,subprocess,sys,tempfile,time,unittest,uuid
+import argparse,contextlib,datetime as dt,importlib.util,io,json,pathlib,subprocess,sys,tempfile,time,unittest,uuid
+from unittest.mock import patch
 P=pathlib.Path(__file__).resolve().parent
 spec=importlib.util.spec_from_file_location('profiler',P/'profile.py');profiler=importlib.util.module_from_spec(spec);spec.loader.exec_module(profiler)
 
@@ -29,6 +30,19 @@ class Tests(unittest.TestCase):
   with tempfile.TemporaryDirectory() as temp:
    path=pathlib.Path(temp)/'state.json';profiler.write(path,{'phase':'recording'});profiler.write(path,{'phase':'heap-saved-client-can-close'})
    self.assertEqual(json.loads(path.read_text('utf8'))['phase'],'heap-saved-client-can-close');self.assertFalse(path.with_suffix('.json.pending').exists())
+ def test_wait_until_mat_complete_and_failures(self):
+  with tempfile.TemporaryDirectory() as temp:
+   run=pathlib.Path(temp);report=run/'heap_report.zip';report.write_bytes(b'report')
+   steps=[{'phase':'recording'}, {'phase':'heap-saved-client-can-close','canCloseClient':True},
+          {'phase':'waiting-for-client-exit-for-MAT','canCloseClient':True},
+          {'phase':'MAT-running','canCloseClient':True},
+          {'phase':'complete','canCloseClient':True,'matReports':[str(report)]}]
+   output=io.StringIO()
+   with patch.object(pathlib.Path,'read_text',side_effect=[json.dumps(s) for s in steps]),patch.object(profiler.time,'sleep'),contextlib.redirect_stdout(output):
+    profiler.wait_capture(run,180)
+   content=output.getvalue();self.assertLess(content.index('힙 덤프 저장 완료'),content.index('MAT 분석 중'));self.assertLess(content.index('MAT 분석 중'),content.index('MAT 분석 완료'))
+   for failure in ({'phase':'failed','error':'MAT failure','canCloseClient':True}, {'phase':'complete','canCloseClient':True,'matReports':[str(run/'missing.zip')]}, {'phase':'MAT-pending-client-still-running','canCloseClient':True}):
+    with patch.object(pathlib.Path,'read_text',return_value=json.dumps(failure)),contextlib.redirect_stdout(io.StringIO()),self.assertRaises(RuntimeError):profiler.wait_capture(run,180)
 
 def fixture(config,output):
  """Real JFR -> post-JFR compressed heap -> offline MAT, on a tiny disposable JVM only."""

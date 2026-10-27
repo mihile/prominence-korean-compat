@@ -3,7 +3,7 @@ No Minecraft/server launch, stop, settings write, or forced GC inside the timed 
 Personal tool paths live in INSTANCE/KoreanPatch/profiler/settings.local.json, outside Git.
 """
 from pathlib import Path
-import argparse,base64,csv,ctypes,datetime as dt,hashlib,json,os,re,shutil,subprocess,sys,threading,time,uuid,xml.etree.ElementTree as ET,zipfile
+import argparse,base64,csv,ctypes,datetime as dt,gzip,hashlib,json,os,re,shutil,subprocess,sys,threading,time,uuid,xml.etree.ElementTree as ET,zipfile
 from ctypes import wintypes as wt
 
 SOURCE=Path(__file__).resolve().parent
@@ -127,12 +127,24 @@ def mat(run,state,report=None):
  home=Path(state['matHome']);java=Path(state['analysisJava']);launcher=next((home/'plugins').glob('org.eclipse.equinox.launcher_*.jar'))
  config=run/'mat-configuration'
  if not config.exists():shutil.copytree(home/'configuration',config)
+ # MAT's random seeking into a large gzip produced a DEFLATE error on a valid
+ # capture. Decompress with CRC verification first, then parse the raw HPROF.
+ # Keep the original compressed dump, use a separate short ASCII work path.
+ work=run/'mat-uncompressed';work.mkdir(exist_ok=True);heap=work/'heap.hprof';partial=work/'heap.hprof.partial'
+ if not heap.exists():
+  try:
+   with gzip.open(run/'heap.hprof.gz','rb') as source,partial.open('wb') as output:shutil.copyfileobj(source,output,8*1024*1024)
+   os.replace(partial,heap)
+  except BaseException:
+   partial.unlink(missing_ok=True);raise
  script=Path(report) if report else SOURCE/'heap-report.xml'
  if state.get('fixture') and report is None:
   script=run/'fixture-retention.xml';script.write_text('<section xmlns="http://www.eclipse.org/mat/report.xsd" name="Fixture"><query name="Dominators"><command>dominator_tree</command></query><query name="Histogram"><command>histogram</command></query></section>','utf8')
- args=[java/'bin/java.exe','-Xms128m','-Xmx'+state.get('matHeap','3g'),'-XX:ActiveProcessorCount=2','--add-exports=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED','-jar',launcher,'-configuration',config,'-data',run/'mat-workspace','-consoleLog','-nosplash','-application','org.eclipse.mat.api.parse',run/'heap.hprof.gz','org.eclipse.mat.api:suspects','org.eclipse.mat.api:overview',script]
+ safe_script=work/'report.xml';shutil.copy2(script,safe_script)
+ args=[java/'bin/java.exe','-Xms128m','-Xmx'+state.get('matHeap','3g'),'-XX:ActiveProcessorCount=2','--add-exports=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED','-jar',launcher,'-configuration',config,'-data',run/'mat-workspace','-consoleLog','-nosplash','-application','org.eclipse.mat.api.parse',heap,'org.eclipse.mat.api:suspects','org.eclipse.mat.api:overview',safe_script]
  reply=command(args,cwd=home,timeout=7200);(run/'mat.log').write_text(reply.stdout+reply.stderr,'utf8')
- reports=[str(p) for p in run.glob('heap*.zip')];assert reply.returncode==0 and reports,'MAT failed or did not produce reports; inspect mat.log'
+ reports=[str(p) for p in work.glob('heap*.zip')]
+ assert reply.returncode==0 and len(reports)>=3 and all(zipfile.is_zipfile(p) for p in reports),'MAT failed or did not produce all three report archives; inspect mat.log'
  return reports
 
 def worker(run):
@@ -229,6 +241,37 @@ def start(instance,args):
  write(instance/'KoreanPatch/profiler/latest.json',{'run':str(run),'runId':ident})
  print(json.dumps({'phase':state['phase'],'run':str(run),'seconds':args.seconds,'notice':'Recording confirmed. Enter the server now. After recording, heap dumping can pause the game/request Full GC; keep the client open until canCloseClient=true. MAT runs after client exit.'},ensure_ascii=False,indent=2));return run
 
+def wait_capture(run,initial_duration,interval=.5):
+ """Display capture and MAT progress; success means reports were produced."""
+ last=None;announced=False;deadline=time.monotonic()+initial_duration+1000;last_reminder=time.monotonic()
+ labels={'starting':'측정 준비 중', 'recording':'3분 측정 중', 'trace-saved':'측정 기록 저장 완료',
+         'dumping-heap':'힙 덤프 저장 중 — 게임을 종료하지 마세요',
+         'waiting-for-client-exit-for-MAT':'클라이언트 종료 대기 중 — 종료하면 MAT가 시작됩니다',
+         'MAT-running':'MAT 분석 중 — 완료될 때까지 기다려 주세요'}
+ while time.monotonic()<deadline:
+  state=json.loads((run/'state.json').read_text('utf8'));phase=state['phase']
+  if phase=='failed':
+   raise RuntimeError('측정 또는 MAT 분석 실패: '+str(state.get('error','원인은 작업 로그를 확인하세요')))
+  if state.get('canCloseClient') and not announced:
+   if phase in ('MAT-running','complete'):
+    print('힙 덤프 저장 완료. MAT 완료까지 이 창이 진행 상황을 보여줍니다.',flush=True)
+   else:
+    print('힙 덤프 저장 완료. 이제 클라이언트를 종료해 주세요. MAT 완료까지 이 창이 진행 상황을 보여줍니다.',flush=True)
+   announced=True;deadline=time.monotonic()+8*3600+300
+  if phase!=last:
+   if phase in labels:print(labels[phase],flush=True)
+   last=phase;last_reminder=time.monotonic()
+  if phase=='complete':
+   reports=state.get('matReports') or []
+   if not reports or not all(Path(p).is_file() for p in reports):raise RuntimeError('MAT 완료 상태지만 보고서가 없거나 일부를 찾을 수 없습니다.')
+   print('MAT 분석 완료. 이제 Codex에게 알려주세요.',flush=True)
+   print('분석 자료 폴더: '+str(run),flush=True);return
+  if phase=='MAT-pending-client-still-running':raise RuntimeError('MAT 대기 시간이 끝났습니다. 클라이언트 종료 후 MAT 분석을 다시 실행해야 합니다.')
+  if phase=='MAT-running' and time.monotonic()-last_reminder>=60:
+   print('MAT가 계속 분석 중입니다. 창을 유지해 주세요.',flush=True);last_reminder=time.monotonic()
+  time.sleep(interval)
+ raise RuntimeError('완료 대기 시간이 초과됐습니다. 작업 상태와 로그를 확인하세요.')
+
 def main():
  parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('action',choices=['start','status','stop','worker','mat','analyze','wait']);parser.add_argument('--instance',type=Path);parser.add_argument('--run',type=Path);parser.add_argument('--seconds',type=int,default=180);parser.add_argument('--label',default='client-3min');parser.add_argument('--diagnostic',action='store_true');parser.add_argument('--pid',type=int);parser.add_argument('--fixture-nonce');parser.add_argument('--report',type=Path);args=parser.parse_args()
  if os.name!='nt':raise SystemExit('Windows client profiler')
@@ -240,14 +283,7 @@ def main():
  state=json.loads((run/'state.json').read_text('utf8'))
  if args.action=='status':print(json.dumps(state,ensure_ascii=False,indent=2))
  elif args.action=='wait':
-  last=None;deadline=time.monotonic()+state['durationSeconds']+1000
-  while time.monotonic()<deadline:
-   state=json.loads((run/'state.json').read_text('utf8'))
-   if state['phase']!=last:print(state['phase'],flush=True);last=state['phase']
-   if state['phase']=='failed':raise RuntimeError(state.get('error','Capture failed; inspect run logs'))
-   if state.get('canCloseClient'):print('Heap saved. You may close the client; MAT starts after client exit.',flush=True);return
-   time.sleep(.5)
-  raise RuntimeError('Timed out waiting for saved heap; inspect status/logs')
+  wait_capture(run,state['durationSeconds'])
  elif args.action=='stop':(run/'stop-request').touch();print('Stop requested. Timed trace is saved before the mandatory heap dump; wait for canCloseClient=true.')
  elif args.action=='analyze':
   assert state.get('validJfr') and state.get('canCloseClient'),'Finish the trace and heap before offline analysis'
@@ -259,7 +295,11 @@ def main():
    if handle:KERNEL.CloseHandle(handle)
   assert (run/'heap.hprof.gz').exists();lock=Path(state['runRoot'])/'mat.lock';token={'ownerPid':os.getpid(),'runId':state['runId']}
   assert lease(lock,token),'Another MAT analysis is active; keep analyses serial'
-  try:reports=mat(run,state,args.report);state.update(phase='complete',matReports=reports,canCloseClient=True);write(run/'state.json',state);print(json.dumps(reports))
+  try:
+   state.pop('error',None);state.update(phase='MAT-running',canCloseClient=True);write(run/'state.json',state)
+   reports=mat(run,state,args.report);state.update(phase='complete',matReports=reports,canCloseClient=True);write(run/'state.json',state);print(json.dumps(reports))
+  except BaseException as error:
+   state.update(phase='failed',error=repr(error),canCloseClient=True);write(run/'state.json',state);raise
   finally:release_lease(lock,token)
 
 if __name__=='__main__':main()
