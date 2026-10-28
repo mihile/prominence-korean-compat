@@ -207,5 +207,13 @@
         "dev/ftb/mods/ftbquests/integration/item_filtering/DisplayStacksCache.class": "2d08f5ae6ddf3bfb474481d47b50554000a836bec450ab379a30812309c87189"
       }
     }
+  },
+  "voxyScreenUv": {
+    "voxy": {
+      "version": "0.2.20-beta+1.20.1-port.9",
+      "classes": {
+        "me/cortex/voxy/client/iris/IrisShaderPatch.class": "c6354491fa1ec969a576714d25cea274da71942f805b28b5cefec268d3e72e2c"
+      }
+    }
   }
 }

@@ -101,6 +101,11 @@ public final class ShaderSourceCacheTests {
             check(Files.readString(unrelated).equals("preserve"),"Unrelated file removed");check(small.stats().evictions()>0,"Eviction counter missing");
             long w=small.stats().writes();small.preprocess("oversize",defs,()->new ShaderSourceDiskCache.Compilation("x".repeat(101),true));small.awaitWrites();check(small.stats().writes()==w,"Oversized output queued");check(small.pendingBytes()==0,"Queued memory retained");check(small.stats().skippedOversize()>0,"Oversize counter missing");
         }
+        try(var bounded=new ShaderSourceDiskCache(dir.resolve("memory-limit"),"memory-limit",8_000_000,4_000_000,8192)) {
+            for(int i=0;i<20;i++)bounded.preprocess("bounded-source"+i,defs,()->new ShaderSourceDiskCache.Compilation("x".repeat(300_000),true));
+            check(bounded.memoryBytes()<=8_000_000,"Memory cache exceeds byte bound");
+            bounded.awaitWrites();
+        }
         Path blocked=dir.resolve("blocked");Files.writeString(blocked,"not a directory");
         try(var cache=new ShaderSourceDiskCache(blocked.resolve("cache"),"blocked")){
             check(cache.preprocess("s",defs,compiler).startsWith("result"),"Unavailable disk stopped native compile");cache.awaitWrites();check(Files.readString(blocked).equals("not a directory"),"Blocking file changed");

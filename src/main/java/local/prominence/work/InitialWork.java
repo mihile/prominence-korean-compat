@@ -25,17 +25,8 @@ public final class InitialWork {
     }
 
     public static void ensureRenderThreadPriority() {
-        if (!PRIORITY_ELEVATED.get()) {
-            Thread current = Thread.currentThread();
-            try {
-                if (current.getPriority() < Thread.MAX_PRIORITY) {
-                    current.setPriority(Thread.MAX_PRIORITY);
-                    PRIORITY_ELEVATED.set(true);
-                    LoggerFactory.getLogger("Prominence compatibility").info(
-                        "Elevated {} priority to MAX_PRIORITY ({}) for join frame stability", current.getName(), Thread.MAX_PRIORITY);
-                }
-            } catch (SecurityException ignored) {}
-        }
+        // Keep the OS/JVM priority unchanged. Raising a render or reload worker to MAX_PRIORITY
+        // permanently can starve chunk preparation; it does not remove blocking shader compilation.
     }
 
     public static int budget(int original, int threads, int busy, int queued) {

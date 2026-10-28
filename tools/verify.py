@@ -19,6 +19,7 @@ def main():
  with zipfile.ZipFile(args.build_dir/'prominence-korean-compat-1.0.0.jar') as z:(args.build_dir/'test-helper.jar').write_bytes(z.read('assets/prominence_korean_compat/update-helper.jar'))
  results=[]
  checks=[('UpdaterTests',[safe_arg(args.build_dir/'test-helper.jar')]),('VerifyBytecode',[safe_arg(classes)]),('ModalRenderChecks',[safe_arg(classes)]),('UpdaterChannelChecks',[safe_arg(classes)]),('local.prominence.memory.ShaderParserCacheTests',[]),('local.prominence.memory.ShaderCacheGuardTests',[]),('local.prominence.memory.BackpackListenerTests',[]),('local.prominence.memory.WorldReferenceTests',[])]
+ checks.append(('local.prominence.work.VoxyScreenUvTests',[]))
  checks.append(('local.prominence.memory.BetterDaysGuardTests',[]))
  checks.append(('local.prominence.memory.TransientHolderTests',[]))
  checks.append(('local.prominence.memory.BatchMemoryTests',[]))
@@ -33,8 +34,10 @@ def main():
  checks.append(('local.prominence.weaponhud.WeaponUseFenceTests',[]))
  checks.append(('local.prominence.swingscope.SwingScopeTests',[]))
  checks.append(('local.prominence.localization.TranslationOverrideTests',[]))
- if args.mods:checks.append(('local.prominence.weaponhud.WeaponHudPinChecks',[str(args.mods)]))
- if args.fancymenu:checks.append(('FancyMenuIsolationChecks',[str(args.fancymenu)]))
+ checks.append(('local.prominence.work.ModelWorkSliceTests',[]))
+ checks.append(('local.prominence.work.InitialWorkTests',[]))
+ if args.mods:checks.append(('local.prominence.weaponhud.WeaponHudPinChecks',[safe_arg(args.mods)]))
+ if args.fancymenu:checks.append(('FancyMenuIsolationChecks',[safe_arg(args.fancymenu)]))
  for entry,params in checks:
   run_args=['-ea','-cp',safe_arg(tests)+os.pathsep+cp,entry,*params]
   run_file=args.build_dir/'test-run.args'

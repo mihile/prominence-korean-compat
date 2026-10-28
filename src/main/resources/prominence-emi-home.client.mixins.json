@@ -6,7 +6,6 @@
   "plugin": "local.prominence.work.WorkGuard",
   "client": [
     "EmiInitialWorkMixin",
-    "TerrainInitialBudgetMixin",
     "ItemPropertyParsedIdMixin",
     "LootStableKeyMixin",
     "FacadeCreativeBuildMixin",
@@ -23,7 +22,7 @@
     "VoxyMeshRunMixin",
     "XaeroMapWriterTimingMixin",
     "VoxyAtlasReuseMixin",
-    "FtbQuestsDisplayStacksCacheMixin"
+    "VoxyScreenUvMixin"
   ],
   "injectors": {
     "defaultRequire": 1

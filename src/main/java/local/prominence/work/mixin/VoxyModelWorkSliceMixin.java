@@ -13,7 +13,6 @@ import org.spongepowered.asm.mixin.injection.Coerce;
 public abstract class VoxyModelWorkSliceMixin {
     @WrapMethod(method="processAllThings", remap=false)
     private void prominence$sliceDuringEmi(Operation<Void> original) {
-        if (!InitialWork.active()) { original.call(); return; }
         try (var slice=ModelWorkSlice.begin()) { original.call(); }
     }
     @WrapOperation(method="processAllThings", at=@At(value="INVOKE",

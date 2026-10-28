@@ -26,7 +26,7 @@ public final class VerifyVoxyEarlyRenderer {
     private static Map<String,Integer> nativeCalls(MethodNode m) {var counts=new HashMap<String,Integer>();for(var i:m.instructions)if(i instanceof MethodInsnNode x)counts.merge(x.owner+"."+x.name+x.desc,1,Integer::sum);return counts;}
     public static void main(String[] args)throws Exception {
         Path cfg=Path.of(args[0]);Files.createDirectories(cfg);
-        Files.writeString(cfg.resolve("offline-voxy-render.mixins.json"),"{\"required\":true,\"package\":\"local.prominence.work.mixin\",\"compatibilityLevel\":\"JAVA_17\",\"client\":[\"VoxyServerEarlyRendererMixin\"],\"injectors\":{\"defaultRequire\":1}}");
+        Files.writeString(cfg.resolve("offline-voxy-render.mixins.json"),"{\"required\":true,\"package\":\"local.prominence.work.mixin\",\"compatibilityLevel\":\"JAVA_17\",\"client\":[\"VoxyServerEarlyRendererMixin\",\"VoxyScreenUvMixin\"],\"injectors\":{\"defaultRequire\":1}}");
         var urls=new ArrayList<URL>();urls.add(cfg.toUri().toURL());for(String p:System.getProperty("java.class.path").split(File.pathSeparator))urls.add(Path.of(p).toUri().toURL());
         var resources=new URLClassLoader(urls.toArray(URL[]::new),VerifyVoxyEarlyRenderer.class.getClassLoader());
         Field field=VerifyMixinTransforms.class.getDeclaredField("LOADER");field.setAccessible(true);field.set(null,resources);
@@ -50,6 +50,14 @@ public final class VerifyVoxyEarlyRenderer {
         var irisClass=node(read(resources,"net.irisshaders.iris.pipeline.IrisRenderingPipeline"));var begin=irisClass.methods.stream().filter(m->m.name.equals("beginLevelRendering")).findFirst().orElseThrow();int index=0,reload=-1,active=-1;
         for(var i:begin.instructions){if(i instanceof MethodInsnNode x){if(x.owner.equals("net/minecraft/class_761")&&x.name.equals("method_3279"))reload=index;if(x.owner.equals("com/mojang/blaze3d/systems/RenderSystem")&&x.name.equals("activeTexture")&&active<0)active=index;}index++;}
         if(reload<0||active<=reload)throw new AssertionError("Iris block-ID reload must precede Voxy frame hook");
+        String shaderTarget="me.cortex.voxy.client.iris.IrisShaderPatch";
+        var shaderAfter=node(transformer.transformClassBytes(shaderTarget,shaderTarget,read(resources,shaderTarget)));
+        boolean uvCall=false;
+        for(var method:shaderAfter.methods){new Analyzer<BasicValue>(new BasicVerifier()).analyze(shaderAfter.name,method);
+            for(var instruction:method.instructions)if(instruction instanceof MethodInsnNode call&&call.owner.equals("local/prominence/work/VoxyScreenUvFix")&&call.name.equals("fix"))uvCall=true;
+        }
+        if(!uvCall)throw new AssertionError("Native Voxy screen UV wrapper missing");
+        System.out.println("PASS: actual Voxy IrisShaderPatch wrapped and ASM-verified");
         System.out.println("PASS: actual VoxyServer tick transformed; "+count+" methods verified; other native tick calls and ingest drain unchanged; Iris reload precedes Voxy frame hook; no game/GL");
     }
 }

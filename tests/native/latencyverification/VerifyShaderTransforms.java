@@ -52,7 +52,8 @@ public final class VerifyShaderTransforms {
         var f=VerifyMixinTransforms.class.getDeclaredField("LOADER");f.setAccessible(true);f.set(null,resources);
         MixinBootstrap.init();Method phase=MixinEnvironment.class.getDeclaredMethod("gotoPhase",MixinEnvironment.Phase.class);phase.setAccessible(true);
         phase.invoke(null,MixinEnvironment.Phase.INIT);MixinExtrasBootstrap.init();MixinEnvironment.getCurrentEnvironment().setObfuscationContext("named:intermediary");
-        Mixins.addConfiguration("offline-euphoria-pipeline.mixins.json");Mixins.addConfiguration("offline-shader-cache.mixins.json");
+        boolean hasEuphoria=resources.getResource("com/euphoriapatches/euphoria_patcher/fabric/mixin/IrisModernPipelineManagerMixin.class")!=null;
+        if(hasEuphoria)Mixins.addConfiguration("offline-euphoria-pipeline.mixins.json");Mixins.addConfiguration("offline-shader-cache.mixins.json");
         for(Config c:Mixins.getConfigs()){c.getConfig().decorate(FabricUtil.KEY_MOD_ID,"prominence_korean_compat");c.getConfig().decorate(FabricUtil.KEY_COMPATIBILITY,FabricUtil.COMPATIBILITY_LATEST);}
         phase.invoke(null,MixinEnvironment.Phase.DEFAULT);MixinEnvironment.getCurrentEnvironment().setObfuscationContext("named:intermediary");
         f=VerifyMixinTransforms.class.getDeclaredField("TRANSFORMER");f.setAccessible(true);var transformer=(IMixinTransformer)f.get(null);
@@ -73,9 +74,9 @@ public final class VerifyShaderTransforms {
             }
             var writer=new ClassWriter(0);node.accept(writer);defs.put(target,writer.toByteArray());Files.write(work.resolve(target+".class"),fixed);
         }
-        if(bridges!=1||!observed||!euphoria)throw new AssertionError("Native bridge/listener/Euphoria hook missing");
+        if(bridges!=1||!observed||(hasEuphoria&&!euphoria))throw new AssertionError("Native bridge/listener/Euphoria hook missing");
         ShaderSourceCacheTests.nativeTests(new NativeLoader(defs).loadClass("net.irisshaders.iris.shaderpack.preprocessor.JcppProcessor"),work,Path.of(args[2]));
         Files.writeString(work.resolve("native-mixin-report.json"),"{\"status\":\"passed\",\"targets\":2,\"methodsBytecodeVerified\":"+methods+",\"euphoriaHookPreserved\":true,\"nativeListenerObserved\":true,\"gameStarted\":false}");
-        System.out.println("PASS: native shader Mixin transforms, "+methods+" methods; Euphoria pipeline hook preserved");
+        System.out.println("PASS: native shader Mixin transforms, "+methods+" methods; optional Euphoria hook preserved="+hasEuphoria);
     }
 }

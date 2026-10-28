@@ -24,14 +24,15 @@ public final class ShaderSourceDiskCache implements AutoCloseable {
     public record Compilation(String text, boolean clean) {}
     public record Stats(long hits, long misses, long bypasses, long writes, long readNanos, long nativeNanos, long skippedDirty, long skippedOversize, long droppedQueue, long writeFailures, long evictions, long queued, long pendingBytes) {}
     private static final int MAGIC=0x50475332, HEADER=72;
-    private static final long PENDING_LIMIT=128L*1024*1024;
-    private static final java.util.concurrent.ConcurrentHashMap<String, Boolean> DYNAMIC_CACHE = new java.util.concurrent.ConcurrentHashMap<>(4096);
+    private static final long PENDING_LIMIT=16L*1024*1024;
     private final Path directory;
     private final String namespace;
     private final long maxBytes;
     private final int maxEntry, maxEntries;
     private final ThreadPoolExecutor writer;
-    private final ConcurrentHashMap<String, String> memoryCache = new ConcurrentHashMap<>(4096);
+    private final java.util.LinkedHashMap<String,String> memoryCache = new java.util.LinkedHashMap<>(64,0.75f,true);
+    private long memoryBytes;
+    private final long memoryLimit;
     private final AtomicLong pending=new AtomicLong(), hits=new AtomicLong(), misses=new AtomicLong(), bypasses=new AtomicLong();
     private final AtomicLong writes=new AtomicLong(), readNanos=new AtomicLong(), nativeNanos=new AtomicLong();
     private final AtomicLong skippedDirty=new AtomicLong(), skippedOversize=new AtomicLong(), droppedQueue=new AtomicLong(), writeFailures=new AtomicLong(), evictions=new AtomicLong(), queued=new AtomicLong();
@@ -44,25 +45,26 @@ public final class ShaderSourceDiskCache implements AutoCloseable {
     ShaderSourceDiskCache(Path directory,String namespace,long maxBytes,int maxEntry,int maxEntries) {
         this.directory=directory.toAbsolutePath().normalize();this.namespace=namespace;
         this.maxBytes=maxBytes;this.maxEntry=maxEntry;this.maxEntries=maxEntries;
-        writer=new ThreadPoolExecutor(1,2,5,TimeUnit.SECONDS,new LinkedBlockingQueue<>(2048),r->{
+        this.memoryLimit=Math.min(maxBytes,32L*1024*1024);
+        writer=new ThreadPoolExecutor(1,2,5,TimeUnit.SECONDS,new LinkedBlockingQueue<>(64),r->{
             Thread t=new Thread(r,"Prominence shader text cache");t.setDaemon(true);t.setPriority(Thread.NORM_PRIORITY-1);return t;
-        },new ThreadPoolExecutor.DiscardPolicy());
+        },new ThreadPoolExecutor.AbortPolicy());
     }
     public String preprocess(String source,List<Define> defines,Supplier<Compilation> nativeCompiler) {
         if(closed || !safeInput(source,defines)) {bypasses.incrementAndGet();return nativeCompiler.get().text();}
         String key=key(source,defines);
-        String mem=memoryCache.get(key);
+        String mem=memoryGet(key);
         if(mem!=null){hits.incrementAndGet();return mem;}
         long start=System.nanoTime();String cached=read(key);readNanos.addAndGet(System.nanoTime()-start);
         if(cached!=null){
             hits.incrementAndGet();
-            if(memoryCache.size()<maxEntries)memoryCache.put(key,cached);
+            remember(key,cached);
             return cached;
         }
         misses.incrementAndGet();start=System.nanoTime();Compilation result;
         try {result=nativeCompiler.get();} finally {nativeNanos.addAndGet(System.nanoTime()-start);}
         if(result.clean() && result.text()!=null) {
-            if(memoryCache.size()<maxEntries)memoryCache.put(key,result.text());
+            remember(key,result.text());
             enqueue(key,result.text());
         } else skippedDirty.incrementAndGet();
         return result.text();
@@ -74,18 +76,22 @@ public final class ShaderSourceDiskCache implements AutoCloseable {
         return true;
     }
     private static boolean dynamic(String s) {
-        Boolean cached = DYNAMIC_CACHE.get(s);
-        if (cached != null) return cached;
-        boolean result = computeDynamic(s);
-        if (DYNAMIC_CACHE.size() < 16384) DYNAMIC_CACHE.put(s, result);
-        return result;
-    }
-    private static boolean computeDynamic(String s) {
+        // Do not retain complete shader source strings in a process-global memo table.
         return s.contains("__DATE__")||s.contains("__TIME__")||s.contains("__TIMESTAMP__")||s.contains("__COUNTER__")
             ||s.contains("__FILE__")||s.contains("__BASE_FILE__")||s.contains("__INCLUDE_LEVEL__")||s.contains("##")
             ||s.contains("%:")||s.contains("__has_include")||externalInclude(s)
             ||s.contains("IRIS_JCPP_GLSL_VERSION")||s.contains("IRIS_JCPP_GLSL_EXTENSION");
     }
+    private synchronized String memoryGet(String key){return memoryCache.get(key);}
+    private synchronized void remember(String key,String text){
+        long bytes=2L*text.length();if(bytes>memoryLimit)return;
+        String previous=memoryCache.put(key,text);if(previous!=null)memoryBytes-=2L*previous.length();memoryBytes+=bytes;
+        var entries=memoryCache.entrySet().iterator();
+        while((memoryBytes>memoryLimit||memoryCache.size()>maxEntries)&&entries.hasNext()){
+            var entry=entries.next();memoryBytes-=2L*entry.getValue().length();entries.remove();
+        }
+    }
+    synchronized long memoryBytes(){return memoryBytes;}
     private static boolean externalInclude(String s) {
         if(s.indexOf('#')<0)return false;
         if(!s.contains("include")&&!s.contains("\\\n")&&!s.contains("\\\r"))return false;

@@ -35,7 +35,10 @@ def main():
   'local/prominence/backpackcompat/client/PortableReforgeButton.class')
  for n in list(new):
   if n.startswith((*managed_prefixes,'META-INF/prominence-korean-compat-source/auto-update/')):del new[n]
- added={p.relative_to(classes).as_posix():p.read_bytes() for p in classes.rglob('*.class')};new.update(added)
+ added={p.relative_to(classes).as_posix():p.read_bytes() for p in classes.rglob('*.class')}
+ # Compile against cumulative APIs, but only replace the explicitly managed trees.
+ # Unrelated source snapshots may have different compiler output from the reviewed base.
+ new.update({n:b for n,b in added.items() if n not in old or n.startswith(managed_prefixes)})
  # Preserve cumulative classes that have no source in the current managed tree.
  for name,value in old.items():
   if name.endswith('.class') and name not in new:new[name]=value
@@ -104,7 +107,9 @@ def main():
  legacy=ROOT/'src/main/java/local/prominence/backpackcompat/client/PortableReforgeButton.java'
  if legacy.exists():new['META-INF/prominence-korean-compat-source/backpack-workstations/local/prominence/backpackcompat/client/PortableReforgeButton.java']=legacy.read_bytes()
  new['META-INF/notices/auto-update.txt']=b'Original signed client updater, MIT. Only this compatibility JAR is updated with approval, after game exit. No server, settings, other mods, resource packs or launcher hooks are updated. Signing key is not distributed.\n'
- preserve=[n for n in old if n.endswith('.class') and not n.startswith(managed_prefixes)];assert all(new[n]==old[n] for n in preserve)
+ preserve=[n for n in old if n.endswith('.class') and not n.startswith(managed_prefixes)]
+ changed=[n for n in preserve if new.get(n)!=old[n]]
+ assert not changed, 'Unexpected cumulative class changes: '+', '.join(changed)
  jar=packed(new);args.output.mkdir(parents=True,exist_ok=True);(args.output/'prominence-korean-compat-1.0.0.jar').write_bytes(jar)
  report={'build':args.build,'label':args.label,'sha256':sha(jar),'size':len(jar),'addedUpdaterClasses':len(added),'preservedExistingClasses':len(preserve),'helperSha256':sha(helper_jar),'baseSha256':sha(args.base.read_bytes()),'runtimeValidated':False}
  (args.output/'build-report.json').write_bytes(enc(report));print(json.dumps(report,indent=2))

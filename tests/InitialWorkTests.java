@@ -7,6 +7,8 @@ public final class InitialWorkTests {
     private static void check(boolean ok,String msg){if(!ok)throw new AssertionError(msg);checks++;}
     public static void main(String[]args)throws Exception {
         check(InitialWork.budget(10,10,10,10)==10,"native scheduling outside EMI");
+        int priority=Thread.currentThread().getPriority();
+        InitialWork.ensureRenderThreadPriority();check(Thread.currentThread().getPriority()==priority,"render priority changed");
         var outer=InitialWork.begin();
         try {
             for(int threads=1;threads<=32;threads++)for(int busy=0;busy<=threads;busy++)for(int queued=0;queued<=threads;queued++) {
