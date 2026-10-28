@@ -27,7 +27,9 @@
     "TrimPreviewLoaderMixin",
     "TrimPreviewReferencesMixin",
     "VoxyDeferredOpacityEntryMixin",
-    "VoxyDeferredOpacityMapperMixin"
+    "VoxyDeferredOpacityMapperMixin",
+    "BackpackStonecuttingMixin",
+    "UnchangedStateRemapMixin"
   ],
   "injectors": {
     "defaultRequire": 1

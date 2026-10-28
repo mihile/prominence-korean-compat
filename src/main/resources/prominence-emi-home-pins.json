@@ -236,5 +236,46 @@
         "me/cortex/voxy/common/world/other/Mipper.class": "4dbed3a40557fabbac4bb7e6b4d84481f3571a4d4cc13769f72d3ef7940dcec4"
       }
     }
+  },
+  "backpackStonecutting": {
+    "sophisticatedcore": {
+      "version": "1.20.1-1.2.7.15.166",
+      "classes": {
+        "net/p3pp3rf1y/sophisticatedcore/compat/emi/EmiGridMenuInfo.class": "899038c5431e3ad627c5bcfa6575c58f0ba32caad11ec1adfe97148c3ef69ad5",
+        "net/p3pp3rf1y/sophisticatedcore/upgrades/stonecutter/StonecutterRecipeContainer.class": "0ab1863f20e7cefb9498be32b8b2f4b247981b4432e01799e147648a184b84d1",
+        "net/p3pp3rf1y/sophisticatedcore/upgrades/stonecutter/StonecutterUpgradeContainer.class": "f68055ee251091825a98d77a9d9023545d218ade327bfcc7f581b2d245578d16",
+        "net/p3pp3rf1y/sophisticatedcore/common/gui/StorageContainerMenuBase.class": "424154d8f2c1c621c44f58cc49298fb8668f569e430c62c64dfc24d8b7bb3550",
+        "net/p3pp3rf1y/sophisticatedcore/upgrades/stonecutter/StonecutterRecipeContainer$1.class": "3c20873e1f1e1f2203b81cafbc25c79aa4fd20e01407386db3c69cf5fd460ac8",
+        "net/p3pp3rf1y/sophisticatedcore/common/gui/UpgradeContainerBase.class": "c925e395ed2f47900220cbfdf180cf569dd65e2072585787c65218800b814603",
+        "net/p3pp3rf1y/sophisticatedcore/util/RecipeHelper.class": "d559b9aeb3aa848ef9e2372616b005559960aac42712215b8ba037a209e52887"
+      }
+    },
+    "emi": {
+      "version": "1.1.24+1.20.1+fabric",
+      "classes": {
+        "dev/emi/emi/registry/EmiRecipeFiller.class": "07929f52318524a3bcfc0d3d63cdd893a87c1cf07980fac4d716134a2aaa2860"
+      }
+    },
+    "sophisticatedbackpacks": {
+      "version": "1.20.1-3.23.4.5.110",
+      "classes": {
+        "net/p3pp3rf1y/sophisticatedbackpacks/compat/emi/EmiCompat.class": "ad1cf125c430e3267a6ca90579a6f24a37a058b060c71e97ccba156b245a141d"
+      }
+    }
+  },
+  "unchangedStateRemap": {
+    "fabric-registry-sync-v0": {
+      "version": "2.4.1+4c0a70e677",
+      "classes": {
+        "net/fabricmc/fabric/impl/registry/sync/trackers/StateIdTracker.class": "cbc78d12ffacea5aa97af502c5f0a703d5432827e77c412d26c750bdbbe4c665",
+        "net/fabricmc/fabric/mixin/registry/sync/IdListMixin.class": "d57230d11c1762595f1c914e72423ab46842cf3f78fbc63298f0010f42c2372d"
+      }
+    },
+    "minecraft": {
+      "version": "1.20.1",
+      "classes": {
+        "net/minecraft/class_2361.class": "f8e7f514cf20e5afd7698b41f3650838c2d35ef538e138d6623a831f72150de2"
+      }
+    }
   }
 }

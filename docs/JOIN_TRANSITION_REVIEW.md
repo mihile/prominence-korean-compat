@@ -131,3 +131,13 @@ Fastload `instant_load=false`, server_render_chunk_radius=3이다. 현재 호환
 네더 Iris4,301ms / Voxy graphics60ms, 엔드 Iris3,484ms / Voxy35ms. 오버월드 첫 복귀 Iris1,547ms / Voxy42ms, 이후 Voxy36ms다. 이동의 수초 대기는 여전히 Iris pipeline 준비가 큰 부분이다. 최대 Present 시작 간격5,122ms는 캡처 자체의 consistency 경고가 있으므로 정확한 단일 프레임 시간으로 쓰지 않는다. 차원 준비 중 네더/엔드 cache pending0, 오버월드 복귀 pending약10MB/drop6으로 이전 전반적인 writer 정체는 재발하지 않았다.
 
 이번 회차는 분석만 수행했다. 추가 모드/설정/JAR 변경 없이 이 근거를 기록하며 원시 측정 자료는 로컬에 유지한다.
+
+
+## 2026-10-29 — Freeze Fix 비활성화 이후 검토, nightly-20261029.2
+
+- 현재 `ftbquestsfreezefix-fabric-1.0.0-1.20.1.jar.disabled`를 확인했다. 재활성화하지 않는다. 최신 로그는02:03~02:22 실행이며 기존 캡처005257 이후 새 JFR/PresentMon/MAT 묶음은 없다. 따라서 비활성화 전후의 프레임 개선률은 계산하지 않는다.
+- 현재 EMI18,496ms, enchanting1,984.6ms/조건조회5,106,348회. Voxy mapping188.7ms/차광계산13,312개 지연. EMI가 모든 모델 락을 잡았다는 근거는 없으며 기존005257 기록의 모델 대기1,034.8ms(청크 작업801.0/Voxy233.8)와 Flywheel 작업 완료 대기를 별도로 본다. Flywheel의 무한 대기 생략·작업 미완료 반환은 넣지 않았다.
+- 렌더 스레드에서 실제 샘플이 잡힌 Fabric `StateIdTracker.onRemap -> recalcStateMap`은 상태 순서가 동일해도 ID 목록 전체를 지운 뒤 해시맵에 다시 넣는다. 설치된 Fabric Registry Sync2.4.1+4c0a70e677와1.20.1 IdList bytecode 및 [Fabric 1.20.1 원문](https://github.com/FabricMC/fabric/blob/1.20.1/fabric-registry-sync-v0/src/main/java/net/fabricmc/fabric/impl/registry/sync/trackers/StateIdTracker.java)을 대조했다.
+- 이번 수정은 remap 시 정렬된 전체 상태의 객체 동일성·순서·개수가 기존 ID 목록과 모두 같을 때만 재삽입을 생략한다. 하나라도 다르면 원래 전체 재구성을 실행한다. 신규 등록 경로·서버 동기화 패킷·ID 결정 방식은 유지하며 영구 캐시는 추가하지 않는다. `Registry state remap: unchanged=..., states=..., elapsedMs=...`로 적용 여부/비용을 남긴다. 서버 ID 순서가 실제로 달라지는 첫 접속에는 이 최적화가 적용되지 않을 수 있다. 수초 프리즈 전체 해결로 보지 않는다.
+- 최신 로그의 반복 shader sampler/uniform 경고는02:04:31~32(접속02:04:42 전)에 집중된다. Discord context queue 경고80회는10초 간격이다. 둘을 수초 프레임 정지의 직접 원인이라고 단정하거나 로그만 숨기지 않았다.02:11~12 Voxy Model factory에서 EMF bed head/foot64회 생성 제한,02:16 stream buffer 삭제 오류도 확인했다. 현재 캡처에는 해당 실행 타임라인이 없으므로 별도 렌더 수명 문제 후보로 남긴다.
+- 검증:10만 상태 동일/순서변경/객체교체/개수변경/동등하지만 다른 객체 fixture, 설치된 StateIdTracker의 실제 Mixin 변환/ASM 검사. 공개는 클라이언트 nightly만, 실제 끊김 감소는 미측정이다.
