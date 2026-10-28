@@ -38,6 +38,9 @@ public final class WorkGuard implements IMixinConfigPlugin {
         } catch (Exception e) { enabled.clear(); }
     }
     public boolean shouldApplyMixin(String target,String mixin) {
+        if (mixin.endsWith("ReceivingLevelScreenMixin")) {
+            return !"false".equalsIgnoreCase(System.getProperty("prominence.instantDimensionTransition","true"));
+        }
         String group=mixin.endsWith("XaeroMapWriterTimingMixin")?"xaeroMapTiming":mixin.endsWith("VoxyMeshServiceMixin")||mixin.endsWith("VoxyMeshRunMixin")?"voxyMeshAdmission":mixin.endsWith("LodBulkDecodeMixin")?"remoteIngestDecode":mixin.endsWith("RemoteIngestTaskMixin")||mixin.endsWith("RemoteIngestSectionMixin")?"remoteIngestScratch":mixin.endsWith("EmiRecipeInsertionMixin")?"recipeInsertion":mixin.endsWith("VoxyModelWorkSliceMixin")?"voxyModelSlice":mixin.endsWith("VoxyServerEarlyRendererMixin")?"voxyEarlyRenderer":mixin.endsWith("EmiAttributeScopeMixin")||mixin.endsWith("AttributeCandidateIterationMixin")?"attributeCandidates":mixin.endsWith("FacadeCreativeBuildMixin")?"facades":mixin.endsWith("EmiCreativeTimingMixin")?"creativeTiming":mixin.endsWith("LootStableKeyMixin")?"keys":mixin.endsWith("ItemPropertyParsedIdMixin")?"itemIds":mixin.endsWith("EmiInitialWorkMixin")||mixin.endsWith("TerrainInitialBudgetMixin")?"terrain":null;
         return group!=null && enabled.getOrDefault(group,false);
     }
