@@ -4,6 +4,8 @@ import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import local.prominence.work.InitialWork;
 import org.spongepowered.asm.mixin.Mixin;
+import xaero.map.biome.BiomeColorCalculator;
+import xaero.map.region.OverlayManager;
 
 /** Throttles MapWriter.onRender during EMI initial work to prevent render-thread lock stalls. */
 @Mixin(targets="xaero.map.MapWriter", remap=false)
@@ -12,7 +14,7 @@ public abstract class XaeroMapWriterTimingMixin {
 
     @WrapMethod(method="onRender", remap=false)
     private void prominence$throttleOnRender(
-            Object biomeColorCalculator, Object overlayManager, Operation<Void> original) {
+            BiomeColorCalculator biomeColorCalculator, OverlayManager overlayManager, Operation<Void> original) {
         if (InitialWork.active()) {
             long now = System.currentTimeMillis();
             if (now - prominence$lastOnRenderTimeMs < 250L) {
