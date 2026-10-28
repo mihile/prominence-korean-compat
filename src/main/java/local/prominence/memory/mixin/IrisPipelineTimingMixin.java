@@ -2,6 +2,7 @@ package local.prominence.memory.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import local.prominence.memory.DimensionChangeGate;
 import local.prominence.memory.ShaderPreprocessBridge;
 import net.irisshaders.iris.pipeline.WorldRenderingPipeline;
 import net.irisshaders.iris.shaderpack.materialmap.NamespacedId;
@@ -13,5 +14,14 @@ public abstract class IrisPipelineTimingMixin {
     private WorldRenderingPipeline prominence$measurePreparation(NamespacedId dimension,Operation<WorldRenderingPipeline> original) {
         long start=System.nanoTime();
         try{return original.call(dimension);}finally{ShaderPreprocessBridge.report(System.nanoTime()-start,dimension);}
+    }
+
+    @WrapMethod(method="destroyPipeline",remap=false)
+    private void prominence$preservePipelinesOnDimensionChange(Operation<Void> original) {
+        if (DimensionChangeGate.isDimensionChange()) {
+            // Keep compiled pipelines cached per dimension during world transitions to achieve instant portal travel.
+            return;
+        }
+        original.call();
     }
 }

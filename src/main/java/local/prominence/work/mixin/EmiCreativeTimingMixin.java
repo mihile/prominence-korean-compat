@@ -5,6 +5,7 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ForkJoinPool;
 import java.util.function.Supplier;
 import net.minecraft.class_1761;
 import net.minecraft.class_310;
@@ -12,7 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
-/** Time and offload creative entries to prevent 1.6s render thread stalls during join. */
+/** Time and defer creative entries to prevent render thread and ModelBakery lock stalls during join. */
 @Mixin(targets="dev.emi.emi.registry.EmiStackList", remap=false)
 public abstract class EmiCreativeTimingMixin {
     @WrapOperation(
@@ -22,14 +23,21 @@ public abstract class EmiCreativeTimingMixin {
     )
     private static CompletableFuture<?> prominence$offloadCreativeReload(
             class_310 client, Supplier<?> supplier, Operation<CompletableFuture<?>> original) {
-        try {
-            Object result = supplier.get();
-            return CompletableFuture.completedFuture(result);
-        } catch (Throwable t) {
-            LoggerFactory.getLogger("Prominence compatibility").warn(
-                "EMI creative group build off-thread failed, falling back to render thread: {}", t.toString());
-            return original.call(client, supplier);
-        }
+        return CompletableFuture.supplyAsync(() -> {
+            try {
+                // Defer creative build by 1.5s to let the render thread finish initial join & hotbar rendering without ModelBakery contention
+                Thread.sleep(1500L);
+                return supplier.get();
+            } catch (Throwable t) {
+                LoggerFactory.getLogger("Prominence compatibility").warn(
+                    "EMI creative group background build failed, falling back to render thread: {}", t.toString());
+                try {
+                    return original.call(client, supplier).get();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }, ForkJoinPool.commonPool());
     }
 
     @WrapMethod(method="lambda$reload$1", remap=false)
