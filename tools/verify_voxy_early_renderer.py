@@ -17,7 +17,7 @@ def run(cmd,name):
  af.write_text('\n'.join('"'+x.replace('\\','/')+'"' for x in argv[1:]),encoding='utf8')
  cmd=[argv[0],'@'+str(af.resolve())]
  q=subprocess.run(list(map(str,cmd)),capture_output=True,text=True,encoding='utf8',errors='replace');(w/name).write_text(q.stdout+q.stderr,'utf8');assert q.returncode==0,q.stdout+q.stderr;print(q.stdout[-2000:])
-run([j/'javac.exe','--release','17','-encoding','UTF-8','-proc:none','-cp',os.pathsep.join(cp),'-d',c,r/'tests/native/batchverification/VerifyMixinTransforms.java',r/'tests/native/workverification/VerifyVoxyEarlyRenderer.java',r/'tests/EarlyRendererGateTests.java',r/'tests/JoinGuardTests.java'],'compile.log')
+run([j/'javac.exe','--release','17','-encoding','UTF-8','-proc:none','-cp',os.pathsep.join(cp),'-d',c,r/'tests/native/batchverification/VerifyMixinTransforms.java',r/'tests/native/workverification/VerifyVoxyEarlyRenderer.java',r/'tests/native/workverification/OpacityExecutionFixture.java',r/'tests/EarlyRendererGateTests.java',r/'tests/JoinGuardTests.java'],'compile.log')
 s=c/'META-INF/services';s.mkdir(parents=True,exist_ok=True)
 for key,value in {'org.spongepowered.asm.service.IMixinService':'batchverification.VerifyMixinTransforms','org.spongepowered.asm.service.IMixinServiceBootstrap':'batchverification.VerifyMixinTransforms$Bootstrap','org.spongepowered.asm.service.IGlobalPropertyService':'batchverification.VerifyMixinTransforms$Props'}.items():(s/key).write_text(value+'\n','utf8')
 classpath=os.pathsep.join([str(c.resolve()),*cp])

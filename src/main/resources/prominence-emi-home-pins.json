@@ -225,5 +225,16 @@
         "io/github/andrew6rant/dynamictrim/resource/TrimModelHelper.class": "6478aad1bf5b024c8faf8b58cfa232a50539bca0fb0db37536e7ff18c5bcdc13"
       }
     }
+  },
+  "voxyDeferredOpacity": {
+    "voxy": {
+      "version": "0.2.20-beta+1.20.1-port.9",
+      "classes": {
+        "me/cortex/voxy/common/world/other/Mapper.class": "6442696b4d810751c39a91f7cbc27407e33a3f3292f6cb55d70fc5a3769856ee",
+        "me/cortex/voxy/common/world/other/Mapper$StateEntry.class": "510ecfa4473d8035a80ae3a6eaf48b1ef724431f7ee79139da8e77c5b3485a96",
+        "me/cortex/voxy/common/world/other/Mapper$StateEntry$1.class": "e51a00437d993c16132ca4c8c1b136dc1233bdde08655e1e123e9f24400fb07c",
+        "me/cortex/voxy/common/world/other/Mipper.class": "4dbed3a40557fabbac4bb7e6b4d84481f3571a4d4cc13769f72d3ef7940dcec4"
+      }
+    }
   }
 }

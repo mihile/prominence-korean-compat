@@ -27,7 +27,7 @@ public final class VerifyVoxyEarlyRenderer {
     private static Map<String,Integer> nativeCalls(MethodNode m) {var counts=new HashMap<String,Integer>();for(var i:m.instructions)if(i instanceof MethodInsnNode x)counts.merge(x.owner+"."+x.name+x.desc,1,Integer::sum);return counts;}
     public static void main(String[] args)throws Exception {
         Path cfg=Path.of(args[0]);Files.createDirectories(cfg);
-        Files.writeString(cfg.resolve("offline-voxy-render.mixins.json"),"{\"required\":true,\"package\":\"local.prominence.work.mixin\",\"compatibilityLevel\":\"JAVA_17\",\"client\":[\"VoxyServerEarlyRendererMixin\",\"VoxyScreenUvMixin\",\"TrimPreviewReloadMixin\",\"TrimPreviewLoaderMixin\",\"TrimPreviewReferencesMixin\"],\"injectors\":{\"defaultRequire\":1}}");
+        Files.writeString(cfg.resolve("offline-voxy-render.mixins.json"),"{\"required\":true,\"package\":\"local.prominence.work.mixin\",\"compatibilityLevel\":\"JAVA_17\",\"client\":[\"VoxyServerEarlyRendererMixin\",\"VoxyDeferredOpacityEntryMixin\",\"VoxyDeferredOpacityMapperMixin\",\"VoxyScreenUvMixin\",\"TrimPreviewReloadMixin\",\"TrimPreviewLoaderMixin\",\"TrimPreviewReferencesMixin\"],\"injectors\":{\"defaultRequire\":1}}");
         var urls=new ArrayList<URL>();urls.add(cfg.toUri().toURL());for(String p:System.getProperty("java.class.path").split(File.pathSeparator))urls.add(Path.of(p).toUri().toURL());
         var resources=new URLClassLoader(urls.toArray(URL[]::new),VerifyVoxyEarlyRenderer.class.getClassLoader());
         Field field=VerifyMixinTransforms.class.getDeclaredField("LOADER");field.setAccessible(true);field.set(null,resources);
@@ -69,6 +69,31 @@ public final class VerifyVoxyEarlyRenderer {
         }
         System.out.println("PASS: native trim model generation, references and reload invalidation transformed");
 
+        for(String mapperTarget:List.of("me.cortex.voxy.common.world.other.Mapper$StateEntry","me.cortex.voxy.common.world.other.Mapper")) {
+            var old=node(read(resources,mapperTarget));
+            var patched=node(transformer.transformClassBytes(mapperTarget,mapperTarget,read(resources,mapperTarget)));
+            boolean hook=false;
+            for(var method:patched.methods) {
+                new Analyzer<BasicValue>(new BasicVerifier()).analyze(patched.name,method);
+                for(var instruction:method.instructions)if(instruction instanceof MethodInsnNode call&&call.owner.startsWith("local/prominence/work/"))hook=true;
+            }
+            if(!hook)throw new AssertionError("Missing mapper lazy hook");
+            for(var method:old.methods)if(method.name.equals("serialize")||method.name.equals("deserialize")||method.name.equals("getBlockStateFromBlockId")||method.name.equals("getIdForBlockState")) {
+                var same=patched.methods.stream().filter(m->m.name.equals(method.name)&&m.desc.equals(method.desc)).findFirst().orElseThrow();
+                if(!nativeCalls(method).equals(nativeCalls(same)))throw new AssertionError("Mapping/serialization behavior changed: "+method.name);
+            }
+            if(mapperTarget.endsWith("StateEntry")) {
+                var ctor=patched.methods.stream().filter(m->m.name.equals("<init>")).findFirst().orElseThrow();
+                boolean leaves=false;
+                for(var instruction:ctor.instructions)if(instruction instanceof IntInsnNode integer&&integer.operand==15)leaves=true;
+                if(!leaves)throw new AssertionError("Native leaves override lost");
+                OpacityExecutionFixture.run(patched,cfg.resolve("opacity-execution"));
+            } else {
+                var getter=patched.methods.stream().filter(m->m.name.equals("getBlockStateOpacity")&&m.desc.equals("(I)I")).findFirst().orElseThrow();
+                for(var instruction:getter.instructions)if(instruction instanceof FieldInsnNode f&&f.getOpcode()==180&&f.name.equals("opacity"))throw new AssertionError("Native read not redirected");
+            }
+        }
+        System.out.println("PASS: native Mapper lazy opacity transformed; leaves, ID operations, serialization and decoding preserved");
         System.out.println("PASS: actual VoxyServer tick transformed; "+count+" methods verified; other native tick calls and ingest drain unchanged; Iris reload precedes Voxy frame hook; no game/GL");
     }
 }

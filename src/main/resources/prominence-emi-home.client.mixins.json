@@ -25,7 +25,9 @@
     "VoxyScreenUvMixin",
     "TrimPreviewReloadMixin",
     "TrimPreviewLoaderMixin",
-    "TrimPreviewReferencesMixin"
+    "TrimPreviewReferencesMixin",
+    "VoxyDeferredOpacityEntryMixin",
+    "VoxyDeferredOpacityMapperMixin"
   ],
   "injectors": {
     "defaultRequire": 1

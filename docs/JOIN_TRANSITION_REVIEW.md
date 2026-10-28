@@ -92,3 +92,15 @@ Fastload `instant_load=false`, server_render_chunk_radius=3이다. 현재 호환
 4. ResourcefulLib HighlightHandler 약99MB는 별도의 추가 RAM 후보지만 현재 최초3초/이동4초를 설명하는 근거는 아니다. 정상 Voxy 섹션538MB와 모델359MB도 크기만 보고 제거하지 않는다.
 
 이 회차는 분석·개선 후보 정리다. 새 코드/JAR이나 운영 설정은 변경하지 않았다. 원시 JFR/HPROF/로그는 로컬에 둔다.
+
+## 구현: nightly-20261029.1 / 저장된 Voxy 매핑의 차광값 계산 분리
+
+232355 기록의 첫 접속 렌더 스레드에서 `Mapper.loadFromStorage → StateEntry → getLightBlock → ModernFix 상태 캐시/배낭 형상`이 관찰됐다. 과거에 저장된 모든 상태의 차광값은 매핑 ID/NBT를 복원하는 데 필요하지 않다. `loadFromStorage` 범위에서만 계산을 미루고, Mipper가 실제로 해당 상태를 사용할 때 원래 함수를 한 번 호출한다. 새로 수집한 상태의 생성은 원래 동작이다.
+
+원본 BlockGetter와 BlockPos를 보존한다. 나뭇잎15 분기, ID/BlockState 디코딩, 직렬화, 데이터 수정/복구 경로는 유지한다. 값의 근사나 디스크 형식 변경, 전역 상태 캐시, 임의 worker 생성은 없다. 계산 성공 후 원래 필드에 값을 반영하고 임시 객체/뷰를 해제하며, 실패는 호출자에게 전파하고 다음 접근에서 재시도한다. 동시 최초 접근은 상태별로 한 번만 계산한다. 사용되는 상태의 작업은 없어지는 것이 아니라 필요 시점으로 분산되는 것이므로 모든 첫 접속 정지가 제거됐다고 표현하지 않는다.
+
+현재 Voxy port.9의 Mapper/StateEntry/익명 BlockGetter/Mipper 클래스 지문을 묶어 두 믹신을 함께 활성화한다. 설치 모드465개 및 내부 JAR의 필드 참조를 조사해 opacity 직접 소비자가 Mapper 하나임을 확인했다. 다른 Voxy/addon 조합을 지원할 때 `tools/audit_voxy_opacity.py`를 다시 실행한다. 직접 필드 접근을 추가하는 addon은 별도 검토가 필요하다. 옵트아웃은 `-Dprominence.emiHome.voxyDeferredOpacity=false`.
+
+검증: 20,000개 매핑의 사용된100개만 계산하는 fixture, 동시 접근·실패 재시도·중첩/예외/thread-local 복구·클로저 해제, 실제 네이티브 Mixin 변환/ASM 검증. 변환된 StateEntry 생성자를 작은 블록 API 대역으로 실제 실행해 eager/lazy/나뭇잎/실패/최종값을 검증했다. 이는 게임 실행이나 프레임 개선 실측이 아니다. 로그에는 매핑 복원 시간과 미룬 계산 개수를 1회 기록한다.
+
+현재 latest.log도 확인했다(567,686bytes, ERROR31/WARN1131, 마지막 종료23:27:26). 캡처232355와 같은 실행이며 새로운 실행 결과가 아니다. 장식 마스크 대량 오류는 재발하지 않았다. 기존 shader 태그 경고 등을 이번 패치에서 숨기지 않았다. Iris pipeline/registry remap/Flywheel 대기와 EMI19.2초는 별도 잔여 비용이다. ModernFix 설정, 셰이더, 서버, 운영 JAR은 직접 변경하지 않는다.
