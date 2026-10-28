@@ -43,8 +43,8 @@ public final class ShaderPreprocessBridge {
         var current=Holder.CACHE.stats();var old=previous;previous=current;
         if(nanos<100_000_000L)return;
         LoggerFactory.getLogger("Prominence compatibility").info(
-            "Client pipeline preparation: dimension={}, totalMs={}, shaderTextHitsDelta={}, missesDelta={}, nativePreprocessMsDelta={}, cacheReadMsDelta={}, pendingBytes={} (GPU compile is included in total, not text time)",
+            "Client pipeline preparation: dimension={}, totalMs={}, shaderTextHitsDelta={}, missesDelta={}, nativePreprocessMsDelta={}, cacheReadMsDelta={}, pendingBytes={}, writesDelta={}, queueDroppedDelta={} (GPU compile is included in total, not text time)",
             dimension,nanos/1_000_000L,current.hits()-(old==null?0:old.hits()),current.misses()-(old==null?0:old.misses()),
-            (current.nativeNanos()-(old==null?0:old.nativeNanos()))/1_000_000L,(current.readNanos()-(old==null?0:old.readNanos()))/1_000_000L,current.pendingBytes());
+            (current.nativeNanos()-(old==null?0:old.nativeNanos()))/1_000_000L,(current.readNanos()-(old==null?0:old.readNanos()))/1_000_000L,current.pendingBytes(),current.writes()-(old==null?0:old.writes()),current.droppedQueue()-(old==null?0:old.droppedQueue()));
     }
 }

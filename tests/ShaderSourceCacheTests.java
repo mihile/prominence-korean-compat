@@ -119,6 +119,7 @@ public final class ShaderSourceCacheTests {
                 check(executor.getQueue().size()<=64,"Pending task count exceeded");
             }finally{gate.countDown();}
             cache.awaitWrites();check(cache.pendingBytes()==0,"Completed queue retains text budget");
+            check(cache.indexScans()==1,"Burst rescanned disk directory per shader");
             check(cache.stats().writes()==32 && cache.stats().queued()==32 && cache.stats().droppedQueue()==0 && cache.stats().pendingBytes()==0,"Burst entries lost");
             long hitsBefore=cache.stats().hits();for(int i=0;i<32;i++){final int index=i;cache.preprocess("queued"+i,defs,()->{throw new AssertionError("Cache miss "+index);});}
             check(cache.stats().hits()-hitsBefore==32,"Burst not retained");

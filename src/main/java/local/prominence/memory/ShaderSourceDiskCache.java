@@ -46,7 +46,7 @@ public final class ShaderSourceDiskCache implements AutoCloseable {
         this.directory=directory.toAbsolutePath().normalize();this.namespace=namespace;
         this.maxBytes=maxBytes;this.maxEntry=maxEntry;this.maxEntries=maxEntries;
         this.memoryLimit=Math.min(maxBytes,32L*1024*1024);
-        writer=new ThreadPoolExecutor(1,2,5,TimeUnit.SECONDS,new LinkedBlockingQueue<>(64),r->{
+        writer=new ThreadPoolExecutor(1,1,5,TimeUnit.SECONDS,new LinkedBlockingQueue<>(64),r->{
             Thread t=new Thread(r,"Prominence shader text cache");t.setDaemon(true);t.setPriority(Thread.NORM_PRIORITY-1);return t;
         },new ThreadPoolExecutor.AbortPolicy());
     }
@@ -184,11 +184,22 @@ public final class ShaderSourceDiskCache implements AutoCloseable {
             ByteBuffer b=ByteBuffer.allocate(HEADER+bytes);b.putInt(MAGIC).putInt(text.length());b.put(HexFormat.of().parseHex(key));b.put(hash(payload));b.put(payload);
             temporary=Files.createTempFile(directory,"writing-",".tmp");Files.write(temporary,b.array());
             Files.move(temporary,directory.resolve(key+".bin"),StandardCopyOption.ATOMIC_MOVE,StandardCopyOption.REPLACE_EXISTING);temporary=null;writes.incrementAndGet();
+            Path written=directory.resolve(key+".bin");Entry previous=diskIndex.remove(written);
+            if(previous!=null)indexedBytes-=previous.size();
+            Entry entry=new Entry(written,bytes+HEADER,System.currentTimeMillis());diskIndex.put(written,entry);
+            indexedBytes+=entry.size();writesSinceIndex++;
         }catch(IOException|SecurityException e){writeFailures.incrementAndGet(); /* Optional cache failure keeps native output. */}
         finally {if(temporary!=null)try{Files.deleteIfExists(temporary);}catch(IOException|SecurityException ignored){}}
     }
     private record Entry(Path path,long size,long time) {}
-    private void prune(long incoming) throws IOException {
+    // Writer-thread owned ledger. Reconcile occasionally for other game instances; do not
+    // stat and sort thousands of files for every single shader output.
+    private final java.util.LinkedHashMap<Path,Entry> diskIndex=new java.util.LinkedHashMap<>();
+    private long indexedBytes,indexScanCount;
+    private int writesSinceIndex;
+    private boolean indexed;
+
+    private void rebuildIndex() throws IOException {
         var entries=new ArrayList<Entry>();long size=0;
         try(var temporary=Files.newDirectoryStream(directory,"writing-*.tmp")){
             long cutoff=System.currentTimeMillis()-TimeUnit.DAYS.toMillis(1);
@@ -201,10 +212,20 @@ public final class ShaderSourceDiskCache implements AutoCloseable {
                 entries.add(new Entry(p,a.size(),a.lastModifiedTime().toMillis()));size+=a.size();
             }
         }
-        entries.sort(Comparator.comparingLong(Entry::time));int count=entries.size();
-        for(Entry entry:entries){if(size+incoming<=maxBytes&&count<maxEntries)break;
-            if(Files.deleteIfExists(entry.path()))evictions.incrementAndGet();size-=entry.size();count--;}
+        entries.sort(Comparator.comparingLong(Entry::time));diskIndex.clear();
+        for(var entry:entries)diskIndex.put(entry.path(),entry);
+        indexedBytes=size;indexed=true;writesSinceIndex=0;indexScanCount++;
     }
+    private void prune(long incoming) throws IOException {
+        if(!indexed||writesSinceIndex>=128)rebuildIndex();
+        var entries=diskIndex.values().iterator();
+        while((indexedBytes+incoming>maxBytes||diskIndex.size()>=maxEntries)&&entries.hasNext()){
+            Entry entry=entries.next();
+            if(Files.deleteIfExists(entry.path()))evictions.incrementAndGet();
+            indexedBytes-=entry.size();entries.remove();
+        }
+    }
+    long indexScans(){return indexScanCount;}
     public Stats stats(){return new Stats(hits.get(),misses.get(),bypasses.get(),writes.get(),readNanos.get(),nativeNanos.get(),skippedDirty.get(),skippedOversize.get(),droppedQueue.get(),writeFailures.get(),evictions.get(),queued.get(),pending.get());}
     long pendingBytes(){return pending.get();}
     void awaitWrites() throws InterruptedException {
