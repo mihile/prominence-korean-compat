@@ -181,5 +181,13 @@
         "dev/emi/emi/runtime/EmiReloadManager$ReloadWorker.class": "008f48bb5dd34acde623ce3f27654aa672ba7053d6d5084828e247b0c0e231e4"
       }
     }
+  },
+  "xaeroMapTiming": {
+    "xaeroworldmap": {
+      "version": "1.47.0",
+      "classes": {
+        "xaero/map/MapWriter.class": "221a234a3a5cd20b9eede3db905dfed7e01b6407a5bf98950d968b751e0e61cb"
+      }
+    }
   }
 }

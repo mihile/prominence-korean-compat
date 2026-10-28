@@ -11,6 +11,10 @@ public abstract class VoxyMeshRunMixin {
  @WrapMethod(method="runJob",remap=false)
  private boolean prominence$meshAdmission(Operation<Boolean> original){
   if(!"Section mesh generation service".equals(name))return original.call();
+  Thread t = Thread.currentThread();
+  if (t.getPriority() > Thread.NORM_PRIORITY - 2) {
+   try { t.setPriority(Thread.NORM_PRIORITY - 2); } catch (SecurityException ignored) {}
+  }
   if(!VoxyMeshAdmission.enter())return false;
   try{return original.call();}finally{VoxyMeshAdmission.leave();}
  }

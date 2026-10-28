@@ -20,7 +20,8 @@
     "RemoteIngestSectionMixin",
     "LodBulkDecodeMixin",
     "VoxyMeshServiceMixin",
-    "VoxyMeshRunMixin"
+    "VoxyMeshRunMixin",
+    "XaeroMapWriterTimingMixin"
   ],
   "injectors": {
     "defaultRequire": 1
