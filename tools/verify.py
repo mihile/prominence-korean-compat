@@ -34,6 +34,7 @@ def main():
  checks.append(('local.prominence.weaponhud.WeaponUseFenceTests',[]))
  checks.append(('local.prominence.swingscope.SwingScopeTests',[]))
  checks.append(('local.prominence.localization.TranslationOverrideTests',[]))
+ checks.append(('local.prominence.work.TrimPreviewAssetsTests',[]))
  checks.append(('local.prominence.work.ModelWorkSliceTests',[]))
  checks.append(('local.prominence.work.InitialWorkTests',[]))
  if args.mods:checks.append(('local.prominence.weaponhud.WeaponHudPinChecks',[safe_arg(args.mods)]))

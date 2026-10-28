@@ -12,6 +12,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.tree.*;
 import org.objectweb.asm.tree.analysis.*;
@@ -26,7 +27,7 @@ public final class VerifyVoxyEarlyRenderer {
     private static Map<String,Integer> nativeCalls(MethodNode m) {var counts=new HashMap<String,Integer>();for(var i:m.instructions)if(i instanceof MethodInsnNode x)counts.merge(x.owner+"."+x.name+x.desc,1,Integer::sum);return counts;}
     public static void main(String[] args)throws Exception {
         Path cfg=Path.of(args[0]);Files.createDirectories(cfg);
-        Files.writeString(cfg.resolve("offline-voxy-render.mixins.json"),"{\"required\":true,\"package\":\"local.prominence.work.mixin\",\"compatibilityLevel\":\"JAVA_17\",\"client\":[\"VoxyServerEarlyRendererMixin\",\"VoxyScreenUvMixin\"],\"injectors\":{\"defaultRequire\":1}}");
+        Files.writeString(cfg.resolve("offline-voxy-render.mixins.json"),"{\"required\":true,\"package\":\"local.prominence.work.mixin\",\"compatibilityLevel\":\"JAVA_17\",\"client\":[\"VoxyServerEarlyRendererMixin\",\"VoxyScreenUvMixin\",\"TrimPreviewReloadMixin\",\"TrimPreviewLoaderMixin\",\"TrimPreviewReferencesMixin\"],\"injectors\":{\"defaultRequire\":1}}");
         var urls=new ArrayList<URL>();urls.add(cfg.toUri().toURL());for(String p:System.getProperty("java.class.path").split(File.pathSeparator))urls.add(Path.of(p).toUri().toURL());
         var resources=new URLClassLoader(urls.toArray(URL[]::new),VerifyVoxyEarlyRenderer.class.getClassLoader());
         Field field=VerifyMixinTransforms.class.getDeclaredField("LOADER");field.setAccessible(true);field.set(null,resources);
@@ -58,6 +59,16 @@ public final class VerifyVoxyEarlyRenderer {
         }
         if(!uvCall)throw new AssertionError("Native Voxy screen UV wrapper missing");
         System.out.println("PASS: actual Voxy IrisShaderPatch wrapped and ASM-verified");
+        for(String trimTarget:List.of("io.github.andrew6rant.dynamictrim.resource.DynamicTrimLoader","io.github.andrew6rant.dynamictrim.resource.TrimmableResource","net.minecraft.class_1092")) {
+            var trimNode=node(transformer.transformClassBytes(trimTarget,trimTarget,read(resources,trimTarget)));
+            boolean callFound=false;
+            for(var method:trimNode.methods){new Analyzer<BasicValue>(new BasicVerifier()).analyze(trimNode.name,method);
+                for(var instruction:method.instructions)if(instruction instanceof MethodInsnNode call&&call.owner.equals("local/prominence/work/TrimPreviewAssets"))callFound=true;
+            }
+            if(!callFound)throw new AssertionError("Missing trim wrapper: "+trimTarget);
+        }
+        System.out.println("PASS: native trim model generation, references and reload invalidation transformed");
+
         System.out.println("PASS: actual VoxyServer tick transformed; "+count+" methods verified; other native tick calls and ingest drain unchanged; Iris reload precedes Voxy frame hook; no game/GL");
     }
 }

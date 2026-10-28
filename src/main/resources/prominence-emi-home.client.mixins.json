@@ -22,7 +22,10 @@
     "VoxyMeshRunMixin",
     "XaeroMapWriterTimingMixin",
     "VoxyAtlasReuseMixin",
-    "VoxyScreenUvMixin"
+    "VoxyScreenUvMixin",
+    "TrimPreviewReloadMixin",
+    "TrimPreviewLoaderMixin",
+    "TrimPreviewReferencesMixin"
   ],
   "injectors": {
     "defaultRequire": 1

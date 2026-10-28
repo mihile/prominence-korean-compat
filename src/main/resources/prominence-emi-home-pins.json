@@ -215,5 +215,15 @@
         "me/cortex/voxy/client/iris/IrisShaderPatch.class": "c6354491fa1ec969a576714d25cea274da71942f805b28b5cefec268d3e72e2c"
       }
     }
+  },
+  "trimPreviewAssets": {
+    "dynamictrim": {
+      "version": "1.4.1",
+      "classes": {
+        "io/github/andrew6rant/dynamictrim/resource/DynamicTrimLoader.class": "5829707a849cd293b4dcdfe8d5879bdd495ade448391dfcac9241bf55170036b",
+        "io/github/andrew6rant/dynamictrim/resource/TrimmableResource.class": "5dc18f60e6e828cca08bfa840c83cdaf58668e3908d594e56efdf7bee8012379",
+        "io/github/andrew6rant/dynamictrim/resource/TrimModelHelper.class": "6478aad1bf5b024c8faf8b58cfa232a50539bca0fb0db37536e7ff18c5bcdc13"
+      }
+    }
   }
 }
