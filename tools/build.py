@@ -10,14 +10,22 @@ def packed(d):
   for n,b in sorted(d.items()):
    info=zipfile.ZipInfo(n,(2026,1,1,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED;info.external_attr=0o100644<<16;z.writestr(info,b)
  return out.getvalue()
+def safe_arg(p):
+ p=Path(p)
+ if not p.is_absolute():p=p.resolve()
+ if os.name=='nt':
+  import ctypes;buf=ctypes.create_unicode_buffer(1024);target=str(p) if p.is_dir() else str(p.parent)
+  if ctypes.windll.kernel32.GetShortPathNameW(target,buf,1024)>0:
+   return (Path(buf.value) if p.is_dir() else Path(buf.value)/p.name).as_posix()
+ return p.as_posix()
 def main():
  a=argparse.ArgumentParser();a.add_argument('--base',type=Path,required=True);a.add_argument('--classpath',type=Path,required=True);a.add_argument('--java-home',type=Path,required=True);a.add_argument('--build',type=int,required=True);a.add_argument('--label',required=True);a.add_argument('--track',choices=['main','nightly'],default='main');a.add_argument('--output',type=Path,required=True);args=a.parse_args()
  work=args.output/'work';work.mkdir(parents=True,exist_ok=True);classes=work/'classes';classes.mkdir(exist_ok=True)
- cp=[str(args.base.resolve()),*json.loads(args.classpath.read_text('utf8'))]
+ cp=[safe_arg(args.base),*[safe_arg(x) for x in json.loads(args.classpath.read_text('utf8'))]]
  sources=sorted((ROOT/'src/main/java').rglob('*.java'))
- options=['--release','17','-encoding','UTF-8','-proc:none','-classpath',os.pathsep.join(cp),'-d',str(classes),*map(str,sources)]
- argfile=work/'compile.args';argfile.write_text('\n'.join('"'+x.replace('\\','/')+'"' for x in options),encoding='utf8')
- run=subprocess.run([str(args.java_home/'bin/javac.exe' if os.name=='nt' else args.java_home/'bin/javac'),'-J-Dfile.encoding=UTF-8','@'+str(argfile)],capture_output=True,text=True,encoding='utf8',errors='replace');(work/'compile.log').write_text(run.stdout+run.stderr,encoding='utf8');assert run.returncode==0,run.stdout+run.stderr
+ options=['--release','17','-encoding','UTF-8','-proc:none','-classpath',os.pathsep.join(cp),'-d',safe_arg(classes),*[safe_arg(s) for s in sources]]
+ argfile=work/'compile.args';argfile.write_text('\n'.join('"'+x+'"' for x in options),encoding='utf8')
+ run=subprocess.run([str(args.java_home/'bin/javac.exe' if os.name=='nt' else args.java_home/'bin/javac'),'-J-Dfile.encoding=UTF-8','@'+safe_arg(argfile)],capture_output=True,text=True,encoding='utf8',errors='replace');(work/'compile.log').write_text(run.stdout+run.stderr,encoding='utf8');assert run.returncode==0,run.stdout+run.stderr
  with zipfile.ZipFile(args.base) as z:
   assert len(z.namelist())==len(set(z.namelist()));old={n:z.read(n) for n in z.namelist()}
  meta=json.loads(old['fabric.mod.json']);assert meta['id']=='prominence_korean_compat' and meta['version']=='1.0.0'

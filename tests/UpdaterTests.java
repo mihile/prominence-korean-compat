@@ -94,7 +94,7 @@ public final class UpdaterTests {
         }
         String java=Path.of(System.getProperty("java.home"),"bin",System.getProperty("os.name").startsWith("Windows")?"java.exe":"java").toString();
         Path game=fixture("wait for parent 종료");Path target=game.resolve("mods").resolve(SignedRelease.FILE);String before=UpdateFiles.sha(target);incoming(game);Path root=game.resolve(".prominence-update");Path gate=work.resolve("parent-exit.gate");
-        Process parent=new ProcessBuilder(java,"-cp",System.getProperty("java.class.path"),"UpdaterTests$Parent",gate.toString()).start();
+        String parentCp=Path.of(UpdaterTests.class.getProtectionDomain().getCodeSource().getLocation().toURI()).toString();Process parent=new ProcessBuilder(java,"-cp",parentCp,"UpdaterTests$Parent",gate.toString()).start();
         Properties p=new Properties();p.setProperty("game",game.toString());p.setProperty("parentPid",Long.toString(parent.pid()));p.setProperty("parentStarted",parent.toHandle().info().startInstant().orElseThrow().toString());p.setProperty("build",Long.toString(valid.build()));p.setProperty("oldSha256",before);UpdateFiles.writeProperties(root.resolve("pending.properties"),p);Files.write(root.resolve("manifest.properties"),signed(metadata()));
         Process worker=new ProcessBuilder(java,"-cp",testHelper.toString(),ApplyUpdate.class.getName(),root.resolve("pending.properties").toString()).redirectErrorStream(true).redirectOutput(work.resolve("worker.log").toFile()).start();
         Thread.sleep(700);ok(worker.isAlive(),"Helper died while parent alive");ok(UpdateFiles.sha(target).equals(before),"Replaced running parent's JAR");
@@ -107,7 +107,7 @@ public final class UpdaterTests {
         Path testHelper=work.resolve("test-worker.jar"),game=fixture("changed approved plan"),root=game.resolve(".prominence-update"),gate=work.resolve("parent-exit2.gate");incoming(game);
         Path target=game.resolve("mods").resolve(SignedRelease.FILE);String before=UpdateFiles.sha(target);
         String java=Path.of(System.getProperty("java.home"),"bin",System.getProperty("os.name").startsWith("Windows")?"java.exe":"java").toString();
-        Process parent=new ProcessBuilder(java,"-cp",System.getProperty("java.class.path"),"UpdaterTests$Parent",gate.toString()).start();
+        String parentCp=Path.of(UpdaterTests.class.getProtectionDomain().getCodeSource().getLocation().toURI()).toString();Process parent=new ProcessBuilder(java,"-cp",parentCp,"UpdaterTests$Parent",gate.toString()).start();
         Properties p=new Properties();p.setProperty("game",game.toString());p.setProperty("parentPid",Long.toString(parent.pid()));p.setProperty("parentStarted",parent.toHandle().info().startInstant().orElseThrow().toString());p.setProperty("build",Long.toString(valid.build()));p.setProperty("oldSha256",before);UpdateFiles.writeProperties(root.resolve("pending.properties"),p);Files.write(root.resolve("manifest.properties"),signed(metadata()));
         Process worker=new ProcessBuilder(java,"-cp",testHelper.toString(),ApplyUpdate.class.getName(),root.resolve("pending.properties").toString()).redirectErrorStream(true).redirectOutput(work.resolve("changed-worker.log").toFile()).start();
         Thread.sleep(700);p.setProperty("oldSha256","0".repeat(64));UpdateFiles.writeProperties(root.resolve("pending.properties"),p);Files.writeString(gate,"exit");parent.waitFor(10,TimeUnit.SECONDS);

@@ -25,6 +25,7 @@ public final class ShaderSourceDiskCache implements AutoCloseable {
     public record Stats(long hits, long misses, long bypasses, long writes, long readNanos, long nativeNanos, long skippedDirty, long skippedOversize, long droppedQueue, long writeFailures, long evictions, long queued, long pendingBytes) {}
     private static final int MAGIC=0x50475332, HEADER=72;
     private static final long PENDING_LIMIT=128L*1024*1024;
+    private static final java.util.concurrent.ConcurrentHashMap<String, Boolean> DYNAMIC_CACHE = new java.util.concurrent.ConcurrentHashMap<>(4096);
     private final Path directory;
     private final String namespace;
     private final long maxBytes;
@@ -73,12 +74,20 @@ public final class ShaderSourceDiskCache implements AutoCloseable {
         return true;
     }
     private static boolean dynamic(String s) {
+        Boolean cached = DYNAMIC_CACHE.get(s);
+        if (cached != null) return cached;
+        boolean result = computeDynamic(s);
+        if (DYNAMIC_CACHE.size() < 16384) DYNAMIC_CACHE.put(s, result);
+        return result;
+    }
+    private static boolean computeDynamic(String s) {
         return s.contains("__DATE__")||s.contains("__TIME__")||s.contains("__TIMESTAMP__")||s.contains("__COUNTER__")
             ||s.contains("__FILE__")||s.contains("__BASE_FILE__")||s.contains("__INCLUDE_LEVEL__")||s.contains("##")
             ||s.contains("%:")||s.contains("__has_include")||externalInclude(s)
             ||s.contains("IRIS_JCPP_GLSL_VERSION")||s.contains("IRIS_JCPP_GLSL_EXTENSION");
     }
     private static boolean externalInclude(String s) {
+        if(s.indexOf('#')<0)return false;
         if(!s.contains("include")&&!s.contains("\\\n")&&!s.contains("\\\r"))return false;
         boolean block=false,line=false;char quote=0;
         for(int i=0;i<s.length();i++){
