@@ -199,5 +199,13 @@
         "me/cortex/voxy/client/core/RenderResourceReuse.class": "1786add4124b8dd0bda5a27b689559fa9447c75bf320c893bab8009f4e531a97"
       }
     }
+  },
+  "ftbQuestsSearch": {
+    "ftbquests": {
+      "version": "2001.4.18",
+      "classes": {
+        "dev/ftb/mods/ftbquests/integration/item_filtering/DisplayStacksCache.class": "2d08f5ae6ddf3bfb474481d47b50554000a836bec450ab379a30812309c87189"
+      }
+    }
   }
 }

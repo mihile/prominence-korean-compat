@@ -22,7 +22,8 @@
     "VoxyMeshServiceMixin",
     "VoxyMeshRunMixin",
     "XaeroMapWriterTimingMixin",
-    "VoxyAtlasReuseMixin"
+    "VoxyAtlasReuseMixin",
+    "FtbQuestsDisplayStacksCacheMixin"
   ],
   "injectors": {
     "defaultRequire": 1
