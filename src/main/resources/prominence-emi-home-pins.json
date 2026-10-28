@@ -189,5 +189,15 @@
         "xaero/map/MapWriter.class": "221a234a3a5cd20b9eede3db905dfed7e01b6407a5bf98950d968b751e0e61cb"
       }
     }
+  },
+  "voxyAtlasReuse": {
+    "voxy": {
+      "version": "0.2.20-beta+1.20.1-port.9",
+      "classes": {
+        "me/cortex/voxy/client/core/model/bakery/SoftwareModelTextureBakery.class": "ec575b50e5758f96e85de19686e689a5a0c3499275a1b8ec79debb497a636cc7",
+        "me/cortex/voxy/client/core/model/bakery/ModelAtlasReadback.class": "1b99464f7ce277bfb58a02282950f897adb925e7566d3f92cfa2e5a211971246",
+        "me/cortex/voxy/client/core/RenderResourceReuse.class": "1786add4124b8dd0bda5a27b689559fa9447c75bf320c893bab8009f4e531a97"
+      }
+    }
   }
 }

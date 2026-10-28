@@ -21,7 +21,8 @@
     "LodBulkDecodeMixin",
     "VoxyMeshServiceMixin",
     "VoxyMeshRunMixin",
-    "XaeroMapWriterTimingMixin"
+    "XaeroMapWriterTimingMixin",
+    "VoxyAtlasReuseMixin"
   ],
   "injectors": {
     "defaultRequire": 1
