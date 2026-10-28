@@ -1,0 +1,11 @@
+{
+  "purpose": "Current reviewed terminology. Update the runtime translation sources in the same change; this file is not loaded by Minecraft.",
+  "terms": [
+    {"source": "Reforging", "ko": "재단조"},
+    {"source": "Skill Tree", "ko": "스킬 트리"},
+    {"source": "Cooldown", "ko": "재사용 대기시간"},
+    {"source": "Frost Archer", "ko": "프로스트 아처"},
+    {"source": "Mutant", "ko": "변이체"}
+  ],
+  "scope": "A small reviewed starting set, not an exhaustive glossary. Historical files are evidence; conflicting older spellings do not override this list."
+}
