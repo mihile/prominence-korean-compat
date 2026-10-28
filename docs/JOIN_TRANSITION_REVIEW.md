@@ -71,3 +71,24 @@ Fastload `instant_load=false`, server_render_chunk_radius=3이다. 현재 호환
 2. FerriteCore bakedQuadDeduplication과 modelSides는 이미 활성화돼 있다. 정점 배열 인터닝과 다른 BakedQuad 객체 공유를 혼동하지 않는다. 전체 객체 공유는 동일 필드·모드 추가 필드·수명/가변성을 확인한 뒤 검토해야 하며, histogram 숫자만 보고 무작정 구현하지 않는다.
 3. 캐시 저장은 개선됐으나 Euphoria가 포함된 pipeline 준비 비용은 남았다. 새 GPU pipeline과 변환/소스 전처리/GC를 구분한다. 서로 다른 차원 결과를 같은 것으로 재사용하면 안 된다.
 4. 평균 FPS나 로그 감소로 첫 접속이 해결됐다고 주장하지 않는다. 이 회차는 분석 문서만 갱신했고 불필요한 새 JAR 빌드를 만들지 않았다.
+
+
+## 후속 측정: 20261028-232355-2b086a / build2026102806
+
+이번 실행은 로그에서 dynamic_resources=true를 확인했다. Fastload는 실행 로그에 없고 셰이더는 Unbound r5.9.3 + Euphoria 1.10.5다. JAR은 이전 기록과 같은 build2806이다. 이동 순서와 플레이 내용까지 통제한 실험은 아니다.
+
+- GC 후 peak 5,926,298,008 / max 6,341,787,648 bytes, 약 93.4%. Full GC 0회(직전5회), 실제 정지 합계 1,783ms(직전5,442ms), 최장95ms(직전881ms). 동적 리소스 복원 후 메모리/GC 지표가 뚜렷하게 좋아졌다.
+- MAT BakedQuad 290,821개 / shallow13,959,408 bytes. 직전10,957,013개 / 525,936,624 bytes에서 감소했다. ItemStack 약192만개와 ItemEmiStack 약255만개는 큰 변화가 없다.
+- 첫 접속의 Present 시작 간격 1,780/2,092/3,315ms는 여전히 남았다. GC가 개선됐으므로 최초 접속 지연 전체를 메모리나 ModernFix 모델 락 하나로 설명할 수 없다.
+- EMI19,224ms(직전17,430ms)로 초기화 시간 개선은 이번에 확인되지 않았다. 캐시 쓰기 backlog는 네더/엔드 모두0이고 mask 누락대량출력은 재발하지 않았다.
+- 엔드 Iris4,153ms / Voxy graphics init73ms, 네더 Iris3,444ms / Voxy graphics init64ms. 오버월드 복귀 Iris1,480ms / Voxy54ms, 이후 Voxy37ms. Voxy init counter는 WorldEngine/Mapper 저장소 여는 시간까지 전부 포함한 값이 아니다.
+- 첫 접속 구간 JFR에는 StateIdTracker.recalcStateMap, 초기 클래스 로딩, Flywheel WaitGroup 대기, Voxy Mapper StateEntry 생성 중 ModernFix의 블록 상태 cache/shape 초기화가 계속 관찰된다. 샘플 수를 ms로 환산하지 않았다.
+
+개선 후보 우선순위:
+
+1. 현재 Fastload-off/dynamic_resources-on 구성을 기준으로 유지한다. 이번 회차에서는 설정을 더 바꾸지 않는다.
+2. Voxy Mapper에서 오래된 mapping 전부의 opacity를 생성자에서 즉시 계산하는 대신 실제 getBlockStateOpacity 호출에서 계산하도록 분리하는 방안이 유력하다. 현재 소스에서 opacity 필드 읽기는 Mapper.getBlockStateOpacity(int) 하나다. 저장 ID/BlockState 해석은 그대로 하고, leaves15 규칙·native BlockGetter·첫 접근 동기화·다른 호출자의 직접 필드 접근 여부를 검증해야 한다. 단순 sentinel 추가나 전체 세계 초기화 비동기 이동은 검증 전 적용하지 않는다. 비용 절감량은 아직 미측정이다.
+3. 차원별 Iris 프로그램 준비는 여전히 수초다. shader source preprocessing, GLSL 변환, GL link의 정확한 span을 나눠야 한다. 이미 서로 다른 프로그램을 같은 캐시 결과로 취급하거나 무조건 destroy를 막는 방식은 안전하지 않다.
+4. ResourcefulLib HighlightHandler 약99MB는 별도의 추가 RAM 후보지만 현재 최초3초/이동4초를 설명하는 근거는 아니다. 정상 Voxy 섹션538MB와 모델359MB도 크기만 보고 제거하지 않는다.
+
+이 회차는 분석·개선 후보 정리다. 새 코드/JAR이나 운영 설정은 변경하지 않았다. 원시 JFR/HPROF/로그는 로컬에 둔다.
