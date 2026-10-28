@@ -1,0 +1,1 @@
+package net.minecraft; public class class_310 {private static final class_310 INSTANCE=new class_310();public class_315 field_1690=new class_315();public static class_310 method_1551(){return INSTANCE;}}

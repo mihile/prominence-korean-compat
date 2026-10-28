@@ -1,0 +1,1 @@
+package net.fabricmc.loader.api; import java.util.Optional; public interface FabricLoader {static FabricLoader getInstance(){return id->"prominence_korean_compat".equals(id)?Optional.of(new ModContainer(){}):Optional.empty();} Optional<ModContainer> getModContainer(String id);}

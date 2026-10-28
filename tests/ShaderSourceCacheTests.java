@@ -78,8 +78,9 @@ public final class ShaderSourceCacheTests {
             check(!cache.key("ab",List.of(new ShaderSourceDiskCache.Define("c","d"))).equals(cache.key("a",List.of(new ShaderSourceDiskCache.Define("bc","d")))),"Length delimiter collision");
             check(!cache.key("s",List.of(new ShaderSourceDiskCache.Define("A","1"),new ShaderSourceDiskCache.Define("A","2"))).equals(cache.key("s",List.of(new ShaderSourceDiskCache.Define("A","2"),new ShaderSourceDiskCache.Define("A","1")))),"Macro order ignored");
             var file=dir.resolve("cache").resolve(key+".bin");byte[] good=Files.readAllBytes(file);
-            for(int at:new int[]{0,4,8,40,good.length-1}){byte[] broken=good.clone();broken[at]^=1;Files.write(file,broken);int before=count.get();cache.preprocess("source",defs,compiler);cache.awaitWrites();check(count.get()==before+1,"Corrupt entry did not fall back at "+at);}
-            Files.write(file,new byte[]{1,2});int before=count.get();cache.preprocess("source",defs,compiler);cache.awaitWrites();check(count.get()==before+1,"Truncated entry accepted");
+            // A fresh instance checks disk integrity independently of the warm memory cache.
+            for(int at:new int[]{0,4,8,40,good.length-1}){byte[] broken=good.clone();broken[at]^=1;Files.write(file,broken);int before=count.get();try(var fresh=new ShaderSourceDiskCache(dir.resolve("cache"),"schema1")){fresh.preprocess("source",defs,compiler);fresh.awaitWrites();}check(count.get()==before+1,"Corrupt entry did not fall back at "+at);}
+            Files.write(file,new byte[]{1,2});int before=count.get();try(var fresh=new ShaderSourceDiskCache(dir.resolve("cache"),"schema1")){fresh.preprocess("source",defs,compiler);fresh.awaitWrites();}check(count.get()==before+1,"Truncated entry accepted");
             for(String dynamic:List.of("__TIME__","__DATE__","__TIMESTAMP__","__COUNTER__","__FILE__","__BASE_FILE__","__INCLUDE_LEVEL__","A ## B","#include \"x\"","#/**/include \"x\"","#inc\\\nlude \"x\"","%:include \"x\"")){
                 long b=cache.stats().bypasses();cache.preprocess(dynamic,defs,compiler);check(cache.stats().bypasses()==b+1,"Dynamic input cached: "+dynamic);}
             long b=cache.stats().bypasses();cache.preprocess("source",List.of(new ShaderSourceDiskCache.Define("A","__TIME__")),compiler);check(cache.stats().bypasses()==b+1,"Dynamic define cached");

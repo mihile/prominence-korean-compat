@@ -28,6 +28,9 @@ def main():
  for n in list(new):
   if n.startswith((*managed_prefixes,'META-INF/prominence-korean-compat-source/auto-update/')):del new[n]
  added={p.relative_to(classes).as_posix():p.read_bytes() for p in classes.rglob('*.class')};new.update(added)
+ # Preserve cumulative classes that have no source in the current managed tree.
+ for name,value in old.items():
+  if name.endswith('.class') and name not in new:new[name]=value
  pub=(ROOT/'public-key.der').read_bytes()
  prefix='local/prominence/autoupdate/'
  helper={n:b for n,b in added.items() if n in [prefix+x+'.class' for x in ['ApplyUpdate','SignedRelease','UpdateFiles']]}
@@ -59,6 +62,19 @@ def main():
  if (ROOT/'src/main/java/local/prominence/memory/WorldCacheCleanupClient.java').exists():
   entry='local.prominence.memory.WorldCacheCleanupClient'
   if entry not in client:client.append(entry)
+ entry='local.prominence.localization.IntegratedKoreanPack'
+ if entry not in client:client.append(entry)
+ pack=ROOT/'translation/Prominence_II_Korean_Translate.zip'
+ for name in [n for n in new if n.startswith('resourcepacks/integrated_korean/')]:del new[name]
+ with zipfile.ZipFile(pack) as z:
+  names=z.namelist();assert len(names)==len(set(names)) and 'pack.mcmeta' in names
+  for info in z.infolist():
+   if info.is_dir():continue
+   name=info.filename
+   assert not name.startswith(('/', '\\')) and '\\' not in name and all(x not in ('', '.', '..') for x in name.split('/'))
+   target='resourcepacks/integrated_korean/'+name
+   assert target not in new
+   new[target]=z.read(info)
  meta.setdefault('contact',{}).update(homepage='https://github.com/mihile/prominence-korean-compat',sources='https://github.com/mihile/prominence-korean-compat',issues='https://github.com/mihile/prominence-korean-compat/issues')
  meta.setdefault('custom',{})['prominenceAutoUpdate']={'build':args.build,'channel':'client','pack':'4.1.3'}
  for p in sorted((ROOT/'src/main/resources').rglob('*')):

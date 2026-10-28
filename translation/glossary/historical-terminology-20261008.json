@@ -1,0 +1,2370 @@
+{
+  "languagePairs": 39391,
+  "questPairs": 4206,
+  "terms": [
+    {
+      "file": "assets/death_knights/lang/ko_kr.json",
+      "key": "attribute.name.death_knights.unholy_power",
+      "en": "Unholy Spell Power",
+      "ko": "부정 주문 위력"
+    },
+    {
+      "file": "assets/death_knights/lang/ko_kr.json",
+      "key": "effect.death_knights.unholy_power",
+      "en": "Unholy Power",
+      "ko": "부정의 힘"
+    },
+    {
+      "file": "assets/death_knights/lang/ko_kr.json",
+      "key": "enchantment.death_knights.decaying.desc",
+      "en": "Increases the damage dealt by Unholy and Blood Spell Powers.",
+      "ko": "부정 및 혈기 주문 위력으로 가하는 피해량이 증가합니다."
+    },
+    {
+      "file": "assets/death_knights/lang/ko_kr.json",
+      "key": "enchantment.death_knights.decaying.description",
+      "en": "Increases the damage dealt by Unholy and Blood Spell Powers.",
+      "ko": "부정 및 혈기 주문 위력으로 가하는 피해량이 증가합니다."
+    },
+    {
+      "file": "assets/death_knights/lang/ko_kr.json",
+      "key": "item.death_knights.unholy_spell_book",
+      "en": "Tome of Unholy Teachings",
+      "ko": "부정한 가르침의 고서"
+    },
+    {
+      "file": "assets/death_knights/lang/ko_kr.json",
+      "key": "item.death_knights.unholy_stone",
+      "en": "Unholy Rune",
+      "ko": "부정 룬"
+    },
+    {
+      "file": "assets/death_knights/lang/ko_kr.json",
+      "key": "spell.death_knights.death_coil.description",
+      "en": "Unleash a coil of death, dealing {damage} unholy damage to the target. If the target is affected by a disease, it will explode up to 4 stacks and apply a single stack of that disease to nearby non-infected targets.",
+      "ko": "죽음의 고리를 방출하여 대상에게 {damage}의 부정 피해를 줍니다. 대상이 질병에 걸려 있다면 최대 4중첩까지 폭발하여 주변의 감염되지 않은 대상에게 해당 질병을 1중첩 부여합니다."
+    },
+    {
+      "file": "assets/death_knights/lang/ko_kr.json",
+      "key": "spell.death_knights.epidemic.description",
+      "en": "Explode up to 2 stacks of an active disease of all nearby targets, and deal unholy damage per stack to each affected target.",
+      "ko": "근처의 모든 대상의 활성화된 질병을 최대 2중첩 폭발시켜, 영향을 받는 대상 각각에게 중첩당 부정 피해를 줍니다."
+    },
+    {
+      "file": "assets/death_knights/lang/ko_kr.json",
+      "key": "spell.death_knights.festering_strike.description",
+      "en": "Strike the target with a festering attack, dealing {damage_1} physical damage and {damage_2} unholy damage. Applies two stacks of a random disease to the target if they have no active disease, or increases the stacks of the active disease by 2.",
+      "ko": "대상을 썩어가는 공격으로 공격하여 {damage_1}의 물리 피해와 {damage_2}의 부정 피해를 줍니다. 대상에게 걸린 질병이 없으면 무작위 질병 2중첩을 부여하고, 활성화된 질병이 있으면 중첩을 2 증가시킵니다."
+    },
+    {
+      "file": "assets/death_knights/lang/ko_kr.json",
+      "key": "spell.death_knights.lesser_festering_strike.description",
+      "en": "Strike the target with a festering attack, dealing {damage_1} physical damage and {damage_2} unholy damage.",
+      "ko": "대상을 썩어가는 공격으로 공격하여 {damage_1}의 물리 피해와 {damage_2}의 부정 피해를 줍니다."
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "biome.eldritch_end.hasturian_wastes",
+      "en": "Hasturian Wastes",
+      "ko": "하스투르의 황무지"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "biome.eldritch_end.primordial_abyss",
+      "en": "Primordial Abyss",
+      "ko": "태고의 심연"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.corrupted_etyr_bars",
+      "en": "Corrupted Etyr Bars",
+      "ko": "타락한 에티르 창살"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.corrupted_etyr_block",
+      "en": "Corrupted Etyr Block",
+      "ko": "타락한 에티르 블록"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.corrupted_etyr_door",
+      "en": "Corrupted Etyr Door",
+      "ko": "타락한 에티르 문"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.corrupted_etyr_pillar",
+      "en": "Corrupted Etyr Pillar",
+      "ko": "타락한 에티르 기둥"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.corrupted_etyr_slab",
+      "en": "Corrupted Etyr Slab",
+      "ko": "타락한 에티르 반 블록"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.corrupted_etyr_stairs",
+      "en": "Corrupted Etyr Stairs",
+      "ko": "타락한 에티르 계단"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.corrupted_etyr_tiles",
+      "en": "Corrupted Etyr Tiles",
+      "ko": "타락한 에티르 타일"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.corrupted_etyr_trapdoor",
+      "en": "Corrupted Etyr Trapdoor",
+      "ko": "타락한 에티르 다락문"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.decadent_etyr_bars",
+      "en": "Decadent Etyr Bars",
+      "ko": "퇴락한 에티르 창살"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.decadent_etyr_block",
+      "en": "Decadent Etyr Block",
+      "ko": "퇴락한 에티르 블록"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.decadent_etyr_door",
+      "en": "Decadent Etyr Door",
+      "ko": "퇴락한 에티르 문"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.decadent_etyr_pillar",
+      "en": "Decadent Etyr Pillar",
+      "ko": "퇴락한 에티르 기둥"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.decadent_etyr_slab",
+      "en": "Decadent Etyr Slab",
+      "ko": "퇴락한 에티르 반 블록"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.decadent_etyr_stairs",
+      "en": "Decadent Etyr Stairs",
+      "ko": "퇴락한 에티르 계단"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.decadent_etyr_tiles",
+      "en": "Decadent Etyr Tiles",
+      "ko": "퇴락한 에티르 타일"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.decadent_etyr_trapdoor",
+      "en": "Decadent Etyr Trapdoor",
+      "ko": "퇴락한 에티르 다락문"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.etyr_bars",
+      "en": "Etyr Bars",
+      "ko": "에티르 창살"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.etyr_block",
+      "en": "Etyr Block",
+      "ko": "에티르 블록"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.etyr_door",
+      "en": "Etyr Door",
+      "ko": "에티르 문"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.etyr_ore",
+      "en": "Etyr Ore",
+      "ko": "에티르 광석"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.etyr_pillar",
+      "en": "Etyr Pillar",
+      "ko": "에티르 기둥"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.etyr_slab",
+      "en": "Etyr Slab",
+      "ko": "에티르 반 블록"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.etyr_stairs",
+      "en": "Etyr Stairs",
+      "ko": "에티르 계단"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.etyr_tiles",
+      "en": "Etyr Tiles",
+      "ko": "에티르 타일"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.etyr_trapdoor",
+      "en": "Etyr Trapdoor",
+      "ko": "에티르 다락문"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.hasturian_dune_sand",
+      "en": "Hasturian Dune Sand",
+      "ko": "하스투르의 사구 모래"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.hasturian_grass",
+      "en": "Hasturian Grass",
+      "ko": "하스투르의 잔디"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.hasturian_moss",
+      "en": "Hasturian Moss",
+      "ko": "하스투르의 이끼"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.hasturian_sand",
+      "en": "Hasturian Sand",
+      "ko": "하스투르의 모래"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.perturbed_etyr_bars",
+      "en": "Perturbed Etyr Bars",
+      "ko": "불안정한 에티르 창살"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.perturbed_etyr_block",
+      "en": "Perturbed Etyr Block",
+      "ko": "불안정한 에티르 블록"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.perturbed_etyr_door",
+      "en": "Perturbed Etyr Door",
+      "ko": "불안정한 에티르 문"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.perturbed_etyr_pillar",
+      "en": "Perturbed Etyr Pillar",
+      "ko": "불안정한 에티르 기둥"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.perturbed_etyr_slab",
+      "en": "Perturbed Etyr Slab",
+      "ko": "불안정한 에티르 반 블록"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.perturbed_etyr_stairs",
+      "en": "Perturbed Etyr Stairs",
+      "ko": "불안정한 에티르 계단"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.perturbed_etyr_tiles",
+      "en": "Perturbed Etyr Tiles",
+      "ko": "불안정한 에티르 타일"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.perturbed_etyr_trapdoor",
+      "en": "Perturbed Etyr Trapdoor",
+      "ko": "불안정한 에티르 다락문"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.primordial_button",
+      "en": "Primordial Button",
+      "ko": "태고의 버튼"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.primordial_door",
+      "en": "Primordial Door",
+      "ko": "태고의 문"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.primordial_fence",
+      "en": "Primordial Fence",
+      "ko": "태고의 울타리"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.primordial_fence_gate",
+      "en": "Primordial Fence Gate",
+      "ko": "태고의 울타리 문"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.primordial_ladder",
+      "en": "Primordial Ladder",
+      "ko": "태고의 사다리"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.primordial_leaves",
+      "en": "Primordial Leaves",
+      "ko": "태고의 나뭇잎"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.primordial_log",
+      "en": "Primordial Log",
+      "ko": "태고의 원목"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.primordial_planks",
+      "en": "Primordial Planks",
+      "ko": "태고의 판자"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.primordial_pressure_plate",
+      "en": "Primordial Pressure Plate",
+      "ko": "태고의 압력판"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.primordial_sign",
+      "en": "Primordial Sign",
+      "ko": "태고의 표지판"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.primordial_slab",
+      "en": "Primordial Slab",
+      "ko": "태고의 반 블록"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.primordial_stairs",
+      "en": "Primordial Stairs",
+      "ko": "태고의 계단"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.primordial_trapdoor",
+      "en": "Primordial Trapdoor",
+      "ko": "태고의 다락문"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.primordial_wall_sign",
+      "en": "Primordial Wall Sign",
+      "ko": "태고의 벽 표지판"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.primordial_wood",
+      "en": "Primordial Wood",
+      "ko": "태고의 나무"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.stripped_primordial_log",
+      "en": "Stripped Primordial Log",
+      "ko": "껍질 벗긴 태고의 원목"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "block.eldritch_end.stripped_primordial_wood",
+      "en": "Stripped Primordial Wood",
+      "ko": "껍질 벗긴 태고의 나무"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "death.attack.corruption",
+      "en": "%1$s fell victim to corruption.",
+      "ko": "%1$s님이 타락의 희생양이 되었습니다."
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "death.attack.corruption.player",
+      "en": "%1$s fell victim to corruption.",
+      "ko": "%1$s님이 타락의 희생양이 되었습니다."
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "effect.eldritch_end.corruption",
+      "en": "Corruption",
+      "ko": "타락"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "effect.eldritch_end.hastur_presence",
+      "en": "Hastur's Presence",
+      "ko": "하스투르의 기운"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "eldritch_end.corruption",
+      "en": "§fꦙ§r Corruption",
+      "ko": "§fꦙ§r 타락"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "eldritch_end.corruption.desc",
+      "en": "The amount of corruption a player has.",
+      "ko": "플레이어가 지닌 타락의 양입니다."
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "eldritch_end.corruption.gui.desc.1",
+      "en": "Empower your corruption based abilities,",
+      "ko": "타락 기반 능력을 강화하는 대신,"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "eldritch_end.corruption.gui.effect.description.1",
+      "en": "%COST%: You take %TAKEN_DAMAGE% extra damage from all sources except corruption.",
+      "ko": "%COST% 이상: 타락 피해를 제외한 모든 피해를 %TAKEN_DAMAGE% 더 받습니다."
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "eldritch_end.corruption.gui.effect.description.3",
+      "en": "%COST%: Corruption starts affecting your vision, you start seeing everything with a slight purple tint that increases with your corruption.",
+      "ko": "%COST%: 타락이 시야에 영향을 미치기 시작하며, 타락이 심해질수록 모든 것이 약간 보라색으로 보이게 됩니다."
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "eldritch_end.corruption.gui.effect.description.4",
+      "en": "%COST%: You do %DAMAGE_REDUCTION% less damage from all sources except corruption.",
+      "ko": "%COST% 이상: 타락 피해를 제외한 모든 피해를 %DAMAGE_REDUCTION% 적게 줍니다."
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "eldritch_end.corruption.gui.player",
+      "en": "Player Corruption",
+      "ko": "플레이어 타락 수치"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "eldritch_end.corruption_resistance",
+      "en": "§fꬁ§r Corruption Resistance",
+      "ko": "§fꬁ§r 타락 저항"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "eldritch_end.corruption_resistance.desc",
+      "en": "The amount of corruption resistance a player has.",
+      "ko": "플레이어가 지닌 타락 저항의 양입니다."
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "entity.eldritch_end.hastur",
+      "en": "Hastur's Image",
+      "ko": "하스투르의 형상"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "entity.eldritch_end.the_faceless",
+      "en": "The Faceless",
+      "ko": "얼굴 없는 자"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "infusion.eldritch_end.aberration_heart",
+      "en": "Corruption Infusion II",
+      "ko": "타락 주입 II"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "infusion.eldritch_end.aberration_limb",
+      "en": "Corruption Infusion I",
+      "ko": "타락 주입 I"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "infusion.eldritch_end.etyr_ingot",
+      "en": "Etyr Infusion I",
+      "ko": "에티르 주입 I"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "infusion.eldritch_end.xal",
+      "en": "Corruption Infusion III",
+      "ko": "타락 주입 III"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "item.eldritch_end.etyr_ingot",
+      "en": "Etyr Ingot",
+      "ko": "에티르 주괴"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "item.eldritch_end.etyrite_boots",
+      "en": "Etyrite Boots",
+      "ko": "에티라이트 부츠"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "item.eldritch_end.etyrite_chestplate",
+      "en": "Etyrite Chestplate",
+      "ko": "에티라이트 흉갑"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "item.eldritch_end.etyrite_helmet",
+      "en": "Etyrite Helmet",
+      "ko": "에티라이트 투구"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "item.eldritch_end.etyrite_leggings",
+      "en": "Etyrite Leggings",
+      "ko": "에티라이트 레깅스"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "item.eldritch_end.hastur_crown",
+      "en": "Hastur's Lost Crown",
+      "ko": "하스투르의 잃어버린 왕관"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "item.eldritch_end.primordial_boat",
+      "en": "Primordial Boat",
+      "ko": "태고의 보트"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "item.eldritch_end.primordial_chest_boat",
+      "en": "Primordial Chest Boat",
+      "ko": "태고의 상자가 실린 보트"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "item.eldritch_end.raw_etyr",
+      "en": "Raw Etyr",
+      "ko": "에티르 원석"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "item.eldritch_end.xal",
+      "en": "X'al, The Faceless Eye",
+      "ko": "크살, 얼굴 없는 눈 (X'al, The Faceless Eye)"
+    },
+    {
+      "file": "assets/eldritch_end/lang/ko_kr.json",
+      "key": "item.eldritch_end.xal.type",
+      "en": "Corruption Relic",
+      "ko": "타락 유물"
+    },
+    {
+      "file": "assets/entity_model_features/lang/ko_kr.json",
+      "key": "entity_model_features.config.variation_base.tooltip",
+      "en": "It is a best practise with OptiFine to require a 'base' model for variation, as this can be very inconsistent with OptiFine. With the setting enabled this will mean 'pig2.jem' will not variate without a 'pig.jem'.\nEMF does not require this, but will enforce it if enabled here as it is best to preserve OptiFine compatibility where possible.\nYou can easily get a default model by exporting it in the EMF settings via 'models > allmodels > *model* > export'.\nOr just disable this setting.",
+      "ko": "OptiFine은 변형(Variation)을 일관성 있게 불러오기 위해 '기본(Base)' 모델이 필요로 하는 것이 모범 사례입니다. 이 설정이 활성화되면 'pig.jem' 없이는 'pig2.jem'이 변형으로 작동하지 않음을 의미합니다.\nEMF 자체는 이 규칙을 꼭 요구하진 않지만, OptiFine 호환성을 최대한 보존하기 위해 활성화하는 것이 좋습니다.\nEMF 설정의 '모델 > 모든 모델 > *모델* > 내보내기'를 통해 기본 모델을 쉽게 추출할 수 있습니다.\n아니면 이 설정을 비활성화하십시오."
+    },
+    {
+      "file": "assets/eternal_attributes/lang/ko_kr.json",
+      "key": "attribute.name.eternal_attributes.corruption_power",
+      "en": "Corruption Power",
+      "ko": "타락력"
+    },
+    {
+      "file": "assets/eternal_attributes/lang/ko_kr.json",
+      "key": "attribute.name.eternal_attributes.corruption_resistance",
+      "en": "Corruption Resistance",
+      "ko": "타락 저항"
+    },
+    {
+      "file": "assets/eternal_attributes/lang/ko_kr.json",
+      "key": "attribute.name.eternal_attributes.unholy_power",
+      "en": "Unholy Power",
+      "ko": "부정의 힘"
+    },
+    {
+      "file": "assets/modpack-update-checker/lang/ko_kr.json",
+      "key": "screen.modpack-update-checker.select-world.modpack-backup",
+      "en": "This world was last played in %s %s; you are on %s %s. Please make a backup in case you experience world corruptions!",
+      "ko": "이 월드는 마지막으로 %s %s에서 플레이되었습니다. 현재 버전은 %s %s입니다. 월드 손상에 대비하여 백업을 만들어주세요!"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "biome.prominent.city_of_vaaz",
+      "en": "Kingdom of Vaaz",
+      "ko": "바즈 왕국"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "block.prominent.volcanic_cinderstone",
+      "en": "Volcanic Cinderstone",
+      "ko": "화산재 잿불석"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "command.prominent.show_dev_badge.not_developer",
+      "en": "Only Cinderstone Studios developers can use this command.",
+      "ko": "잿불석 스튜디오 개발자만이 이 명령을 사용할 수 있습니다."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "cutscene.prominent.vaaz_assault.time_skip.subtitle",
+      "en": "Kingdom of Vaaz",
+      "ko": "바즈 왕국"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.alm.hourglass.2_2",
+      "en": "it appears to contain some sort of infusion of unholy magic that we must destroy to weaken Hastur's influence.",
+      "ko": "하스투르의 영향력을 약화하려면 안에 스며든 불경한 마력을 없애야 하는 모양이야."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.alm.hourglass.3_2",
+      "en": "well, failed, lost a few of our own for that, so S'kellak wanted to assign someone more competent for this task.",
+      "ko": "실패했고 몇 명을 잃었지. 그래서 스켈락이 더 유능한 사람에게 맡기라고 했어."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.alm.hourglass.4_1",
+      "en": "From what we managed to learn, it creates an illusion of a future Hastur wants,",
+      "ko": "알아낸 바로는 하스투르가 바라는 미래를 환영으로 만들어 내."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.alm.hourglass.4_2",
+      "en": "we destroy that illusion and then we break apart that unholy influence.",
+      "ko": "그 환영을 파괴하면 불경한 영향력도 무너뜨릴 수 있어."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.ghaj.6",
+      "en": "Embrace the corruption, join us",
+      "ko": "타락을 받아들여라. 우리와 함께해라"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.guard.greet.1",
+      "en": "What do you require, Flameborn?",
+      "ko": "무엇이 필요하십니까, 플레임본?"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.guard.greet.2",
+      "en": "Awaiting your orders, Flameborn",
+      "ko": "명령을 기다리고 있습니다, 플레임본."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.primordial_forge.meeting_mirgaff.1_1",
+      "en": "Aye, Flameborn! Good to see ya, or meet ya, hard to tell these days.",
+      "ko": "그래, 플레임본! 만나서 반갑군. 예전에 봤던가? 요즘은 영 헷갈려서 말이야."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.primordial_forge.meeting_mirgaff.1_2",
+      "en": "Name's Mirgaff, master of the Primordial Forge.",
+      "ko": "난 미르가프. 태고의 대장간을 맡고 있지."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.primordial_forge.meeting_mirgaff.4_1",
+      "en": "Decades ago, another Flameborn brought one down from the Overworld.",
+      "ko": "수십 년 전 다른 플레임본이 오버월드에서 하나 가져왔지."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.primordial_forge.meeting_mirgaff.7_1",
+      "en": "Please, Flameborn. Retrieve my precious piece. This work cannot continue without it.",
+      "ko": "부탁이야, 플레임본. 그 귀중한 부품을 가져와. 없이는 작업을 계속할 수 없어."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.primordial_forge.skellak.1",
+      "en": "Flameborn, it's been a while. The time has come.",
+      "ko": "플레임본, 오랜만이군. 때가 되었다."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.primordial_forge.skellak.2_1",
+      "en": "Mirgaff has finished the preparations to start rebuilding the Primordial Forge.",
+      "ko": "미르가프가 태고의 대장간 재건을 시작할 준비를 마쳤다."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.radin.tutorial.1",
+      "en": "Flameborn, hurry up, the Eternal Flame has called for an emergency!",
+      "ko": "플레임본, 서둘러! 영원한 불꽃께서 긴급히 부르셨다!"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.radin.tutorial.7",
+      "en": "Ya know, I used to be the greatest warrior, but S'kellak sent me to guide the newbies! Heh...",
+      "ko": "나도 한때는 최고의 전사였는데, 스켈락께서 신참들을 가르치라고 보내셨지! 하하..."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.radin.tutorial.8",
+      "en": "Aaanyway, go to the throne room, S'kellak is waiting on ya, the big tall one over there.",
+      "ko": "아무튼 알현실로 가. 저기 키 큰 스켈락께서 기다리신다."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.skellak.assault.1_1",
+      "en": "Flameborn! I am glad you are here. Hastur's forces are attacking the city.",
+      "ko": "플레임본! 와 주어서 다행이다. 하스투르의 군대가 도시를 공격하고 있다."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.skellak.assault_end.1_1",
+      "en": "I am glad you survived, Flameborn.",
+      "ko": "살아남아서 다행이다, 플레임본."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.skellak.assault_end.1_3",
+      "en": "other Flameborn turned from us and joined Hastur's forces.",
+      "ko": "다른 플레임본들마저 등을 돌리고 하스투르의 군대에 합류했지."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.skellak.assault_end.2_2",
+      "en": "The sorcerer Ama'gul destroyed our greatest weapon, the Primordial Forge.",
+      "ko": "마법사 아마굴이 우리의 가장 위대한 무기인 태고의 대장간을 파괴했다."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.skellak.assault_end.2_3",
+      "en": "It will take us hundreds of years to rebuild the city, and perhaps even longer to restore the Primordial Forge.",
+      "ko": "도시를 재건하는 데 수백 년, 태고의 대장간을 복구하는 데는 그보다 더 오래 걸릴지도 모른다."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.skellak.assault_end.2_4",
+      "en": "That was Hastur's true objective. He sought to steal time from us.",
+      "ko": "그것이 하스투르의 진짜 목적이었다. 우리의 시간을 빼앗으려 한 것이다."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.skellak.assault_end.3_1",
+      "en": "You must abandon the Overworld, it is no longer safe. Come to Vaaz and help us rebuild.",
+      "ko": "오버월드는 더 이상 안전하지 않다. 그곳을 떠나 바즈로 와서 재건을 도와라."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.skellak.tutorial.1",
+      "en": "Flameborn, I need you to travel outside of Vaaz. Two kings who have fallen in the past have now been brought back to life in the form of undead demons.",
+      "ko": "플레임본, 바즈 밖으로 나가야 한다. 과거에 쓰러진 두 왕이 언데드 악마의 모습으로 되살아났다."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.skellak.tutorial.5",
+      "en": "This book will of good use too, it has been written by previous Flameborn who have traveled to those lands, it will be very useful to your survival.",
+      "ko": "이 책도 유용할 것이다. 그 땅을 여행했던 선대 플레임본들이 남긴 기록으로, 생존에 큰 도움이 되겠지."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.skellak.tutorial.6",
+      "en": "I will also make sure to write any important things you may need to know. May luck be with you on this adventure, Flameborn.",
+      "ko": "알아 두어야 할 중요한 내용은 내가 따로 적어 두겠다. 플레임본이여, 이번 여정에 행운이 함께하기를."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.skellak.tutorial.sub",
+      "en": "says S'kellak, Creator of All Things",
+      "ko": "만물의 창조자 스켈락"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.skellak.worrying_reunion.1_both_1",
+      "en": "Greetings, Flameborn. Your information on the fallen kings has been useful.",
+      "ko": "반갑다, 플레임본. 쓰러진 왕들에 관한 정보가 도움이 되었다."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.skellak.worrying_reunion.1_decaying_1",
+      "en": "Greetings, Flameborn. Your information on the Decaying King has been useful.",
+      "ko": "반갑다, 플레임본. 부패한 왕에 관한 정보가 도움이 되었다."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.skellak.worrying_reunion.1_lich_1",
+      "en": "Greetings, Flameborn. Your information on the Night Lich has been useful.",
+      "ko": "반갑다, 플레임본. 나이트 리치에 관한 정보가 도움이 되었다."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.skellak.worrying_reunion.5_1",
+      "en": "There is no time, Flameborn. You must come back and prevent the invasion from the Void.",
+      "ko": "시간이 없다, 플레임본. 돌아와 공허의 침공을 막아야 한다."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dialogue.unholy_prison.3_5",
+      "en": "More than S'kellak's slave.",
+      "ko": "스켈락의 노예 이상의 존재로."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dimension.prominent.unholy_prison",
+      "en": "Unholy Prison",
+      "ko": "불경한 감옥"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dimension.prominent.vaaz_assault",
+      "en": "Vaaz",
+      "ko": "바즈"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dimension.prominent.vaaz_past",
+      "en": "Vaaz",
+      "ko": "바즈"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "dimension.prominent.vaaz_present",
+      "en": "Vaaz",
+      "ko": "바즈"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "emi.category.prominent.cinder_trade",
+      "en": "Vaaz Trade",
+      "ko": "바즈 무역"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "emi.category.prominent.skellak_trade",
+      "en": "S'kellak's Rewards",
+      "ko": "스켈락의 보상"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "emi.prominent.skellak_trade.chapter_reward",
+      "en": "Rewarded by S'kellak upon completing the Chapter I of Void's Invasion.",
+      "ko": "공허의 침공 제1장을 완료하면 스켈락에게 받는 보상입니다."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "entity.prominent.amagul",
+      "en": "Ama'gul",
+      "ko": "아마굴"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "entity.prominent.amagul_clone",
+      "en": "Ama'gul",
+      "ko": "아마굴"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "entity.prominent.mirgaff",
+      "en": "Mirgaff the Great",
+      "ko": "위대한 미르가프"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "entity.prominent.skellak",
+      "en": "S'kellak, Creator of All Things",
+      "ko": "만물의 창조자 스켈락"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "item.prominent.ability.ekavar.artifact",
+      "en": "Cinderstone Artifact",
+      "ko": "잿불석의 아티팩트"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "item.prominent.ability.ekavar.cinderstone_core",
+      "en": "Cinderstone Core",
+      "ko": "잿불석 코어"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "item.prominent.ability.ghaj.artifact",
+      "en": "Corruption Artifact",
+      "ko": "타락의 아티팩트"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "item.prominent.ability.ghaj.feed_me.damage",
+      "en": "Deal %d §fꦗ§r corruption damage to your target, then",
+      "ko": "대상에게 %d §fꦗ§r 타락 피해를 입히고,"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "item.prominent.ability.vaazkar.artifact",
+      "en": "Cinderstone Artifact",
+      "ko": "잿불석의 아티팩트"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "item.prominent.ability.vaazkar.firestorm.desc1",
+      "en": "After 3 seconds of shielding with Vaazkar, surround yourself with flames,",
+      "ko": "바즈카르로 3초 동안 방어한 뒤 자신을 불길로 감싸"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "item.prominent.ability.vaazkar.instant_flames.desc1",
+      "en": "After shielding with Vaazkar, surround yourself with flames, dealing 3%",
+      "ko": "바즈카르로 방어한 뒤 자신을 불길로 감싸, 주변 적에게 초당"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "item.prominent.ability.vaazkar.protective_flames.desc1",
+      "en": "After 3 seconds of shielding with Vaazkar, surround yourself with flames,",
+      "ko": "바즈카르로 3초 동안 방어한 뒤 자신을 불길로 감싸"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "item.prominent.ability.vaazkar.wall_of_flames.desc1",
+      "en": "After 3 seconds of shielding with Vaazkar, surround yourself with flames,",
+      "ko": "바즈카르로 3초 동안 방어한 뒤 자신을 불길로 감싸"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "item.prominent.cinderstone_trophy",
+      "en": "Cinderstone Trophy",
+      "ko": "잿불석 트로피"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "item.prominent.ekavar.phase.0",
+      "en": "Cinderstone Core",
+      "ko": "잿불석 코어"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "item.prominent.ekavar_staff",
+      "en": "Ekavar, Great Cinderstone Staff",
+      "ko": "에카바르, 위대한 잿불석 지팡이"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "item.prominent.empty_vessel",
+      "en": "Cinderstone Vessel",
+      "ko": "잿불석 그릇"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "item.prominent.flameborn_stone",
+      "en": "The Flameborn's Stone",
+      "ko": "플레임본의 돌"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "item.prominent.flameborn_stone.tooltip.1",
+      "en": "Created by the Eternal being of Creation, S'kellak. It holds an eternal connection with The Kingdom of Vaaz.",
+      "ko": "영원한 창조주 스켈락이 만든 돌입니다. 바즈 왕국과 영원히 이어져 있습니다."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "item.prominent.flameborn_stone.tooltip.2",
+      "en": "Use to teleport to The Kingdom of Vaaz.",
+      "ko": "사용하면 바즈 왕국으로 순간이동합니다."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "item.prominent.greater_unholy_essence",
+      "en": "Greater Unholy Essence",
+      "ko": "상급 불경의 정수"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "item.prominent.illusion_of_vaazkar",
+      "en": "Illusion of Vaazkar",
+      "ko": "'바즈카르'의 환영"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "item.prominent.lesser_unholy_essence",
+      "en": "Lesser Unholy Essence",
+      "ko": "하급 불경의 정수"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "item.prominent.molten_core.tooltip.1",
+      "en": "§7Made from the depths of §cVaaz§7 by the creator of all things, §cS'kellak§7.",
+      "ko": "§7만물의 창조자 §c스켈락§7이 §c바즈§7 깊은 곳에서 만들었습니다."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "item.prominent.primordial_essence_of_corruption",
+      "en": "Primordial Essence of Corruption",
+      "ko": "타락의 태고 정수"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "item.prominent.primordial_essence_of_the_holy",
+      "en": "Primordial Essence of the Holy",
+      "ko": "신성의 태고 정수"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "item.prominent.primordial_essence_of_the_soul",
+      "en": "Primordial Essence of the Soul",
+      "ko": "영혼의 태고 정수"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "item.prominent.primordial_essence_of_the_unholy",
+      "en": "Primordial Essence of the Unholy",
+      "ko": "불경의 태고 정수"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "item.prominent.primordial_scroll",
+      "en": "Primordial Scroll",
+      "ko": "태고의 두루마리"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "item.prominent.vaazkar",
+      "en": "Vaazkar, Protector of the Molten City",
+      "ko": "바즈카르, 녹아내리는 도시의 수호자"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "item.prominent.xmog_unholy_scythe",
+      "en": "Illusion of the Unholy Scythe",
+      "ko": "신성 모독의 낫의 환영"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "location_title.prominent.subtitle.hasturian_era",
+      "en": "Hasturian Era",
+      "ko": "하스투르 시대"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "location_title.prominent.title.kingdom_of_vaaz",
+      "en": "Kingdom of Vaaz",
+      "ko": "바즈 왕국"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "prominent.class_title.death_knights.unholy_spell_book",
+      "en": "Unholy Death Knight",
+      "ko": "부정 죽음의 기사"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "prominent.tutorial.6.obj.find_skellak",
+      "en": "Get to S'kellak, Creator of All Things",
+      "ko": "만물의 창조자 스켈락에게 가기"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "prominent.tutorial.7.obj.get_flameborn_stone",
+      "en": "Obtain the Flameborn Stone",
+      "ko": "플레임본의 돌 받기"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "prominent.tutorial.7.obj.listen_skellak",
+      "en": "Listen to the instructions from S'kellak",
+      "ko": "스켈락의 지시 듣기"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "prominent.tutorial.8.obj.use_flameborn_stone",
+      "en": "Use the Flameborn's Stone",
+      "ko": "플레임본의 돌 사용하기"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "quest.prominent.primordial_forge.objective.listen_mirgaff",
+      "en": "Listen to Mirgaff's plan",
+      "ko": "미르가프의 계획 듣기"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "quest.prominent.primordial_forge.objective.listen_skellak",
+      "en": "Listen to S'kellak",
+      "ko": "스켈락의 말 듣기"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "quest.prominent.primordial_forge.objective.meet_mirgaff",
+      "en": "Meet Mirgaff at the Forge Room",
+      "ko": "대장간 작업실에서 미르가프 만나기"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "quest.prominent.primordial_forge.objective.meet_skellak",
+      "en": "Meet S'kellak in the Throne Room",
+      "ko": "알현실에서 스켈락 만나기"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "quest.prominent.primordial_forge_return.objective.check_forge",
+      "en": "Check the Primordial Forge's build requirements",
+      "ko": "태고의 대장간 건설에 필요한 자원 확인하기"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "quest.prominent.primordial_forge_return.objective.give_barrel",
+      "en": "Give Mirgaff the Barrel of Antique Overworldian Beer",
+      "ko": "미르가프에게 오래된 오버월드산 맥주통 건네기"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "quest.prominent.primordial_forge_return.objective.listen_mirgaff",
+      "en": "Listen to Mirgaff",
+      "ko": "미르가프의 말 듣기"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "quest.prominent.primordial_forge_return.objective.meet_mirgaff_overworld",
+      "en": "Meet Mirgaff at the Forge Room in Vaaz",
+      "ko": "바즈의 대장간 작업실에서 미르가프 만나기"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "quest.prominent.primordial_forge_return.objective.meet_mirgaff_vaaz",
+      "en": "Meet Mirgaff again at the Forge Room",
+      "ko": "대장간 작업실에서 미르가프 다시 만나기"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "quest.prominent.skellaks_reward.objective.listen_skellak",
+      "en": "Listen to S'kellak",
+      "ko": "스켈락의 말 듣기"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "quest.prominent.skellaks_reward.objective.meet_skellak",
+      "en": "Find S'kellak in the Throne Room",
+      "ko": "알현실에서 스켈락 찾기"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "quest.prominent.skellaks_reward.title",
+      "en": "S'kellak's Reward",
+      "ko": "스켈락의 보상"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "quest.prominent.unholy_visions.title",
+      "en": "Unholy Visions",
+      "ko": "불경한 환상"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "quest.prominent.vaaz_assault.objective.defeat_amagul",
+      "en": "Defeat Ama'gul the Unholy Sorcerer",
+      "ko": "불경한 마법사 아마굴 물리치기"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "quest.prominent.vaaz_assault.objective.kill_cultists",
+      "en": "Clear the Cultists from Vaaz (%1$s%%)",
+      "ko": "바즈의 광신도 처치하기 (%1$s%%)"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "quest.prominent.vaaz_assault.objective.listen_plan",
+      "en": "Listen to S'kellak's Plan",
+      "ko": "스켈락의 계획 듣기"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "quest.prominent.vaaz_assault.objective.return_to_vaaz",
+      "en": "Return to Vaaz to aid on the assault.",
+      "ko": "바즈로 돌아가 전투 돕기"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "quest.prominent.vaaz_assault.title",
+      "en": "The Assault to Vaaz",
+      "ko": "바즈 공방전"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "quest.prominent.worrying_reunion.objective.listen_skellak",
+      "en": "Listen to S'kellak",
+      "ko": "스켈락의 말 듣기"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "quest.prominent.worrying_reunion.objective.meet_skellak",
+      "en": "Meet S'kellak at the Throne Room",
+      "ko": "알현실에서 스켈락 만나기"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "spell.prominent.flameborn_call.description",
+      "en": "Use the Flameborn's Stone to teleport yourself to the Kingdom of Vaaz.",
+      "ko": "플레임본의 돌을 사용해 바즈 왕국으로 순간이동합니다."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "spell.prominent.flameborn_call.name",
+      "en": "Flameborn's Call",
+      "ko": "플레임본의 부름"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "tooltip.prominent.broken_cultist_mark.line1",
+      "en": "A shattered mark once worn by Ama'gul's cultists.",
+      "ko": "아마굴의 광신도들이 지니고 있던 부서진 표식입니다."
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "tooltip.prominent.cinderstone_trophy.craftable",
+      "en": "- Craftable using Encased Remnants and Greater Unholy Essences",
+      "ko": "- 포획된 잔재와 상급 불경의 정수로 제작"
+    },
+    {
+      "file": "assets/prominent/lang/ko_kr.json",
+      "key": "tooltip.prominent.cinderstone_trophy.line1",
+      "en": "A reward from S'kellak for aiding him in defeating the threats of the realms, used to craft useful relics.",
+      "ko": "세계의 위협을 물리치는 데 힘을 보탠 대가로 스켈락에게 받은 보상입니다. 유용한 유물 제작에 사용됩니다."
+    },
+    {
+      "file": "assets/simply_swords_tweaks/lang/ko_kr.json",
+      "key": "sst.group.abyssal_standard",
+      "en": "Abyssal Standard (Harbinger)",
+      "ko": "심연의 깃발 (선구자)"
+    },
+    {
+      "file": "assets/simplyskills/lang/ko_kr.json",
+      "key": "text.autoconfig.simplyskills.option.misc.promCorruptionMax",
+      "en": "Corruption  maximum",
+      "ko": "타락 최댓값"
+    },
+    {
+      "file": "assets/simplyskills/lang/ko_kr.json",
+      "key": "text.autoconfig.simplyskills.option.misc.promCorruptionMax.@Tooltip",
+      "en": "The maximum corruption level that abilities should benefit from. Any corruption above this level will provide no additional benefits for abilities.",
+      "ko": "능력이 이점을 얻어야 하는 최대 타락 레벨입니다. 이 레벨 이상의 타락은 능력에 추가적인 이점을 제공하지 않습니다."
+    },
+    {
+      "file": "assets/simplyskills/lang/ko_kr.json",
+      "key": "text.autoconfig.simplyskills.option.misc.promCorruptionMulti",
+      "en": "Corruption  multiplier",
+      "ko": "타락 배수"
+    },
+    {
+      "file": "assets/simplyskills/lang/ko_kr.json",
+      "key": "text.autoconfig.simplyskills.option.misc.promCorruptionMulti.@Tooltip",
+      "en": "Reducing this multiplier will reduce the benefits that abilities gain from corruption level.",
+      "ko": "이 배수를 줄이면 능력이 타락 레벨에서 얻는 이점이 줄어듭니다."
+    },
+    {
+      "file": "assets/simplyskills/lang/ko_kr.json",
+      "key": "text.autoconfig.simplyskills.option.misc.promSkellaksCallPhysDmgMulti",
+      "en": "S'kellak's Call's physical damage multiplier",
+      "ko": "스켈락의 부름의 물리 피해 배수"
+    },
+    {
+      "file": "assets/simplyskills/lang/ko_kr.json",
+      "key": "text.autoconfig.simplyskills.option.misc.promSkellaksCallPhysDmgMulti.@Tooltip",
+      "en": "The amount of generic_attack_damage used as physical damage with S'kellak's Call.\nIn addition to this setting, the ability also deals non-configurable fire spell damage.",
+      "ko": "스켈락의 부름이 물리 피해 계산에 사용하는 generic_attack_damage의 배수입니다.\n이 능력은 별도로 화염 주문 피해도 주며, 해당 피해량은 이 설정으로 변경할 수 없습니다."
+    },
+    {
+      "file": "assets/simplyskills/lang/ko_kr.json",
+      "key": "text.skills.spellbladePath.extra_description",
+      "en": "\n§7The §bSpellblade§7 is a versatile and formidable warrior who seamlessly melds the power of magic with martial combat. Their hallmark is the fusion of §aspellcasting§7 and §amelee attacks§7, making them an exceptional force on the battlefield.",
+      "ko": "\n§7§b주문검사§7는 마법의 힘과 무술 전투를 매끄럽게 융합하는 다재다능하고 강력한 전사입니다. 그들의 특징은 §a주문 시전§7과 §a근접 공격§7의 융합으로, 전장에서 탁월한 힘을 발휘합니다."
+    },
+    {
+      "file": "assets/simplyswords/lang/ko_kr.json",
+      "key": "item.simplyswords.dreadtidesworditem.tooltip12",
+      "en": "Wielding this weapon inflicts you with corruption over time.",
+      "ko": "이 무기를 들고 있으면 시간이 지날수록 타락이 쌓입니다."
+    },
+    {
+      "file": "assets/simplyswords/lang/ko_kr.json",
+      "key": "item.simplyswords.dreadtidesworditem.tooltip6",
+      "en": "Taking damage removes a stack. Max 1 stack per 20 corruption.",
+      "ko": "피해를 받으면 중첩이 하나 제거됩니다. 타락 20마다 최대 중첩 수가 1씩 늘어납니다."
+    },
+    {
+      "file": "assets/simplyswords/lang/ko_kr.json",
+      "key": "item.simplyswords.harbinger",
+      "en": "Harbinger",
+      "ko": "선구자"
+    },
+    {
+      "file": "assets/simplyswords/lang/ko_kr.json",
+      "key": "simplyswords.unique_effects.dreadtide.corruptionDuration",
+      "en": "Voidcaller Corruption duration",
+      "ko": "공허의 소환수 타락 지속 시간"
+    },
+    {
+      "file": "assets/simplyswords/lang/ko_kr.json",
+      "key": "simplyswords.unique_effects.dreadtide.corruptionFrequency",
+      "en": "Voidcaller Corruption frequency",
+      "ko": "공허의 소환수 타락 빈도"
+    },
+    {
+      "file": "assets/simplyswords/lang/ko_kr.json",
+      "key": "simplyswords.unique_effects.dreadtide.corruptionMax",
+      "en": "Voidcaller Corruption max",
+      "ko": "공허술사의 타락 최대치"
+    },
+    {
+      "file": "assets/simplyswords/lang/ko_kr.json",
+      "key": "simplyswords.unique_effects.dreadtide.corruptionPerTick",
+      "en": "Voidcaller Corruption per tick",
+      "ko": "공허의 소환수 틱당 타락 증가량"
+    },
+    {
+      "file": "assets/simplyswords/lang/ko_kr.json",
+      "key": "simplyswords.unique_effects.harbinger",
+      "en": "§6[Harbinger]§7",
+      "ko": "§6[선구자]§7"
+    },
+    {
+      "file": "assets/simplyswords/lang/ko_kr.json",
+      "key": "simplyswords.weapon_attributes.uniqueAttackSpeed.harbinger_attackSpeed",
+      "en": "§6Harbinger§7 attack speed",
+      "ko": "§6선구자§7 공격 속도"
+    },
+    {
+      "file": "assets/simplyswords/lang/ko_kr.json",
+      "key": "simplyswords.weapon_attributes.uniqueDamageModifier.harbinger_damageModifier",
+      "en": "§6Harbinger§7 damage modifier",
+      "ko": "§6선구자§7 피해량 수정자"
+    },
+    {
+      "file": "assets/sodium/lang/ko_kr.json",
+      "key": "sodium.options.use_persistent_mapping.tooltip",
+      "en": "For debugging only. If enabled, persistent memory mappings will be used for the staging buffer so that unnecessary memory copies can be avoided. Disabling this can be useful for narrowing down the cause of graphical corruption.\n\nRequires OpenGL 4.4 or ARB_buffer_storage.",
+      "ko": "디버깅 전용입니다. 활성화하면 불필요한 메모리 복사를 피할 수 있도록 스테이징 버퍼에 영구 메모리 매핑이 사용됩니다. 이를 비활성화하면 그래픽 손상의 원인을 좁히는 데 유용할 수 있습니다.\n\nOpenGL 4.4 또는 ARB_buffer_storage가 필요합니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/4trophy_collection.snbt",
+      "id": "5675731BD892A014",
+      "key": "title",
+      "en": "&4Cinderstone Trophies",
+      "ko": "\\n&4잿불석 트로피"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/artifact_reforging.snbt",
+      "id": "13D4D78DE7B38A80",
+      "key": "title",
+      "en": "&c&l S'kellak's Forge",
+      "ko": "&6스켈락의 대장간"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/artifact_reforging.snbt",
+      "id": "6AD67E7C8CD78371",
+      "key": "description/2",
+      "en": "&7The Molten Core is a powerful artifact made from the depths of the Cinderstone's Volcano; &cVaaz&7.",
+      "ko": "&7화산 심장부는 잿불석 화산인 &c바즈&7의 깊은 곳에서 만들어진 강력한 아티팩트입니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/artifact_reforging.snbt",
+      "id": "6AD67E7C8CD78371",
+      "key": "title",
+      "en": "&cS'kellak's Forge",
+      "ko": "&c스켈락의 대장간"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/artifact_reforging.snbt",
+      "id": "5D03084D09D2A997",
+      "key": "subtitle",
+      "en": "&7A'zhar was a demon that was trapped inside a scythe forged by S'kellak, making this soulfire weapon no ally, be careful when using it because it will try to betray you.",
+      "ko": "&7아자르는 스켈락이 벼려낸 낫에 갇힌 악마였습니다. 이 영혼불 무기는 결코 아군이 아니니, 주인을 배신하려 들 수 있으므로 조심해서 사용하세요."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/artifact_reforging.snbt",
+      "id": "50EB37F863EA810B",
+      "key": "subtitle",
+      "en": "A molten polearm, made out of Cinderstone and Noctisteel, infused with lightning, used by the long gone leader of the Serkonid race.",
+      "ko": "잿불석과 노크티스틸로 벼려 번개의 힘을 불어넣은 장병기입니다. 오래전에 사라진 세르코니드 종족의 지도자가 사용했습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/artifact_reforging.snbt",
+      "id": "077B4D52C71E918E",
+      "key": "subtitle",
+      "en": "&7A molten shield that display the symbol of the Living Statue, used by the highest rank protectors of the City of Vaaz",
+      "ko": "&7살아 있는 석상의 문양이 새겨진 용암 방패입니다. 바즈의 최정예 수호자들이 사용합니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/artifact_reforging.snbt",
+      "id": "78AAA28EC532AD64",
+      "key": "description/0",
+      "en": "&eYou proved your worth with Vaazkar by defeating 10 Mythical Challenges",
+      "ko": "&e바즈카르로 신화 시련 10개를 완료해 실력을 증명했습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/artifact_reforging.snbt",
+      "id": "78AAA28EC532AD64",
+      "key": "title",
+      "en": "&dMastery of Vaazkar",
+      "ko": "&d바즈카르 마스터리"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/artifact_reforging.snbt",
+      "id": "174961978515852E",
+      "key": "title",
+      "en": "&dMythic Challenges Completed with Vaazkar",
+      "ko": "&d바즈카르로 신화 시련 완료하기"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/collectibles_2.snbt",
+      "id": "01C116FABF7A406B",
+      "key": "title",
+      "en": "SideralisMusic - Primordial (Prominence OST)",
+      "ko": "Sideralis Music - Primordial (Prominence OST)"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/dplanets_and_space.snbt",
+      "id": "5222BD82C0D3EF54",
+      "key": "title",
+      "en": "Flameborn Space Program",
+      "ko": "「플레임본 우주 프로젝트」"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/dplanets_and_space.snbt",
+      "id": "5CB39BB4679C0166",
+      "key": "description/8",
+      "en": "&7My wrench is flameborn even as I am flameborn, because it is my life. Thus, I will learn it as a brother. I will learn its weaknesses, its strength, its parts, its accessories, its metal and its size I will ever guard it against the ravages of weather and damage as I will ever guard my legs, my arms, my eyes and my heart against damage. I will keep my wrench clean and ready. We will become part of each other. ",
+      "ko": "&7렌치는 저처럼 불꽃에서 태어났으며, 제 삶과 같습니다. 형제를 알아가듯 렌치의 약점과 장점, 부품과 부속품, 재질과 크기를 익히겠습니다. 제 팔다리와 눈, 심장을 지키듯 날씨와 손상으로부터 렌치를 지키겠습니다. 언제나 렌치를 깨끗하고 쓸 준비가 된 상태로 유지하겠습니다. 저와 렌치는 하나가 될 것입니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/dplanets_and_space.snbt",
+      "id": "5CB39BB4679C0166",
+      "key": "description/10",
+      "en": "&7Before S'kellak I swear this creed. My wrench and I are the defenders of Vaaz. We are the masters of our machines. We are the saviors of my tech progression.",
+      "ko": "&7스켈락 앞에서 맹세합니다. 저와 렌치는 바즈의 수호자이며, 기계의 주인이며, 제 기술 발전을 구원할 존재입니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/e_spell_books.snbt",
+      "id": "3D769BC0E31CF27B",
+      "key": "description/5",
+      "en": "&cTier III: &7Advanced class books that expand / evolve Tier II books, or have an advanced gameplay. They require a Cinderstone Trophy to be made.",
+      "ko": "&c3단계: &72단계 주문서를 확장하거나 진화시켰거나, 사용법이 복잡한 고급 주문서입니다. 제작에는 잿불석 트로피가 필요합니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/e_spell_books.snbt",
+      "id": "420BD41EBB2FCBF2",
+      "key": "description/1",
+      "en": "&7Channel the primordial Holy powers to heal your allies.",
+      "ko": "&7원초적인 신성의 힘을 집중해 아군을 치유합니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/e_spell_books.snbt",
+      "id": "12369F6ACB62CBC1",
+      "key": "description/5",
+      "en": "- &eTome of Unholy Teachings (Unholy, DPS)",
+      "ko": "- &e부정한 가르침의 고서 (부정·공격형)"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/eenchanting.snbt",
+      "id": "2B99DDA42BB7716C",
+      "key": "subtitle",
+      "en": "Not as hot as Vaaz",
+      "ko": "바즈만큼 뜨겁지는 않음"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/einformation_7new_mechanics.snbt",
+      "id": "61C05AE305488DF5",
+      "key": "description/10",
+      "en": "&dTier V: &eEndgame&r &8(Primordial)",
+      "ko": "&d5단계: &e엔드게임&r &8(태고)"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/einformation_7new_mechanics.snbt",
+      "id": "59E36C0233C961CA",
+      "key": "description/0",
+      "en": "&ePrimordial Powers are the second strongest, also known as Secondary powers.",
+      "ko": "&e태고의 힘은 2차 능력치(보조 능력치)라고도 하며, 두 번째로 강력한 힘입니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/einformation_7new_mechanics.snbt",
+      "id": "59E36C0233C961CA",
+      "key": "title",
+      "en": "&6Primordial Powers",
+      "ko": "&6태고의 힘"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/einformation_7new_mechanics.snbt",
+      "id": "7613069D73E7B2A3",
+      "key": "description/4",
+      "en": "&eUnholy&7 is used by Unholy Death Knights, bruisers that bring diseases to enemies.",
+      "ko": "&e부정&7은 질병을 퍼뜨리는 공격형 전사인 부정 죽음의 기사가 사용합니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/einformation_7new_mechanics.snbt",
+      "id": "58AADDF3A7EE5E43",
+      "key": "title",
+      "en": "Obtain an Unholy Rune",
+      "ko": "부정 룬 얻기"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/einformation_7new_mechanics.snbt",
+      "id": "4B450D0E26363D54",
+      "key": "description/7",
+      "en": "&7As for Fate, your main focus should always be &9S'kellak's Blessing&7.",
+      "ko": "&7운명 특성은 &9스켈락의 축복&7을 가장 먼저 고려하세요."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/einformation_7new_mechanics.snbt",
+      "id": "60B3A4B08E3A36A6",
+      "key": "title",
+      "en": "&eArtifact Option: &6Vaazkar &e(Tank)",
+      "ko": "&e유물 선택지: &6바즈카르 &e(탱커)"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/einformation_7new_mechanics.snbt",
+      "id": "01F49526727B35F1",
+      "key": "description/0",
+      "en": "&eThe final choice for all mages is Ekavar, the Great Cinderstone Staff.",
+      "ko": "&e모든 마법사의 최종 선택은 위대한 잿불석 지팡이 에카바르입니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/einformation_7new_mechanics.snbt",
+      "id": "3A72E538D2A5B20C",
+      "key": "description/4",
+      "en": "&7They can be high attack speed DPS focused (Frost), or Burst and AoE focused (Unholy).",
+      "ko": "&7서리형은 빠른 지속 공격에, 부정형은 순간 화력과 범위 공격에 특화되어 있습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/einformation_7new_mechanics.snbt",
+      "id": "75E616FE0AAF9EF5",
+      "key": "description/2",
+      "en": "&eUnholy Death Knights are a Burst and AoE focused class.",
+      "ko": "&e부정 죽음의 기사는 순간 화력과 범위 공격에 특화된 직업입니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/einformation_7new_mechanics.snbt",
+      "id": "75E616FE0AAF9EF5",
+      "key": "title",
+      "en": "&eUnholy Devotion",
+      "ko": "&e부정형"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/einformation_7new_mechanics.snbt",
+      "id": "0F50BB07AEBA88FD",
+      "key": "description/0",
+      "en": "&7A major issue for any Unholy user, was the lack of AOE, now that you can spread diseases without doing anything. You need to shower.",
+      "ko": "&7부정 계열의 약점이던 광역 공격을 보완해, 별도 조작 없이도 질병을 퍼뜨립니다. 이제 정말 씻어야겠네요."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "38345D0552E8A4AF",
+      "key": "title",
+      "en": " Hasturian Era",
+      "ko": "&fII. 하스투르의 시대"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "73DA5990952CEA35",
+      "key": "title",
+      "en": "&eThe Hasturian Era",
+      "ko": "\\n&e하스투르의 시대"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "579138B8DB19724C",
+      "key": "description/0",
+      "en": "&7&oEons ago, S'kellak fought against the eldritch beings, defeating and imprisoning the primordial being C'thulhu.",
+      "ko": "&7&o아득한 옛날, 스켈락은 이계의 존재들과 싸워 태고의 존재 크툴루를 쓰러뜨리고 봉인했습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "579138B8DB19724C",
+      "key": "description/2",
+      "en": "&7&oWhile its followers escaped, the chains imprisoning its half-brother, a tall hooded monster with tentacles, were broken free. S'kellak couldn't stop his escape, and for eons he never saw him again.",
+      "ko": "&7&o크툴루의 추종자들이 달아나는 사이, 촉수를 지닌 두건 쓴 괴물인 크툴루의 이복형제를 가둔 사슬도 끊어졌습니다. 스켈락은 그 탈출을 막지 못했고, 오랜 세월 그를 다시 보지 못했습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "440126C71C47DB94",
+      "key": "description/4",
+      "en": "&7&oI have confirmed that it's him, the primordial being of all unholy things, known as Hastur.",
+      "ko": "&7&o확인했다. 모든 부정을 아우르는 태고의 존재, 하스투르가 틀림없다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "440126C71C47DB94",
+      "key": "description/6",
+      "en": "&7&oI can feel his presence close, we need all of our defenses ready, Vaaz might be in danger.",
+      "ko": "&7&o그의 기척이 가까이 느껴진다. 모든 방어를 갖춰야 한다. 바즈가 위험할지도 모른다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "440126C71C47DB94",
+      "key": "description/8",
+      "en": "&7&oCome here as soon as you can. We need you, Flameborn.",
+      "ko": "&7&o가능한 한 빨리 이곳으로 와라. 네가 필요하다, 플레임본이여."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "440126C71C47DB94",
+      "key": "description/10",
+      "en": "&7&oYou should also enchant your weapon with Smite, Hastur's followers are undead. You should be prepared for the worst.\"",
+      "ko": "&7&o무기에는 강타를 부여해 두어라. 하스투르의 추종자들은 언데드다. 최악에 대비해야 한다.」"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "440126C71C47DB94",
+      "key": "title",
+      "en": "&eUrgent Missive from S'kellak",
+      "ko": "&e스켈락의 긴급 서신"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "449870D454BEB253",
+      "key": "title",
+      "en": "Use the Flameborn Stone and go to Vaaz",
+      "ko": "플레임본의 돌을 사용해 바즈로 이동하세요."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "2D24C45915E27222",
+      "key": "description/2",
+      "en": "&7The once archmage and leader of the Hex, dead in the hands of the Champions of Vaaz, was been resurrected by Hastur himself.",
+      "ko": "&7한때 대마법사이자 헥스의 수장이었던 자는 바즈의 용사들에게 쓰러졌지만 하스투르의 손에 되살아났습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "2D24C45915E27222",
+      "key": "description/4",
+      "en": "&7Now part of the cult and infused with Hastur's power, he has been chosen to sabotage the plans of S'kellak. Kidnapping and killing anyone who tries to travel to the Cinderstone Depths.",
+      "ko": "&7교단의 일원이 되어 하스투르의 힘을 받은 그는 스켈락의 계획을 방해하고, 잿불석 심층부로 향하는 이들을 납치하고 살해합니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "34CA824A855AF82F",
+      "key": "description/0",
+      "en": "&7&oCorruption Infusions can be used to add corruption to Armor Pieces, which are useful for corruption scaled abilities.",
+      "ko": "&7&o타락 주입으로 방어구에 타락을 더할 수 있습니다. 타락 수치에 따라 강해지는 능력에 유용합니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "34CA824A855AF82F",
+      "key": "description/2",
+      "en": "&7&oActive Abilities from the Talent Tree have special effects and scaling with Corruption.",
+      "ko": "&7&o스킬 트리의 사용 능력에는 타락에 따라 달라지는 고유 효과가 있습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "34CA824A855AF82F",
+      "key": "description/4",
+      "en": "&7The Corruption Infusion Template can be found as loot in end cities.",
+      "ko": "&7타락 주입 형판은 엔드 도시의 전리품으로 얻을 수 있습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "34CA824A855AF82F",
+      "key": "description/11",
+      "en": "&7- X'al, The Faceless Eye &8(+35)",
+      "ko": "&7- 크살, 얼굴 없는 눈 &8(+35)"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "34CA824A855AF82F",
+      "key": "title",
+      "en": "&ePath to Corruption: Infusions",
+      "ko": "\\n&e타락으로 향하는 길: 주입"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "66FA883FD0CBC7E7",
+      "key": "description/0",
+      "en": "&7&oEtyr Infusions can be used to add Corruption Resistance to armor pieces, that counteract with your amount of corruption.",
+      "ko": "&7&o에티르 주입으로 방어구에 타락 저항력을 더해 축적된 타락에 대응할 수 있습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "66FA883FD0CBC7E7",
+      "key": "description/2",
+      "en": "&7&oWhile abilities scale with Corruption, negative effects are based on your &nTotal Corruption&r&7&o, which accounts for your Etyr.",
+      "ko": "&7&o능력은 타락 수치에 따라 강해지지만, 부정적 효과는 에티르를 반영한 &n총 타락&r&7&o 수치에 따라 달라집니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "66FA883FD0CBC7E7",
+      "key": "description/4",
+      "en": "&7The Etyr Infusion Template can be found as loot in end cities.",
+      "ko": "&7에티르 주입 형판은 엔드 도시의 전리품으로 얻을 수 있습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "66FA883FD0CBC7E7",
+      "key": "description/9",
+      "en": "&7- Etyr Ingot &8(+10)",
+      "ko": "&7- 에티르 주괴 &8(+10)"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "66FA883FD0CBC7E7",
+      "key": "title",
+      "en": "&ePath to Etyr: Infusions",
+      "ko": "\\n&e에티르로 향하는 길: 주입"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "3B4199AF98C58326",
+      "key": "subtitle",
+      "en": "Use the Flameborn Stone to go back to Vaaz",
+      "ko": "플레임본의 돌을 사용해 바즈로 돌아가세요."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "02FDC0AF50942BCF",
+      "key": "title",
+      "en": "Use the Flameborn Stone",
+      "ko": "플레임본의 돌을 사용하세요."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "7BFDABFDF6FB2206",
+      "key": "description/0",
+      "en": "&7While the Flameborn Stone was hijacked by Hastur, Vaaz has been attacked by their followers.",
+      "ko": "&7하스투르가 플레임본의 돌을 빼앗은 사이, 그의 추종자들이 바즈를 공격했습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "7BFDABFDF6FB2206",
+      "key": "title",
+      "en": "&eAssault to Vaaz",
+      "ko": "&e바즈 공격"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "5689CF4DF840682A",
+      "key": "title",
+      "en": "Arrive at Vaaz after meeting Him.",
+      "ko": "그를 만난 후 바즈에 도착합니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "1B7B89009822EDC3",
+      "key": "description/2",
+      "en": "&7Ama'gul is one of the strongest cultists of this era, perfectioning the magic of illusionism.",
+      "ko": "&7아마굴은 이 시대에서 가장 강력한 광신도 중 하나로, 환영 마법을 완성했습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "1B7B89009822EDC3",
+      "key": "description/4",
+      "en": "&7It slowly deals damage to all flameborn around it, spawning crystals that deal damage. Once enough crystals are broken, its tentacles arise, cutting them off will make Ama'gul vulnerable.",
+      "ko": "&7주변의 모든 플레임본에게 서서히 피해를 주고, 피해를 주는 결정을 생성합니다. 충분한 결정을 부수면 촉수가 솟아오르며, 촉수를 잘라내면 아마굴이 취약해집니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "1B7B89009822EDC3",
+      "key": "description/6",
+      "en": "&7The Void Crystals will release void clouds, which can be aimed and punched towards a weakened Ama'gul to deal further damage.",
+      "ko": "&7공허 결정은 공허 구름을 방출합니다. 이를 약해진 아마굴 쪽으로 유도해 주먹으로 치면 추가 피해를 줄 수 있습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "1B7B89009822EDC3",
+      "key": "title",
+      "en": "&f &2Ama'gul, the Unholy Sorcerer",
+      "ko": "&f &2아마굴, 불경한 마법사"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "6E64F74233060F9F",
+      "key": "title",
+      "en": "&eDefeat Ama'gul",
+      "ko": "&e아마굴 물리치기"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "687B5493A610056A",
+      "key": "description/0",
+      "en": "&7The attack ceased, but Vaaz needs to be rebuilt.",
+      "ko": "&7공격은 멈췄지만 바즈는 재건되어야 합니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "687B5493A610056A",
+      "key": "description/2",
+      "en": "&7S'kellak has asked you to stay and help rebuild Vaaz as it was, so we can reinforce our future army.",
+      "ko": "&7스켈락은 미래의 군대를 다시 세우기 위해 바즈 재건을 도와 달라고 부탁했습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "69336936883FDFF2",
+      "key": "title",
+      "en": "Help rebuild Vaaz for a millenia.",
+      "ko": "바즈 재건 돕기"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "5F57F194C4A133B9",
+      "key": "description/0",
+      "en": "&7Cultists have invaded Vaaz alongside a unknown threat. It is time for you to send them back where they came from and repel the invasion for good.",
+      "ko": "&7광신도들이 정체불명의 위협과 함께 바즈를 침공했습니다. 침략자들을 물리쳐 원래 있던 곳으로 돌려보내고 침공을 끝내세요."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "5F57F194C4A133B9",
+      "key": "title",
+      "en": "&eVaaz Assault: The Cultists",
+      "ko": "&e바즈 습격: 광신도"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "6E9C9D719B4FF675",
+      "key": "description/0",
+      "en": "&7&oWith the forge at its last stages, Vaaz must prepare to counter attack Hastur's forces.",
+      "ko": "&7&o대장간이 완성을 앞둔 지금, 바즈는 하스투르의 세력에 반격할 준비를 해야 합니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "6E9C9D719B4FF675",
+      "key": "description/2",
+      "en": "&7&oS'kellak has gambled for Vaaz's biggest weapon, the Flameborn, empowering them with Artifact Weapons that share a piece of his own power.",
+      "ko": "&7&o스켈락은 자신의 힘 일부를 담은 아티팩트 무기로 바즈의 가장 강력한 전력인 플레임본들을 강화했습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "6E9C9D719B4FF675",
+      "key": "description/4",
+      "en": "&7&oThe next plan is to empower them further using the Primordial Forge, harnessing the powers of Vaaz and the primordial forces to create armor pieces to protect and empower the Flameborn against the primordial force of the Unholy.",
+      "ko": "&7&o이제 태고의 대장간에서 바즈와 태고의 힘을 이용해 방어구를 만들 계획입니다. 이 방어구는 불경한 태고의 힘에 맞서는 플레임본들을 보호하고 강화할 것입니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "6E9C9D719B4FF675",
+      "key": "title",
+      "en": "&6&lChapter II: &e&lPrimordial Forge",
+      "ko": "&6&l제2장:&e&l태고의 대장간"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "7A5CB6E08A7DD96C",
+      "key": "description/0",
+      "en": "&7After 1071 years, S'kellak's next weapon to empower the Flameborn is at its final stages.",
+      "ko": "&71071년이 지난 지금, 플레임본들을 강화할 스켈락의 다음 무기가 완성을 앞두고 있습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "7A5CB6E08A7DD96C",
+      "key": "description/2",
+      "en": "&7Find S'kellak to meet Mirgaff, master of the Primordial Forge.",
+      "ko": "&7스켈락을 찾아가 태고의 대장간 장인 미르가프를 만나세요."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "0DB987671F5C16AD",
+      "key": "title",
+      "en": "Meet S'kellak in the Throne Room",
+      "ko": "알현실에서 스켈락을 만나라"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "136FB0F96260D6A5",
+      "key": "description/0",
+      "en": "&7The Primordial Forge is ready to finish its last stages, find Mirgaff, the master of the forge, to know what's left to finish it.",
+      "ko": "&7태고의 대장간이 완성을 앞두고 있습니다. 대장간 장인 미르가프를 찾아가 남은 작업을 확인하세요."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "3AD76C9C3E9EE452",
+      "key": "title",
+      "en": "Meet Mirgaff at the Forge Room",
+      "ko": "대장간 작업실에서 미르가프를 만나라"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "1927685D184EE33C",
+      "key": "description/0",
+      "en": "&7The secret ingredient seemed to be much less special than you thought. Classic Dwarf... Head back over to Mirgaff and bring the barrel back to her.",
+      "ko": "&7비밀 재료는 생각보다 훨씬 평범했습니다. 역시 드워프답군요... 미르가프에게 돌아가 맥주통을 건네세요."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "006A23DD214AF9AE",
+      "key": "title",
+      "en": "Meet Mirgaff at the Forge Room",
+      "ko": "대장간 작업실에서 미르가프를 만나라"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "6968FB1EFC901F50",
+      "key": "description/0",
+      "en": "&7Create your first piece of Primordial Armor, our first step towards the counter attack.",
+      "ko": "&7태고의 방어구를 처음으로 제작해 반격의 발판을 마련하세요."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "6968FB1EFC901F50",
+      "key": "title",
+      "en": "&ePrimordial Power",
+      "ko": "&e태고의 힘"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "5F95AD0723924DB3",
+      "key": "title",
+      "en": "&dObtain any Primordial Armor Piece",
+      "ko": "&d태고 방어구 하나 얻기"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "69D19F5D76C81CB8",
+      "key": "description/0",
+      "en": "&7Finish the creation of the Primordial Forge by aiding with resources for all stages.",
+      "ko": "&7각 단계에 필요한 자원을 모아 태고의 대장간을 완성하세요."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "69D19F5D76C81CB8",
+      "key": "title",
+      "en": "&ePrimordial Forge",
+      "ko": "&e태고의 대장간"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "337FA77CBDDFD9F3",
+      "key": "title",
+      "en": "Finish the Primordial Forge's construction",
+      "ko": "태고의 대장간의 건설을 완료"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "2070C70B2AB53F23",
+      "key": "description/2",
+      "en": "&7We need to research a new kind of manifestation by Hastur's influence, the Unholy Hourglass.",
+      "ko": "&7하스투르의 영향으로 나타난 새로운 현상인 불경한 모래시계를 연구해야 합니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "2070C70B2AB53F23",
+      "key": "title",
+      "en": "&eUnholy Visions",
+      "ko": "&e불경한 환상"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "7D4590C7C1FBB0D2",
+      "key": "title",
+      "en": "Visit Alm the Dark Arts Vendor at Vaaz",
+      "ko": "바즈에서 흑마법 상인 알름을 만나세요"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "4733FE845F5C7377",
+      "key": "title",
+      "en": "Use the Unholy Hourglass and defeat any challenge",
+      "ko": "불경한 모래시계를 사용하여 모든 도전을 물리치십시오"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "3A58908B3E140775",
+      "key": "description/0",
+      "en": "&7Cinders are a &ecurrency that can only be used in Vaaz&7. It is bound to you, it isn't in item form. ",
+      "ko": "&7신더는 아이템이 아닌 귀속 화폐로, &e바즈에서만 사용할 수 있습니다.&7"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "3A58908B3E140775",
+      "key": "description/2",
+      "en": "&7You can see the amount of Cinders you have by trading with an NPC inside of Vaaz.",
+      "ko": "&7보유한 신더는 바즈의 NPC와 거래할 때 확인할 수 있습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/elhasturian_era.snbt",
+      "id": "3A58908B3E140775",
+      "key": "description/6",
+      "en": "&7The Cinders are needed for Primordial Armor as well as to be used as a currency with selling, buying and trading.",
+      "ko": "&7태고의 방어구 제작과 바즈의 구매·판매·교환에 사용합니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/getting_started.snbt",
+      "id": "600F88849D115EDD",
+      "key": "description/11",
+      "en": "&7Unlocked by starting the &eHasturian Era&7 campaign.",
+      "ko": "&e하스투르의 시대&7 캠페인을 시작하면 해금"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/getting_started.snbt",
+      "id": "25A207BCEA963D3B",
+      "key": "description/0",
+      "en": "&7Two kings who had fallen in the past, have now been brought back to life in the form of undead demons. S'kellak needs you to investigate, and if needed, defeat them. This might be part of something bigger.",
+      "ko": "&7오래전에 쓰러진 두 왕이 언데드 악마로 되살아났습니다. 스켈락은 배후를 조사하고, 필요하다면 그들을 처치해 달라고 합니다. 더 큰 사건의 일부일지도 모릅니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/getting_started.snbt",
+      "id": "25A207BCEA963D3B",
+      "key": "title",
+      "en": "&eOut of Vaaz to the Unknown!",
+      "ko": "&e바즈를 떠나 미지의 세계로!"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "7CBAFED315D614C3",
+      "key": "description/0",
+      "en": "&o&7\"Flameborn, I wish you the best of luck in your journey to this unknown land.",
+      "ko": "&o&7\"플레임본이여, 미지의 땅으로 떠나는 여정에 행운이 함께하길 바란다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "7CBAFED315D614C3",
+      "key": "description/2",
+      "en": "&o&7I shall inform you of anything new through this book, remember to also read other guides and information written by the previous flameborn.",
+      "ko": "&o&7새 소식은 이 책으로 전하겠다. 선대 플레임본들이 남긴 안내와 정보도 읽어 두어라."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "7CBAFED315D614C3",
+      "key": "description/8",
+      "en": "&7&8- S'kellak",
+      "ko": "&7&8- 스켈락"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "63A18694A9470D66",
+      "key": "description/0",
+      "en": "&eTravel to Vaaz and meet S'kellak at the Throne Room",
+      "ko": "&e바즈로 이동해 왕좌실에서 스켈락을 만나세요."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "63A18694A9470D66",
+      "key": "title",
+      "en": "&eS'kellak's Reward",
+      "ko": "\\n&e스켈락의 보상"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "10A54494875097FE",
+      "key": "title",
+      "en": "Use the Flameborn Stone and find S'kellak",
+      "ko": "플레임본의 돌을 사용하여 스켈락을 찾으십시오"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "777FC868034D4BA5",
+      "key": "description/2",
+      "en": "&6\"We must prepare for what lies ahead — a new form of magic that we're unfamiliar with, known as the corruption. I'll go on a quest to discover a new material that could offer us a fighting chance against it.",
+      "ko": "&6\"앞으로를 대비해야 한다. 우리에게 낯선 새로운 마법인 타락이 나타났다. 나는 이에 맞설 수 있는 새 재료를 찾아보겠다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "777FC868034D4BA5",
+      "key": "description/4",
+      "en": "&6As for you, that molten core is nothing but a vessel. You will need the essences of ancient beings. Once harnessed, these essences will empower it to be able to forge the formidable artifacts. It is your mission to obtain them.\" &e&oS'kellak explained.",
+      "ko": "&6네가 가진 화산 심장부는 그릇에 불과하다. 고대 존재의 정수를 모아 그릇에 깃들여야 강력한 아티팩트를 단조할 수 있다. 그 정수를 얻는 것이 네 사명이다.\" &e&o스켈락이 설명했습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "45A926EF078F465E",
+      "key": "subtitle",
+      "en": "&7Full of hatred and corruption.",
+      "ko": "&7증오와 타락으로 가득 찬 존재"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "601BDBA6DF073CB0",
+      "key": "description/0",
+      "en": "&7The primitive seed of creation, the &9Primordial Abyss&7 has the most influence by the cosmic horrors. It is a corrupted land with its own corrupted kind of life, known as the &9aberrations&7.",
+      "ko": "&7창조의 원초적인 씨앗인 &9태고의 심연&7은 범우주적인 공포의 영향을 가장 많이 받은 곳입니다. 이 타락한 땅에는 &9변이체&7라는 생물들이 서식합니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "601BDBA6DF073CB0",
+      "key": "title",
+      "en": "&9The Primordial Abyss",
+      "ko": "\\n&9태고의 심연"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "5849FCE25177F4E9",
+      "key": "title",
+      "en": "Visit the Primordial Abyss",
+      "ko": "태고의 심연 방문"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "2500331DBBD67515",
+      "key": "description/0",
+      "en": "&7The hasturian wastes are a desolated land full of spikes that are known as the &eSpire Spikes&7. Some of these spikes have an unknown metal blessed by Hastur. It could be the best way to fight against corruption.",
+      "ko": "&7하스투르 황무지는 &e첨탑 가시&7가 솟아 있는 황폐한 땅입니다. 일부 가시에는 하스투르의 축복을 받은 미지의 금속이 들어 있습니다. 타락에 맞서는 데 가장 유용한 재료일지도 모릅니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "2500331DBBD67515",
+      "key": "title",
+      "en": "&6The Hasturian Wastes",
+      "ko": "\\n&6하스투르 황무지"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "3C7ECD7B595CB560",
+      "key": "title",
+      "en": "Visit the Hasturian Wastes",
+      "ko": "하스투르 황무지에 진입하세요"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "5472D472A72B4DB9",
+      "key": "description/0",
+      "en": "&7With the defeat of the The Eye, the end has been affected by the void's higher forces, &dthe cosmic horrors&7. Eldritch beings that hold pure corruption in their veins.",
+      "ko": "&7엘드리치 아이를 물리친 뒤 엔드는 공허의 상위 존재인 &d범우주적인 공포&7의 영향을 받기 시작했습니다. 그들은 순수한 타락이 혈관을 타고 흐르는 기괴한 존재들입니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "250AEC20271670DC",
+      "key": "description/0",
+      "en": "&eThe Aberrations.&7 They are horrific creatures that live in the Primordial Abyss. Be careful with them, when they hit you, they will apply &9corruption&7 to you, which is stackable. You don't want them to hit you multiple times.",
+      "ko": "&e변이체&7는 태고의 심연에 사는 끔찍한 생물입니다. 공격에 맞으면 &9타락&7이 중첩됩니다. 여러 번 맞지 않도록 조심하세요."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "40BF64AA85FF6010",
+      "key": "description/0",
+      "en": "&7The metal from the Spire Spikes, &2Etyr&7, has an unique attribute, it is &2resistant to corruption&7. We could use this metal to prevent the cosmic horrors from corrupting the end.",
+      "ko": "&7첨탑 가시에서 얻는 금속 &2에티르&7는 &2타락에 저항하는&7 고유한 성질이 있습니다. 이 금속을 이용하면 범우주적인 공포가 엔드를 타락시키는 것을 막을 수 있을지도 모릅니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "40BF64AA85FF6010",
+      "key": "title",
+      "en": "&2The Fight Against Corruption",
+      "ko": "&b\\n타락에 대비하기"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "4AEBBAD5C5474582",
+      "key": "description/2",
+      "en": "&6First, we will need a summoning pedestal.\" &e&oS'kellak explained.",
+      "ko": "&6먼저 소환의 받침대가 필요하다.\" &e&o스켈락이 설명했습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "3FEF5FC9AB6C6AAE",
+      "key": "description/0",
+      "en": "&6\"There isn't anything more durable for this than cinderstone, forged directly from the depths of Vaaz. This should be enough to trap its essence, but I'm afraid that I don't know what you could unleash on the process\" &e&oS'kellak said",
+      "ko": "&6\"바즈 깊은 곳에서 단조한 잿불석보다 견고한 재료는 없을 것이다. 그릇이라면 정수를 가둘 수 있겠지만, 그 과정에서 무엇이 풀려날지는 나도 알 수 없구나.\" &e&o스켈락이 말했습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "173314BDF690683E",
+      "key": "description/0",
+      "en": "&6\"It is waiting for you. Bring that pedestal to the end and place two of the end's essence, an ender pearl and a end crystal. Be prepared, and don't forget to trap it. You have my blessing, child.\" &e&oS'kellak said",
+      "ko": "&6\"그것이 너를 기다리고 있다. 받침대를 엔드로 가져가 엔드의 정수 두 가지인 엔더 진주와 엔드 수정을 올려라. 충분히 준비하고, 정수를 가두는 것도 잊지 마라. 나의 축복이 함께하길 빈다, 아이야.\" &e&o스켈락이 말했습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "6EEFBD329C02E34A",
+      "key": "description/2",
+      "en": "&r&6Unless... we use their own power against them. We could trap one of the heralds of the void inside a vessel, and with it, gather their power. But first, make yourself a better weapon, I'll make the vessel.\"&e&o S'kellak said.",
+      "ko": "&r&6하지만… 그들의 힘을 역으로 이용한다면 가능할지도 모른다. 공허의 전령 하나를 그릇에 가둬 힘을 모으자. 우선 더 나은 무기를 만들어라. 그릇은 내가 마련하겠다.\"&e&o 스켈락이 말했습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "6EEFBD329C02E34A",
+      "key": "description/4",
+      "en": "&eFollow the &cS'kellak's Forge&e questline for more information on forging artifact weapons.",
+      "ko": "&e아티팩트 무기 제작 방법은 &c스켈락의 대장간&e 퀘스트 줄기를 따라가며 확인하세요."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "245E77F81FB78B58",
+      "key": "description/2",
+      "en": "&6\"The Faceless One is here, another of the void heralds, and the root of corruption\" &e&oS'kellak said",
+      "ko": "&6\"얼굴 없는 자가 왔다. 공허의 또 다른 전령이자 타락의 근원이다.\" &e&o스켈락이 말했습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "69574BA63A9F05E8",
+      "key": "description/2",
+      "en": "&7At the heart of the void's influence, the Primordial Abyss, you may summon the herald of the void, the gruntling faceless being with its dark ritual, by breaking the heart of an aberration on the middle.",
+      "ko": "&7공허의 영향력이 가장 짙은 태고의 심연에서 의식 중앙에 놓인 변이체의 심장을 부수면 공허의 전령인 얼굴 없는 자를 소환할 수 있습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "69574BA63A9F05E8",
+      "key": "description/4",
+      "en": "&6\"Beware, just weaken it, and I'll attempt to bring it down to Vaaz to trap it for eternity. The fate of the realms is on you.\" &eS'kellak said",
+      "ko": "&6\"조심하거라. 그것을 처치하지 말고 약하게만 만들어라. 내가 바즈로 끌어내려 영원히 가두겠다. 세계의 운명이 너에게 달렸다.\" &e스켈락이 말했습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "69574BA63A9F05E8",
+      "key": "title",
+      "en": "&f &9&lThe Faceless One",
+      "ko": "\\n&f레벨 50 &9얼굴 없는 자"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "1FC4C638A5DF2AC0",
+      "key": "title",
+      "en": "&9Summon and fight against The Faceless One",
+      "ko": "&9얼굴 없는 자 소환 및 전투"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "0A5F7ABD54251511",
+      "key": "description/0",
+      "en": "&6\"To summon the last herald, you'll have to go through their own dark magic. You should make a weapon born of true corruption, The Dreadtide, to get yourself mad to attract the dark thoughts from the void, the All-Seeing Eyes; we'll need 4 of them for the ritual.",
+      "ko": "&6\"마지막 전령을 소환하려면 그들의 어둠 마법을 역으로 이용해야 한다. 진정한 타락에서 태어난 무기 드레드타이드를 만들어 광기에 가까워지면, 공허의 어두운 생각인 불길한 눈을 끌어낼 수 있다. 의식에는 불길한 눈 네 개가 필요하다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "0A5F7ABD54251511",
+      "key": "description/2",
+      "en": "&6While you do this, I'll find more knowledge on the ritual. Just beware, don't fall into madness, as there's no going back.\" &e&oS'kellak said",
+      "ko": "&6그동안 나는 의식에 관한 자료를 더 찾아보겠다. 단, 광기에 잠식되지 않도록 조심하거라. 한 번 빠지면 돌아올 수 없다.\" &e&o스켈락이 말했습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "0A5F7ABD54251511",
+      "key": "title",
+      "en": "&ePath to Corruption: The All-Seeing Eyes",
+      "ko": "\n&e타락으로 향하는 길: 불길한 눈"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "7CD3D2757242817B",
+      "key": "description/0",
+      "en": "&6\"I have found one of the lost pages of the Necronomicon, this should help you with the ritual.\" &e&oS'kellak said",
+      "ko": "&6\"네크로노미콘의 잃어버린 페이지 하나를 찾았다. 의식을 치르는 데 도움이 될 것이다.\" &e&o스켈락이 말했습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "7CD3D2757242817B",
+      "key": "title",
+      "en": "&ePath to Corruption: Ritual of Damnation",
+      "ko": "\\n&e타락으로 향하는 길: 저주 의식"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "04AF2E026BB918AE",
+      "key": "description/0",
+      "en": "&7The Faceless One has been captured and trapped inside Vaaz, S'kellak interrogated it.",
+      "ko": "&7얼굴 없는 자는 바즈에 갇혔고, 스켈락이 심문했습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "04AF2E026BB918AE",
+      "key": "description/2",
+      "en": "&9\"C' mgepmgah, llll h', c'den ephaiagl ot e'enhe, ymg' ahorna mgah ahf''s nog, ymg' ahorna mgah uh'eog ph'nglui turor\" &e&oThe Faceless said, in an unknown tongue",
+      "ko": "&9\"C' mgepmgah, llll h', c'den ephaiagl ot e'enhe, ymg' ahorna mgah ahf''s nog, ymg' ahorna mgah uh'eog ph'nglui turor\" &e&o얼굴 없는 자가 알 수 없는 언어로 말했습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "04AF2E026BB918AE",
+      "key": "description/4",
+      "en": "&6\"My child, if what it says is true, then our war has just started.\" &e&oSaid S'kellak, worried.",
+      "ko": "&6\"아이야, 저 말이 사실이라면 우리의 전쟁은 이제 막 시작된 것이다.\" &e&o스켈락이 걱정스러운 표정으로 말했습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "7907D42E7950D773",
+      "key": "description/0",
+      "en": "&eMeet S'kellak at Vaaz to discuss the events after the Fallen Kings.",
+      "ko": "&e바즈에서 스켈락을 만나 몰락한 왕들을 물리친 뒤 벌어진 일을 이야기하세요."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "1A9CFBDF10D14168",
+      "key": "title",
+      "en": "Use the Flameborn Stone and find S'kellak",
+      "ko": "플레임본의 돌을 사용하여 스켈락을 찾으십시오"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "7023C0EC0A4686E2",
+      "key": "description/0",
+      "en": "&o&7S'kellak hath discovered a source of unbalance within the realms. All dimensions now bear the taint of the void's horrid presence.",
+      "ko": "&o&7스켈락은 여러 차원의 균형을 무너뜨리는 근원을 발견했습니다. 이제 모든 차원에 끔찍한 공허의 흔적이 남아 있습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "45437B8E9AEEF2E5",
+      "key": "description/0",
+      "en": "&7This gift, illuminated by S'kellak's power, signifies both the hero's triumph and a pledge of continued protection for the realms.",
+      "ko": "&7스켈락의 힘으로 빛나는 이 선물은 영웅의 승리와 앞으로도 여러 차원을 지키겠다는 맹세를 상징합니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "55CE199477957984",
+      "key": "title",
+      "en": "Visit the Primordial Abyss and fight Aberrations",
+      "ko": "태고의 심연을 방문해 변이체와 싸우기"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/main_story.snbt",
+      "id": "70718BBE282CD31E",
+      "key": "description/0",
+      "en": "&7Resetting the Artifact skill tree can be done with the Primordial Scroll, similar to the Knowledge Scroll. You will need to buy this item from &6S'kellak&7 himself using a Cinderstone Trophy.",
+      "ko": "&7아티팩트 스킬 트리는 지식의 두루마리처럼 태고의 두루마리로 초기화할 수 있습니다. 잿불석 트로피를 내고 &6스켈락&7에게서 두루마리를 구매하세요."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/simply_swords.snbt",
+      "id": "574677AD427E33FB",
+      "key": "description/2",
+      "en": "&7These Weapons can be found in a lot of places. With enough luck you might have found one already. Tales tell that the Wither and Jean, the Ender Dragon can have them. Some other strong enemies may also still hold onto one from a previous encounter with a Flameborn.",
+      "ko": "&7이 무기는 여러 곳에서 찾을 수 있습니다. 운이 좋았다면 이미 얻었을지도 모릅니다. 위더와 엔더 드래곤도 지니고 있다는 이야기가 있습니다. 강력한 다른 적들도 플레임본과 싸운 뒤 하나를 간직하고 있을 수 있습니다."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/simply_swords.snbt",
+      "id": "1299DA76794F4557",
+      "key": "subtitle",
+      "en": "&7I will rend the Flesh, until i stand as a unholy god.",
+      "ko": "&7내가 불경한 신으로 우뚝 설 때까지, 이 살점을 찢어발기리라."
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/to_the_end.snbt",
+      "id": "0AE2C4383B40418A",
+      "key": "title",
+      "en": "The Hasturian Wastes",
+      "ko": "\\n하스투르 황무지"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/to_the_end.snbt",
+      "id": "4F2CAACD7E949134",
+      "key": "title",
+      "en": "Visit the Hasturian Wastes",
+      "ko": "하스투르 황무지 방문하기"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/to_the_end.snbt",
+      "id": "02F0E1B04F1A6E56",
+      "key": "title",
+      "en": "The Primordial Abyss",
+      "ko": "\\n태고의 심연"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/to_the_end.snbt",
+      "id": "0583D9EE2E7FD1E5",
+      "key": "title",
+      "en": "Visit the Primordial Abyss",
+      "ko": "태고의 심연 찾기"
+    },
+    {
+      "file": "minecraft/config/ftbquests/quests/chapters/to_the_end.snbt",
+      "id": "30794D704F5985D1",
+      "key": "subtitle",
+      "en": "The handiest Tool for a Flameborn!",
+      "ko": "플레임본에게 가장 유용한 도구!"
+    }
+  ]
+}

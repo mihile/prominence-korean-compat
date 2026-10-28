@@ -1,0 +1,822 @@
+[
+  {
+    "file": "config/puffish_skills/categories/ashedar_essence/definitions.json",
+    "id": "infusion_etyr",
+    "field": "description",
+    "before": "§7에티르를 주입해 §c애쉬§7의 힘을 끌어내고, 타락 저항을 얻으며 애쉬의 화염 피해를 높입니다.\n \n§fꬁ §2+20 §7타락 저항\n§f弄 §6+5% §7물리 피해\n§f縷 §6+10% §7화염 주문력",
+    "after": "§7에티르를 주입해 §c애쉬§7의 힘을 끌어내고, 타락 저항을 얻으며 애쉬의 화염 피해를 높입니다.\n \n§fꬁ §2+20 §7타락 저항\n§f弄 §6+5% §7근접 공격력\n§f縷 §6+10% §7화염 주문력",
+    "cause": "same_attribute_inconsistent_stat_name",
+    "attribute": "generic.attack_damage"
+  },
+  {
+    "file": "config/puffish_skills/categories/frostmourne/definitions.json",
+    "id": "melee_damage",
+    "field": "title",
+    "before": "§f弄 §6+5% §7물리 피해",
+    "after": "§f弄 §6+5% §7근접 공격력",
+    "cause": "same_attribute_inconsistent_stat_name",
+    "attribute": "generic.attack_damage"
+  },
+  {
+    "file": "config/puffish_skills/categories/frostmourne/definitions.json",
+    "id": "melee_damage",
+    "field": "description",
+    "before": "공격 피해이 5%만큼 증가합니다.",
+    "after": "근접 공격력이 5%만큼 증가합니다.",
+    "cause": "same_attribute_inconsistent_stat_name",
+    "attribute": "generic.attack_damage"
+  },
+  {
+    "file": "config/puffish_skills/categories/frostmourne/definitions.json",
+    "id": "unholy",
+    "field": "description",
+    "before": "§f弄 §6+5% §7물리 피해",
+    "after": "§f弄 §6+5% §7근접 공격력",
+    "cause": "same_attribute_inconsistent_stat_name",
+    "attribute": "generic.attack_damage"
+  },
+  {
+    "file": "config/puffish_skills/categories/prom/definitions.json",
+    "id": "path_rogue",
+    "field": "description",
+    "before": "§7무기 사용에 능숙해져 소량의 물리 피해와 가속을 얻습니다.\n \n§f弄 §6+1 §7물리 피해\n§f籠 §e+5% §7가속",
+    "after": "§7무기 사용에 능숙해져 소량의 근접 공격력와 가속을 얻습니다.\n \n§f弄 §6+1 §7근접 공격력\n§f籠 §e+5% §7가속",
+    "cause": "same_attribute_inconsistent_stat_name",
+    "attribute": "generic.attack_damage"
+  },
+  {
+    "file": "config/puffish_skills/categories/prom/definitions.json",
+    "id": "fate_high_priest",
+    "field": "description",
+    "before": "§7빛의 화신이 되어 순수한 신성의 힘으로 아군을 치유하지만, 그 대가로 공격력이 감소합니다.\n \n§f綾 §e+10 §7신성 위력\n§f弄 §6-60% §7물리 피해",
+    "after": "§7빛의 화신이 되어 순수한 신성의 힘으로 아군을 치유하지만, 그 대가로 공격력이 감소합니다.\n \n§f綾 §e+10 §7신성 위력\n§f弄 §6-60% §7근접 공격력",
+    "cause": "same_attribute_inconsistent_stat_name",
+    "attribute": "generic.attack_damage"
+  },
+  {
+    "file": "config/puffish_skills/categories/prom/definitions.json",
+    "id": "fate_warriors_devotion",
+    "field": "description",
+    "before": "§7원소 마법 지식을 대가로 양손 무기 사용 시 피해를 크게 높입니다.\n \n§f弄 §6+10 §7물리 피해\n \n§f鹿 §6타이탄의 손아귀\n§7양손 무기를 들고 있을 때:\n§f弄 §6+80% §7물리 피해\n§f籠 §e-55% §7가속",
+    "after": "§7원소 마법 지식을 대가로 양손 무기 사용 시 피해를 크게 높입니다.\n \n§f弄 §6+10 §7근접 공격력\n \n§f鹿 §6타이탄의 손아귀\n§7양손 무기를 들고 있을 때:\n§f弄 §6+80% §7근접 공격력\n§f籠 §e-55% §7가속",
+    "cause": "same_attribute_inconsistent_stat_name",
+    "attribute": "generic.attack_damage"
+  },
+  {
+    "file": "config/puffish_skills/categories/prom/definitions.json",
+    "id": "fate_decaying_devotion",
+    "field": "description",
+    "before": "§7죽음에 헌신합니다. 비전과 화염의 힘을 버리고 혈기와 부정의 부패 마법을 익힙니다.\n \n§f弄 §6+5 §7물리 피해\n§f凜 §2+10 §7부정 위력\n§f肋 §c+10 §7혈기 위력\n \n§f鹿 §c종말의 기사\n§7말 탈것에 탄 동안 죽음의 기사 능력과 룬검 공격의 피해가 50% 증가합니다.",
+    "after": "§7죽음에 헌신합니다. 비전과 화염의 힘을 버리고 혈기와 부정의 부패 마법을 익힙니다.\n \n§f弄 §6+5 §7근접 공격력\n§f凜 §2+10 §7부정 위력\n§f肋 §c+10 §7혈기 위력\n \n§f鹿 §c종말의 기사\n§7말 탈것에 탄 동안 죽음의 기사 능력과 룬검 공격의 피해가 50% 증가합니다.",
+    "cause": "same_attribute_inconsistent_stat_name",
+    "attribute": "generic.attack_damage"
+  },
+  {
+    "file": "config/puffish_skills/categories/prom/definitions.json",
+    "id": "ascendancyRighteousHammers",
+    "field": "description",
+    "before": "§7일정 시간 자신 주위를 도는 망치를 소환합니다. 망치는 주변 적에게 근접 피해를 주고, 망치 하나마다 근접 공격 피해가 2% 증가합니다.\n \n§fꦘ §9타락 효과§7\n타락 10마다 망치를 하나 더 소환합니다.\n \n§fꦙ §938+ 타락 효과§7\n주기적으로 주변 대상을 추적해 타격하는 추가 망치를 생성합니다.\n \n§6賂 §8§n재사용 대기시간 60초§7",
+    "after": "§7일정 시간 자신 주위를 도는 망치를 소환합니다. 망치는 주변 적에게 근접 피해를 주고, 망치 하나마다 근접 공격력이 2% 증가합니다.\n \n§fꦘ §9타락 효과§7\n타락 10마다 망치를 하나 더 소환합니다.\n \n§fꦙ §938+ 타락 효과§7\n주기적으로 주변 대상을 추적해 타격하는 추가 망치를 생성합니다.\n \n§6賂 §8§n재사용 대기시간 60초§7",
+    "cause": "same_attribute_inconsistent_stat_name",
+    "attribute": "generic.attack_damage"
+  },
+  {
+    "file": "config/puffish_skills/categories/prom/definitions.json",
+    "id": "melee_damage+3.5%",
+    "field": "title",
+    "before": "§f弄 §6+3.5% §7물리 피해",
+    "after": "§f弄 §6+3.5% §7근접 공격력",
+    "cause": "same_attribute_inconsistent_stat_name",
+    "attribute": "generic.attack_damage"
+  },
+  {
+    "file": "config/puffish_skills/categories/prom/definitions.json",
+    "id": "melee_damage+3.5%",
+    "field": "description",
+    "before": "공격 피해이 3.5%만큼 증가합니다.",
+    "after": "근접 공격력이 3.5%만큼 증가합니다.",
+    "cause": "same_attribute_inconsistent_stat_name",
+    "attribute": "generic.attack_damage"
+  },
+  {
+    "file": "config/ftbquests/quests/chapters/main_story.snbt",
+    "id": "173314BDF690683E",
+    "field": "description",
+    "before": "&6\"그것이 너를 기다리고 있다. 받침대를 엔드로 가져가 엔드의 정수 두 가지인 엔더 진주와 엔드 수정을 올려라. 충분히 준비하고, 정수를 가두는 것도 잊지 마라. 나의 축복이 함께하길 빈다, 아이야.\" &e&o스켈락이 말했습니다.",
+    "after": "&6\"그것이 너를 기다리고 있다. 소환 받침대를 엔드에 설치하고, &e엔드 정수 2개&6와 &e엔더 진주 1개&6, &e엔드 수정 1개&6를 올려라. 충분히 준비하고, 그것을 가두는 것도 잊지 마라. 나의 축복이 함께하길 빈다, 아이야.\" &e&o스켈락이 말했습니다.",
+    "official": "&6\"It is waiting for you. Bring that pedestal to the end and place two of the end's essence, an ender pearl and a end crystal. Be prepared, and don't forget to trap it. You have my blessing, child.\" &e&oS'kellak said",
+    "cause": "quantity_misread_as_two_kinds",
+    "evidence": "BossSummonUtil.canSummonNull: END_ESSENCE 2 + ender_pearl + end_crystal; inventory slots 4"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/spell_power/lang/ko_kr.json",
+    "key": "attribute.name.spell_power.frost",
+    "before": "서리 주문력",
+    "after": "냉기 주문력",
+    "official": "Frost Spell Power",
+    "cause": "missing_stat_override_fell_back_to_bundled_translation"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/spell_power/lang/ko_kr.json",
+    "key": "attribute.name.spell_power.fire",
+    "before": "불 주문력",
+    "after": "화염 주문력",
+    "official": "Fire Spell Power",
+    "cause": "missing_stat_override_fell_back_to_bundled_translation"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/spell_power/lang/ko_kr.json",
+    "key": "attribute.name.spell_power.blood",
+    "before": "혈액 주문력",
+    "after": "혈기 주문력",
+    "official": "Blood Spell Power",
+    "cause": "missing_stat_override_fell_back_to_bundled_translation"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/spell_power/lang/ko_kr.json",
+    "key": "effect.spell_power.frost",
+    "before": "서리의 힘",
+    "after": "냉기의 힘",
+    "official": "Frost Power",
+    "cause": "missing_stat_override_fell_back_to_bundled_translation"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/spell_power/lang/ko_kr.json",
+    "key": "effect.spell_power.fire",
+    "before": "불의 힘",
+    "after": "화염의 힘",
+    "official": "Fire Power",
+    "cause": "missing_stat_override_fell_back_to_bundled_translation"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/spell_power/lang/ko_kr.json",
+    "key": "effect.spell_power.blood",
+    "before": "혈액의 힘",
+    "after": "혈기의 힘",
+    "official": "Blood Power",
+    "cause": "missing_stat_override_fell_back_to_bundled_translation"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/minecraft/lang/ko_kr.json",
+    "key": "attribute.name.generic.attack_damage",
+    "before": null,
+    "after": "§f弄§r 근접 공격력",
+    "official": null,
+    "cause": "generic_attack_damage_is_not_all_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/a_overrides/lang/ko_kr.json",
+    "key": "attribute.name.generic.attack_damage",
+    "before": "§f弄§r 물리 피해",
+    "after": "§f弄§r 근접 공격력",
+    "official": null,
+    "cause": "generic_attack_damage_is_not_all_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/zenith_attributes/lang/ko_kr.json",
+    "key": "attribute.name.generic.attack_damage.desc",
+    "before": "공격 준비가 끝났을 때 가하는 기본 근접 피해량입니다.",
+    "after": "기본 근접 공격의 피해량을 결정하는 수치입니다.\n원거리 공격력 및 주문력과는 별도이며, 일부 특수 능력은 이 수치를 피해 계산에 사용합니다.",
+    "official": "Physical damage dealt with a fully charged attack.",
+    "cause": "stat_scope_clarification"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/extraspellattributes/lang/ko_kr.json",
+    "key": "attribute.name.extraspellattributes.convertfromarcane",
+    "before": "비전 주문력 → 공격 피해",
+    "after": "비전 주문력 → 근접 공격력",
+    "official": "Arcane Power Attribute gained as Attack Damage",
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/extraspellattributes/lang/ko_kr.json",
+    "key": "attribute.name.extraspellattributes.convertfromarcane.desc",
+    "before": "비전 주문력의 일정 비율만큼 공격 피해 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "비전 주문력의 일정 비율만큼 근접 공격력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/extraspellattributes/lang/ko_kr.json",
+    "key": "attribute.name.extraspellattributes.convertfromfire",
+    "before": "화염 주문력 → 공격 피해",
+    "after": "화염 주문력 → 근접 공격력",
+    "official": "Fire Power Attribute gained as Attack Damage",
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/extraspellattributes/lang/ko_kr.json",
+    "key": "attribute.name.extraspellattributes.convertfromfire.desc",
+    "before": "화염 주문력의 일정 비율만큼 공격 피해 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "화염 주문력의 일정 비율만큼 근접 공격력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/extraspellattributes/lang/ko_kr.json",
+    "key": "attribute.name.extraspellattributes.convertfromfrost",
+    "before": "냉기 주문력 → 공격 피해",
+    "after": "냉기 주문력 → 근접 공격력",
+    "official": "Frost Power Attribute gained as Attack Damage",
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/extraspellattributes/lang/ko_kr.json",
+    "key": "attribute.name.extraspellattributes.convertfromfrost.desc",
+    "before": "냉기 주문력의 일정 비율만큼 공격 피해 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "냉기 주문력의 일정 비율만큼 근접 공격력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/extraspellattributes/lang/ko_kr.json",
+    "key": "attribute.name.extraspellattributes.converttoarcane",
+    "before": "공격 피해 → 비전 주문력",
+    "after": "근접 공격력 → 비전 주문력",
+    "official": "Attack Damage gained as Arcane Power ",
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/extraspellattributes/lang/ko_kr.json",
+    "key": "attribute.name.extraspellattributes.converttoarcane.desc",
+    "before": "공격 피해의 일정 비율만큼 비전 주문력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "근접 공격력의 일정 비율만큼 비전 주문력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/extraspellattributes/lang/ko_kr.json",
+    "key": "attribute.name.extraspellattributes.converttofire",
+    "before": "공격 피해 → 화염 주문력",
+    "after": "근접 공격력 → 화염 주문력",
+    "official": "Attack Damage gained as Fire Power ",
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/extraspellattributes/lang/ko_kr.json",
+    "key": "attribute.name.extraspellattributes.converttofire.desc",
+    "before": "공격 피해의 일정 비율만큼 화염 주문력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "근접 공격력의 일정 비율만큼 화염 주문력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/extraspellattributes/lang/ko_kr.json",
+    "key": "attribute.name.extraspellattributes.converttofrost",
+    "before": "공격 피해 → 냉기 주문력",
+    "after": "근접 공격력 → 냉기 주문력",
+    "official": "Attack Damage gained as Frost Power ",
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/extraspellattributes/lang/ko_kr.json",
+    "key": "attribute.name.extraspellattributes.converttofrost.desc",
+    "before": "공격 피해의 일정 비율만큼 냉기 주문력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "근접 공격력의 일정 비율만큼 냉기 주문력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/extraspellattributes/lang/ko_kr.json",
+    "key": "attribute.name.extraspellattributes.converttoheal",
+    "before": "공격 피해 → 치유력",
+    "after": "근접 공격력 → 치유력",
+    "official": "Attack Damage gained as Healing Power ",
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/extraspellattributes/lang/ko_kr.json",
+    "key": "attribute.name.extraspellattributes.converttoheal.desc",
+    "before": "공격 피해의 일정 비율만큼 치유력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "근접 공격력의 일정 비율만큼 치유력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/spellbladenext/lang/ko_kr.json",
+    "key": "attribute.name.spellbladenext.convertfromarcane",
+    "before": "비전 주문력 → 공격 피해",
+    "after": "비전 주문력 → 근접 공격력",
+    "official": "Arcane Power gained as Attack Damage",
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/spellbladenext/lang/ko_kr.json",
+    "key": "attribute.name.spellbladenext.convertfromfire",
+    "before": "화염 주문력 → 공격 피해",
+    "after": "화염 주문력 → 근접 공격력",
+    "official": "Fire Power gained as Attack Damage",
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/spellbladenext/lang/ko_kr.json",
+    "key": "attribute.name.spellbladenext.convertfromfrost",
+    "before": "냉기 주문력 → 공격 피해",
+    "after": "냉기 주문력 → 근접 공격력",
+    "official": "Frost Power gained as Attack Damage",
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/spellbladenext/lang/ko_kr.json",
+    "key": "attribute.name.spellbladenext.converttoarcane",
+    "before": "공격 피해 → 비전 주문력",
+    "after": "근접 공격력 → 비전 주문력",
+    "official": "Attack Damage gained as Arcane Power",
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/spellbladenext/lang/ko_kr.json",
+    "key": "attribute.name.spellbladenext.converttofire",
+    "before": "공격 피해 → 화염 주문력",
+    "after": "근접 공격력 → 화염 주문력",
+    "official": "Attack Damage gained as Fire Power",
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/spellbladenext/lang/ko_kr.json",
+    "key": "attribute.name.spellbladenext.converttofrost",
+    "before": "공격 피해 → 냉기 주문력",
+    "after": "근접 공격력 → 냉기 주문력",
+    "official": "Attack Damage gained as Frost Power",
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/spellbladenext/lang/ko_kr.json",
+    "key": "attribute.name.spellbladenext.converttoheal",
+    "before": "공격 피해 → 치유력",
+    "after": "근접 공격력 → 치유력",
+    "official": "Attack Damage gained as Healing Power",
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/spellbladenext/lang/ko_kr.json",
+    "key": "attribute.name.spellbladenext.converttofire.desc",
+    "before": "공격 피해의 일정 비율만큼 화염 주문력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "근접 공격력의 일정 비율만큼 화염 주문력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/spellbladenext/lang/ko_kr.json",
+    "key": "attribute.name.spellbladenext.convertfromfire.desc",
+    "before": "화염 주문력의 일정 비율만큼 공격 피해 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "화염 주문력의 일정 비율만큼 근접 공격력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/spellbladenext/lang/ko_kr.json",
+    "key": "attribute.name.spellbladenext.converttofrost.desc",
+    "before": "공격 피해의 일정 비율만큼 냉기 주문력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "근접 공격력의 일정 비율만큼 냉기 주문력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/spellbladenext/lang/ko_kr.json",
+    "key": "attribute.name.spellbladenext.convertfromfrost.desc",
+    "before": "냉기 주문력의 일정 비율만큼 공격 피해 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "냉기 주문력의 일정 비율만큼 근접 공격력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/spellbladenext/lang/ko_kr.json",
+    "key": "attribute.name.spellbladenext.converttoarcane.desc",
+    "before": "공격 피해의 일정 비율만큼 비전 주문력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "근접 공격력의 일정 비율만큼 비전 주문력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/spellbladenext/lang/ko_kr.json",
+    "key": "attribute.name.spellbladenext.convertfromarcane.desc",
+    "before": "비전 주문력의 일정 비율만큼 공격 피해 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "비전 주문력의 일정 비율만큼 근접 공격력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/spellbladenext/lang/ko_kr.json",
+    "key": "attribute.name.spellbladenext.converttoheal.desc",
+    "before": "공격 피해의 일정 비율만큼 치유력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "근접 공격력의 일정 비율만큼 치유력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/zenith_attributes/lang/ko_kr.json",
+    "key": "attribute.name.spellbladenext.convertfromarcane.desc",
+    "before": "비전 주문력의 일정 비율만큼 공격 피해 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "비전 주문력의 일정 비율만큼 근접 공격력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/zenith_attributes/lang/ko_kr.json",
+    "key": "attribute.name.spellbladenext.convertfromfire.desc",
+    "before": "화염 주문력의 일정 비율만큼 공격 피해 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "화염 주문력의 일정 비율만큼 근접 공격력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/zenith_attributes/lang/ko_kr.json",
+    "key": "attribute.name.spellbladenext.convertfromfrost.desc",
+    "before": "냉기 주문력의 일정 비율만큼 공격 피해 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "냉기 주문력의 일정 비율만큼 근접 공격력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/zenith_attributes/lang/ko_kr.json",
+    "key": "attribute.name.spellbladenext.converttoarcane.desc",
+    "before": "공격 피해의 일정 비율만큼 비전 주문력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "근접 공격력의 일정 비율만큼 비전 주문력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/zenith_attributes/lang/ko_kr.json",
+    "key": "attribute.name.spellbladenext.converttofire.desc",
+    "before": "공격 피해의 일정 비율만큼 화염 주문력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "근접 공격력의 일정 비율만큼 화염 주문력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/zenith_attributes/lang/ko_kr.json",
+    "key": "attribute.name.spellbladenext.converttofrost.desc",
+    "before": "공격 피해의 일정 비율만큼 냉기 주문력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "근접 공격력의 일정 비율만큼 냉기 주문력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/zenith_attributes/lang/ko_kr.json",
+    "key": "attribute.name.spellbladenext.converttoheal.desc",
+    "before": "공격 피해의 일정 비율만큼 치유력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "근접 공격력의 일정 비율만큼 치유력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/zenith_attributes/lang/ko_kr.json",
+    "key": "attribute.name.extraspellattributes.converttofire.desc",
+    "before": "공격 피해의 일정 비율만큼 화염 주문력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "근접 공격력의 일정 비율만큼 화염 주문력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/zenith_attributes/lang/ko_kr.json",
+    "key": "attribute.name.extraspellattributes.convertfromfire.desc",
+    "before": "화염 주문력의 일정 비율만큼 공격 피해 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "화염 주문력의 일정 비율만큼 근접 공격력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/zenith_attributes/lang/ko_kr.json",
+    "key": "attribute.name.extraspellattributes.converttofrost.desc",
+    "before": "공격 피해의 일정 비율만큼 냉기 주문력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "근접 공격력의 일정 비율만큼 냉기 주문력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/zenith_attributes/lang/ko_kr.json",
+    "key": "attribute.name.extraspellattributes.convertfromfrost.desc",
+    "before": "냉기 주문력의 일정 비율만큼 공격 피해 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "냉기 주문력의 일정 비율만큼 근접 공격력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/zenith_attributes/lang/ko_kr.json",
+    "key": "attribute.name.extraspellattributes.converttoarcane.desc",
+    "before": "공격 피해의 일정 비율만큼 비전 주문력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "근접 공격력의 일정 비율만큼 비전 주문력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/zenith_attributes/lang/ko_kr.json",
+    "key": "attribute.name.extraspellattributes.convertfromarcane.desc",
+    "before": "비전 주문력의 일정 비율만큼 공격 피해 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "비전 주문력의 일정 비율만큼 근접 공격력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/zenith_attributes/lang/ko_kr.json",
+    "key": "attribute.name.extraspellattributes.converttoheal.desc",
+    "before": "공격 피해의 일정 비율만큼 치유력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "after": "근접 공격력의 일정 비율만큼 치유력 수치를 추가로 얻습니다. 원래 능력치는 줄어들지 않습니다.",
+    "official": null,
+    "cause": "conversion_reads_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/wizards/lang/ko_kr.json",
+    "key": "spell.wizards.frost_shard.description",
+    "before": "서리 파편을 발사하여 {pierce}명의 적을 관통하고 {damage}의 서리 주문 피해를 입힙니다.",
+    "after": "서리 파편을 발사하여 {pierce}명의 적을 관통하고 {damage}의 냉기 주문 피해를 입힙니다.",
+    "official": "Launches a frost shard piercing thru {pierce} target, causing {damage} frost spell damage on impact.",
+    "cause": "same_spell_school_stat_vocabulary"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/wizards/lang/ko_kr.json",
+    "key": "spell.wizards.frostbolt.description",
+    "before": "서리 화살을 발사하여 {ricochet}명의 추가 목표에 반사되고 {damage}의 서리 주문 피해를 입히며 목표를 느리게 합니다.",
+    "after": "서리 화살을 발사하여 {ricochet}명의 추가 목표에 반사되고 {damage}의 냉기 주문 피해를 입히며 목표를 느리게 합니다.",
+    "official": "Launches a ball of frost ricocheting to {ricochet} additional nearby targets, causing {damage} frost spell damage and slowing the target on impact.",
+    "cause": "same_spell_school_stat_vocabulary"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/wizards/lang/ko_kr.json",
+    "key": "spell.wizards.frost_nova.description",
+    "before": "주변의 적을 {effect_duration}초 동안 얼려 {damage}의 서리 주문 피해를 입히고 이동을 차단합니다. 얼어붙은 적은 서리 마법에 취약합니다.",
+    "after": "주변의 적을 {effect_duration}초 동안 얼려 {damage}의 냉기 주문 피해를 입히고 이동을 차단합니다. 얼어붙은 적은 서리 마법에 취약합니다.",
+    "official": "Freezes targets around you for {effect_duration} seconds, causing {damage} frost spell damage and blocking their movement. Frozen targets are vulnerable to frost magic.",
+    "cause": "same_spell_school_stat_vocabulary"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/wizards/lang/ko_kr.json",
+    "key": "spell.wizards.frost_blizzard.description",
+    "before": "대상과 주변 적에게 서리 파편의 비를 내리게 하여 {impact_range}블록 반경 내에서 최대 {damage}의 서리 주문 피해를 입히고 목표를 느리게 합니다.",
+    "after": "대상과 주변 적에게 서리 파편의 비를 내리게 하여 {impact_range}블록 반경 내에서 최대 {damage}의 냉기 주문 피해를 입히고 목표를 느리게 합니다.",
+    "official": "Channels a rain of frost shards down onto your target and nearby enemies, dealing up to {damage} frost spell damage slowing the target, in {impact_range} blocks radius.",
+    "cause": "same_spell_school_stat_vocabulary"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/prominent/lang/ko_kr.json",
+    "key": "prominent.class_title.archers_expansion.deadeye_spell_book",
+    "before": "전쟁 화살꾼",
+    "after": "전투 궁수",
+    "official": "War Archer",
+    "cause": "role_name_transliteration_or_missing_noun"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/prominent/lang/ko_kr.json",
+    "key": "prominent.class_title.archers_expansion.tundra_hunter_spell_book",
+    "before": "프로스트 아커",
+    "after": "냉기 궁수",
+    "official": "Frost Archer",
+    "cause": "role_name_transliteration_or_missing_noun"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/prominent/lang/ko_kr.json",
+    "key": "prominent.class_title.archers_expansion.war_archer_spell_book",
+    "before": "불 화살꾼",
+    "after": "화염 궁수",
+    "official": "Fire Archer",
+    "cause": "role_name_transliteration_or_missing_noun"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/prominent/lang/ko_kr.json",
+    "key": "prominent.class_title.bards_rpg.bard2_spell_book",
+    "before": "용기의 바르드",
+    "after": "용맹의 음유시인",
+    "official": "Bard of Valor",
+    "cause": "role_name_transliteration_or_missing_noun"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/prominent/lang/ko_kr.json",
+    "key": "prominent.class_title.death_knights.blood_spell_book",
+    "before": "피의 죽음 기사",
+    "after": "혈기 죽음의 기사",
+    "official": "Blood Death Knight",
+    "cause": "role_name_transliteration_or_missing_noun"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/prominent/lang/ko_kr.json",
+    "key": "prominent.class_title.death_knights.frost_spell_book",
+    "before": "얼음 죽음의 기사",
+    "after": "냉기 죽음의 기사",
+    "official": "Frost Death Knight",
+    "cause": "role_name_transliteration_or_missing_noun"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/prominent/lang/ko_kr.json",
+    "key": "prominent.class_title.spellbladenext.deathchill_spell_book",
+    "before": "얼음 전투",
+    "after": "냉기 전투마법사",
+    "official": "Frost Battlemage",
+    "cause": "role_name_transliteration_or_missing_noun"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/prominent/lang/ko_kr.json",
+    "key": "prominent.class_title.spellbladenext.frost_battlemage_spell_book",
+    "before": "얼음 전투",
+    "after": "냉기 전투마법사",
+    "official": "Frost Battlemage",
+    "cause": "role_name_transliteration_or_missing_noun"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/prominent/lang/ko_kr.json",
+    "key": "prominent.class_title.spellbladenext.fire_battlemage_spell_book",
+    "before": "불 전투",
+    "after": "화염 전투마법사",
+    "official": "Fire Battlemage",
+    "cause": "role_name_transliteration_or_missing_noun"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/prominent/lang/ko_kr.json",
+    "key": "prominent.class_title.spellbladenext.phoenix_spell_book",
+    "before": "불 전투",
+    "after": "화염 전투마법사",
+    "official": "Fire Battlemage",
+    "cause": "role_name_transliteration_or_missing_noun"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/prominent/lang/ko_kr.json",
+    "key": "prominent.class_title.spellbladenext.vengeance_spell_book",
+    "before": "복수 팔라딘",
+    "after": "복수의 팔라딘",
+    "official": "Vengeance Paladin",
+    "cause": "role_name_transliteration_or_missing_noun"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/prominent/lang/ko_kr.json",
+    "key": "prominent.class_title.wizards.fire_spell_book",
+    "before": "불 마법사",
+    "after": "화염 마법사",
+    "official": "Fire Mage",
+    "cause": "role_name_transliteration_or_missing_noun"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/bards_rpg/lang/ko_kr.json",
+    "key": "effect.bards_rpg.ballad.description",
+    "before": "공격 피해, 원거리 피해 및 주문 위력이 증가합니다.",
+    "after": "근접 공격력, 원거리 공격력 및 주문력이 증가합니다.",
+    "official": "Increases Attack Damage, Ranged Damage & Spell Power.",
+    "cause": "bard_effect_modifies_three_separate_attribute_families"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/bards_rpg/lang/ko_kr.json",
+    "key": "effect.bards_rpg.discordant_note.description",
+    "before": "공격 피해, 원거리 피해 및 주문 위력이 감소합니다. 일정 확률로 스스로 피해를 입습니다.",
+    "after": "근접 공격력, 원거리 공격력 및 주문력이 감소합니다. 일정 확률로 스스로 피해를 입습니다.",
+    "official": "Reduces Attack Damage, Ranged Damage & Spell Power. There is also a chance that the entity will hurt itself.",
+    "cause": "bard_effect_modifies_three_separate_attribute_families"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/bards_rpg/lang/ko_kr.json",
+    "key": "effect.bards_rpg.tale_of_the_dragonslayer.description",
+    "before": "공격 피해, 원거리 피해 및 주문 위력이 증가합니다.",
+    "after": "근접 공격력, 원거리 공격력 및 주문력이 증가합니다.",
+    "official": "Increases Attack Damage, Ranged Damage & Spell Power.",
+    "cause": "bard_effect_modifies_three_separate_attribute_families"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/simplyskills/lang/ko_kr.json",
+    "key": "text.skills.berserkerSignatureBloodthirstyMighty.description",
+    "before": "§7이제 §6[피의 갈망]§7은(는) 사용 시 힘을 부여합니다.\n\n§f(힘)§7 중첩당 §a+10% §f[x]§7 공격 피해 증가를 부여합니다.",
+    "after": "§7이제 §6[피의 갈망]§7은(는) 사용 시 기세를 부여합니다.\n\n§f(기세)§7 중첩당 §a+10% §f[x]§7 근접 공격력 증가를 부여합니다.",
+    "official": "§7§6[Bloodthirsty]§7 Now grants you Might on use.\n\n§f(Might)§7 grants §a+10% §f[x]§7 increased attack damage per stack.",
+    "cause": "might_effect_is_not_vanilla_strength"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/simplyskills/lang/ko_kr.json",
+    "key": "effect.simplyskills.might.desc",
+    "before": "중첩당 근접 피해가 10% 증가합니다.",
+    "after": "중첩당 근접 공격력이 10% 증가합니다.",
+    "official": "Grants 10% increased Melee Damage per stack.",
+    "cause": "might_modifies_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/simplyskills/lang/ko_kr.json",
+    "key": "effect.simplyskills.righteous_hammers.desc",
+    "before": "망치당 근접 피해가 2% 증가하고 근처의 적에게 피해를 줍니다.",
+    "after": "망치 하나마다 근접 공격력이 2% 증가하며, 망치가 근처의 적을 공격합니다.",
+    "official": "Grants 2% increased melee damage per hammer and damages nearby enemies.",
+    "cause": "righteous_hammers_modifies_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/simplyskills/lang/ko_kr.json",
+    "key": "effect.simplyskills.rage.desc",
+    "before": "중첩당 공격력, 공격 속도, 받는 피해가 0.5%씩 증가합니다.",
+    "after": "중첩당 근접 공격력, 공격 속도, 받는 피해가 0.5%씩 증가합니다.",
+    "official": "Gain 0.5% attack damage, attack speed, and damage received per stack.",
+    "cause": "rage_modifies_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/simplyskills/lang/ko_kr.json",
+    "key": "effect.simplyskills.might.description",
+    "before": "중첩당 근접 피해가 10% 증가합니다.",
+    "after": "중첩당 근접 공격력이 10% 증가합니다.",
+    "official": "Grants 10% increased Melee Damage per stack.",
+    "cause": "might_modifies_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/simplyskills/lang/ko_kr.json",
+    "key": "effect.simplyskills.righteous_hammers.description",
+    "before": "망치당 근접 피해가 2% 증가하고 근처의 적에게 피해를 줍니다.",
+    "after": "망치 하나마다 근접 공격력이 2% 증가하며, 망치가 근처의 적을 공격합니다.",
+    "official": "Grants 2% increased melee damage per hammer and damages nearby enemies.",
+    "cause": "righteous_hammers_modifies_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/simplyskills/lang/ko_kr.json",
+    "key": "effect.simplyskills.rage.description",
+    "before": "중첩당 공격력, 공격 속도, 받는 피해가 0.5%씩 증가합니다.",
+    "after": "중첩당 근접 공격력, 공격 속도, 받는 피해가 0.5%씩 증가합니다.",
+    "official": "Gain 0.5% attack damage, attack speed, and damage received per stack.",
+    "cause": "rage_modifies_generic_attack_damage"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/bards_rpg/lang/ko_kr.json",
+    "key": "effect.bards_rpg.vicious_mockery.description",
+    "before": "공격 피해, 원거리 피해 및 주문 위력이 감소합니다.",
+    "after": "중첩당 받는 피해가 증가합니다.",
+    "official": "Decreases Attack Damage, Ranged Damage & Spell Power.",
+    "cause": "bundled_english_effect_description_disagrees_with_current_code"
+  },
+  {
+    "file": "config/paxi/resourcepacks/Prominence_II_Korean_Translate.zip",
+    "entry": "assets/bards_rpg/lang/ko_kr.json",
+    "key": "spell.bards_rpg.vicious_mockery.description",
+    "before": "대상에게 모욕을 퍼부어 도발하고 {damage}의 피해를 줍니다. 중첩당 공격 능력을 낮추고 받는 피해를 {bonus} 증가시키며, 최대 {effect_amplifier}회 중첩됩니다.",
+    "after": "대상에게 모욕을 퍼부어 도발하고 {damage}의 피해를 줍니다. 중첩당 받는 피해를 {bonus} 증가시키며, 최대 {effect_amplifier}회 중첩됩니다.",
+    "official": "Throw a string of insults at a target, taunting it, damaging it by {damage} and decreasing its offensive power and increasing incoming damage by {bonus} per stack. Stacking up to {effect_amplifier} times.",
+    "cause": "custom_spell_applies_mockery_and_taunt_not_offensive_debuff"
+  }
+]
