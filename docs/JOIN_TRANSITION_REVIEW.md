@@ -45,3 +45,29 @@ Voxy Mapper 초기화가 현재 렌더 경로에서 NBT/상태/opacity 및 형�
 Fastload `instant_load=false`, server_render_chunk_radius=3이다. 현재 호환 패치는 로딩 화면을 닫거나 페이드를 삭제하는 mixin을 포함하지 않는다. 받은 화면 조건이 만족되면 전환하고 이후 Voxy/Flywheel 모델 및 새 shader 비용이 몰리면 사용자가 화면을 먼저 보고 정지하는 체감이 생길 수 있다. 이 설명은 코드·실측에 맞는 후보이며 화면 녹화 없이 페이드 발생 시각을 확정하지 않는다.
 
 개선 설계는 이전 화면 보관 → 필요한 지형/새 shader가 준비된 첫 일관된 프레임 → 짧은 150~250ms 페이드 해제다. 이는 전환 품질 개선이고 실제 계산시간 단축은 별개다. 렌더 스레드가 shader compile에 막힌 동안 같은 스레드에서 부드러운 애니메이션을 보장할 수 없다. 임의의 5초 대기나 준비 조건 없는 HUD 표시가 해결책이 아니다. 이번 .5는 캐시 결함만 수정하며 시각 전환 로직을 임의로 추가하지 않았다.
+
+
+## 후속 측정: 20261028-224843-71e1d4 / build2026102806
+
+실행 빌드 2806, Fastload 로그 참조 0회, 현재 설정은 ModernFix dynamic_resources 명시 활성화가 없고 기본 비활성이다. Euphoria 1.10.5가 포함된 Unbound다. 앞선 기록과 설정 및 이동 순서가 달라 통제 A/B로 쓰지 않는다.
+
+확인된 동작:
+
+- 누락 trim mask 상세 출력 81,784행은 없어졌다. 남은 atlas 누락 10행은 SimplySwords/Archon/Create 등 별도 경로다. 최신 로그 총 5,594행으로, 모델 마스크 오류를 단순 필터로 감춘 것이 아니다.
+- 캐시 writer가 네더·엔드 각각 157개를 쓰고 pendingBytes=0, queueDropped=0으로 마무리했다. 지난 15~16MiB backlog가 사라졌다. 처음 메뉴 준비와 오버월드 복귀에서는 3개씩 queue drop이 있어 완전 무손실 캐시라고 표현하지 않는다. 네더·엔드의 shader text miss는 여전히 각 157개다.
+- EMI 전체 시간은 17,430ms. 이전 21,654ms보다 짧게 관찰됐으나 설정·부하 차이를 통제하지 않았으므로 패치 효과로 확정하지 않는다. 주요 구간은 plugin registration 6,920ms, index construction 2,341ms, recipe baking 2,123ms, search baking 3,551ms.
+- 네더 Iris 준비 4,578ms / Voxy 초기화 69ms. 엔드 Iris 5,384ms / Voxy 67ms. Voxy 초기화가 현재 이동의 수초 전체를 차지하지 않는다.
+
+메모리와 정지:
+
+- GC 후 peak 6,341,263,840 / max 6,341,787,648 bytes(거의 100%). 기록 중 실제 GCPhasePause 합계 5,441.9ms, 최대 881.1ms, G1Full 5회. 이전 기록은 pause 2,499.3ms / Full 1회. concurrent G1Old 전체 시간을 정지로 더하지 않았다.
+- 사후 MAT BakedQuad(class_777) 객체가 이전 약 297,815개에서 10,957,013개로 증가했다. 객체 자체 shallow heap만 525,936,624 bytes이며 관련 int[] 전체를 이 클래스의 소유라고 합산하지 않았다. 일괄 베이킹으로 인한 모델 메모리 확대와 일치한다. 정확한 생성 원인별 소유는 histogram만으로 모두 확정하지 않는다.
+- 첫 접속 7,733ms Present 시작 간격은 consistency 경고가 있어 단일 GPU/CPU 프레임 정지라고 확정하지 않는다. 그 구간의 GC만으로 설명할 수 없다. 이동 구간은 Iris 준비 및 GC가 함께 있다.
+- Voxy 섹션 보유 약 539MB, 모델 팩토리 약 357MB도 크지만 현재 활성 캐시인지 판별하지 않고 통째 제거하지 않는다. ResourcefulLib HighlightHandler 약 99MB는 별도 후보다.
+
+다음 조치의 우선순위:
+
+1. Fastload는 비활성 조건을 유지하고 ModernFix dynamic_resources만 복원한 비교가 가장 가치 있다. 현재 heap 여유에서 전체 모델을 미리 굽는 전략이 Full GC를 늘리는지 검증한다. 이번 분석 작업에서는 설정을 변경하지 않았다.
+2. FerriteCore bakedQuadDeduplication과 modelSides는 이미 활성화돼 있다. 정점 배열 인터닝과 다른 BakedQuad 객체 공유를 혼동하지 않는다. 전체 객체 공유는 동일 필드·모드 추가 필드·수명/가변성을 확인한 뒤 검토해야 하며, histogram 숫자만 보고 무작정 구현하지 않는다.
+3. 캐시 저장은 개선됐으나 Euphoria가 포함된 pipeline 준비 비용은 남았다. 새 GPU pipeline과 변환/소스 전처리/GC를 구분한다. 서로 다른 차원 결과를 같은 것으로 재사용하면 안 된다.
+4. 평균 FPS나 로그 감소로 첫 접속이 해결됐다고 주장하지 않는다. 이 회차는 분석 문서만 갱신했고 불필요한 새 JAR 빌드를 만들지 않았다.
