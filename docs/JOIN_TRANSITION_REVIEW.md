@@ -104,3 +104,30 @@ Fastload `instant_load=false`, server_render_chunk_radius=3이다. 현재 호환
 검증: 20,000개 매핑의 사용된100개만 계산하는 fixture, 동시 접근·실패 재시도·중첩/예외/thread-local 복구·클로저 해제, 실제 네이티브 Mixin 변환/ASM 검증. 변환된 StateEntry 생성자를 작은 블록 API 대역으로 실제 실행해 eager/lazy/나뭇잎/실패/최종값을 검증했다. 이는 게임 실행이나 프레임 개선 실측이 아니다. 로그에는 매핑 복원 시간과 미룬 계산 개수를 1회 기록한다.
 
 현재 latest.log도 확인했다(567,686bytes, ERROR31/WARN1131, 마지막 종료23:27:26). 캡처232355와 같은 실행이며 새로운 실행 결과가 아니다. 장식 마스크 대량 오류는 재발하지 않았다. 기존 shader 태그 경고 등을 이번 패치에서 숨기지 않았다. Iris pipeline/registry remap/Flywheel 대기와 EMI19.2초는 별도 잔여 비용이다. ModernFix 설정, 셰이더, 서버, 운영 JAR은 직접 변경하지 않는다.
+
+## 후속 측정: 20261029-005257-b9ea42 / build2026102901
+
+설치 SHA256은 공개2901과 일치하고 `voxyDeferredOpacity=enabled`다. JFR/PresentMon/힙 덤프/MAT가 complete이며, 현재 latest.log는 저장 로그 뒤에 종료 기록이 추가된 같은 실행이다(현재569,255bytes, ERROR31/WARN1139). ModernFix dynamic_resources=true, Fastload 미로딩, Unbound/Euphoria 조건이다.
+
+### 패치의 동작과 실제 체감 지표를 구분
+
+- 첫 Voxy 매핑 읽기321.317ms, 기존 블록상태13,309개의 차광값 계산을 미뤘다. 네더48.552ms/2,402개, 엔드34.502ms/2,603개. 해당 계산의 JFR 샘플은 이제 VoxyServer Remote Ingest에서 관찰되며 렌더 스레드의 일괄 계산 경로에서는 관찰되지 않는다. 따라서 패치 활성화/실행 경로 변화는 확인됐지만 샘플 부재를 시간0으로 해석하지 않는다.
+- 첫 접속의 긴 프레임은1,873/1,738/3,499/546/2,140ms다. 직전1,780/2,092/3,315/796ms와 비교해 전체 끊김 개선은 확인되지 않았다. 서로 다른 실행 부하/진행 조건이므로 이번 패치가 악화의 단독 원인이라고도 확정하지 않는다.
+- 3,499ms 프레임의 PresentMon GPU busy는44.535ms, GPU wait는3,458.816ms다. GPU 연산 포화보다는 렌더 스레드의 준비/대기 병목에 맞는다. GPUTime 전체를 GPU가 계산한 시간으로 보지 않는다.
+- EMI19,224→20,261ms, recipe bake2,408→2,625ms. 이번 변경은 EMI 개선 패치가 아니며 전체 초기화 개선도 없다.
+- GC pause1,783→1,770ms, 최장95.17→92.50ms, Full0→0. GC후 peak5,930,483,952 /6,341,787,648bytes(93.5%). MAT BakedQuad290,737, ItemEmiStack2,545,766; WorldEngine538.7MB/ModelFactory361.6MB. 메모리 폭증이나 Full GC 재발은 없지만 여유가 넉넉한 것은 아니다.
+
+### 남은 첫 접속 병목의 구체적 근거
+
+1. FTB Quests Freeze Fix1.0.0의 `LevelReadyMixin.onClose`가 접속 화면 종료 시 `ClientQuestFile.openGui()` 후 즉시 `closeGui(true)`를 호출한다(실제 설치 Fabric1.20.1 bytecode 확인). JFR에는 이 호출에서 ChapterPanel→퀘스트 아이콘→DisplayStacksCache→creative tab 준비로 이어지는 렌더 스레드 대기가 있다. creative tab 모니터 대기2건 합계721.959ms, 최장685.721ms, previousOwner는 ForkJoinPool.commonPool-worker-7. 이는 수동 퀘스트북 조작을 가정한 추정이 아니라 강제 예열 경로가 기록된 것이다.
+2. 모델 bake 모니터 대기11건 합계1,034.772ms(직전3건62.565ms). previousOwner는 청크 렌더 작업 스레드들801.010ms와 Voxy Model factory processor233.761ms다. 핫바/미니맵이 같은 모델 베이킹 락을 기다린다. EMI Thread-68이 이 락을 쥐었다고 단정할 근거는 없다.
+3. 가장 긴 첫 접속 프레임 구간에는 Flywheel WaitGroup.await 샘플이 많다. sampling 수를 경과시간으로 환산하지 않는다. 접속 초반 Fabric StateIdTracker.recalcStateMap, 클래스 로딩, Iris block-material map 구축도 남는다.
+4. EMI 플러그인 중 emi2,170ms, emi_enchanting1,903ms, farmersdelight598ms, allthetrims552ms 등이 관찰된다. EMI Enchanting 생성자42행의 registry 반복이 Thread-68 상위 샘플이다. 전체20초를 하나의 플러그인이나 GPU 작업으로 환산하지 않는다.
+
+다음 우선순위는 FTB 강제 전체 GUI 예열을 접속 임계 경로에서 분리하고, 공유 아이템 목록이 완성된 후 필요한 아이콘 준비를 제한적으로 수행하는 것이다. 이전의 모든 렌더 스레드 creative 조회를 무조건 생략하는 fallback 패치는 변형 아이템 누락 위험 때문에 재활성화하지 않는다. 이어 청크/Voxy 모델 작업과 화면에 필요한 모델 사이의 경합, Flywheel worker 완료 대기를 조사한다. `dynamic_resources=false`는 이전 Full GC/모델 메모리 폭증 결과상 우선 해결책이 아니다.
+
+### 차원 이동
+
+네더 Iris4,301ms / Voxy graphics60ms, 엔드 Iris3,484ms / Voxy35ms. 오버월드 첫 복귀 Iris1,547ms / Voxy42ms, 이후 Voxy36ms다. 이동의 수초 대기는 여전히 Iris pipeline 준비가 큰 부분이다. 최대 Present 시작 간격5,122ms는 캡처 자체의 consistency 경고가 있으므로 정확한 단일 프레임 시간으로 쓰지 않는다. 차원 준비 중 네더/엔드 cache pending0, 오버월드 복귀 pending약10MB/drop6으로 이전 전반적인 writer 정체는 재발하지 않았다.
+
+이번 회차는 분석만 수행했다. 추가 모드/설정/JAR 변경 없이 이 근거를 기록하며 원시 측정 자료는 로컬에 유지한다.
