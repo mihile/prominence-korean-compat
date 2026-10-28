@@ -4,7 +4,7 @@
 
 The primary memory question is occupancy **within the target JVM's actual maximum heap** and its after-GC behavior. Read MaxHeapSize from that JVM, not an assumed 6GiB and not the launcher's display label. System available physical RAM, process working set/private commit and VRAM are different quantities. Do not use low machine-wide free RAM as proof that the client's assigned heap is full. By user preference, the default sampler records only client process metrics; no system free-RAM warning drives an optimization decision.
 
-Use `tools/client_profiler/profile.py` instead of writing a new capture script every time. It supports the user's Windows/Prism/Fabric1.20.1 setup. Configure paths locally at `INSTANCE/KoreanPatch/profiler/settings.local.json`:
+Use `tools/client_profiler/profile.py` instead of writing a new capture script every time. It supports the user's Windows/Prism/Fabric1.20.1 setup. Configure paths locally at `INSTANCE/ClientProfiler/settings.local.json`:
 
 ```json
 {

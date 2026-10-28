@@ -1,6 +1,6 @@
 """Reusable client-only Windows capture: 180s JFR/frame/GPU, then heap, then offline MAT.
 No Minecraft/server launch, stop, settings write, or forced GC inside the timed trace.
-Personal tool paths live in INSTANCE/KoreanPatch/profiler/settings.local.json, outside Git.
+Personal tool paths live in INSTANCE/ClientProfiler/settings.local.json, outside Git.
 """
 from pathlib import Path
 import argparse,base64,csv,ctypes,datetime as dt,gzip,hashlib,json,os,re,shutil,subprocess,sys,threading,time,uuid,xml.etree.ElementTree as ET,zipfile
@@ -47,11 +47,11 @@ def target(rows,instance,pid=None,fixture_nonce=None):
  if len(found)!=1:raise RuntimeError('Could not identify exactly one client for this instance; start it in Prism and wait at the server list. Matching PIDs: '+str([r['ProcessId'] for r in found]))
  return found[0]
 def current(instance):
- path=instance/'KoreanPatch/profiler/latest.json';return Path(json.loads(path.read_text('utf8'))['run']) if path.exists() else None
+ path=instance/'ClientProfiler/latest.json';return Path(json.loads(path.read_text('utf8'))['run']) if path.exists() else None
 def settings(instance):
- p=instance/'KoreanPatch/profiler/settings.local.json';return json.loads(p.read_text('utf8')) if p.exists() else {}
+ p=instance/'ClientProfiler/settings.local.json';return json.loads(p.read_text('utf8')) if p.exists() else {}
 def activation(instance,build):
- path=instance/'KoreanPatch/maintenance-policy.json';policy=json.loads(path.read_text('utf8')).get('clientProfiling',{}) if path.exists() else {}
+ path=instance/'ClientProfiler/policy.json';policy=json.loads(path.read_text('utf8')).get('clientProfiling',{}) if path.exists() else {}
  expected=list(policy.get('requiredOptimizationActivationMessages',[]))
  for rule in policy.get('activationByBuild',[]):
   if (build or 0)>=rule['minimumBuild']:expected.extend(rule['messages'])
@@ -171,7 +171,7 @@ def sample_gpu(run,done):
 
 def worker(run):
  state=json.loads((run/'state.json').read_text('utf8'));instance=Path(state['instance']);cfg=settings(instance);pid=state['pid'];handle=KERNEL.OpenProcess(0x0400|0x0010,False,pid)
- java=Path(state['runtimeJava']);jcmd=java/'bin/jcmd.exe';name='client_profile_'+state['runId'];active=instance/'KoreanPatch/profiler/capture.lock';token={'ownerPid':os.getpid(),'runId':state['runId']};recording=False;frames=gpu=None;logs=[];done=threading.Event();sampler=None
+ java=Path(state['runtimeJava']);jcmd=java/'bin/jcmd.exe';name='client_profile_'+state['runId'];active=instance/'ClientProfiler/capture.lock';token={'ownerPid':os.getpid(),'runId':state['runId']};recording=False;frames=gpu=None;logs=[];done=threading.Event();sampler=None
  def phase(value,**extra):state.update(phase=value,updatedUtc=stamp(),**extra);write(run/'state.json',state)
  def diagnostic(args,filename,timeout=120):
   reply=command(args,timeout=timeout);(run/filename).write_text(reply.stdout+reply.stderr,'utf8');return reply
@@ -260,7 +260,7 @@ def start(instance,args):
   if state['phase']!='starting':break
   time.sleep(.25)
  assert state['phase']=='recording',state
- write(instance/'KoreanPatch/profiler/latest.json',{'run':str(run),'runId':ident})
+ write(instance/'ClientProfiler/latest.json',{'run':str(run),'runId':ident})
  print(json.dumps({'phase':state['phase'],'run':str(run),'seconds':args.seconds,'notice':'Recording confirmed. Enter the server now. After recording, heap dumping can pause the game/request Full GC; keep the client open until canCloseClient=true. MAT runs after client exit.'},ensure_ascii=False,indent=2));return run
 
 def wait_capture(run,initial_duration,interval=.5):
