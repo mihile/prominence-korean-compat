@@ -24,13 +24,13 @@ public final class ShaderSourceDiskCache implements AutoCloseable {
     public record Compilation(String text, boolean clean) {}
     public record Stats(long hits, long misses, long bypasses, long writes, long readNanos, long nativeNanos, long skippedDirty, long skippedOversize, long droppedQueue, long writeFailures, long evictions, long queued, long pendingBytes) {}
     private static final int MAGIC=0x50475332, HEADER=72;
-    private static final long PENDING_LIMIT=64L*1024*1024;
+    private static final long PENDING_LIMIT=128L*1024*1024;
     private final Path directory;
     private final String namespace;
     private final long maxBytes;
     private final int maxEntry, maxEntries;
     private final ThreadPoolExecutor writer;
-    private final ConcurrentHashMap<String, String> memoryCache = new ConcurrentHashMap<>(1024);
+    private final ConcurrentHashMap<String, String> memoryCache = new ConcurrentHashMap<>(4096);
     private final AtomicLong pending=new AtomicLong(), hits=new AtomicLong(), misses=new AtomicLong(), bypasses=new AtomicLong();
     private final AtomicLong writes=new AtomicLong(), readNanos=new AtomicLong(), nativeNanos=new AtomicLong();
     private final AtomicLong skippedDirty=new AtomicLong(), skippedOversize=new AtomicLong(), droppedQueue=new AtomicLong(), writeFailures=new AtomicLong(), evictions=new AtomicLong(), queued=new AtomicLong();
@@ -38,7 +38,7 @@ public final class ShaderSourceDiskCache implements AutoCloseable {
     private volatile boolean readDirectoryReady;
 
     public ShaderSourceDiskCache(Path directory,String namespace) {
-        this(directory,namespace,384L*1024*1024,2*1024*1024,3072);
+        this(directory,namespace,1536L*1024*1024,4*1024*1024,8192);
     }
     ShaderSourceDiskCache(Path directory,String namespace,long maxBytes,int maxEntry,int maxEntries) {
         this.directory=directory.toAbsolutePath().normalize();this.namespace=namespace;

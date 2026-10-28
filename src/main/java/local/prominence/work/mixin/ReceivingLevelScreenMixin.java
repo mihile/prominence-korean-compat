@@ -1,6 +1,7 @@
 package local.prominence.work.mixin;
 
 import net.minecraft.class_310;
+import net.minecraft.class_332;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -18,6 +19,19 @@ public abstract class ReceivingLevelScreenMixin {
         class_310 client = class_310.method_1551();
         if (client != null && client.field_1724 != null && client.field_1687 != null) {
             // Player and world are active in the new dimension; dismiss the loading screen immediately!
+            try {
+                this.method_25419();
+            } catch (Throwable t) {
+                client.method_1507(null);
+            }
+            ci.cancel();
+        }
+    }
+
+    @Inject(method="method_25394", at=@At("HEAD"), cancellable=true, remap=false)
+    private void prominence$instantDismissOnRender(net.minecraft.class_332 drawContext, int mouseX, int mouseY, float delta, CallbackInfo ci) {
+        class_310 client = class_310.method_1551();
+        if (client != null && client.field_1724 != null && client.field_1687 != null) {
             try {
                 this.method_25419();
             } catch (Throwable t) {

@@ -1,17 +1,25 @@
 package local.prominence.memory;
 
-/** Detects if the current call originates from MinecraftClient dimension transition (joinWorld). */
+/** Detects if the current call originates from MinecraftClient dimension transition (joinWorld / respawn). */
 public final class DimensionChangeGate {
     private DimensionChangeGate() {}
-    private static final StackWalker WALKER = StackWalker.getInstance();
 
     public static boolean isDimensionChange() {
-        return WALKER.walk(frames -> frames.anyMatch(frame -> {
-            String className = frame.getClassName();
-            String methodName = frame.getMethodName();
-            return className.contains("MixinMinecraft_PipelineManagement")
-                || methodName.equals("method_18097")
-                || methodName.equals("joinWorld");
-        }));
+        StackTraceElement[] trace = Thread.currentThread().getStackTrace();
+        for (StackTraceElement element : trace) {
+            String className = element.getClassName();
+            String methodName = element.getMethodName();
+            if (methodName.contains("resetPipeline")
+                    || methodName.contains("joinWorld")
+                    || methodName.contains("method_18097")
+                    || methodName.contains("method_1481")
+                    || methodName.contains("onPlayerRespawn")
+                    || methodName.contains("method_11120")
+                    || className.contains("PipelineManagement")
+                    || className.contains("ClientPlayNetworkHandler")) {
+                return true;
+            }
+        }
+        return false;
     }
 }
