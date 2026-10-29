@@ -1,5 +1,24 @@
 # Loot names, compass dimensions and display precision — 2026-10-29
 
+## nightly-20261029.9 — drop probabilities and concise conditions
+
+The previous expected-selection label is removed from every supported slot layout. Percentages truncate to two decimal places (7.6899999 -> 7.68); positive probabilities below0.01% display `<0.01%` rather than0%. Chance-condition numbers use the same formatter instead of native Float.toString.
+
+The client carries a generated catalog of reviewed installed loot-table draw distributions (9255 tables/13834 item rows). A row matches the recipe table, item and server-supplied expected weight. Constant, bounded uniform and binomial draws compute the probability of at least one selection, not the expected count: two independent50% draws are75%, not100%. Repeated item pools, unsupported nested/conditional entries, zero-producing count functions and server-value mismatches fail closed to `드롭 확률: 확인 불가`; no arbitrary average is relabelled as a probability. Independent chance conditions multiply this conditional probability; looting bonuses and necessary non-chance conditions remain visible. The client catalog is the installed pack baseline, not a copy of arbitrary remote server datapacks. Such server changes may require regenerating the catalog; equal means alone cannot prove equal distributions.
+
+AdventureZ1.4.20 LootInit (SHA256874521a158f68c3df908f91f86d2935d170d46b3ae06573b4a0adec113514b1a) injects Binomial(1,p), whose probability was hidden behind the old average label. The shard is10% from piglin_brute and1% per barter or bastion chest. The generator rejects a changed callback until reviewed. The source also has an unreachable treasure-template else-if after the same table was caught in ADDED_LOOT_TABLE; this display fix does not enable that drop or alter mechanics.
+
+Botania's seven reviewed beheading pools share one draw plus weapon/victim/chance conditions. Their item summaries preserve the required target and axe without parser scaffolding. The Gaia example is exactly:
+
+```
+드롭 확률: 7.68% · 약탈 레벨당 +7.68%p
+엘레멘티움 도끼로 가이아의 수호자 처치
+```
+
+The catalog loads lazily when a loot summary is requested, without scanning installed JARs during gameplay. Tests execute the actual production summary with real Minecraft Text nodes and verify the Gaia two-line output, shard routes, repeat-draw probability, rare/nonfinite values and stale-value fallback. Native EMI Loot0.7.9 transforms cover mob/block/gameplay/group/chest/archaeology layouts and preserve prior disabled-output/compass hooks. Offline cumulative validation is distinct from an in-game screen check. This is a client-only display update; server files/drop chances are unchanged.
+
+## Previous implementation and source audit
+
 Client nightly-20261029.7 (supersedes the initial .4 probability display). No server, loot chance, quest ID/progress or configuration changes.
 
 - EMI Loot0.7.9 generates unknown chest names from the loot table path. Explorer's Compass2.6.0 instead reads structure translation keys. The installed tables produced611 unique chest name plans, combining the compass's current translated structure name with reviewed Korean room qualifiers. Foundry/Foundry Lava Pit becomes 주조소 · 용암 구덩이 전리품 상자. Unrelated chest pools get descriptive Korean names without inventing compass-searchable structures. Existing English locale is retained. The map is `assets/prominence_korean_compat/loot_title_names.json`. Structure keys refer to the shared language files; fallback labels apply only when no Korean structure translation exists. Injected vanilla loot retains vanilla location names.

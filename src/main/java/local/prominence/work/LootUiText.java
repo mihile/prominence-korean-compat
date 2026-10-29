@@ -8,5 +8,6 @@ public final class LootUiText {
  public static class_5250 title(class_2960 id){if(!korean())return null;var t=Data.TITLES.get(id.toString());if(t==null)return null;String base=t.fallback();if(!t.structure().isEmpty()){String key="structure."+t.structure().replace(':','.').replace('/','.');if(class_1074.method_4663(key)){String translated=class_1074.method_4662(key);if(translated.chars().anyMatch(c->c>=0xAC00&&c<=0xD7A3))base=translated;}}
   return class_2561.method_43470(base+(t.detail().isBlank()?"":" · "+t.detail())+" 전리품 상자");}
  public static String dimensions(String name,class_2960 id,List<class_2960> dims){return SearchDimensions.append(name,id.toString(),dims==null?List.of():dims.stream().map(Object::toString).toList(),raw->class_1074.method_4662("dimension."+raw.replace(':','.').replace('/','.')));}
- public static class_5250 expectation(String key,Object[] args){if(args.length!=1)return null;try{return class_2561.method_43470(LootNumbers.rolls(Double.parseDouble(args[0].toString())/(key.equals("emi_loot.percentage")?100.0:1.0),korean()));}catch(NumberFormatException e){return null;}}
+ // The slot wrapper supplies a distribution-based probability and required conditions.
+ public static class_5250 expectation(String key,Object[] args){return args.length==1?class_2561.method_43470(""):null;}
 }

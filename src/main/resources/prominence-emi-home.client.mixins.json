@@ -33,6 +33,7 @@
     "LootRollStaticMixin",
     "LootRollConfigMixin",
     "EmiCraftableRefreshMixin",
+    "LootChestChanceMixin",
     "LootConditionsVisibleMixin",
     "LootGroupConditionsMixin",
     "LootMobEntityFilterMixin"
