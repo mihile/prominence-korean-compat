@@ -1,4 +1,5 @@
-package local.prominence.rewards.client;
+package local.prominence.rewards.client.mixin;
+import local.prominence.rewards.client.*;
 import dev.emi.emi.api.widget.SlotWidget;import net.minecraft.*;import java.util.List;import org.spongepowered.asm.mixin.*;import org.spongepowered.asm.mixin.injection.*;import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(value=SlotWidget.class,remap=false)
 public abstract class RewardSlotMixin implements RewardSlot {

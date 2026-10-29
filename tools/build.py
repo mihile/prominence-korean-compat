@@ -42,6 +42,8 @@ def main():
  # Preserve cumulative classes that have no source in the current managed tree.
  for name,value in old.items():
   if name.endswith('.class') and name not in new:new[name]=value
+ # Retired after narrowing the client Mixin-only package; ordinary helpers stay loadable.
+ new.pop('local/prominence/rewards/client/RewardSlotMixin.class',None)
  pub=(ROOT/'public-key.der').read_bytes()
  prefix='local/prominence/autoupdate/'
  helper={n:b for n,b in added.items() if n in [prefix+x+'.class' for x in ['ApplyUpdate','SignedRelease','UpdateFiles']]}

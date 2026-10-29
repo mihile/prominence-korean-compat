@@ -40,6 +40,7 @@ def main():
  checks.append(('local.prominence.work.StonecuttingTransferTests',[]))
  checks.append(('local.prominence.work.LootUiTests',[]))
  checks.append(('local.prominence.rewards.RewardScalingTests',[]))
+ checks.append(('MixinPackageBoundaryTests',[safe_arg(args.build_dir/'prominence-korean-compat-1.0.0.jar')]))
  checks.append(('local.prominence.work.CraftableRefreshTests',[]))
  checks.append(('SnapshotLeaseTests',[]))
  checks.append(('PerformanceRetirementChecks',[safe_arg(args.build_dir/'prominence-korean-compat-1.0.0.jar'),safe_arg(classes)]))

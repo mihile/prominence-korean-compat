@@ -24,6 +24,10 @@ public final class VerifyRewards {
   for(Config c:Mixins.getConfigs()){c.getConfig().decorate(FabricUtil.KEY_MOD_ID,"prominence_korean_compat");c.getConfig().decorate(FabricUtil.KEY_COMPATIBILITY,FabricUtil.COMPATIBILITY_LATEST);}
   phase.invoke(null,MixinEnvironment.Phase.DEFAULT);MixinEnvironment.getCurrentEnvironment().setObfuscationContext("named:intermediary");
   f=VerifyMixinTransforms.class.getDeclaredField("TRANSFORMER");f.setAccessible(true);var transformer=(IMixinTransformer)f.get(null);
+  // Ordinary entrypoints/helpers must also pass the real Mixin loader, not only targets.
+  var helpers=new ArrayList<>(List.of("local.prominence.rewards.RewardCommonInit","local.prominence.rewards.RewardRegistry","local.prominence.rewards.RewardScope","local.prominence.rewards.RewardWire"));
+  if(!a[1].equals("server"))helpers.addAll(List.of("local.prominence.rewards.client.RewardClientInit","local.prominence.rewards.client.RewardClientText","local.prominence.rewards.client.RewardClientState","local.prominence.rewards.client.RewardSlot"));
+  for(String helper:helpers){byte[] raw=read(loader,helper);byte[] transformed=transformer.transformClassBytes(helper,helper,raw);if(!Arrays.equals(raw,transformed))throw new AssertionError("Ordinary helper unexpectedly transformed: "+helper);System.out.println("PASS ordinary helper load boundary "+helper);}
   var targets=new ArrayList<>(List.of("net.minecraft.class_55","net.minecraft.class_85","net.minecraft.class_219","net.minecraft.class_40","net.minecraft.class_85$class_88","net.minecraft.class_77","net.minecraft.class_79","net.minecraft.class_44","net.minecraft.class_5662","net.minecraft.class_141","net.minecraft.class_52","fzzyhmstrs.emi_loot.parser.LootTableParser"));
   if(!a[1].equals("server"))targets.add("dev.emi.emi.api.widget.SlotWidget");
   int hooks=0;for(String target:targets){byte[] bytes=transformer.transformClassBytes(target,target,read(loader,target));var n=new ClassNode();new ClassReader(bytes).accept(n,0);int local=0;

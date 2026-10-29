@@ -41,3 +41,7 @@ Exact Minecraft 1.20.1 / EMI Loot 0.7.9 / EMI 1.1.24 class fingerprints guard th
 Build 2026102912 (client nightly) and 2026102902 (server) add this module to their respective latest cumulative artifacts. Native client/server Mixin transformation + ASM verification, native RNG call preservation, production-policy/plan/scope API-double fixtures, math/wire/session/display tests and cumulative updater tests are offline checks. Actual game kills and chest openings remain gameplay verification after both updates. No running installed JAR was replaced and no game/server/world was launched.
 
 Maintainer tools: `verify_rewards_native.py`, `verify_rewards_behavior.py`, and `generate_reward_references.py --quests PATH_TO_quests/chapters --output PATH_TO_reward_quest_items.json`. Private classpath files and raw native audits remain outside Git. Generated native verifier output stays under the build directory.
+
+## Client startup correction (2026102913)
+
+Build12 incorrectly declared the ordinary `rewards.client` helper/entrypoint package as Mixin-only. Fabric rejected `RewardClientInit` and `RewardSlot` with `IllegalClassLoadError` before the main menu. Build13 narrows the config to `rewards.client.mixin`, moves only the Mixin, and removes its old class. The native regression now reproduces build12 by passing ordinary helpers through the actual transformer, and the cumulative package-boundary test checks every bundled class. Reward calculations and the server artifact are unchanged.
