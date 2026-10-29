@@ -59,15 +59,15 @@ public record RewardPlan(RewardRegistry.Route route,Object gate,String kind,doub
    var p=constant(b.getP());if(p==null)return null;probability=p;gate=rolls;kind="binomial";
   }else if(Objects.equals(constant(rolls),1.)&&gates.size()==1){gate=gates.get(0);probability=((RandomChanceLootConditionAccessor)gate).getChance();kind="chance";}
   else if(gates.isEmpty()){
-   if(displayOnly)return null;
-   distribution=draws(rolls);if(distribution==null||distribution.size()<2||items.size()<2)return null;
-   for(var item:items)boosted.add(!item.id().equals("minecraft:air")&&role(item)&&(double)item.weight()/total<=RewardPolicy.INSTANCE.maximumBase);
+
+   distribution=draws(rolls);if(distribution==null||distribution.size()<2||(!displayOnly&&items.size()<2))return null;
+   for(var item:items)boosted.add(!displayOnly&&!item.id().equals("minecraft:air")&&role(item)&&(double)item.weight()/total<=RewardPolicy.INSTANCE.maximumBase);
    // Scaling every candidate equally cannot improve any probability; leave that pool exact.
-   if(boosted.stream().noneMatch(Boolean::booleanValue)||boosted.stream().allMatch(Boolean::booleanValue))return null;
-   return new RewardPlan(route,null,"weighted",1,items,leaves,weights,boosted,distribution,true);
+   if(!displayOnly&&(boosted.stream().noneMatch(Boolean::booleanValue)||boosted.stream().allMatch(Boolean::booleanValue)))return null;
+   return new RewardPlan(route,null,"weighted",1,items,leaves,weights,boosted,distribution,!displayOnly);
   }else return null;
   if(!Double.isFinite(probability)||probability<=0||probability>(displayOnly?1:RewardPolicy.INSTANCE.maximumBase+1e-7))return null;
-  if(displayOnly&&items.stream().noneMatch(Item::valuable))return null;
+
   return new RewardPlan(route,gate,kind,probability,items,leaves,weights,List.of(),distribution,!displayOnly&&items.stream().anyMatch(RewardPlan::role));
  }
  private static boolean conditions(class_5341[] conditions,List<class_219> gates){

@@ -33,7 +33,7 @@ public final class RewardRegistry {
    if(pool==null)continue;var plan=((RewardPool)pool).prominence$displayPlan();if(plan!=null){var definition=plan.definition();if(definition.valid())result.add(definition);else org.slf4j.LoggerFactory.getLogger("Prominence compatibility").warn("Skipped invalid reward metadata for {}",plan.route().table());}
   }
   metadata=List.copyOf(result);
-  org.slf4j.LoggerFactory.getLogger("Prominence compatibility").info("Rare reward index: {} scaled/native equipment pools; recipe/quest references cached for this reload",metadata.size());
+  org.slf4j.LoggerFactory.getLogger("Prominence compatibility").info("Reward index: {} scalable/native display pools; recipe/quest references cached for this reload",metadata.size());
   return metadata;
  }
 }

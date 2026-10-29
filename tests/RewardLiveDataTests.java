@@ -6,6 +6,7 @@ public class RewardLiveDataTests {
  public static void main(String[] args)throws Exception{
   String json=Files.readString(Path.of(args[0]));var rows=List.of(new Gson().fromJson(json,RewardDefinition[].class));check(rows.size()>1000,"real complete server dataset");check(rows.stream().allMatch(RewardDefinition::valid),"all live definitions valid");
   byte[] packet=RewardWire.encode(rows);check(packet.length<RewardWire.MAX_BYTES,"actual full dataset fits packet");check(RewardWire.decode(packet).equals(rows),"compressed full dataset lossless");
+  var cached=RewardWire.payload(rows);check(RewardWire.payload(rows)==cached,"same reload reuses encoded metadata");var fresh=new ArrayList<>(rows);check(RewardWire.payload(fresh)!=cached,"new reload identity invalidates encoded metadata");
   RewardClientState.install(rows);
   var gold=RewardClientState.find("minecraft:entities/piglin_brute",List.of("adventurez:gilded_blackstone_shard"),10,List.of());check(gold!=null,"actual gold shard live route matched");
   var a=new RewardClientText.Attachment(gold,gold.outputs().get(0));check(RewardClientText.lines(a,3,0,true,false).get(0).equals("드롭 확률: 22% (기본 10%)"),"gold Looting III actually displayed");check(RewardClientText.lines(a,3,10,true,false).get(0).equals("드롭 확률: 27% (기본 10%)"),"gold Luck actually displayed");

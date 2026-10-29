@@ -35,6 +35,14 @@ public final class LootUiTests {
   var chance=net.minecraft.class_2561.method_43469("emi_loot.condition.chance_looting",net.minecraft.class_2561.method_43470("7.6899996"),net.minecraft.class_2561.method_43470("7.6899996"));
   var head=LootDropTooltip.lines("emi_loot:/mob/minecraft/entities/piglin_brute",List.of("botania:gaia_head"),100,List.of(axe,victim,chance),true,key->"가이아의 수호자").stream().map(net.minecraft.class_2561::getString).toList();
   if(!head.equals(List.of("드롭 확률: 7.68% · 약탈 레벨당 +7.68%p","엘레멘티움 도끼로 가이아의 수호자 처치")))throw new AssertionError("actual head summary "+head);
+  var nativeHead=new local.prominence.rewards.client.RewardClientText.TooltipSource("minecraft:entities/piglin_brute",List.of("botania:gaia_head"),100,List.of(axe,victim,chance),head.stream().map(LootUiTests::literal).toList(),List.of(axe,victim));
+  var currentHead=LootDropTooltip.currentNative(nativeHead,1,10,true,true).stream().map(net.minecraft.class_2561::getString).toList();
+  if(!currentHead.get(0).equals("드롭 확률: 15.37%")||!currentHead.get(currentHead.size()-1).equals("엘레멘티움 도끼로 가이아의 수호자 처치")||currentHead.size()!=4)throw new AssertionError("native current Looting with compact condition "+currentHead);
+  var invalidChance=text("emi_loot.condition.chance",literal("NaN"));
+  var invalid=new local.prominence.rewards.client.RewardClientText.TooltipSource("minecraft:entities/piglin_brute",List.of("adventurez:gilded_blackstone_shard"),10,List.of(invalidChance),List.of(literal("unknown")),List.of());
+  if(!LootDropTooltip.currentNative(invalid,3,0,true,true).get(0).getString().equals("unknown"))throw new AssertionError("invalid native chance must preserve fallback");
+  var chestSource=new local.prominence.rewards.client.RewardClientText.TooltipSource("minecraft:chests/bastion_bridge",List.of("adventurez:gilded_blackstone_shard"),1,List.of(),List.of(literal("old")),List.of());
+  if(!LootDropTooltip.currentNative(chestSource,10,10,true,false).get(0).getString().equals("드롭 확률: 1%"))throw new AssertionError("native chest probability not mob chance or Looting-scaled");
   var either=text("emi_loot.condition.any_of_2",condition(JsonParser.parseString("{\"condition\":\"entity_properties\",\"entity\":\"this\",\"predicate\":{\"type\":\"minecraft:piglin\"}}").getAsJsonObject()),condition(JsonParser.parseString("{\"condition\":\"entity_properties\",\"entity\":\"this\",\"predicate\":{\"type\":\"minecraft:piglin_brute\"}}").getAsJsonObject()));
   java.util.function.Function<String,String> names=k->Map.of("entity.minecraft.piglin","피글린","entity.minecraft.piglin_brute","난폭한 피글린","entity.minecraft.zombie","좀비","entity.minecraft.husk","허스크","entity.minecraft.drowned","드라운드").getOrDefault(k,k);
   var piglin=LootDropTooltip.lines("emi_loot:/mob/minecraft/entities/piglin_brute",List.of("minecraft:piglin_head"),100,List.of(axe,either,chance),true,names).stream().map(net.minecraft.class_2561::getString).toList();

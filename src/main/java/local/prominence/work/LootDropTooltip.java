@@ -121,6 +121,23 @@ public final class LootDropTooltip {
         for(int i=0;i<other.size();i++)if(!consumed.contains(i))result.add(compact(other.get(i),ko));
         return result;
     }
+    public static List<class_2561> currentNative(local.prominence.rewards.client.RewardClientText.TooltipSource source,int looting,double luck,boolean ko,boolean formula){
+        // Apply existing native chance-with-looting terms using live server condition texts.
+        double base=Double.NaN,current=Double.NaN;boolean known=true;var factors=new ArrayList<String>();
+        boolean chest=source.table().contains(":chests/");
+        boolean axe=source.conditions().stream().map(t->LootEntityDisplay.node(t,0)).anyMatch(n->LootEntityRule.contains(n,"item.botania.elementium_axe"));
+        for(String item:source.items()){Double p=chest?chestHit(source.table(),item,source.expected()):hit(source.table(),item,source.expected());if(p==null&&axe)p=hit("botania:elementium_axe_beheading",item,source.expected());if(p==null||Double.isFinite(base)&&Math.abs(base-p)>.0001){known=false;break;}base=p;}
+        if(!known||!Double.isFinite(base))return source.nativeLines();current=base;
+        for(var c:source.conditions()){
+            if(chance(c)&&c.method_10855().isEmpty()){try{var a=args(c);double p=numeric(a[0]),inc=a.length>1?numeric(a[1]):0;if(!Double.isFinite(p)||p<0||p>100||!Double.isFinite(inc)||inc<0)return source.nativeLines();current*=Math.min(100,p+inc*Math.max(0,looting))/100;factors.add("("+LootNumbers.percent(p)+"% + "+LootNumbers.percent(inc)+"% × "+Math.max(0,looting)+")");}catch(Exception e){return source.nativeLines();}}
+            else {var n=LootEntityDisplay.node(c,0);if(LootEntityRule.contains(n,"emi_loot.condition.chance")||LootEntityRule.contains(n,"emi_loot.condition.chance_looting"))return source.nativeLines();}
+        }
+        var out=new ArrayList<class_2561>();out.add(class_2561.method_43470((ko?"드롭 확률: ":"Drop chance: ")+LootNumbers.percent(Math.min(100,current))+"%"));
+        if(!factors.isEmpty())out.add(class_2561.method_43470((ko?"현재 장비: 약탈 ":"Current gear: Looting ")+Math.max(0,looting)));
+        if(formula)out.add(class_2561.method_43470((ko?"확률 계산: ":"Calculation: ")+LootNumbers.percent(base)+"%"+(factors.isEmpty()?"":" × "+String.join(" × ",factors))));
+        // Preserve the already reviewed compact weapon/victim summary.
+        if(source.nativeLines().size()>1)out.addAll(source.nativeLines().subList(1,source.nativeLines().size()));return out;
+    }
     public static SlotWidget appendChest(SlotWidget slot,double expected,EmiRecipe recipe){
         var id=recipe.getId();Double probability=null;
         for(var s:slot.getStack().getEmiStacks()){
