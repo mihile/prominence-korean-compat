@@ -10,7 +10,7 @@ import net.minecraft.class_437;
 import net.minecraft.class_5481;
 
 /** Changelog is immediately visible; only the GitHub release uses collapsible details. */
-public final class UpdateScreen extends class_437 {
+public final class UpdateScreen extends UpdateModalScreen {
     private final SignedRelease release;
     private final class_437 parent;
     private UpdateLayout box;
@@ -40,11 +40,11 @@ public final class UpdateScreen extends class_437 {
         return cachedLines=List.copyOf(rows);
     }
     @Override public void method_25394(class_332 draw,int mouseX,int mouseY,float delta){
-        UpdateRender.background(draw,field_22789,field_22790);
+        UpdateRender.background(draw,field_22789,field_22790,this);
         int x=box.x(),y=box.y(),w=box.width(),h=box.height();
         UpdateRender.panel(draw,box);
         draw.method_27535(field_22793,field_22785,x+14,y+13,0xFFF1E7FF);
-        draw.method_25303(field_22793,release.build()==UpdateClient.build?release.label():UpdateClient.label+"  →  "+release.label(),x+14,y+31,0xFFACA6B8);
+        draw.method_25303(field_22793,field_22793.method_27523((release.build()==UpdateClient.build?release.label():UpdateClient.label+"  →  "+release.label()).replace("nightly-",""),w-28),x+14,y+31,0xFFACA6B8);
         draw.method_25294(x+12,y+49,x+w-12,y+50,0xFF494153);
         var rows=lines();int visible=box.notesBottom()-box.notesTop();int content=rows.size()*11;
         scroll=Math.max(0,Math.min(scroll,Math.max(0,content-visible)));

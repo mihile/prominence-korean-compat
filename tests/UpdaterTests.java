@@ -75,10 +75,13 @@ public final class UpdaterTests {
         // Regression: observed title screen has neither a world nor a player.
         ok(PromptGate.canOpen(true,false,false,false,false,20),"Title prompt incorrectly requires a world/player");
         ok(!PromptGate.canOpen(true,false,false,false,true,40),"Prompt interrupted loading overlay");
-        ok(!PromptGate.canOpen(true,false,false,false,false,19),"Prompt opened before stable menu delay");
+        ok(!PromptGate.canOpen(true,false,false,false,false,0),"Prompt captured the loading frame before the first menu render");
+        ok(PromptGate.canOpen(true,false,false,false,false,1),"Prompt still waits a full second at the title menu");
         ok(!PromptGate.canOpen(false,false,false,true,false,40),"Prompt opened without a title/world");
         ok(!PromptGate.canOpen(false,true,true,false,false,40),"Prompt interrupted inventory/settings");
-        ok(PromptGate.canOpen(false,true,true,true,false,20),"World fallback stopped working");
+        ok(!PromptGate.canOpen(false,true,true,true,false,20),"Automatic prompt still interrupts world play");
+        ok(!PromptGate.canOpen(true,true,true,false,false,40),"World/title transition opened an automatic prompt");
+        var standard=UpdateLayout.of(854,480);ok(standard.width()==308 && standard.height()==210,"Standard popup is not 30 percent smaller");
         ok(!PromptGate.canOpen(false,true,false,true,false,40),"Prompt opened in incomplete world");
         ok(!PromptGate.canOpen(false,false,false,false,false,40),"Prompt interrupted another modal screen");
         testAfterExit(args[0]);

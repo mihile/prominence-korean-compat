@@ -11,7 +11,6 @@ import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents;
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
 import net.fabricmc.fabric.api.client.screen.v1.Screens;
 import net.fabricmc.loader.api.FabricLoader;
@@ -30,6 +29,7 @@ public final class UpdateClient implements ClientModInitializer {
     private static final AtomicBoolean INSTALLING=new AtomicBoolean();
     private static CompletableFuture<SignedRelease> inFlight;
     private static final Set<Long> SHOWN=new HashSet<>();
+    private static class_437 renderedTitle;
     static volatile Phase phase=Phase.AVAILABLE;
     static volatile long downloaded;
     static volatile SignedRelease release;
@@ -69,6 +69,11 @@ public final class UpdateClient implements ClientModInitializer {
             ClientLifecycleEvents.CLIENT_STARTED.register(client->{if(enabled)check(false);});
             ScreenEvents.AFTER_INIT.register((client,screen,width,height)->{
                 if(screen instanceof class_442){
+                    renderedTitle=null;
+                    // Fabric recreates per-screen events on init/resize, so register on every init.
+                    ScreenEvents.afterRender(screen).register((active,draw,mx,my,delta)->{
+                        if(client.field_1755==active && client.method_18506()==null)renderedTitle=active;
+                    });
                     var buttons=Screens.getButtons(screen);
                     int x=Math.max(6,width-104),y=6;
                     // Prefer an unused corner over existing native menu controls.
@@ -81,14 +86,14 @@ public final class UpdateClient implements ClientModInitializer {
                     if(enabled)check(false);
                 }
             });
-            ClientPlayConnectionEvents.JOIN.register((handler,sender,client)->{readyTicks=0;if(enabled)check(false);});
             ClientTickEvents.END_CLIENT_TICK.register(client->{
                 boolean title=client.field_1755 instanceof class_442;
                 boolean world=client.field_1687!=null,player=client.field_1724!=null,noScreen=client.field_1755==null,overlay=client.method_18506()!=null;
-                if(!overlay && (title || (world && player && noScreen)))readyTicks++;else readyTicks=0;
+                if(title && client.field_1755==renderedTitle && !world && !player && !overlay)readyTicks=1;else readyTicks=0;
+                if(!title || overlay)renderedTitle=null;
                 SignedRelease offer=pending;
                 if(offer!=null && PromptGate.canOpen(title,world,player,noScreen,overlay,readyTicks)){
-                    pending=null;if(SHOWN.add(offer.build()))client.method_1507(new UpdateScreen(offer,title?client.field_1755:null));
+                    pending=null;if(SHOWN.add(offer.build()))client.method_1507(new UpdateScreen(offer,client.field_1755));
                 }
             });
             ClientCommandRegistrationCallback.EVENT.register((dispatcher,access)->dispatcher.register(ClientCommandManager.literal("kpatch")
@@ -157,7 +162,7 @@ public final class UpdateClient implements ClientModInitializer {
         if(phase==Phase.QUEUED || phase==Phase.DOWNLOADING){if(manual)message(phase==Phase.QUEUED?"ready":"downloading");return;}
         if(!manual && System.nanoTime()-lastCheck<TimeUnit.MINUTES.toNanos(3) && lastCheck!=0)return;
         lastCheck=System.nanoTime();
-        LOG.info("Checking client update: source={}",manual?"command":"startup/title/join");
+        LOG.info("Checking client update: source={}",manual?"command":"startup/title");
         request().whenComplete((next,error)->class_310.method_1551().execute(()->{
                 if(!requested.equals(track))return;
                 if(error!=null){LOG.warn("Update check unavailable; no files changed",error);if(manual)message("check_failed");return;}

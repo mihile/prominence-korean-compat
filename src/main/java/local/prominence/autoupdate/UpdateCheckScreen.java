@@ -7,7 +7,7 @@ import net.minecraft.class_4185;
 import net.minecraft.class_437;
 
 /** A visible loading/error/retry route that works before a world is entered. */
-public final class UpdateCheckScreen extends class_437 {
+public final class UpdateCheckScreen extends UpdateModalScreen {
     private final class_437 parent;
     private UpdateLayout box;
     private String status="choose_track";
@@ -33,7 +33,7 @@ public final class UpdateCheckScreen extends class_437 {
         catch(java.io.IOException e){failed();}
     }
     @Override public void method_25394(class_332 draw,int mx,int my,float delta){
-        UpdateRender.background(draw,field_22789,field_22790);
+        UpdateRender.background(draw,field_22789,field_22790,this);
         int x=box.x(),y=box.y(),w=box.width(),h=box.height();UpdateRender.panel(draw,box);
         draw.method_27535(field_22793,field_22785,x+14,y+14,0xFFF1E7FF);
         int line=y+75;for(var row:field_22793.method_1728(text(status),w-32)){draw.method_51430(field_22793,row,x+16,line,0xFFE3DFE8,false);line+=12;}
