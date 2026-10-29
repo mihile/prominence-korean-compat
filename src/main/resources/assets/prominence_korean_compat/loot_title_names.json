@@ -1,0 +1,3057 @@
+{
+  "ae2:blocks/chests/meteorite": {
+    "structure": "ae2:meteorite",
+    "fallback": "운석",
+    "detail": "블록"
+  },
+  "archon:chests/spire": {
+    "structure": "archon:spire",
+    "fallback": "첨탑",
+    "detail": ""
+  },
+  "archon:chests/wither_tomb": {
+    "structure": "archon:wither_tomb",
+    "fallback": "위더 무덤",
+    "detail": ""
+  },
+  "betterend:chests/end_village_bonus_loot": {
+    "structure": "betterend:end_village",
+    "fallback": "엔드 마을",
+    "detail": "추가"
+  },
+  "betterend:chests/end_village_loot": {
+    "structure": "betterend:end_village",
+    "fallback": "엔드 마을",
+    "detail": ""
+  },
+  "betterend:chests/end_village_template_loot": {
+    "structure": "betterend:end_village",
+    "fallback": "엔드 마을",
+    "detail": "형판"
+  },
+  "betternether:chests/ghast_hive": {
+    "structure": "betternether:ghast_hive",
+    "fallback": "가스트 둥지",
+    "detail": ""
+  },
+  "bosses_of_mass_destruction:chests/lich_tower": {
+    "structure": "bosses_of_mass_destruction:lich_tower",
+    "fallback": "리치의 탑",
+    "detail": ""
+  },
+  "deeperdarker:chests/ancient_temple_apex": {
+    "structure": "deeperdarker:ancient_temple",
+    "fallback": "고대 사원",
+    "detail": "정상"
+  },
+  "deeperdarker:chests/ancient_temple_basement": {
+    "structure": "deeperdarker:ancient_temple",
+    "fallback": "고대 사원",
+    "detail": "지하실"
+  },
+  "deeperdarker:chests/ancient_temple_fountain": {
+    "structure": "deeperdarker:ancient_temple",
+    "fallback": "고대 사원",
+    "detail": "분수"
+  },
+  "deeperdarker:chests/ancient_temple_secret": {
+    "structure": "deeperdarker:ancient_temple",
+    "fallback": "고대 사원",
+    "detail": "비밀"
+  },
+  "deeperdarker:chests/ancient_temple_storage": {
+    "structure": "deeperdarker:ancient_temple",
+    "fallback": "고대 사원",
+    "detail": "창고"
+  },
+  "dungeons_arise:chests/undead_pirate_ship/undead_pirate_ship_treasure": {
+    "structure": "dungeons_arise:undead_pirate_ship",
+    "fallback": "언데드 해적선",
+    "detail": "보물"
+  },
+  "dungeons_arise:chests/undead_pirate_ship/undead_pirate_ship_supply": {
+    "structure": "dungeons_arise:undead_pirate_ship",
+    "fallback": "언데드 해적선",
+    "detail": "보급품"
+  },
+  "dungeons_arise:chests/undead_pirate_ship/undead_pirate_ship_enchants": {
+    "structure": "dungeons_arise:undead_pirate_ship",
+    "fallback": "언데드 해적선",
+    "detail": "마법부여"
+  },
+  "dungeons_arise:chests/undead_pirate_ship/undead_pirate_ship_barrels": {
+    "structure": "dungeons_arise:undead_pirate_ship",
+    "fallback": "언데드 해적선",
+    "detail": "통"
+  },
+  "dungeons_arise:chests/typhon/typhon_treasure": {
+    "structure": "dungeons_arise:typhon",
+    "fallback": "티폰",
+    "detail": "보물"
+  },
+  "dungeons_arise:chests/thornborn_towers/thornborn_towers_top_treasure": {
+    "structure": "dungeons_arise:thornborn_towers",
+    "fallback": "가시나무 탑",
+    "detail": "꼭대기 보물"
+  },
+  "dungeons_arise:chests/thornborn_towers/thornborn_towers_top_rooms": {
+    "structure": "dungeons_arise:thornborn_towers",
+    "fallback": "가시나무 탑",
+    "detail": "꼭대기 방"
+  },
+  "dungeons_arise:chests/thornborn_towers/thornborn_towers_rooms": {
+    "structure": "dungeons_arise:thornborn_towers",
+    "fallback": "가시나무 탑",
+    "detail": "방"
+  },
+  "dungeons_arise:chests/thornborn_towers/thornborn_towers_barrels": {
+    "structure": "dungeons_arise:thornborn_towers",
+    "fallback": "가시나무 탑",
+    "detail": "통"
+  },
+  "dungeons_arise:chests/small_prairie_house/small_prairie_house_ruined": {
+    "structure": "dungeons_arise:small_prairie_house",
+    "fallback": "작은 대초원 집",
+    "detail": "무너진"
+  },
+  "dungeons_arise:chests/small_prairie_house/small_prairie_house_normal": {
+    "structure": "dungeons_arise:small_prairie_house",
+    "fallback": "작은 대초원 집",
+    "detail": "일반"
+  },
+  "dungeons_arise:chests/small_prairie_house/small_prairie_house_barrels": {
+    "structure": "dungeons_arise:small_prairie_house",
+    "fallback": "작은 대초원 집",
+    "detail": "통"
+  },
+  "dungeons_arise:chests/small_blimp/small_blimp_treasure": {
+    "structure": "dungeons_arise:small_blimp",
+    "fallback": "소형 비행선",
+    "detail": "보물"
+  },
+  "dungeons_arise:chests/small_blimp/small_blimp_redstone_chamber": {
+    "structure": "dungeons_arise:small_blimp",
+    "fallback": "소형 비행선",
+    "detail": "레드스톤 방"
+  },
+  "dungeons_arise:chests/small_blimp/small_blimp_coal_storage": {
+    "structure": "dungeons_arise:small_blimp",
+    "fallback": "소형 비행선",
+    "detail": "석탄 창고"
+  },
+  "dungeons_arise:chests/shiraz_palace/shiraz_palace_treasure": {
+    "structure": "dungeons_arise:shiraz_palace",
+    "fallback": "쉬라즈 궁전",
+    "detail": "보물"
+  },
+  "dungeons_arise:chests/shiraz_palace/shiraz_palace_towers": {
+    "structure": "dungeons_arise:shiraz_palace",
+    "fallback": "쉬라즈 궁전",
+    "detail": "탑"
+  },
+  "dungeons_arise:chests/shiraz_palace/shiraz_palace_supply": {
+    "structure": "dungeons_arise:shiraz_palace",
+    "fallback": "쉬라즈 궁전",
+    "detail": "보급품"
+  },
+  "dungeons_arise:chests/shiraz_palace/shiraz_palace_rooms": {
+    "structure": "dungeons_arise:shiraz_palace",
+    "fallback": "쉬라즈 궁전",
+    "detail": "방"
+  },
+  "dungeons_arise:chests/shiraz_palace/shiraz_palace_normal": {
+    "structure": "dungeons_arise:shiraz_palace",
+    "fallback": "쉬라즈 궁전",
+    "detail": "일반"
+  },
+  "dungeons_arise:chests/shiraz_palace/shiraz_palace_library": {
+    "structure": "dungeons_arise:shiraz_palace",
+    "fallback": "쉬라즈 궁전",
+    "detail": "도서관"
+  },
+  "dungeons_arise:chests/shiraz_palace/shiraz_palace_gardens": {
+    "structure": "dungeons_arise:shiraz_palace",
+    "fallback": "쉬라즈 궁전",
+    "detail": "정원"
+  },
+  "dungeons_arise:chests/shiraz_palace/shiraz_palace_elite": {
+    "structure": "dungeons_arise:shiraz_palace",
+    "fallback": "쉬라즈 궁전",
+    "detail": "정예"
+  },
+  "dungeons_arise:chests/scorched_mines/scorched_mines_treasure": {
+    "structure": "dungeons_arise:scorched_mines",
+    "fallback": "그을린 광산",
+    "detail": "보물"
+  },
+  "dungeons_arise:chests/scorched_mines/scorched_mines_normal": {
+    "structure": "dungeons_arise:scorched_mines",
+    "fallback": "그을린 광산",
+    "detail": "일반"
+  },
+  "dungeons_arise:chests/scorched_mines/scorched_mines_hub": {
+    "structure": "dungeons_arise:scorched_mines",
+    "fallback": "그을린 광산",
+    "detail": "중심부"
+  },
+  "dungeons_arise:chests/scorched_mines/scorched_mines_housing": {
+    "structure": "dungeons_arise:scorched_mines",
+    "fallback": "그을린 광산",
+    "detail": "주거 구역"
+  },
+  "dungeons_arise:chests/scorched_mines/scorched_mines_barrels": {
+    "structure": "dungeons_arise:scorched_mines",
+    "fallback": "그을린 광산",
+    "detail": "통"
+  },
+  "dungeons_arise:chests/plague_asylum/plague_asylum_treasure": {
+    "structure": "dungeons_arise:plague_asylum",
+    "fallback": "역병 수용소",
+    "detail": "보물"
+  },
+  "dungeons_arise:chests/plague_asylum/plague_asylum_storage": {
+    "structure": "dungeons_arise:plague_asylum",
+    "fallback": "역병 수용소",
+    "detail": "창고"
+  },
+  "dungeons_arise:chests/plague_asylum/plague_asylum_potions": {
+    "structure": "dungeons_arise:plague_asylum",
+    "fallback": "역병 수용소",
+    "detail": "물약"
+  },
+  "dungeons_arise:chests/plague_asylum/plague_asylum_normal": {
+    "structure": "dungeons_arise:plague_asylum",
+    "fallback": "역병 수용소",
+    "detail": "일반"
+  },
+  "dungeons_arise:chests/plague_asylum/plague_asylum_cells": {
+    "structure": "dungeons_arise:plague_asylum",
+    "fallback": "역병 수용소",
+    "detail": "감방"
+  },
+  "dungeons_arise:chests/plague_asylum/plague_asylum_barrels": {
+    "structure": "dungeons_arise:plague_asylum",
+    "fallback": "역병 수용소",
+    "detail": "통"
+  },
+  "dungeons_arise:chests/mushroom_village/mushroom_village_treasure": {
+    "structure": "dungeons_arise:mushroom_village",
+    "fallback": "버섯 마을",
+    "detail": "보물"
+  },
+  "dungeons_arise:chests/mushroom_village/mushroom_village_barrels": {
+    "structure": "dungeons_arise:mushroom_village",
+    "fallback": "버섯 마을",
+    "detail": "통"
+  },
+  "dungeons_arise:chests/mushroom_mines/mushroom_mines_treasure": {
+    "structure": "dungeons_arise:mushroom_mines",
+    "fallback": "버섯 광산",
+    "detail": "보물"
+  },
+  "dungeons_arise:chests/mushroom_mines/mushroom_mines_tools": {
+    "structure": "dungeons_arise:mushroom_mines",
+    "fallback": "버섯 광산",
+    "detail": "도구"
+  },
+  "dungeons_arise:chests/mushroom_mines/mushroom_mines_ores": {
+    "structure": "dungeons_arise:mushroom_mines",
+    "fallback": "버섯 광산",
+    "detail": "광석"
+  },
+  "dungeons_arise:chests/mushroom_mines/mushroom_mines_barrels": {
+    "structure": "dungeons_arise:mushroom_mines",
+    "fallback": "버섯 광산",
+    "detail": "통"
+  },
+  "dungeons_arise:chests/mushroom_house/mushroom_house_treasure": {
+    "structure": "dungeons_arise:mushroom_house",
+    "fallback": "버섯 집",
+    "detail": "보물"
+  },
+  "dungeons_arise:chests/mushroom_house/mushroom_house_normal": {
+    "structure": "dungeons_arise:mushroom_house",
+    "fallback": "버섯 집",
+    "detail": "일반"
+  },
+  "dungeons_arise:chests/mushroom_house/mushroom_house_barrels": {
+    "structure": "dungeons_arise:mushroom_house",
+    "fallback": "버섯 집",
+    "detail": "통"
+  },
+  "dungeons_arise:chests/monastery/monastery_map": {
+    "structure": "dungeons_arise:monastery",
+    "fallback": "수도원",
+    "detail": "지도"
+  },
+  "dungeons_arise:chests/monastery/monastery_bridges": {
+    "structure": "dungeons_arise:monastery",
+    "fallback": "수도원",
+    "detail": "다리"
+  },
+  "dungeons_arise:chests/monastery/monastery_barrels": {
+    "structure": "dungeons_arise:monastery",
+    "fallback": "수도원",
+    "detail": "통"
+  },
+  "dungeons_arise:chests/mining_system/mining_system_treasure": {
+    "structure": "dungeons_arise:mining_system",
+    "fallback": "광산 시스템",
+    "detail": "보물"
+  },
+  "dungeons_arise:chests/mining_system/mining_system_barrels": {
+    "structure": "dungeons_arise:mining_system",
+    "fallback": "광산 시스템",
+    "detail": "통"
+  },
+  "dungeons_arise:chests/merchant_campsite/merchant_campsite_tent": {
+    "structure": "dungeons_arise:merchant_campsite",
+    "fallback": "상인 야영지",
+    "detail": "천막"
+  },
+  "dungeons_arise:chests/merchant_campsite/merchant_campsite_supply": {
+    "structure": "dungeons_arise:merchant_campsite",
+    "fallback": "상인 야영지",
+    "detail": "보급품"
+  },
+  "dungeons_arise:chests/merchant_campsite/merchant_campsite_map": {
+    "structure": "dungeons_arise:merchant_campsite",
+    "fallback": "상인 야영지",
+    "detail": "지도"
+  },
+  "dungeons_arise:chests/mechanical_nest/mechanical_nest_treasure": {
+    "structure": "dungeons_arise:mechanical_nest",
+    "fallback": "기계 둥지",
+    "detail": "보물"
+  },
+  "dungeons_arise:chests/mechanical_nest/mechanical_nest_supply": {
+    "structure": "dungeons_arise:mechanical_nest",
+    "fallback": "기계 둥지",
+    "detail": "보급품"
+  },
+  "dungeons_arise:chests/mechanical_nest/mechanical_nest_normal": {
+    "structure": "dungeons_arise:mechanical_nest",
+    "fallback": "기계 둥지",
+    "detail": "일반"
+  },
+  "dungeons_arise:chests/mechanical_nest/mechanical_nest_equipment": {
+    "structure": "dungeons_arise:mechanical_nest",
+    "fallback": "기계 둥지",
+    "detail": "장비"
+  },
+  "dungeons_arise:chests/lighthouse/lighthouse_top": {
+    "structure": "dungeons_arise:lighthouse",
+    "fallback": "등대",
+    "detail": "꼭대기"
+  },
+  "dungeons_arise:chests/keep_kayra/keep_kayra_treasure": {
+    "structure": "dungeons_arise:keep_kayra",
+    "fallback": "카이라 요새",
+    "detail": "보물"
+  },
+  "dungeons_arise:chests/keep_kayra/keep_kayra_normal": {
+    "structure": "dungeons_arise:keep_kayra",
+    "fallback": "카이라 요새",
+    "detail": "일반"
+  },
+  "dungeons_arise:chests/keep_kayra/keep_kayra_library_treasure": {
+    "structure": "dungeons_arise:keep_kayra",
+    "fallback": "카이라 요새",
+    "detail": "도서관 보물"
+  },
+  "dungeons_arise:chests/keep_kayra/keep_kayra_library_normal": {
+    "structure": "dungeons_arise:keep_kayra",
+    "fallback": "카이라 요새",
+    "detail": "도서관 일반"
+  },
+  "dungeons_arise:chests/keep_kayra/keep_kayra_garden_treasure": {
+    "structure": "dungeons_arise:keep_kayra",
+    "fallback": "카이라 요새",
+    "detail": "정원 보물"
+  },
+  "dungeons_arise:chests/keep_kayra/keep_kayra_garden_normal": {
+    "structure": "dungeons_arise:keep_kayra",
+    "fallback": "카이라 요새",
+    "detail": "정원 일반"
+  },
+  "dungeons_arise:chests/jungle_tree_house/jungle_tree_house_treasure": {
+    "structure": "dungeons_arise:jungle_tree_house",
+    "fallback": "정글 나무집",
+    "detail": "보물"
+  },
+  "dungeons_arise:chests/jungle_tree_house/jungle_tree_house_normal": {
+    "structure": "dungeons_arise:jungle_tree_house",
+    "fallback": "정글 나무집",
+    "detail": "일반"
+  },
+  "dungeons_arise:chests/jungle_tree_house/jungle_tree_house_barrels": {
+    "structure": "dungeons_arise:jungle_tree_house",
+    "fallback": "정글 나무집",
+    "detail": "통"
+  },
+  "dungeons_arise:chests/infested_temple/infested_temple_top_treasure": {
+    "structure": "dungeons_arise:infested_temple",
+    "fallback": "감염된 사원",
+    "detail": "꼭대기 보물"
+  },
+  "dungeons_arise:chests/infested_temple/infested_temple_room_table": {
+    "structure": "dungeons_arise:infested_temple",
+    "fallback": "감염된 사원",
+    "detail": "방 작업대"
+  },
+  "dungeons_arise:chests/infested_temple/infested_temple_room_supply": {
+    "structure": "dungeons_arise:infested_temple",
+    "fallback": "감염된 사원",
+    "detail": "방 보급품"
+  },
+  "dungeons_arise:chests/infested_temple/infested_temple_room_normal": {
+    "structure": "dungeons_arise:infested_temple",
+    "fallback": "감염된 사원",
+    "detail": "방 일반"
+  },
+  "dungeons_arise:chests/infested_temple/infested_temple_room_garden": {
+    "structure": "dungeons_arise:infested_temple",
+    "fallback": "감염된 사원",
+    "detail": "방 정원"
+  },
+  "dungeons_arise:chests/infested_temple/infested_temple_room_forge": {
+    "structure": "dungeons_arise:infested_temple",
+    "fallback": "감염된 사원",
+    "detail": "방 대장간"
+  },
+  "dungeons_arise:chests/infested_temple/infested_temple_room_bookshelf": {
+    "structure": "dungeons_arise:infested_temple",
+    "fallback": "감염된 사원",
+    "detail": "방 책장"
+  },
+  "dungeons_arise:chests/illager_windmill/illager_windmill_treasure": {
+    "structure": "dungeons_arise:illager_windmill",
+    "fallback": "우민 풍차",
+    "detail": "보물"
+  },
+  "dungeons_arise:chests/illager_windmill/illager_windmill_barrels": {
+    "structure": "dungeons_arise:illager_windmill",
+    "fallback": "우민 풍차",
+    "detail": "통"
+  },
+  "dungeons_arise:chests/illager_galley/illager_galley_treasure": {
+    "structure": "dungeons_arise:illager_galley",
+    "fallback": "우민 갤리선",
+    "detail": "보물"
+  },
+  "dungeons_arise:chests/illager_galley/illager_galley_supply": {
+    "structure": "dungeons_arise:illager_galley",
+    "fallback": "우민 갤리선",
+    "detail": "보급품"
+  },
+  "dungeons_arise:chests/illager_galley/illager_galley_barrels": {
+    "structure": "dungeons_arise:illager_galley",
+    "fallback": "우민 갤리선",
+    "detail": "통"
+  },
+  "dungeons_arise:chests/illager_fort/illager_fort_treasure": {
+    "structure": "dungeons_arise:illager_fort",
+    "fallback": "우민 요새",
+    "detail": "보물"
+  },
+  "dungeons_arise:chests/illager_fort/illager_fort_normal": {
+    "structure": "dungeons_arise:illager_fort",
+    "fallback": "우민 요새",
+    "detail": "일반"
+  },
+  "dungeons_arise:chests/illager_fort/illager_fort_barrels": {
+    "structure": "dungeons_arise:illager_fort",
+    "fallback": "우민 요새",
+    "detail": "통"
+  },
+  "dungeons_arise:chests/illager_corsair/illager_corsair_treasure": {
+    "structure": "dungeons_arise:illager_corsair",
+    "fallback": "우민 해적선",
+    "detail": "보물"
+  },
+  "dungeons_arise:chests/illager_corsair/illager_corsair_supply": {
+    "structure": "dungeons_arise:illager_corsair",
+    "fallback": "우민 해적선",
+    "detail": "보급품"
+  },
+  "dungeons_arise:chests/illager_corsair/illager_corsair_barrels": {
+    "structure": "dungeons_arise:illager_corsair",
+    "fallback": "우민 해적선",
+    "detail": "통"
+  },
+  "dungeons_arise:chests/illager_campsite/illager_campsite_tent": {
+    "structure": "dungeons_arise:illager_campsite",
+    "fallback": "우민 야영지",
+    "detail": "천막"
+  },
+  "dungeons_arise:chests/illager_campsite/illager_campsite_supply": {
+    "structure": "dungeons_arise:illager_campsite",
+    "fallback": "우민 야영지",
+    "detail": "보급품"
+  },
+  "dungeons_arise:chests/illager_campsite/illager_campsite_map": {
+    "structure": "dungeons_arise:illager_campsite",
+    "fallback": "우민 야영지",
+    "detail": "지도"
+  },
+  "dungeons_arise:chests/heavenly_rider/heavenly_rider_treasure": {
+    "structure": "dungeons_arise:heavenly_rider",
+    "fallback": "천공의 라이더호",
+    "detail": "보물"
+  },
+  "dungeons_arise:chests/heavenly_rider/heavenly_rider_normal": {
+    "structure": "dungeons_arise:heavenly_rider",
+    "fallback": "천공의 라이더호",
+    "detail": "일반"
+  },
+  "dungeons_arise:chests/heavenly_rider/heavenly_rider_barrels": {
+    "structure": "dungeons_arise:heavenly_rider",
+    "fallback": "천공의 라이더호",
+    "detail": "통"
+  },
+  "dungeons_arise:chests/heavenly_conqueror/heavenly_conqueror_treasure": {
+    "structure": "dungeons_arise:heavenly_conqueror",
+    "fallback": "천공의 컨커러호",
+    "detail": "보물"
+  },
+  "dungeons_arise:chests/heavenly_conqueror/heavenly_conqueror_normal": {
+    "structure": "dungeons_arise:heavenly_conqueror",
+    "fallback": "천공의 컨커러호",
+    "detail": "일반"
+  },
+  "dungeons_arise:chests/heavenly_conqueror/heavenly_conqueror_barrels": {
+    "structure": "dungeons_arise:heavenly_conqueror",
+    "fallback": "천공의 컨커러호",
+    "detail": "통"
+  },
+  "dungeons_arise:chests/heavenly_challenger/heavenly_challenger_treasure": {
+    "structure": "dungeons_arise:heavenly_challenger",
+    "fallback": "천공의 챌린저호",
+    "detail": "보물"
+  },
+  "dungeons_arise:chests/heavenly_challenger/heavenly_challenger_theater": {
+    "structure": "dungeons_arise:heavenly_challenger",
+    "fallback": "천공의 챌린저호",
+    "detail": "극장"
+  },
+  "dungeons_arise:chests/heavenly_challenger/heavenly_challenger_supply": {
+    "structure": "dungeons_arise:heavenly_challenger",
+    "fallback": "천공의 챌린저호",
+    "detail": "보급품"
+  },
+  "dungeons_arise:chests/heavenly_challenger/heavenly_challenger_normal": {
+    "structure": "dungeons_arise:heavenly_challenger",
+    "fallback": "천공의 챌린저호",
+    "detail": "일반"
+  },
+  "dungeons_arise:chests/greenwood_pub/greenwood_pub_normal": {
+    "structure": "dungeons_arise:greenwood_pub",
+    "fallback": "그린우드 펍",
+    "detail": "일반"
+  },
+  "dungeons_arise:chests/greenwood_pub/greenwood_pub_barrels_normal": {
+    "structure": "dungeons_arise:greenwood_pub",
+    "fallback": "그린우드 펍",
+    "detail": "통 일반"
+  },
+  "dungeons_arise:chests/greenwood_pub/greenwood_pub_barrels_hallways": {
+    "structure": "dungeons_arise:greenwood_pub",
+    "fallback": "그린우드 펍",
+    "detail": "통 복도"
+  },
+  "dungeons_arise:chests/giant_mushroom/twin_giant_mushroom": {
+    "structure": "dungeons_arise:giant_mushroom",
+    "fallback": "거대 버섯",
+    "detail": "쌍둥이 거대 버섯"
+  },
+  "dungeons_arise:chests/giant_mushroom/red_giant_mushroom": {
+    "structure": "dungeons_arise:giant_mushroom",
+    "fallback": "거대 버섯",
+    "detail": "붉은 거대 버섯"
+  },
+  "dungeons_arise:chests/foundry/foundry_treasure": {
+    "structure": "dungeons_arise:foundry",
+    "fallback": "주조소",
+    "detail": "보물"
+  },
+  "dungeons_arise:chests/foundry/foundry_passage_normal": {
+    "structure": "dungeons_arise:foundry",
+    "fallback": "주조소",
+    "detail": "통로 일반"
+  },
+  "dungeons_arise:chests/foundry/foundry_passage_exterior": {
+    "structure": "dungeons_arise:foundry",
+    "fallback": "주조소",
+    "detail": "통로 외곽"
+  },
+  "dungeons_arise:chests/foundry/foundry_normal": {
+    "structure": "dungeons_arise:foundry",
+    "fallback": "주조소",
+    "detail": "일반"
+  },
+  "dungeons_arise:chests/foundry/foundry_lava_pit": {
+    "structure": "dungeons_arise:foundry",
+    "fallback": "주조소",
+    "detail": "용암 구덩이"
+  },
+  "dungeons_arise:chests/foundry/foundry_chains": {
+    "structure": "dungeons_arise:foundry",
+    "fallback": "주조소",
+    "detail": "사슬"
+  },
+  "dungeons_arise:chests/fishing_hut/fishing_hut_barrels": {
+    "structure": "dungeons_arise:fishing_hut",
+    "fallback": "낚시 오두막",
+    "detail": "통"
+  },
+  "dungeons_arise:chests/ceryneian_hind/ceryneian_hind_treasure": {
+    "structure": "dungeons_arise:ceryneian_hind",
+    "fallback": "케리네이아의 암사슴",
+    "detail": "보물"
+  },
+  "dungeons_arise:chests/bathhouse/bathhouse_normal": {
+    "structure": "dungeons_arise:bathhouse",
+    "fallback": "목욕탕",
+    "detail": "일반"
+  },
+  "dungeons_arise:chests/bathhouse/bathhouse_barrels": {
+    "structure": "dungeons_arise:bathhouse",
+    "fallback": "목욕탕",
+    "detail": "통"
+  },
+  "dungeons_arise:chests/bandit_village/bandit_village_tents": {
+    "structure": "dungeons_arise:bandit_village",
+    "fallback": "도적 마을",
+    "detail": "천막"
+  },
+  "dungeons_arise:chests/bandit_village/bandit_village_supply": {
+    "structure": "dungeons_arise:bandit_village",
+    "fallback": "도적 마을",
+    "detail": "보급품"
+  },
+  "dungeons_arise:chests/bandit_village/bandit_village_normal": {
+    "structure": "dungeons_arise:bandit_village",
+    "fallback": "도적 마을",
+    "detail": "일반"
+  },
+  "dungeons_arise:chests/bandit_village/bandit_village_barrels": {
+    "structure": "dungeons_arise:bandit_village",
+    "fallback": "도적 마을",
+    "detail": "통"
+  },
+  "dungeons_arise:chests/bandit_towers/bandit_towers_treasure": {
+    "structure": "dungeons_arise:bandit_towers",
+    "fallback": "도적 탑",
+    "detail": "보물"
+  },
+  "dungeons_arise:chests/bandit_towers/bandit_towers_supply": {
+    "structure": "dungeons_arise:bandit_towers",
+    "fallback": "도적 탑",
+    "detail": "보급품"
+  },
+  "dungeons_arise:chests/bandit_towers/bandit_towers_rooms": {
+    "structure": "dungeons_arise:bandit_towers",
+    "fallback": "도적 탑",
+    "detail": "방"
+  },
+  "dungeons_arise:chests/bandit_towers/bandit_towers_normal": {
+    "structure": "dungeons_arise:bandit_towers",
+    "fallback": "도적 탑",
+    "detail": "일반"
+  },
+  "dungeons_arise:chests/bandit_towers/bandit_towers_gardens": {
+    "structure": "dungeons_arise:bandit_towers",
+    "fallback": "도적 탑",
+    "detail": "정원"
+  },
+  "dungeons_arise:chests/bandit_towers/bandit_towers_barrels": {
+    "structure": "dungeons_arise:bandit_towers",
+    "fallback": "도적 탑",
+    "detail": "통"
+  },
+  "dungeons_arise:chests/aviary/aviary_treasure": {
+    "structure": "dungeons_arise:aviary",
+    "fallback": "조류 사육장",
+    "detail": "보물"
+  },
+  "dungeons_arise:chests/aviary/aviary_normal": {
+    "structure": "dungeons_arise:aviary",
+    "fallback": "조류 사육장",
+    "detail": "일반"
+  },
+  "dungeons_arise:chests/aviary/aviary_barrels": {
+    "structure": "dungeons_arise:aviary",
+    "fallback": "조류 사육장",
+    "detail": "통"
+  },
+  "dungeons_arise:chests/abandoned_temple/abandoned_temple_top": {
+    "structure": "dungeons_arise:abandoned_temple",
+    "fallback": "버려진 사원",
+    "detail": "꼭대기"
+  },
+  "dungeons_arise:chests/abandoned_temple/abandoned_temple_map": {
+    "structure": "dungeons_arise:abandoned_temple",
+    "fallback": "버려진 사원",
+    "detail": "지도"
+  },
+  "dungeons_arise:chests/abandoned_temple/abandoned_temple_entrance": {
+    "structure": "dungeons_arise:abandoned_temple",
+    "fallback": "버려진 사원",
+    "detail": "입구"
+  },
+  "explorations:chests/campsite/tent": {
+    "structure": "explorations:campsite",
+    "fallback": "야영지",
+    "detail": "천막"
+  },
+  "explorations:chests/desert_ruin": {
+    "structure": "explorations:desert_ruin",
+    "fallback": "사막 유적",
+    "detail": ""
+  },
+  "explorations:chests/floating_island": {
+    "structure": "explorations:floating_island",
+    "fallback": "공중섬",
+    "detail": ""
+  },
+  "explorations:chests/jungle_temple/chest_main": {
+    "structure": "explorations:jungle_temple",
+    "fallback": "정글 사원",
+    "detail": "중앙"
+  },
+  "explorations:chests/jungle_temple/dispenser_main": {
+    "structure": "explorations:jungle_temple",
+    "fallback": "정글 사원",
+    "detail": "발사기 중앙"
+  },
+  "explorations:chests/shrine": {
+    "structure": "explorations:shrine",
+    "fallback": "성소",
+    "detail": ""
+  },
+  "explorations:chests/slime_cave": {
+    "structure": "explorations:slime_cave",
+    "fallback": "슬라임 동굴",
+    "detail": ""
+  },
+  "explorations:chests/underground_temple/barrel": {
+    "structure": "explorations:underground_temple",
+    "fallback": "지하 사원",
+    "detail": "통"
+  },
+  "explorations:chests/underground_temple/bedrooms": {
+    "structure": "explorations:underground_temple",
+    "fallback": "지하 사원",
+    "detail": "침실"
+  },
+  "explorations:chests/underground_temple/dead_end": {
+    "structure": "explorations:underground_temple",
+    "fallback": "지하 사원",
+    "detail": "죽은 엔드"
+  },
+  "explorations:chests/underground_temple/dispenser": {
+    "structure": "explorations:underground_temple",
+    "fallback": "지하 사원",
+    "detail": "발사기"
+  },
+  "explorations:chests/underground_temple/dungeon": {
+    "structure": "explorations:underground_temple",
+    "fallback": "지하 사원",
+    "detail": "던전"
+  },
+  "explorations:chests/underground_temple/enchanting": {
+    "structure": "explorations:underground_temple",
+    "fallback": "지하 사원",
+    "detail": "마법부여"
+  },
+  "explorations:chests/underground_temple/large_room": {
+    "structure": "explorations:underground_temple",
+    "fallback": "지하 사원",
+    "detail": "대형 방"
+  },
+  "explorations:chests/underground_temple/library": {
+    "structure": "explorations:underground_temple",
+    "fallback": "지하 사원",
+    "detail": "도서관"
+  },
+  "explorations:chests/underground_temple/quest_tower": {
+    "structure": "explorations:underground_temple",
+    "fallback": "지하 사원",
+    "detail": "퀘스트 탑"
+  },
+  "friendsandfoes:chests/iceologer_cabin": {
+    "structure": "friendsandfoes:iceologer_cabin",
+    "fallback": "얼음술사 오두막",
+    "detail": ""
+  },
+  "friendsandfoes:chests/illusioner_shack": {
+    "structure": "friendsandfoes:illusioner_shack",
+    "fallback": "환술사 오두막",
+    "detail": ""
+  },
+  "integrated_stronghold:chests/stronghold": {
+    "structure": "integrated_stronghold:stronghold",
+    "fallback": "지하유적",
+    "detail": ""
+  },
+  "integrated_villages:chests/airship_village/airship_village": {
+    "structure": "integrated_villages:airship_village",
+    "fallback": "비행선 마을",
+    "detail": ""
+  },
+  "integrated_villages:chests/airship_village/airship_village_bedroom": {
+    "structure": "integrated_villages:airship_village",
+    "fallback": "비행선 마을",
+    "detail": "침실"
+  },
+  "integrated_villages:chests/airship_village/airship_village_blacksmith": {
+    "structure": "integrated_villages:airship_village",
+    "fallback": "비행선 마을",
+    "detail": "대장간"
+  },
+  "integrated_villages:chests/airship_village/airship_village_cartographer": {
+    "structure": "integrated_villages:airship_village",
+    "fallback": "비행선 마을",
+    "detail": "지도 제작자"
+  },
+  "integrated_villages:chests/airship_village/airship_village_cleric": {
+    "structure": "integrated_villages:airship_village",
+    "fallback": "비행선 마을",
+    "detail": "성직자"
+  },
+  "integrated_villages:chests/airship_village/airship_village_create": {
+    "structure": "integrated_villages:airship_village",
+    "fallback": "비행선 마을",
+    "detail": "기계 작업장"
+  },
+  "integrated_villages:chests/airship_village/airship_village_farmhouse": {
+    "structure": "integrated_villages:airship_village",
+    "fallback": "비행선 마을",
+    "detail": "농가"
+  },
+  "integrated_villages:chests/airship_village/airship_village_fletcher": {
+    "structure": "integrated_villages:airship_village",
+    "fallback": "비행선 마을",
+    "detail": "화살 제조인"
+  },
+  "integrated_villages:chests/airship_village/airship_village_kitchen": {
+    "structure": "integrated_villages:airship_village",
+    "fallback": "비행선 마을",
+    "detail": "주방"
+  },
+  "integrated_villages:chests/airship_village/airship_village_leatherworker": {
+    "structure": "integrated_villages:airship_village",
+    "fallback": "비행선 마을",
+    "detail": "가죽 세공인"
+  },
+  "integrated_villages:chests/airship_village/airship_village_library": {
+    "structure": "integrated_villages:airship_village",
+    "fallback": "비행선 마을",
+    "detail": "도서관"
+  },
+  "integrated_villages:chests/airship_village/airship_village_mason": {
+    "structure": "integrated_villages:airship_village",
+    "fallback": "비행선 마을",
+    "detail": "석공"
+  },
+  "integrated_villages:chests/airship_village/airship_village_shepard": {
+    "structure": "integrated_villages:airship_village",
+    "fallback": "비행선 마을",
+    "detail": "양치기"
+  },
+  "integrated_villages:chests/airship_village/airship_village_treasure": {
+    "structure": "integrated_villages:airship_village",
+    "fallback": "비행선 마을",
+    "detail": "보물"
+  },
+  "integrated_villages:chests/cabin_village/cabin_village": {
+    "structure": "integrated_villages:cabin_village",
+    "fallback": "오두막 마을",
+    "detail": ""
+  },
+  "integrated_villages:chests/cabin_village/cabin_village_bedroom": {
+    "structure": "integrated_villages:cabin_village",
+    "fallback": "오두막 마을",
+    "detail": "침실"
+  },
+  "integrated_villages:chests/cabin_village/cabin_village_blacksmith": {
+    "structure": "integrated_villages:cabin_village",
+    "fallback": "오두막 마을",
+    "detail": "대장간"
+  },
+  "integrated_villages:chests/cabin_village/cabin_village_cartographer": {
+    "structure": "integrated_villages:cabin_village",
+    "fallback": "오두막 마을",
+    "detail": "지도 제작자"
+  },
+  "integrated_villages:chests/cabin_village/cabin_village_cleric": {
+    "structure": "integrated_villages:cabin_village",
+    "fallback": "오두막 마을",
+    "detail": "성직자"
+  },
+  "integrated_villages:chests/cabin_village/cabin_village_farmhouse": {
+    "structure": "integrated_villages:cabin_village",
+    "fallback": "오두막 마을",
+    "detail": "농가"
+  },
+  "integrated_villages:chests/cabin_village/cabin_village_fisherman": {
+    "structure": "integrated_villages:cabin_village",
+    "fallback": "오두막 마을",
+    "detail": "어부"
+  },
+  "integrated_villages:chests/cabin_village/cabin_village_fletcher": {
+    "structure": "integrated_villages:cabin_village",
+    "fallback": "오두막 마을",
+    "detail": "화살 제조인"
+  },
+  "integrated_villages:chests/cabin_village/cabin_village_kitchen": {
+    "structure": "integrated_villages:cabin_village",
+    "fallback": "오두막 마을",
+    "detail": "주방"
+  },
+  "integrated_villages:chests/cabin_village/cabin_village_leatherworker": {
+    "structure": "integrated_villages:cabin_village",
+    "fallback": "오두막 마을",
+    "detail": "가죽 세공인"
+  },
+  "integrated_villages:chests/cabin_village/cabin_village_library": {
+    "structure": "integrated_villages:cabin_village",
+    "fallback": "오두막 마을",
+    "detail": "도서관"
+  },
+  "integrated_villages:chests/cabin_village/cabin_village_mason": {
+    "structure": "integrated_villages:cabin_village",
+    "fallback": "오두막 마을",
+    "detail": "석공"
+  },
+  "integrated_villages:chests/cabin_village/cabin_village_shepard": {
+    "structure": "integrated_villages:cabin_village",
+    "fallback": "오두막 마을",
+    "detail": "양치기"
+  },
+  "integrated_villages:chests/clockwork_village/clockwork_village": {
+    "structure": "integrated_villages:clockwork_village",
+    "fallback": "태엽 마을",
+    "detail": ""
+  },
+  "integrated_villages:chests/clockwork_village/clockwork_village_bedroom": {
+    "structure": "integrated_villages:clockwork_village",
+    "fallback": "태엽 마을",
+    "detail": "침실"
+  },
+  "integrated_villages:chests/clockwork_village/clockwork_village_blacksmith": {
+    "structure": "integrated_villages:clockwork_village",
+    "fallback": "태엽 마을",
+    "detail": "대장간"
+  },
+  "integrated_villages:chests/clockwork_village/clockwork_village_cartographer": {
+    "structure": "integrated_villages:clockwork_village",
+    "fallback": "태엽 마을",
+    "detail": "지도 제작자"
+  },
+  "integrated_villages:chests/clockwork_village/clockwork_village_cleric": {
+    "structure": "integrated_villages:clockwork_village",
+    "fallback": "태엽 마을",
+    "detail": "성직자"
+  },
+  "integrated_villages:chests/clockwork_village/clockwork_village_farmhouse": {
+    "structure": "integrated_villages:clockwork_village",
+    "fallback": "태엽 마을",
+    "detail": "농가"
+  },
+  "integrated_villages:chests/clockwork_village/clockwork_village_fisherman": {
+    "structure": "integrated_villages:clockwork_village",
+    "fallback": "태엽 마을",
+    "detail": "어부"
+  },
+  "integrated_villages:chests/clockwork_village/clockwork_village_fletcher": {
+    "structure": "integrated_villages:clockwork_village",
+    "fallback": "태엽 마을",
+    "detail": "화살 제조인"
+  },
+  "integrated_villages:chests/clockwork_village/clockwork_village_kitchen": {
+    "structure": "integrated_villages:clockwork_village",
+    "fallback": "태엽 마을",
+    "detail": "주방"
+  },
+  "integrated_villages:chests/clockwork_village/clockwork_village_leatherworker": {
+    "structure": "integrated_villages:clockwork_village",
+    "fallback": "태엽 마을",
+    "detail": "가죽 세공인"
+  },
+  "integrated_villages:chests/clockwork_village/clockwork_village_library": {
+    "structure": "integrated_villages:clockwork_village",
+    "fallback": "태엽 마을",
+    "detail": "도서관"
+  },
+  "integrated_villages:chests/clockwork_village/clockwork_village_mason": {
+    "structure": "integrated_villages:clockwork_village",
+    "fallback": "태엽 마을",
+    "detail": "석공"
+  },
+  "integrated_villages:chests/clockwork_village/clockwork_village_shepard": {
+    "structure": "integrated_villages:clockwork_village",
+    "fallback": "태엽 마을",
+    "detail": "양치기"
+  },
+  "integrated_villages:chests/kutcha_village/kutcha_village": {
+    "structure": "integrated_villages:kutcha_village",
+    "fallback": "흙집 마을",
+    "detail": ""
+  },
+  "integrated_villages:chests/kutcha_village/kutcha_village_bedroom": {
+    "structure": "integrated_villages:kutcha_village",
+    "fallback": "흙집 마을",
+    "detail": "침실"
+  },
+  "integrated_villages:chests/kutcha_village/kutcha_village_blacksmith": {
+    "structure": "integrated_villages:kutcha_village",
+    "fallback": "흙집 마을",
+    "detail": "대장간"
+  },
+  "integrated_villages:chests/kutcha_village/kutcha_village_cartographer": {
+    "structure": "integrated_villages:kutcha_village",
+    "fallback": "흙집 마을",
+    "detail": "지도 제작자"
+  },
+  "integrated_villages:chests/kutcha_village/kutcha_village_cleric": {
+    "structure": "integrated_villages:kutcha_village",
+    "fallback": "흙집 마을",
+    "detail": "성직자"
+  },
+  "integrated_villages:chests/kutcha_village/kutcha_village_farmhouse": {
+    "structure": "integrated_villages:kutcha_village",
+    "fallback": "흙집 마을",
+    "detail": "농가"
+  },
+  "integrated_villages:chests/kutcha_village/kutcha_village_fisherman": {
+    "structure": "integrated_villages:kutcha_village",
+    "fallback": "흙집 마을",
+    "detail": "어부"
+  },
+  "integrated_villages:chests/kutcha_village/kutcha_village_fletcher": {
+    "structure": "integrated_villages:kutcha_village",
+    "fallback": "흙집 마을",
+    "detail": "화살 제조인"
+  },
+  "integrated_villages:chests/kutcha_village/kutcha_village_kitchen": {
+    "structure": "integrated_villages:kutcha_village",
+    "fallback": "흙집 마을",
+    "detail": "주방"
+  },
+  "integrated_villages:chests/kutcha_village/kutcha_village_leatherworker": {
+    "structure": "integrated_villages:kutcha_village",
+    "fallback": "흙집 마을",
+    "detail": "가죽 세공인"
+  },
+  "integrated_villages:chests/kutcha_village/kutcha_village_library": {
+    "structure": "integrated_villages:kutcha_village",
+    "fallback": "흙집 마을",
+    "detail": "도서관"
+  },
+  "integrated_villages:chests/kutcha_village/kutcha_village_mason": {
+    "structure": "integrated_villages:kutcha_village",
+    "fallback": "흙집 마을",
+    "detail": "석공"
+  },
+  "integrated_villages:chests/kutcha_village/kutcha_village_shepard": {
+    "structure": "integrated_villages:kutcha_village",
+    "fallback": "흙집 마을",
+    "detail": "양치기"
+  },
+  "integrated_villages:chests/marketstead_village/marketstead_village": {
+    "structure": "integrated_villages:marketstead_village",
+    "fallback": "장터 마을",
+    "detail": ""
+  },
+  "integrated_villages:chests/marketstead_village/marketstead_village_bedroom": {
+    "structure": "integrated_villages:marketstead_village",
+    "fallback": "장터 마을",
+    "detail": "침실"
+  },
+  "integrated_villages:chests/marketstead_village/marketstead_village_blacksmith": {
+    "structure": "integrated_villages:marketstead_village",
+    "fallback": "장터 마을",
+    "detail": "대장간"
+  },
+  "integrated_villages:chests/marketstead_village/marketstead_village_butcher": {
+    "structure": "integrated_villages:marketstead_village",
+    "fallback": "장터 마을",
+    "detail": "도살업자"
+  },
+  "integrated_villages:chests/marketstead_village/marketstead_village_cleric": {
+    "structure": "integrated_villages:marketstead_village",
+    "fallback": "장터 마을",
+    "detail": "성직자"
+  },
+  "integrated_villages:chests/marketstead_village/marketstead_village_create": {
+    "structure": "integrated_villages:marketstead_village",
+    "fallback": "장터 마을",
+    "detail": "기계 작업장"
+  },
+  "integrated_villages:chests/marketstead_village/marketstead_village_farmhouse": {
+    "structure": "integrated_villages:marketstead_village",
+    "fallback": "장터 마을",
+    "detail": "농가"
+  },
+  "integrated_villages:chests/marketstead_village/marketstead_village_fisherman": {
+    "structure": "integrated_villages:marketstead_village",
+    "fallback": "장터 마을",
+    "detail": "어부"
+  },
+  "integrated_villages:chests/marketstead_village/marketstead_village_fletcher": {
+    "structure": "integrated_villages:marketstead_village",
+    "fallback": "장터 마을",
+    "detail": "화살 제조인"
+  },
+  "integrated_villages:chests/marketstead_village/marketstead_village_kitchen": {
+    "structure": "integrated_villages:marketstead_village",
+    "fallback": "장터 마을",
+    "detail": "주방"
+  },
+  "integrated_villages:chests/marketstead_village/marketstead_village_leatherworker": {
+    "structure": "integrated_villages:marketstead_village",
+    "fallback": "장터 마을",
+    "detail": "가죽 세공인"
+  },
+  "integrated_villages:chests/marketstead_village/marketstead_village_library": {
+    "structure": "integrated_villages:marketstead_village",
+    "fallback": "장터 마을",
+    "detail": "도서관"
+  },
+  "integrated_villages:chests/marketstead_village/marketstead_village_mason": {
+    "structure": "integrated_villages:marketstead_village",
+    "fallback": "장터 마을",
+    "detail": "석공"
+  },
+  "integrated_villages:chests/marketstead_village/marketstead_village_tomb": {
+    "structure": "integrated_villages:marketstead_village",
+    "fallback": "장터 마을",
+    "detail": "무덤"
+  },
+  "integrated_villages:chests/mediterranean_village/mediterranean_village": {
+    "structure": "integrated_villages:mediterranean_village",
+    "fallback": "지중해풍 마을",
+    "detail": ""
+  },
+  "integrated_villages:chests/mediterranean_village/mediterranean_village_bedroom": {
+    "structure": "integrated_villages:mediterranean_village",
+    "fallback": "지중해풍 마을",
+    "detail": "침실"
+  },
+  "integrated_villages:chests/mediterranean_village/mediterranean_village_blacksmith": {
+    "structure": "integrated_villages:mediterranean_village",
+    "fallback": "지중해풍 마을",
+    "detail": "대장간"
+  },
+  "integrated_villages:chests/mediterranean_village/mediterranean_village_butcher": {
+    "structure": "integrated_villages:mediterranean_village",
+    "fallback": "지중해풍 마을",
+    "detail": "도살업자"
+  },
+  "integrated_villages:chests/mediterranean_village/mediterranean_village_create": {
+    "structure": "integrated_villages:mediterranean_village",
+    "fallback": "지중해풍 마을",
+    "detail": "기계 작업장"
+  },
+  "integrated_villages:chests/mediterranean_village/mediterranean_village_farmhouse": {
+    "structure": "integrated_villages:mediterranean_village",
+    "fallback": "지중해풍 마을",
+    "detail": "농가"
+  },
+  "integrated_villages:chests/mediterranean_village/mediterranean_village_kitchen": {
+    "structure": "integrated_villages:mediterranean_village",
+    "fallback": "지중해풍 마을",
+    "detail": "주방"
+  },
+  "integrated_villages:chests/mediterranean_village/mediterranean_village_library": {
+    "structure": "integrated_villages:mediterranean_village",
+    "fallback": "지중해풍 마을",
+    "detail": "도서관"
+  },
+  "integrated_villages:chests/mediterranean_village/mediterranean_village_shepard": {
+    "structure": "integrated_villages:mediterranean_village",
+    "fallback": "지중해풍 마을",
+    "detail": "양치기"
+  },
+  "integrated_villages:chests/mediterranean_village/mediterranean_village_treasure": {
+    "structure": "integrated_villages:mediterranean_village",
+    "fallback": "지중해풍 마을",
+    "detail": "보물"
+  },
+  "integrated_villages:chests/mossy_mounds/mossy_mounds": {
+    "structure": "integrated_villages:mossy_mounds",
+    "fallback": "이끼 언덕",
+    "detail": ""
+  },
+  "integrated_villages:chests/mossy_mounds/mossy_mounds_bedroom": {
+    "structure": "integrated_villages:mossy_mounds",
+    "fallback": "이끼 언덕",
+    "detail": "침실"
+  },
+  "integrated_villages:chests/mossy_mounds/mossy_mounds_blacksmith": {
+    "structure": "integrated_villages:mossy_mounds",
+    "fallback": "이끼 언덕",
+    "detail": "대장간"
+  },
+  "integrated_villages:chests/mossy_mounds/mossy_mounds_cartographer": {
+    "structure": "integrated_villages:mossy_mounds",
+    "fallback": "이끼 언덕",
+    "detail": "지도 제작자"
+  },
+  "integrated_villages:chests/mossy_mounds/mossy_mounds_cleric": {
+    "structure": "integrated_villages:mossy_mounds",
+    "fallback": "이끼 언덕",
+    "detail": "성직자"
+  },
+  "integrated_villages:chests/mossy_mounds/mossy_mounds_farmhouse": {
+    "structure": "integrated_villages:mossy_mounds",
+    "fallback": "이끼 언덕",
+    "detail": "농가"
+  },
+  "integrated_villages:chests/mossy_mounds/mossy_mounds_fisherman": {
+    "structure": "integrated_villages:mossy_mounds",
+    "fallback": "이끼 언덕",
+    "detail": "어부"
+  },
+  "integrated_villages:chests/mossy_mounds/mossy_mounds_fletcher": {
+    "structure": "integrated_villages:mossy_mounds",
+    "fallback": "이끼 언덕",
+    "detail": "화살 제조인"
+  },
+  "integrated_villages:chests/mossy_mounds/mossy_mounds_kitchen": {
+    "structure": "integrated_villages:mossy_mounds",
+    "fallback": "이끼 언덕",
+    "detail": "주방"
+  },
+  "integrated_villages:chests/mossy_mounds/mossy_mounds_leatherworker": {
+    "structure": "integrated_villages:mossy_mounds",
+    "fallback": "이끼 언덕",
+    "detail": "가죽 세공인"
+  },
+  "integrated_villages:chests/mossy_mounds/mossy_mounds_library": {
+    "structure": "integrated_villages:mossy_mounds",
+    "fallback": "이끼 언덕",
+    "detail": "도서관"
+  },
+  "integrated_villages:chests/mossy_mounds/mossy_mounds_mason": {
+    "structure": "integrated_villages:mossy_mounds",
+    "fallback": "이끼 언덕",
+    "detail": "석공"
+  },
+  "integrated_villages:chests/mossy_mounds/mossy_mounds_shepard": {
+    "structure": "integrated_villages:mossy_mounds",
+    "fallback": "이끼 언덕",
+    "detail": "양치기"
+  },
+  "integrated_villages:chests/mossy_mounds/mossy_mounds_treasure": {
+    "structure": "integrated_villages:mossy_mounds",
+    "fallback": "이끼 언덕",
+    "detail": "보물"
+  },
+  "integrated_villages:chests/oasis_village/oasis_village": {
+    "structure": "integrated_villages:oasis_village",
+    "fallback": "오아시스 마을",
+    "detail": ""
+  },
+  "integrated_villages:chests/oasis_village/oasis_village_bedroom": {
+    "structure": "integrated_villages:oasis_village",
+    "fallback": "오아시스 마을",
+    "detail": "침실"
+  },
+  "integrated_villages:chests/oasis_village/oasis_village_blacksmith": {
+    "structure": "integrated_villages:oasis_village",
+    "fallback": "오아시스 마을",
+    "detail": "대장간"
+  },
+  "integrated_villages:chests/oasis_village/oasis_village_cartographer": {
+    "structure": "integrated_villages:oasis_village",
+    "fallback": "오아시스 마을",
+    "detail": "지도 제작자"
+  },
+  "integrated_villages:chests/oasis_village/oasis_village_cleric": {
+    "structure": "integrated_villages:oasis_village",
+    "fallback": "오아시스 마을",
+    "detail": "성직자"
+  },
+  "integrated_villages:chests/oasis_village/oasis_village_farmhouse": {
+    "structure": "integrated_villages:oasis_village",
+    "fallback": "오아시스 마을",
+    "detail": "농가"
+  },
+  "integrated_villages:chests/oasis_village/oasis_village_kitchen": {
+    "structure": "integrated_villages:oasis_village",
+    "fallback": "오아시스 마을",
+    "detail": "주방"
+  },
+  "integrated_villages:chests/oasis_village/oasis_village_leatherworker": {
+    "structure": "integrated_villages:oasis_village",
+    "fallback": "오아시스 마을",
+    "detail": "가죽 세공인"
+  },
+  "integrated_villages:chests/oasis_village/oasis_village_library": {
+    "structure": "integrated_villages:oasis_village",
+    "fallback": "오아시스 마을",
+    "detail": "도서관"
+  },
+  "integrated_villages:chests/oasis_village/oasis_village_mason": {
+    "structure": "integrated_villages:oasis_village",
+    "fallback": "오아시스 마을",
+    "detail": "석공"
+  },
+  "integrated_villages:chests/oasis_village/oasis_village_shepard": {
+    "structure": "integrated_villages:oasis_village",
+    "fallback": "오아시스 마을",
+    "detail": "양치기"
+  },
+  "integrated_villages:chests/pirate_village/pirate_village": {
+    "structure": "integrated_villages:pirate_village",
+    "fallback": "해적 마을",
+    "detail": ""
+  },
+  "integrated_villages:chests/pirate_village/pirate_village_bedroom": {
+    "structure": "integrated_villages:pirate_village",
+    "fallback": "해적 마을",
+    "detail": "침실"
+  },
+  "integrated_villages:chests/pirate_village/pirate_village_blacksmith": {
+    "structure": "integrated_villages:pirate_village",
+    "fallback": "해적 마을",
+    "detail": "대장간"
+  },
+  "integrated_villages:chests/pirate_village/pirate_village_cartographer": {
+    "structure": "integrated_villages:pirate_village",
+    "fallback": "해적 마을",
+    "detail": "지도 제작자"
+  },
+  "integrated_villages:chests/pirate_village/pirate_village_cleric": {
+    "structure": "integrated_villages:pirate_village",
+    "fallback": "해적 마을",
+    "detail": "성직자"
+  },
+  "integrated_villages:chests/pirate_village/pirate_village_create": {
+    "structure": "integrated_villages:pirate_village",
+    "fallback": "해적 마을",
+    "detail": "기계 작업장"
+  },
+  "integrated_villages:chests/pirate_village/pirate_village_farmhouse": {
+    "structure": "integrated_villages:pirate_village",
+    "fallback": "해적 마을",
+    "detail": "농가"
+  },
+  "integrated_villages:chests/pirate_village/pirate_village_kitchen": {
+    "structure": "integrated_villages:pirate_village",
+    "fallback": "해적 마을",
+    "detail": "주방"
+  },
+  "integrated_villages:chests/pirate_village/pirate_village_leatherworker": {
+    "structure": "integrated_villages:pirate_village",
+    "fallback": "해적 마을",
+    "detail": "가죽 세공인"
+  },
+  "integrated_villages:chests/pirate_village/pirate_village_library": {
+    "structure": "integrated_villages:pirate_village",
+    "fallback": "해적 마을",
+    "detail": "도서관"
+  },
+  "integrated_villages:chests/pirate_village/pirate_village_mason": {
+    "structure": "integrated_villages:pirate_village",
+    "fallback": "해적 마을",
+    "detail": "석공"
+  },
+  "integrated_villages:chests/pirate_village/pirate_village_shepard": {
+    "structure": "integrated_villages:pirate_village",
+    "fallback": "해적 마을",
+    "detail": "양치기"
+  },
+  "integrated_villages:chests/pirate_village/pirate_village_treasure": {
+    "structure": "integrated_villages:pirate_village",
+    "fallback": "해적 마을",
+    "detail": "보물"
+  },
+  "integrated_villages:chests/tavern_village/tavern_village": {
+    "structure": "integrated_villages:tavern_village",
+    "fallback": "선술집 마을",
+    "detail": ""
+  },
+  "integrated_villages:chests/tavern_village/tavern_village_bedroom": {
+    "structure": "integrated_villages:tavern_village",
+    "fallback": "선술집 마을",
+    "detail": "침실"
+  },
+  "integrated_villages:chests/tavern_village/tavern_village_blacksmith": {
+    "structure": "integrated_villages:tavern_village",
+    "fallback": "선술집 마을",
+    "detail": "대장간"
+  },
+  "integrated_villages:chests/tavern_village/tavern_village_butcher": {
+    "structure": "integrated_villages:tavern_village",
+    "fallback": "선술집 마을",
+    "detail": "도살업자"
+  },
+  "integrated_villages:chests/tavern_village/tavern_village_create": {
+    "structure": "integrated_villages:tavern_village",
+    "fallback": "선술집 마을",
+    "detail": "기계 작업장"
+  },
+  "integrated_villages:chests/tavern_village/tavern_village_farmhouse": {
+    "structure": "integrated_villages:tavern_village",
+    "fallback": "선술집 마을",
+    "detail": "농가"
+  },
+  "integrated_villages:chests/tavern_village/tavern_village_kitchen": {
+    "structure": "integrated_villages:tavern_village",
+    "fallback": "선술집 마을",
+    "detail": "주방"
+  },
+  "integrated_villages:chests/tavern_village/tavern_village_library": {
+    "structure": "integrated_villages:tavern_village",
+    "fallback": "선술집 마을",
+    "detail": "도서관"
+  },
+  "integrated_villages:chests/tavern_village/tavern_village_shepard": {
+    "structure": "integrated_villages:tavern_village",
+    "fallback": "선술집 마을",
+    "detail": "양치기"
+  },
+  "integrated_villages:chests/tavern_village/tavern_village_treasure": {
+    "structure": "integrated_villages:tavern_village",
+    "fallback": "선술집 마을",
+    "detail": "보물"
+  },
+  "minecells:chests/common/prison_blocks": {
+    "structure": "minecells:prison",
+    "fallback": "수감동",
+    "detail": "일반 블록"
+  },
+  "minecells:chests/common/promenade_blocks": {
+    "structure": "minecells:promenade",
+    "fallback": "죄인의 대로",
+    "detail": "일반 블록"
+  },
+  "minecells:chests/overworld_portal": {
+    "structure": "minecells:overworld_portal",
+    "fallback": "오버월드 포탈",
+    "detail": ""
+  },
+  "minecells:chests/prison/prison_common": {
+    "structure": "minecells:prison",
+    "fallback": "수감동",
+    "detail": "일반"
+  },
+  "minecells:chests/prison/prison_rare": {
+    "structure": "minecells:prison",
+    "fallback": "수감동",
+    "detail": "희귀"
+  },
+  "minecells:chests/prison/prison_uncommon": {
+    "structure": "minecells:prison",
+    "fallback": "수감동",
+    "detail": "고급"
+  },
+  "minecells:chests/prison": {
+    "structure": "minecells:prison",
+    "fallback": "수감동",
+    "detail": ""
+  },
+  "minecells:chests/promenade/promenade_common": {
+    "structure": "minecells:promenade",
+    "fallback": "죄인의 대로",
+    "detail": "일반"
+  },
+  "minecells:chests/promenade/promenade_rare": {
+    "structure": "minecells:promenade",
+    "fallback": "죄인의 대로",
+    "detail": "희귀"
+  },
+  "minecells:chests/promenade/promenade_uncommon": {
+    "structure": "minecells:promenade",
+    "fallback": "죄인의 대로",
+    "detail": "고급"
+  },
+  "minecells:chests/promenade": {
+    "structure": "minecells:promenade",
+    "fallback": "죄인의 대로",
+    "detail": ""
+  },
+  "minecells:chests/promenade_rune": {
+    "structure": "minecells:promenade",
+    "fallback": "죄인의 대로",
+    "detail": "룬"
+  },
+  "minecells:chests/ramparts/ramparts_common": {
+    "structure": "minecells:ramparts",
+    "fallback": "성루",
+    "detail": "일반"
+  },
+  "minecells:chests/ramparts/ramparts_rare": {
+    "structure": "minecells:ramparts",
+    "fallback": "성루",
+    "detail": "희귀"
+  },
+  "minecells:chests/ramparts/ramparts_uncommon": {
+    "structure": "minecells:ramparts",
+    "fallback": "성루",
+    "detail": "고급"
+  },
+  "simply_houses:chests/taiga_woodcutter/taiga_woodcutter_treasure": {
+    "structure": "simply_houses:taiga_woodcutter",
+    "fallback": "타이가 나무꾼의 집",
+    "detail": "보물"
+  },
+  "simply_houses:chests/taiga_woodcutter/taiga_woodcutter_potions": {
+    "structure": "simply_houses:taiga_woodcutter",
+    "fallback": "타이가 나무꾼의 집",
+    "detail": "물약"
+  },
+  "simply_houses:chests/taiga_woodcutter/taiga_woodcutter_normal": {
+    "structure": "simply_houses:taiga_woodcutter",
+    "fallback": "타이가 나무꾼의 집",
+    "detail": "일반"
+  },
+  "simply_houses:chests/taiga_woodcutter/taiga_woodcutter_barrels": {
+    "structure": "simply_houses:taiga_woodcutter",
+    "fallback": "타이가 나무꾼의 집",
+    "detail": "통"
+  },
+  "simply_houses:chests/taiga_inn/taiga_inn_potions": {
+    "structure": "simply_houses:taiga_inn",
+    "fallback": "타이가 여관",
+    "detail": "물약"
+  },
+  "simply_houses:chests/taiga_inn/taiga_inn_normal": {
+    "structure": "simply_houses:taiga_inn",
+    "fallback": "타이가 여관",
+    "detail": "일반"
+  },
+  "simply_houses:chests/taiga_inn/taiga_inn_barrels": {
+    "structure": "simply_houses:taiga_inn",
+    "fallback": "타이가 여관",
+    "detail": "통"
+  },
+  "simply_houses:chests/taiga_house/taiga_house_potions": {
+    "structure": "simply_houses:taiga_house",
+    "fallback": "타이가 집",
+    "detail": "물약"
+  },
+  "simply_houses:chests/taiga_house/taiga_house_normal": {
+    "structure": "simply_houses:taiga_house",
+    "fallback": "타이가 집",
+    "detail": "일반"
+  },
+  "simply_houses:chests/taiga_house/taiga_house_barrels": {
+    "structure": "simply_houses:taiga_house",
+    "fallback": "타이가 집",
+    "detail": "통"
+  },
+  "simply_houses:chests/taiga_forge/taiga_forge_potions": {
+    "structure": "simply_houses:taiga_forge",
+    "fallback": "타이가 대장간",
+    "detail": "물약"
+  },
+  "simply_houses:chests/taiga_forge/taiga_forge_normal": {
+    "structure": "simply_houses:taiga_forge",
+    "fallback": "타이가 대장간",
+    "detail": "일반"
+  },
+  "simply_houses:chests/taiga_forge/taiga_forge_barrels": {
+    "structure": "simply_houses:taiga_forge",
+    "fallback": "타이가 대장간",
+    "detail": "통"
+  },
+  "simply_houses:chests/plains_mansion/plains_mansion_treasure": {
+    "structure": "simply_houses:plains_mansion",
+    "fallback": "평원 저택",
+    "detail": "보물"
+  },
+  "simply_houses:chests/plains_mansion/plains_mansion_potions": {
+    "structure": "simply_houses:plains_mansion",
+    "fallback": "평원 저택",
+    "detail": "물약"
+  },
+  "simply_houses:chests/plains_mansion/plains_mansion_normal": {
+    "structure": "simply_houses:plains_mansion",
+    "fallback": "평원 저택",
+    "detail": "일반"
+  },
+  "simply_houses:chests/plains_mansion/plains_mansion_barrels": {
+    "structure": "simply_houses:plains_mansion",
+    "fallback": "평원 저택",
+    "detail": "통"
+  },
+  "simply_houses:chests/plains_house/plains_house_potions": {
+    "structure": "simply_houses:plains_house",
+    "fallback": "평원 집",
+    "detail": "물약"
+  },
+  "simply_houses:chests/plains_house/plains_house_normal": {
+    "structure": "simply_houses:plains_house",
+    "fallback": "평원 집",
+    "detail": "일반"
+  },
+  "simply_houses:chests/plains_house/plains_house_barrels": {
+    "structure": "simply_houses:plains_house",
+    "fallback": "평원 집",
+    "detail": "통"
+  },
+  "simply_houses:chests/forest_stonemason/forest_stonemason_potions": {
+    "structure": "simply_houses:forest_stonemason",
+    "fallback": "숲 석공의 집",
+    "detail": "물약"
+  },
+  "simply_houses:chests/forest_stonemason/forest_stonemason_normal": {
+    "structure": "simply_houses:forest_stonemason",
+    "fallback": "숲 석공의 집",
+    "detail": "일반"
+  },
+  "simply_houses:chests/forest_house/forest_house_potions": {
+    "structure": "simply_houses:forest_house",
+    "fallback": "숲속 집",
+    "detail": "물약"
+  },
+  "simply_houses:chests/forest_house/forest_house_barrels": {
+    "structure": "simply_houses:forest_house",
+    "fallback": "숲속 집",
+    "detail": "통"
+  },
+  "simply_houses:chests/forest_fort/forest_fort_potions": {
+    "structure": "simply_houses:forest_fort",
+    "fallback": "숲 요새",
+    "detail": "물약"
+  },
+  "simply_houses:chests/forest_fort/forest_fort_normal": {
+    "structure": "simply_houses:forest_fort",
+    "fallback": "숲 요새",
+    "detail": "일반"
+  },
+  "simply_houses:chests/forest_fort/forest_fort_barrels": {
+    "structure": "simply_houses:forest_fort",
+    "fallback": "숲 요새",
+    "detail": "통"
+  },
+  "simply_houses:chests/forest_chapel/forest_chapel_normal": {
+    "structure": "simply_houses:forest_chapel",
+    "fallback": "숲 예배당",
+    "detail": "일반"
+  },
+  "simply_houses:chests/forest_chapel/forest_chapel_barrels": {
+    "structure": "simply_houses:forest_chapel",
+    "fallback": "숲 예배당",
+    "detail": "통"
+  },
+  "swampier_swamps:chests/village/village_swamp_house": {
+    "structure": "swampier_swamps:village_swamp",
+    "fallback": "늪 마을",
+    "detail": "마을 집"
+  },
+  "graveyard:chests/small_graveyard_loot": {
+    "structure": "graveyard:small_graveyard",
+    "fallback": "작은 묘지",
+    "detail": ""
+  },
+  "graveyard:chests/medium_graveyard_loot": {
+    "structure": "graveyard:medium_graveyard",
+    "fallback": "중형 묘지",
+    "detail": ""
+  },
+  "graveyard:chests/large_graveyard_loot": {
+    "structure": "graveyard:large_graveyard",
+    "fallback": "대형 묘지",
+    "detail": ""
+  },
+  "graveyard:chests/crypt_urn_loot": {
+    "structure": "graveyard:crypt",
+    "fallback": "지하묘실",
+    "detail": "항아리"
+  },
+  "graveyard:chests/crypt_loot": {
+    "structure": "graveyard:crypt",
+    "fallback": "지하묘실",
+    "detail": ""
+  },
+  "twigs:chests/bloodstone_obelisk": {
+    "structure": "twigs:bloodstone_obelisk",
+    "fallback": "혈석 오벨리스크",
+    "detail": ""
+  },
+  "betterdungeons:zombie_dungeon/chests/tombstone": {
+    "structure": "betterdungeons:zombie_dungeon",
+    "fallback": "좀비 던전",
+    "detail": "묘비"
+  },
+  "betterdungeons:zombie_dungeon/chests/special": {
+    "structure": "betterdungeons:zombie_dungeon",
+    "fallback": "좀비 던전",
+    "detail": "특별"
+  },
+  "betterdungeons:zombie_dungeon/chests/common": {
+    "structure": "betterdungeons:zombie_dungeon",
+    "fallback": "좀비 던전",
+    "detail": "일반"
+  },
+  "betterdungeons:spider_dungeon/chests/egg_room": {
+    "structure": "betterdungeons:spider_dungeon",
+    "fallback": "거미 던전",
+    "detail": "알 방"
+  },
+  "betterdungeons:small_nether_dungeon/chests/common": {
+    "structure": "betterdungeons:small_nether_dungeon",
+    "fallback": "소형 네더 던전",
+    "detail": "일반"
+  },
+  "betterdungeons:small_dungeon/chests/loot_piles": {
+    "structure": "betterdungeons:small_dungeon",
+    "fallback": "소형 던전",
+    "detail": "더미"
+  },
+  "betterdungeons:skeleton_dungeon/chests/middle": {
+    "structure": "betterdungeons:skeleton_dungeon",
+    "fallback": "스켈레톤 던전",
+    "detail": "중층"
+  },
+  "betterdungeons:skeleton_dungeon/chests/common": {
+    "structure": "betterdungeons:skeleton_dungeon",
+    "fallback": "스켈레톤 던전",
+    "detail": "일반"
+  },
+  "ad_astra:chests/dungeon/moon/dungeon_chest": {
+    "structure": "ad_astra:moon_dungeon",
+    "fallback": "달 던전",
+    "detail": ""
+  },
+  "ad_astra:chests/dungeon/moon/large_dungeon_chest": {
+    "structure": "ad_astra:moon_dungeon",
+    "fallback": "달 던전",
+    "detail": "대형 던전"
+  },
+  "ad_astra:chests/temple/mars/temple": {
+    "structure": "ad_astra:mars_temple",
+    "fallback": "화성 사원",
+    "detail": ""
+  },
+  "ad_astra:chests/village/moon/blacksmith": {
+    "structure": "ad_astra:lunarian_village",
+    "fallback": "루나리안 마을",
+    "detail": "대장간"
+  },
+  "ad_astra:chests/village/moon/house": {
+    "structure": "ad_astra:lunarian_village",
+    "fallback": "루나리안 마을",
+    "detail": "집"
+  },
+  "aquamirae:chests/camp_barrel": {
+    "structure": "",
+    "fallback": "야영지 통",
+    "detail": ""
+  },
+  "aquamirae:chests/frozen_chest": {
+    "structure": "",
+    "fallback": "얼어붙은",
+    "detail": ""
+  },
+  "aquamirae:chests/maze_camp_chest": {
+    "structure": "",
+    "fallback": "미로 야영지",
+    "detail": ""
+  },
+  "aquamirae:chests/ship_1": {
+    "structure": "",
+    "fallback": "선박 1",
+    "detail": ""
+  },
+  "aquamirae:chests/ship_2": {
+    "structure": "",
+    "fallback": "선박 2",
+    "detail": ""
+  },
+  "archers:chests/archery_range": {
+    "structure": "",
+    "fallback": "궁술 훈련장",
+    "detail": ""
+  },
+  "archers_expansion:chests/deadeye_hideout": {
+    "structure": "",
+    "fallback": "데드아이 은신처",
+    "detail": ""
+  },
+  "archers_expansion:chests/deadeye_treasure": {
+    "structure": "",
+    "fallback": "데드아이의 보물",
+    "detail": ""
+  },
+  "archers_expansion:chests/tundra_hunter_camp": {
+    "structure": "",
+    "fallback": "툰드라 사냥꾼 야영지",
+    "detail": ""
+  },
+  "archers_expansion:chests/tundra_hunter_hut": {
+    "structure": "",
+    "fallback": "툰드라 사냥꾼 오두막",
+    "detail": ""
+  },
+  "archers_expansion:chests/war_archer_outpost": {
+    "structure": "",
+    "fallback": "전투 궁수 전초 기지",
+    "detail": ""
+  },
+  "archers_expansion:chests/war_archer_tower": {
+    "structure": "",
+    "fallback": "전투 궁수 탑",
+    "detail": ""
+  },
+  "artifacts:chests/campsite_barrel": {
+    "structure": "",
+    "fallback": "야영지 통",
+    "detail": ""
+  },
+  "artifacts:chests/campsite_barrel/cobblestone": {
+    "structure": "",
+    "fallback": "야영지 통 조약돌",
+    "detail": ""
+  },
+  "artifacts:chests/campsite_barrel/cobwebs": {
+    "structure": "",
+    "fallback": "야영지 통 거미줄",
+    "detail": ""
+  },
+  "artifacts:chests/campsite_barrel/crops": {
+    "structure": "",
+    "fallback": "야영지 통 작물",
+    "detail": ""
+  },
+  "artifacts:chests/campsite_barrel/food": {
+    "structure": "",
+    "fallback": "야영지 통 식량",
+    "detail": ""
+  },
+  "artifacts:chests/campsite_barrel/gems": {
+    "structure": "",
+    "fallback": "야영지 통 보석",
+    "detail": ""
+  },
+  "artifacts:chests/campsite_barrel/ingots": {
+    "structure": "",
+    "fallback": "야영지 통 주괴",
+    "detail": ""
+  },
+  "artifacts:chests/campsite_barrel/minecarts": {
+    "structure": "",
+    "fallback": "야영지 통 광산 수레",
+    "detail": ""
+  },
+  "artifacts:chests/campsite_barrel/ores": {
+    "structure": "",
+    "fallback": "야영지 통 광석",
+    "detail": ""
+  },
+  "artifacts:chests/campsite_barrel/rails": {
+    "structure": "",
+    "fallback": "야영지 통 철로",
+    "detail": ""
+  },
+  "artifacts:chests/campsite_barrel/tnt": {
+    "structure": "",
+    "fallback": "야영지 통 TNT",
+    "detail": ""
+  },
+  "artifacts:chests/campsite_chest": {
+    "structure": "",
+    "fallback": "야영지",
+    "detail": ""
+  },
+  "artifacts:inject/chests/abandoned_mineshaft": {
+    "structure": "minecraft:mineshaft",
+    "fallback": "폐광",
+    "detail": ""
+  },
+  "artifacts:inject/chests/ancient_city": {
+    "structure": "minecraft:ancient_city",
+    "fallback": "고대 도시",
+    "detail": ""
+  },
+  "artifacts:inject/chests/ancient_city_ice_box": {
+    "structure": "minecraft:ancient_city",
+    "fallback": "고대 도시 얼음 보관함",
+    "detail": "얼음 보관함"
+  },
+  "artifacts:inject/chests/bastion_hoglin_stable": {
+    "structure": "minecraft:bastion_remnant",
+    "fallback": "보루 잔해",
+    "detail": "호글린 마구간"
+  },
+  "artifacts:inject/chests/bastion_treasure": {
+    "structure": "minecraft:bastion_remnant",
+    "fallback": "보루 잔해",
+    "detail": "보물"
+  },
+  "artifacts:inject/chests/buried_treasure": {
+    "structure": "minecraft:buried_treasure",
+    "fallback": "땅에 매장된 보물",
+    "detail": ""
+  },
+  "artifacts:inject/chests/desert_pyramid": {
+    "structure": "minecraft:desert_pyramid",
+    "fallback": "사막 피라미드",
+    "detail": ""
+  },
+  "artifacts:inject/chests/end_city_treasure": {
+    "structure": "minecraft:end_city",
+    "fallback": "엔드 도시",
+    "detail": ""
+  },
+  "artifacts:inject/chests/igloo_chest": {
+    "structure": "minecraft:igloo",
+    "fallback": "이글루",
+    "detail": ""
+  },
+  "artifacts:inject/chests/jungle_temple": {
+    "structure": "minecraft:jungle_pyramid",
+    "fallback": "정글 피라미드",
+    "detail": ""
+  },
+  "artifacts:inject/chests/nether_bridge": {
+    "structure": "minecraft:fortress",
+    "fallback": "요새",
+    "detail": ""
+  },
+  "artifacts:inject/chests/pillager_outpost": {
+    "structure": "minecraft:pillager_outpost",
+    "fallback": "약탈자 전초기지",
+    "detail": ""
+  },
+  "artifacts:inject/chests/ruined_portal": {
+    "structure": "",
+    "fallback": "무너진 차원문",
+    "detail": ""
+  },
+  "artifacts:inject/chests/shipwreck_treasure": {
+    "structure": "minecraft:shipwreck",
+    "fallback": "난파선",
+    "detail": "보물"
+  },
+  "artifacts:inject/chests/spawn_bonus_chest": {
+    "structure": "",
+    "fallback": "시작 추가",
+    "detail": ""
+  },
+  "artifacts:inject/chests/stronghold_corridor": {
+    "structure": "minecraft:stronghold",
+    "fallback": "지하유적",
+    "detail": "복도"
+  },
+  "artifacts:inject/chests/underwater_ruin_big": {
+    "structure": "",
+    "fallback": "해저 폐허 대형",
+    "detail": ""
+  },
+  "artifacts:inject/chests/village/village_armorer": {
+    "structure": "",
+    "fallback": "마을 마을 갑옷 제조인",
+    "detail": ""
+  },
+  "artifacts:inject/chests/village/village_butcher": {
+    "structure": "",
+    "fallback": "마을 마을 도살업자",
+    "detail": ""
+  },
+  "artifacts:inject/chests/village/village_desert_house": {
+    "structure": "",
+    "fallback": "마을 마을 사막 집",
+    "detail": ""
+  },
+  "artifacts:inject/chests/village/village_plains_house": {
+    "structure": "",
+    "fallback": "마을 마을 평원 집",
+    "detail": ""
+  },
+  "artifacts:inject/chests/village/village_savanna_house": {
+    "structure": "",
+    "fallback": "마을 마을 사바나 집",
+    "detail": ""
+  },
+  "artifacts:inject/chests/village/village_snowy_house": {
+    "structure": "",
+    "fallback": "마을 마을 눈 덮인 집",
+    "detail": ""
+  },
+  "artifacts:inject/chests/village/village_taiga_house": {
+    "structure": "",
+    "fallback": "마을 마을 타이가 집",
+    "detail": ""
+  },
+  "artifacts:inject/chests/village/village_tannery": {
+    "structure": "",
+    "fallback": "마을 마을 가죽 세공소",
+    "detail": ""
+  },
+  "artifacts:inject/chests/village/village_temple": {
+    "structure": "",
+    "fallback": "마을 마을 사원",
+    "detail": ""
+  },
+  "artifacts:inject/chests/village/village_toolsmith": {
+    "structure": "",
+    "fallback": "마을 마을 도구 대장장이",
+    "detail": ""
+  },
+  "artifacts:inject/chests/village/village_weaponsmith": {
+    "structure": "",
+    "fallback": "마을 마을 무기 대장장이",
+    "detail": ""
+  },
+  "artifacts:inject/chests/woodland_mansion": {
+    "structure": "minecraft:mansion",
+    "fallback": "대저택",
+    "detail": ""
+  },
+  "bards_rpg:chests/pub": {
+    "structure": "",
+    "fallback": "주점",
+    "detail": ""
+  },
+  "betterend:chests/biome": {
+    "structure": "",
+    "fallback": "생물 군계",
+    "detail": ""
+  },
+  "betterend:chests/chorus_forest": {
+    "structure": "",
+    "fallback": "후렴 숲",
+    "detail": ""
+  },
+  "betterend:chests/common": {
+    "structure": "",
+    "fallback": "일반",
+    "detail": ""
+  },
+  "betterend:chests/foggy_mushroomland": {
+    "structure": "",
+    "fallback": "안개 낀 버섯 지대",
+    "detail": ""
+  },
+  "betterend:chests/lantern_woods": {
+    "structure": "",
+    "fallback": "등불 숲",
+    "detail": ""
+  },
+  "betterend:chests/shadow_forest": {
+    "structure": "",
+    "fallback": "그림자 숲",
+    "detail": ""
+  },
+  "betterend:chests/umbrella_jungle": {
+    "structure": "",
+    "fallback": "우산 정글",
+    "detail": ""
+  },
+  "betternether:chests/city": {
+    "structure": "",
+    "fallback": "도시",
+    "detail": ""
+  },
+  "betternether:chests/city_common": {
+    "structure": "",
+    "fallback": "도시 일반",
+    "detail": ""
+  },
+  "betternether:chests/city_surprise": {
+    "structure": "",
+    "fallback": "도시 비밀",
+    "detail": ""
+  },
+  "betternether:chests/library": {
+    "structure": "",
+    "fallback": "도서관",
+    "detail": ""
+  },
+  "betternether:chests/wither_tower": {
+    "structure": "",
+    "fallback": "위더 탑",
+    "detail": ""
+  },
+  "betternether:chests/wither_tower_bonus": {
+    "structure": "",
+    "fallback": "위더 탑 추가",
+    "detail": ""
+  },
+  "bosses_of_mass_destruction:chests/obsidilith": {
+    "structure": "bosses_of_mass_destruction:obsidilith_arena",
+    "fallback": "옵시딜리스 제단",
+    "detail": ""
+  },
+  "bosses_of_mass_destruction:chests/gauntlet": {
+    "structure": "bosses_of_mass_destruction:gauntlet_arena",
+    "fallback": "건틀릿 투기장",
+    "detail": ""
+  },
+  "chefsdelight:chests/cooker": {
+    "structure": "",
+    "fallback": "요리사",
+    "detail": ""
+  },
+  "deeperdarker:chests/crystallized_amber": {
+    "structure": "",
+    "fallback": "결정화된 호박",
+    "detail": ""
+  },
+  "derelict:chests/spider_caves_hint": {
+    "structure": "",
+    "fallback": "거미 동굴 단서",
+    "detail": ""
+  },
+  "dungeons_arise:chests/mines_treasure_small": {
+    "structure": "",
+    "fallback": "광산 보물 소형",
+    "detail": ""
+  },
+  "dungeons_arise:chests/mines_treasure_medium": {
+    "structure": "",
+    "fallback": "광산 보물 중형",
+    "detail": ""
+  },
+  "dungeons_arise:chests/mines_treasure_big": {
+    "structure": "",
+    "fallback": "광산 보물 대형",
+    "detail": ""
+  },
+  "endrem:minecraft/chests/woodland_mansion": {
+    "structure": "minecraft:mansion",
+    "fallback": "대저택",
+    "detail": ""
+  },
+  "endrem:minecraft/chests/simple_dungeon": {
+    "structure": "",
+    "fallback": "일반 던전",
+    "detail": ""
+  },
+  "endrem:minecraft/chests/shipwreck_treasure": {
+    "structure": "minecraft:shipwreck",
+    "fallback": "난파선",
+    "detail": "보물"
+  },
+  "endrem:minecraft/chests/pillager_outpost": {
+    "structure": "minecraft:pillager_outpost",
+    "fallback": "약탈자 전초기지",
+    "detail": ""
+  },
+  "endrem:minecraft/chests/nether_bridge": {
+    "structure": "minecraft:fortress",
+    "fallback": "요새",
+    "detail": ""
+  },
+  "endrem:minecraft/chests/jungle_temple": {
+    "structure": "minecraft:jungle_pyramid",
+    "fallback": "정글 피라미드",
+    "detail": ""
+  },
+  "endrem:minecraft/chests/igloo_chest": {
+    "structure": "minecraft:igloo",
+    "fallback": "이글루",
+    "detail": ""
+  },
+  "endrem:minecraft/chests/desert_pyramid": {
+    "structure": "minecraft:desert_pyramid",
+    "fallback": "사막 피라미드",
+    "detail": ""
+  },
+  "endrem:minecraft/chests/buried_treasure": {
+    "structure": "minecraft:buried_treasure",
+    "fallback": "땅에 매장된 보물",
+    "detail": ""
+  },
+  "endrem:minecraft/chests/bastion_treasure": {
+    "structure": "minecraft:bastion_remnant",
+    "fallback": "보루 잔해",
+    "detail": "보물"
+  },
+  "endrem:minecraft/chests/abandoned_mineshaft": {
+    "structure": "minecraft:mineshaft",
+    "fallback": "폐광",
+    "detail": ""
+  },
+  "farmersdelight:chests/fd_abandoned_mineshaft": {
+    "structure": "minecraft:mineshaft",
+    "fallback": "폐광",
+    "detail": ""
+  },
+  "farmersdelight:chests/fd_bastion_hoglin_stable": {
+    "structure": "minecraft:bastion_remnant",
+    "fallback": "보루 잔해",
+    "detail": "호글린 마구간"
+  },
+  "farmersdelight:chests/fd_bastion_treasure": {
+    "structure": "minecraft:bastion_remnant",
+    "fallback": "보루 잔해",
+    "detail": "보물"
+  },
+  "farmersdelight:chests/fd_end_city_treasure": {
+    "structure": "minecraft:end_city",
+    "fallback": "엔드 도시",
+    "detail": ""
+  },
+  "farmersdelight:chests/fd_pillager_outpost": {
+    "structure": "minecraft:pillager_outpost",
+    "fallback": "약탈자 전초기지",
+    "detail": ""
+  },
+  "farmersdelight:chests/fd_ruined_portal": {
+    "structure": "",
+    "fallback": "무너진 차원문",
+    "detail": ""
+  },
+  "farmersdelight:chests/fd_shipwreck_supply": {
+    "structure": "minecraft:shipwreck",
+    "fallback": "난파선",
+    "detail": "보급품"
+  },
+  "farmersdelight:chests/fd_simple_dungeon": {
+    "structure": "",
+    "fallback": "일반 던전",
+    "detail": ""
+  },
+  "farmersdelight:chests/fd_village_butcher": {
+    "structure": "",
+    "fallback": "마을 도살업자",
+    "detail": ""
+  },
+  "farmersdelight:chests/fd_village_desert_house": {
+    "structure": "",
+    "fallback": "마을 사막 집",
+    "detail": ""
+  },
+  "farmersdelight:chests/fd_village_plains_house": {
+    "structure": "",
+    "fallback": "마을 평원 집",
+    "detail": ""
+  },
+  "farmersdelight:chests/fd_village_savanna_house": {
+    "structure": "",
+    "fallback": "마을 사바나 집",
+    "detail": ""
+  },
+  "farmersdelight:chests/fd_village_snowy_house": {
+    "structure": "",
+    "fallback": "마을 눈 덮인 집",
+    "detail": ""
+  },
+  "farmersdelight:chests/fd_village_taiga_house": {
+    "structure": "",
+    "fallback": "마을 타이가 집",
+    "detail": ""
+  },
+  "integrated_stronghold:chests/armory": {
+    "structure": "integrated_stronghold:stronghold",
+    "fallback": "지하유적",
+    "detail": "무기고"
+  },
+  "integrated_stronghold:chests/bedroom": {
+    "structure": "integrated_stronghold:stronghold",
+    "fallback": "지하유적",
+    "detail": "침실"
+  },
+  "integrated_stronghold:chests/brewing": {
+    "structure": "integrated_stronghold:stronghold",
+    "fallback": "지하유적",
+    "detail": "양조실"
+  },
+  "integrated_stronghold:chests/crypt": {
+    "structure": "integrated_stronghold:stronghold",
+    "fallback": "지하유적",
+    "detail": "지하묘실"
+  },
+  "integrated_stronghold:chests/dining_hall": {
+    "structure": "integrated_stronghold:stronghold",
+    "fallback": "지하유적",
+    "detail": "식당 홀"
+  },
+  "integrated_stronghold:chests/enchanting": {
+    "structure": "integrated_stronghold:stronghold",
+    "fallback": "지하유적",
+    "detail": "마법부여"
+  },
+  "integrated_stronghold:chests/farm": {
+    "structure": "integrated_stronghold:stronghold",
+    "fallback": "지하유적",
+    "detail": "농장"
+  },
+  "integrated_stronghold:chests/grand_library": {
+    "structure": "integrated_stronghold:stronghold",
+    "fallback": "지하유적",
+    "detail": "대형 도서관"
+  },
+  "integrated_stronghold:chests/intersection": {
+    "structure": "integrated_stronghold:stronghold",
+    "fallback": "지하유적",
+    "detail": "교차로"
+  },
+  "integrated_stronghold:chests/maze": {
+    "structure": "integrated_stronghold:stronghold",
+    "fallback": "지하유적",
+    "detail": "미로"
+  },
+  "integrated_stronghold:chests/mine": {
+    "structure": "integrated_stronghold:stronghold",
+    "fallback": "지하유적",
+    "detail": "광산"
+  },
+  "integrated_stronghold:chests/nether_portal": {
+    "structure": "integrated_stronghold:stronghold",
+    "fallback": "지하유적",
+    "detail": "네더 차원문"
+  },
+  "integrated_stronghold:chests/prison": {
+    "structure": "integrated_stronghold:stronghold",
+    "fallback": "지하유적",
+    "detail": "감옥"
+  },
+  "integrated_stronghold:chests/sanctorum": {
+    "structure": "integrated_stronghold:stronghold",
+    "fallback": "지하유적",
+    "detail": "성소"
+  },
+  "integrated_stronghold:chests/secret_lab": {
+    "structure": "integrated_stronghold:stronghold",
+    "fallback": "지하유적",
+    "detail": "비밀 연구실"
+  },
+  "integrated_stronghold:chests/storage": {
+    "structure": "integrated_stronghold:stronghold",
+    "fallback": "지하유적",
+    "detail": "창고"
+  },
+  "integrated_stronghold:chests/torture_chamber": {
+    "structure": "integrated_stronghold:stronghold",
+    "fallback": "지하유적",
+    "detail": "고문실 방"
+  },
+  "integrated_stronghold:chests/treasure": {
+    "structure": "integrated_stronghold:stronghold",
+    "fallback": "지하유적",
+    "detail": "보물"
+  },
+  "integrated_villages:chests/minka_village/minka_village": {
+    "structure": "integrated_villages:quark/minka_village",
+    "fallback": "민가 마을",
+    "detail": ""
+  },
+  "integrated_villages:chests/minka_village/minka_village_bedroom": {
+    "structure": "integrated_villages:quark/minka_village",
+    "fallback": "민가 마을",
+    "detail": "침실"
+  },
+  "integrated_villages:chests/minka_village/minka_village_blacksmith": {
+    "structure": "integrated_villages:quark/minka_village",
+    "fallback": "민가 마을",
+    "detail": "대장간"
+  },
+  "integrated_villages:chests/minka_village/minka_village_cartographer": {
+    "structure": "integrated_villages:quark/minka_village",
+    "fallback": "민가 마을",
+    "detail": "지도 제작자"
+  },
+  "integrated_villages:chests/minka_village/minka_village_cleric": {
+    "structure": "integrated_villages:quark/minka_village",
+    "fallback": "민가 마을",
+    "detail": "성직자"
+  },
+  "integrated_villages:chests/minka_village/minka_village_farmhouse": {
+    "structure": "integrated_villages:quark/minka_village",
+    "fallback": "민가 마을",
+    "detail": "농가"
+  },
+  "integrated_villages:chests/minka_village/minka_village_fisherman": {
+    "structure": "integrated_villages:quark/minka_village",
+    "fallback": "민가 마을",
+    "detail": "어부"
+  },
+  "integrated_villages:chests/minka_village/minka_village_fletcher": {
+    "structure": "integrated_villages:quark/minka_village",
+    "fallback": "민가 마을",
+    "detail": "화살 제조인"
+  },
+  "integrated_villages:chests/minka_village/minka_village_kitchen": {
+    "structure": "integrated_villages:quark/minka_village",
+    "fallback": "민가 마을",
+    "detail": "주방"
+  },
+  "integrated_villages:chests/minka_village/minka_village_library": {
+    "structure": "integrated_villages:quark/minka_village",
+    "fallback": "민가 마을",
+    "detail": "도서관"
+  },
+  "integrated_villages:chests/minka_village/minka_village_treasure": {
+    "structure": "integrated_villages:quark/minka_village",
+    "fallback": "민가 마을",
+    "detail": "보물"
+  },
+  "integrated_villages:chests/swamp_village/swamp_village": {
+    "structure": "integrated_villages:swamp_village",
+    "fallback": "늪지 마을",
+    "detail": ""
+  },
+  "integrated_villages:chests/swamp_village/swamp_village_armorer": {
+    "structure": "integrated_villages:swamp_village",
+    "fallback": "늪지 마을",
+    "detail": "갑옷 제조인"
+  },
+  "integrated_villages:chests/swamp_village/swamp_village_bedroom": {
+    "structure": "integrated_villages:swamp_village",
+    "fallback": "늪지 마을",
+    "detail": "침실"
+  },
+  "integrated_villages:chests/swamp_village/swamp_village_blacksmith": {
+    "structure": "integrated_villages:swamp_village",
+    "fallback": "늪지 마을",
+    "detail": "대장간"
+  },
+  "integrated_villages:chests/swamp_village/swamp_village_butcher": {
+    "structure": "integrated_villages:swamp_village",
+    "fallback": "늪지 마을",
+    "detail": "도살업자"
+  },
+  "integrated_villages:chests/swamp_village/swamp_village_cleric": {
+    "structure": "integrated_villages:swamp_village",
+    "fallback": "늪지 마을",
+    "detail": "성직자"
+  },
+  "integrated_villages:chests/swamp_village/swamp_village_create": {
+    "structure": "integrated_villages:swamp_village",
+    "fallback": "늪지 마을",
+    "detail": "기계 작업장"
+  },
+  "integrated_villages:chests/swamp_village/swamp_village_farmhouse": {
+    "structure": "integrated_villages:swamp_village",
+    "fallback": "늪지 마을",
+    "detail": "농가"
+  },
+  "integrated_villages:chests/swamp_village/swamp_village_fisherman": {
+    "structure": "integrated_villages:swamp_village",
+    "fallback": "늪지 마을",
+    "detail": "어부"
+  },
+  "integrated_villages:chests/swamp_village/swamp_village_fletcher": {
+    "structure": "integrated_villages:swamp_village",
+    "fallback": "늪지 마을",
+    "detail": "화살 제조인"
+  },
+  "integrated_villages:chests/swamp_village/swamp_village_kitchen": {
+    "structure": "integrated_villages:swamp_village",
+    "fallback": "늪지 마을",
+    "detail": "주방"
+  },
+  "integrated_villages:chests/swamp_village/swamp_village_leatherworker": {
+    "structure": "integrated_villages:swamp_village",
+    "fallback": "늪지 마을",
+    "detail": "가죽 세공인"
+  },
+  "integrated_villages:chests/swamp_village/swamp_village_library": {
+    "structure": "integrated_villages:swamp_village",
+    "fallback": "늪지 마을",
+    "detail": "도서관"
+  },
+  "integrated_villages:chests/swamp_village/swamp_village_mason": {
+    "structure": "integrated_villages:swamp_village",
+    "fallback": "늪지 마을",
+    "detail": "석공"
+  },
+  "integrated_villages:chests/swamp_village/swamp_village_tomb": {
+    "structure": "integrated_villages:swamp_village",
+    "fallback": "늪지 마을",
+    "detail": "무덤"
+  },
+  "jewelry:chests/jewelry_shop": {
+    "structure": "",
+    "fallback": "장신구 상점",
+    "detail": ""
+  },
+  "brewery:chests/pillager_outpost": {
+    "structure": "minecraft:pillager_outpost",
+    "fallback": "약탈자 전초기지",
+    "detail": ""
+  },
+  "brewery:chests/village/village_desert_house": {
+    "structure": "",
+    "fallback": "마을 마을 사막 집",
+    "detail": ""
+  },
+  "brewery:chests/village/village_plains_house": {
+    "structure": "",
+    "fallback": "마을 마을 평원 집",
+    "detail": ""
+  },
+  "brewery:chests/village/village_savanna_house": {
+    "structure": "",
+    "fallback": "마을 마을 사바나 집",
+    "detail": ""
+  },
+  "brewery:chests/village/village_taiga_house": {
+    "structure": "",
+    "fallback": "마을 마을 타이가 집",
+    "detail": ""
+  },
+  "brewery:chests/woodland_mansion": {
+    "structure": "minecraft:mansion",
+    "fallback": "대저택",
+    "detail": ""
+  },
+  "lootintegrations:chests/water": {
+    "structure": "",
+    "fallback": "수중",
+    "detail": ""
+  },
+  "lootintegrations:chests/village": {
+    "structure": "",
+    "fallback": "마을",
+    "detail": ""
+  },
+  "lootintegrations:chests/nether": {
+    "structure": "",
+    "fallback": "네더",
+    "detail": ""
+  },
+  "lootintegrations:chests/medium": {
+    "structure": "",
+    "fallback": "중형",
+    "detail": ""
+  },
+  "lootintegrations:chests/hard": {
+    "structure": "",
+    "fallback": "어려움",
+    "detail": ""
+  },
+  "lootintegrations:chests/empty": {
+    "structure": "",
+    "fallback": "빈",
+    "detail": ""
+  },
+  "lootintegrations:chests/easy": {
+    "structure": "",
+    "fallback": "쉬움",
+    "detail": ""
+  },
+  "lootr:chests/elytra": {
+    "structure": "",
+    "fallback": "겉날개",
+    "detail": ""
+  },
+  "minecells:chests/common/general_bad_junk": {
+    "structure": "",
+    "fallback": "일반 일반 하급 잡동사니",
+    "detail": ""
+  },
+  "minecells:chests/common/general_medium_junk": {
+    "structure": "",
+    "fallback": "일반 일반 중형 잡동사니",
+    "detail": ""
+  },
+  "minecells:chests/common/general_treasure": {
+    "structure": "",
+    "fallback": "일반 일반 보물",
+    "detail": ""
+  },
+  "minecells:chests/special/all_weapons": {
+    "structure": "",
+    "fallback": "특별 전체 무기",
+    "detail": ""
+  },
+  "minecells:chests/special/melee_weapons": {
+    "structure": "",
+    "fallback": "특별 근접 무기",
+    "detail": ""
+  },
+  "minecells:chests/special/ranged_weapons": {
+    "structure": "",
+    "fallback": "특별 원거리 무기",
+    "detail": ""
+  },
+  "minecells:chests/special/shields": {
+    "structure": "",
+    "fallback": "특별 방패",
+    "detail": ""
+  },
+  "more_armor_trims:injections/modify/minecraft/chests/ruined_portal": {
+    "structure": "",
+    "fallback": "무너진 차원문",
+    "detail": ""
+  },
+  "more_armor_trims:injections/modify/minecraft/chests/igloo_chest": {
+    "structure": "minecraft:igloo",
+    "fallback": "이글루",
+    "detail": ""
+  },
+  "more_armor_trims:injections/modify/minecraft/chests/abandoned_mineshaft": {
+    "structure": "minecraft:mineshaft",
+    "fallback": "폐광",
+    "detail": ""
+  },
+  "paladins:chests/village_monk": {
+    "structure": "",
+    "fallback": "마을 수도사",
+    "detail": ""
+  },
+  "promenade:chests/witch_hut": {
+    "structure": "",
+    "fallback": "마녀 오두막",
+    "detail": ""
+  },
+  "rogues:chests/barracks": {
+    "structure": "",
+    "fallback": "병영",
+    "detail": ""
+  },
+  "skyvillages:chests/sky_village_weaponsmith": {
+    "structure": "skyvillages:skyvillage",
+    "fallback": "하늘 마을",
+    "detail": "무기 대장장이"
+  },
+  "skyvillages:chests/sky_village_toolsmith": {
+    "structure": "skyvillages:skyvillage",
+    "fallback": "하늘 마을",
+    "detail": "도구 대장장이"
+  },
+  "skyvillages:chests/sky_village_temple": {
+    "structure": "skyvillages:skyvillage",
+    "fallback": "하늘 마을",
+    "detail": "사원"
+  },
+  "skyvillages:chests/sky_village_shepherd": {
+    "structure": "skyvillages:skyvillage",
+    "fallback": "하늘 마을",
+    "detail": "양치기"
+  },
+  "skyvillages:chests/sky_village_normal_house": {
+    "structure": "skyvillages:skyvillage",
+    "fallback": "하늘 마을",
+    "detail": "일반 집"
+  },
+  "skyvillages:chests/sky_village_mason": {
+    "structure": "skyvillages:skyvillage",
+    "fallback": "하늘 마을",
+    "detail": "석공"
+  },
+  "skyvillages:chests/sky_village_fletcher": {
+    "structure": "skyvillages:skyvillage",
+    "fallback": "하늘 마을",
+    "detail": "화살 제조인"
+  },
+  "skyvillages:chests/sky_village_fisher": {
+    "structure": "skyvillages:skyvillage",
+    "fallback": "하늘 마을",
+    "detail": "어부"
+  },
+  "skyvillages:chests/sky_village_cartographer": {
+    "structure": "skyvillages:skyvillage",
+    "fallback": "하늘 마을",
+    "detail": "지도 제작자"
+  },
+  "skyvillages:chests/sky_village_butcher": {
+    "structure": "skyvillages:skyvillage",
+    "fallback": "하늘 마을",
+    "detail": "도살업자"
+  },
+  "skyvillages:chests/sky_village_armorer": {
+    "structure": "skyvillages:skyvillage",
+    "fallback": "하늘 마을",
+    "detail": "갑옷 제조인"
+  },
+  "sophisticatedbackpacks:inject/chests/abandoned_mineshaft": {
+    "structure": "minecraft:mineshaft",
+    "fallback": "폐광",
+    "detail": ""
+  },
+  "sophisticatedbackpacks:inject/chests/bastion_treasure": {
+    "structure": "minecraft:bastion_remnant",
+    "fallback": "보루 잔해",
+    "detail": "보물"
+  },
+  "sophisticatedbackpacks:inject/chests/desert_pyramid": {
+    "structure": "minecraft:desert_pyramid",
+    "fallback": "사막 피라미드",
+    "detail": ""
+  },
+  "sophisticatedbackpacks:inject/chests/end_city_treasure": {
+    "structure": "minecraft:end_city",
+    "fallback": "엔드 도시",
+    "detail": ""
+  },
+  "sophisticatedbackpacks:inject/chests/nether_bridge": {
+    "structure": "minecraft:fortress",
+    "fallback": "요새",
+    "detail": ""
+  },
+  "sophisticatedbackpacks:inject/chests/shipwreck_treasure": {
+    "structure": "minecraft:shipwreck",
+    "fallback": "난파선",
+    "detail": "보물"
+  },
+  "sophisticatedbackpacks:inject/chests/simple_dungeon": {
+    "structure": "",
+    "fallback": "일반 던전",
+    "detail": ""
+  },
+  "sophisticatedbackpacks:inject/chests/woodland_mansion": {
+    "structure": "minecraft:mansion",
+    "fallback": "대저택",
+    "detail": ""
+  },
+  "soulsweapons:chests/cathedral_good_loot": {
+    "structure": "soulsweapons:cathedral_of_resurrection",
+    "fallback": "부활의 대성당",
+    "detail": "고급 보물"
+  },
+  "soulsweapons:chests/cathedral_loot": {
+    "structure": "soulsweapons:cathedral_of_resurrection",
+    "fallback": "부활의 대성당",
+    "detail": "일반"
+  },
+  "graveyard:chests/vase_loot": {
+    "structure": "",
+    "fallback": "꽃병",
+    "detail": ""
+  },
+  "graveyard:chests/totem_loot": {
+    "structure": "",
+    "fallback": "토템",
+    "detail": ""
+  },
+  "graveyard:chests/swamp_graveyard_loot": {
+    "structure": "",
+    "fallback": "늪지 묘지",
+    "detail": ""
+  },
+  "graveyard:chests/small_loot": {
+    "structure": "",
+    "fallback": "소형",
+    "detail": ""
+  },
+  "graveyard:chests/ore_loot": {
+    "structure": "",
+    "fallback": "광석",
+    "detail": ""
+  },
+  "graveyard:chests/misc_loot": {
+    "structure": "",
+    "fallback": "잡화",
+    "detail": ""
+  },
+  "graveyard:chests/medium_loot": {
+    "structure": "",
+    "fallback": "중형",
+    "detail": ""
+  },
+  "graveyard:chests/large_loot": {
+    "structure": "",
+    "fallback": "대형",
+    "detail": ""
+  },
+  "graveyard:chests/great_crypt_loot": {
+    "structure": "",
+    "fallback": "대형 지하묘실",
+    "detail": ""
+  },
+  "graveyard:chests/flower_loot": {
+    "structure": "",
+    "fallback": "꽃",
+    "detail": ""
+  },
+  "graveyard:chests/flesh_loot": {
+    "structure": "",
+    "fallback": "살점",
+    "detail": ""
+  },
+  "graveyard:chests/desert_graveyard_loot": {
+    "structure": "",
+    "fallback": "사막 묘지",
+    "detail": ""
+  },
+  "graveyard:chests/creeper_loot": {
+    "structure": "",
+    "fallback": "크리퍼",
+    "detail": ""
+  },
+  "graveyard:chests/candle_loot": {
+    "structure": "",
+    "fallback": "양초",
+    "detail": ""
+  },
+  "graveyard:chests/brewing_loot": {
+    "structure": "",
+    "fallback": "양조실",
+    "detail": ""
+  },
+  "graveyard:chests/bone_loot": {
+    "structure": "",
+    "fallback": "뼈",
+    "detail": ""
+  },
+  "graveyard:chests/arrow_loot": {
+    "structure": "",
+    "fallback": "화살",
+    "detail": ""
+  },
+  "tlc:chests/treasure": {
+    "structure": "tlc:lost_castle",
+    "fallback": "잊힌 성",
+    "detail": "보물"
+  },
+  "tlc:chests/throne": {
+    "structure": "tlc:lost_castle",
+    "fallback": "잊힌 성",
+    "detail": "왕좌"
+  },
+  "tlc:chests/lab": {
+    "structure": "tlc:lost_castle",
+    "fallback": "잊힌 성",
+    "detail": "연구실"
+  },
+  "tlc:chests/house": {
+    "structure": "tlc:lost_castle",
+    "fallback": "잊힌 성",
+    "detail": "집"
+  },
+  "tlc:chests/hided": {
+    "structure": "tlc:lost_castle",
+    "fallback": "잊힌 성",
+    "detail": "숨겨진"
+  },
+  "tlc:chests/food": {
+    "structure": "tlc:lost_castle",
+    "fallback": "잊힌 성",
+    "detail": "식량"
+  },
+  "tlc:chests/dungeon": {
+    "structure": "tlc:lost_castle",
+    "fallback": "잊힌 성",
+    "detail": "던전"
+  },
+  "tlc:chests/biblio": {
+    "structure": "tlc:lost_castle",
+    "fallback": "잊힌 성",
+    "detail": "서고"
+  },
+  "villagersplus:chests/village/village_oceanographer": {
+    "structure": "",
+    "fallback": "마을 마을 해양학자",
+    "detail": ""
+  },
+  "villagersplus:chests/village/village_occultist": {
+    "structure": "",
+    "fallback": "마을 마을 오컬티스트",
+    "detail": ""
+  },
+  "villagersplus:chests/village/village_horticulturist": {
+    "structure": "",
+    "fallback": "마을 마을 원예가",
+    "detail": ""
+  },
+  "villagersplus:chests/village/village_alchemist": {
+    "structure": "",
+    "fallback": "마을 마을 연금술사",
+    "detail": ""
+  },
+  "wizards:chests/village_wizard": {
+    "structure": "",
+    "fallback": "마을 마법사",
+    "detail": ""
+  },
+  "betterdeserttemples:chests/wardrobe": {
+    "structure": "betterdeserttemples:desert_temple",
+    "fallback": "사막 사원",
+    "detail": "옷장"
+  },
+  "betterdeserttemples:chests/tomb_pharaoh": {
+    "structure": "betterdeserttemples:desert_temple",
+    "fallback": "사막 사원",
+    "detail": "무덤 파라오"
+  },
+  "betterdeserttemples:chests/tomb": {
+    "structure": "betterdeserttemples:desert_temple",
+    "fallback": "사막 사원",
+    "detail": "무덤"
+  },
+  "betterdeserttemples:chests/storage": {
+    "structure": "betterdeserttemples:desert_temple",
+    "fallback": "사막 사원",
+    "detail": "창고"
+  },
+  "betterdeserttemples:chests/statue": {
+    "structure": "betterdeserttemples:desert_temple",
+    "fallback": "사막 사원",
+    "detail": "석상"
+  },
+  "betterdeserttemples:chests/pot": {
+    "structure": "betterdeserttemples:desert_temple",
+    "fallback": "사막 사원",
+    "detail": "항아리"
+  },
+  "betterdeserttemples:chests/pharaoh_hidden": {
+    "structure": "betterdeserttemples:desert_temple",
+    "fallback": "사막 사원",
+    "detail": "파라오 숨겨진"
+  },
+  "betterdeserttemples:chests/library": {
+    "structure": "betterdeserttemples:desert_temple",
+    "fallback": "사막 사원",
+    "detail": "도서관"
+  },
+  "betterdeserttemples:chests/lab": {
+    "structure": "betterdeserttemples:desert_temple",
+    "fallback": "사막 사원",
+    "detail": "연구실"
+  },
+  "betterdeserttemples:chests/food_storage": {
+    "structure": "betterdeserttemples:desert_temple",
+    "fallback": "사막 사원",
+    "detail": "식량 창고"
+  },
+  "betterjungletemples:chests/treasure": {
+    "structure": "betterjungletemples:jungle_temple",
+    "fallback": "정글 사원",
+    "detail": "보물"
+  },
+  "betterjungletemples:chests/campsite": {
+    "structure": "betterjungletemples:jungle_temple",
+    "fallback": "정글 사원",
+    "detail": "야영지"
+  },
+  "betterfortresses:chests/worship": {
+    "structure": "betterfortresses:fortress",
+    "fallback": "요새",
+    "detail": "예배실"
+  },
+  "betterfortresses:chests/storage": {
+    "structure": "betterfortresses:fortress",
+    "fallback": "요새",
+    "detail": "창고"
+  },
+  "betterfortresses:chests/quarters": {
+    "structure": "betterfortresses:fortress",
+    "fallback": "요새",
+    "detail": "숙소"
+  },
+  "betterfortresses:chests/puzzle": {
+    "structure": "betterfortresses:fortress",
+    "fallback": "요새",
+    "detail": "퍼즐"
+  },
+  "betterfortresses:chests/obsidian": {
+    "structure": "betterfortresses:fortress",
+    "fallback": "요새",
+    "detail": "흑요석"
+  },
+  "betterfortresses:chests/keep": {
+    "structure": "betterfortresses:fortress",
+    "fallback": "요새",
+    "detail": "성채"
+  },
+  "betterfortresses:chests/hall": {
+    "structure": "betterfortresses:fortress",
+    "fallback": "요새",
+    "detail": "홀"
+  },
+  "betterfortresses:chests/extra": {
+    "structure": "betterfortresses:fortress",
+    "fallback": "요새",
+    "detail": "추가"
+  },
+  "betterfortresses:chests/beacon": {
+    "structure": "betterfortresses:fortress",
+    "fallback": "요새",
+    "detail": "신호기"
+  },
+  "betteroceanmonuments:chests/upper_side_chamber": {
+    "structure": "minecraft:monument",
+    "fallback": "유적",
+    "detail": "상층 측면 방"
+  },
+  "betterwitchhuts:chests/hut_0": {
+    "structure": "minecraft:swamp_hut",
+    "fallback": "늪지 오두막",
+    "detail": "오두막 0"
+  },
+  "zenith:chests/chest_valuable": {
+    "structure": "",
+    "fallback": "귀중품",
+    "detail": ""
+  },
+  "zenith:chests/spawner_brutal": {
+    "structure": "",
+    "fallback": "생성기 난폭한",
+    "detail": ""
+  },
+  "zenith:chests/spawner_brutal_rotate": {
+    "structure": "",
+    "fallback": "생성기 난폭한 회전",
+    "detail": ""
+  },
+  "zenith:chests/spawner_swarm": {
+    "structure": "",
+    "fallback": "생성기 무리",
+    "detail": ""
+  },
+  "zenith:chests/tome_tower": {
+    "structure": "",
+    "fallback": "고서 탑",
+    "detail": ""
+  },
+  "ctov:chests/village/village_badlands_house": {
+    "structure": "",
+    "fallback": "마을 마을 악지 집",
+    "detail": ""
+  },
+  "ctov:chests/village/village_bakery": {
+    "structure": "",
+    "fallback": "마을 마을 빵집",
+    "detail": ""
+  },
+  "ctov:chests/village/village_beach_house": {
+    "structure": "",
+    "fallback": "마을 마을 해변 집",
+    "detail": ""
+  },
+  "ctov:chests/village/village_dark_forest_house": {
+    "structure": "",
+    "fallback": "마을 마을 어두운 숲 집",
+    "detail": ""
+  },
+  "ctov:chests/village/village_farm": {
+    "structure": "",
+    "fallback": "마을 마을 농장",
+    "detail": ""
+  },
+  "ctov:chests/village/village_forager": {
+    "structure": "",
+    "fallback": "마을 마을 채집가",
+    "detail": ""
+  },
+  "ctov:chests/village/village_jungle_house": {
+    "structure": "",
+    "fallback": "마을 마을 정글 집",
+    "detail": ""
+  },
+  "ctov:chests/village/village_library": {
+    "structure": "",
+    "fallback": "마을 마을 도서관",
+    "detail": ""
+  },
+  "ctov:chests/village/village_mountain_house": {
+    "structure": "",
+    "fallback": "마을 마을 산지 집",
+    "detail": ""
+  },
+  "ctov:chests/village/village_mushroom_house": {
+    "structure": "",
+    "fallback": "마을 마을 버섯 집",
+    "detail": ""
+  },
+  "ctov:chests/village/village_smith": {
+    "structure": "",
+    "fallback": "마을 마을 대장장이",
+    "detail": ""
+  },
+  "ctov:chests/village/village_swamp_house": {
+    "structure": "",
+    "fallback": "마을 마을 늪지 집",
+    "detail": ""
+  }
+}

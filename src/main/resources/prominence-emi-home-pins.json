@@ -277,5 +277,34 @@
         "net/minecraft/class_2361.class": "f8e7f514cf20e5afd7698b41f3650838c2d35ef538e138d6623a831f72150de2"
       }
     }
+  },
+  "lootUi": {
+    "emi_loot": {
+      "version": "0.7.9+1.20.1+fabric",
+      "classes": {
+        "fzzyhmstrs/emi_loot/util/stack/EmiStackWithTitle.class": "39601e9418d614f07480f2838fa9b0b563bfd3eaef841d59fda3eced53fc703c",
+        "fzzyhmstrs/emi_loot/emi/ChestLootRecipe.class": "50fed9a3b6302f4fb9ef421941f78efca671ab9424c31390866ed342e627adb2",
+        "fzzyhmstrs/emi_loot/emi/ArchaeologyLootRecipe.class": "bbff8b051a49967cee837a2078b51ecb7c3f896e9e8c625705d7f462467d3b6f",
+        "fzzyhmstrs/emi_loot/emi/MobLootRecipe.class": "15c5df5096107c9c298286f66603c9a9d56db3d005feec554837acc9f052dcf7",
+        "fzzyhmstrs/emi_loot/emi/BlockLootRecipe.class": "b1b228fcb80aa247686246b842818ee1f35ec5d3a4c097f5cff9a092a5cdadc9",
+        "fzzyhmstrs/emi_loot/emi/GameplayLootRecipe.class": "724cfe274cc66492c4248c39f9a3fa380418d787feab2de0c34624da174af2c6",
+        "fzzyhmstrs/emi_loot/util/IconGroupEmiWidget.class": "ff2a0a98c6b85725a7b7f3d06e2fe322f11daae5a47b4011824bc563f633c654",
+        "fzzyhmstrs/emi_loot/util/FloatTrimmer.class": "b97b433ec19fc921fa172e7f5c5efa8c7b0749ef2865c1eeff6a102bef3cac5f"
+      }
+    },
+    "explorerscompass": {
+      "version": "1.20.1-2.6.0-fabric",
+      "classes": {
+        "com/chaosthedude/explorerscompass/gui/ExplorersCompassScreen.class": "1767cb2e8147533f58dcc2f79346c633c08181304521e86018e7517556fc21ed",
+        "com/chaosthedude/explorerscompass/ExplorersCompass.class": "99b7c99f471158fceafbd3e133e1a9b14617d068f07863d0e9fa7cae6cab6c6a"
+      }
+    },
+    "naturescompass": {
+      "version": "1.20.1-2.6.0-fabric",
+      "classes": {
+        "com/chaosthedude/naturescompass/gui/NaturesCompassScreen.class": "5c2da912f08bfacf0bf753fe5234bc993c6b6b55ce2550e97f590747cd110ca7",
+        "com/chaosthedude/naturescompass/NaturesCompass.class": "b8ff56c7d6d4690c9bf9e2860065319a0053cd9e963325470b1380ea7f04b437"
+      }
+    }
   }
 }

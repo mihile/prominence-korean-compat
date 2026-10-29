@@ -29,7 +29,12 @@
     "VoxyDeferredOpacityEntryMixin",
     "VoxyDeferredOpacityMapperMixin",
     "BackpackStonecuttingMixin",
-    "UnchangedStateRemapMixin"
+    "UnchangedStateRemapMixin",
+    "LootTitleSharedMixin",
+    "ExplorerDimensionSearchMixin",
+    "NatureDimensionSearchMixin",
+    "LootRollStaticMixin",
+    "LootRollConfigMixin"
   ],
   "injectors": {
     "defaultRequire": 1

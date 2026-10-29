@@ -10,5 +10,21 @@
   "dialogue.skellak.worrying_reunion.2_2": "생명과 죽음, 파괴를 관장하지…",
   "dialogue.skellak.worrying_reunion.3_1": "그중 파괴를 관장하는 누크는 늘 모든 세계를 지배하려 했다.",
   "dialogue.skellak.assault_end.1_2": "우리 편이던 드워프와 세르코니드 일부까지 배신했다.",
-  "dialogue.primordial_forge.skellak.2_2": "그녀는 우리 아래층 방에 있다. 찾아가 보거라."
+  "dialogue.primordial_forge.skellak.2_2": "그녀는 우리 아래층 방에 있다. 찾아가 보거라.",
+  "block.adventurez.chiseled_polished_blackstone_holder": "조각된 윤나는 흑암 받침대",
+  "block.adventurez.chiseled_polished_blackstone_holder.tooltip": "§7받침대 4개를 중심에서 5블록 떨어진 곳에 배치하세요",
+  "block.adventurez.chiseled_polished_blackstone_holder.tooltip2": "§7각 변의 중앙 바로 바깥, 흑암 바닥과 같은 높이에 놓으세요",
+  "block.adventurez.chiseled_polished_blackstone_holder.tooltip3": "§7받침대마다 금박 흑암 조각을 하나씩 넣으세요",
+  "item.adventurez.gilded_blackstone_shard.tooltip": "§7조각된 윤나는 흑암 받침대에 놓을 수 있습니다",
+  "cta.item.gilded_blackstone_shard": "난폭한 피글린을 처치하거나, 피글린과 물물교환하거나, 보루 잔해 상자를 수색하면 획득할 수 있습니다.",
+  "emi_loot.chest.minecraft:gameplay/fishing": "낚시",
+  "emi_loot.gameplay.minecraft:gameplay/fishing": "낚시",
+  "emi_loot.chest.minecraft:gameplay/fishing/junk": "낚시 잡동사니",
+  "emi_loot.gameplay.minecraft:gameplay/fishing/junk": "낚시 잡동사니",
+  "emi_loot.chest.minecraft:gameplay/fishing/fish": "낚시 물고기",
+  "emi_loot.gameplay.minecraft:gameplay/fishing/fish": "낚시 물고기",
+  "emi_loot.chest.minecraft:gameplay/fishing/treasure": "낚시 보물",
+  "emi_loot.gameplay.minecraft:gameplay/fishing/treasure": "낚시 보물",
+  "emi_loot.chest.minecraft:gameplay/piglin_bartering": "피글린 물물교환",
+  "emi_loot.gameplay.minecraft:gameplay/piglin_bartering": "피글린 물물교환"
 }

@@ -38,6 +38,7 @@ def main():
  checks.append(('local.prominence.work.DeferredOpacityTests',[]))
  checks.append(('local.prominence.work.StateOrderTests',[]))
  checks.append(('local.prominence.work.StonecuttingTransferTests',[]))
+ checks.append(('local.prominence.work.LootUiTests',[]))
  checks.append(('local.prominence.work.ModelWorkSliceTests',[]))
  checks.append(('local.prominence.work.InitialWorkTests',[]))
  if args.mods:checks.append(('local.prominence.weaponhud.WeaponHudPinChecks',[safe_arg(args.mods)]))
