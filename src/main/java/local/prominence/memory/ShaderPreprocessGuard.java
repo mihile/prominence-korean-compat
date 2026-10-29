@@ -44,14 +44,14 @@ public final class ShaderPreprocessGuard implements IMixinConfigPlugin {
         }catch(Exception e){return false;}
     }
     public void onLoad(String pkg) {
-        enabled=!System.getProperty("prominence.shaderSourceDiskCache","true").equalsIgnoreCase("false")
+        enabled=!System.getProperty("prominence.pipelineTiming","true").equalsIgnoreCase("false")
             && verifyPins(pins(),id->FabricLoader.getInstance().getModContainer(id).map(m->m.getMetadata().getVersion().getFriendlyString()).orElse(null),(id,name)->{
                 try {var p=FabricLoader.getInstance().getModContainer(id).orElseThrow().findPath(name);return p.isPresent()?Files.readAllBytes(p.get()):null;}
                 catch(Exception e){return null;}
             });
-        LoggerFactory.getLogger("Prominence compatibility").info("Client shader source disk cache: {} (exact inputs; bounded disk and pending writes)",enabled?"enabled":"disabled");
+        LoggerFactory.getLogger("Prominence compatibility").info("Client shader source disk cache: retired (native preprocessing; pipeline timing={})",enabled?"enabled":"disabled");
     }
-    public boolean shouldApplyMixin(String target,String mixin){return enabled;}
+    public boolean shouldApplyMixin(String target,String mixin){return enabled && mixin.endsWith("IrisPipelineTimingMixin");}
     public String getRefMapperConfig(){return null;}
     public List<String> getMixins(){return null;}
     public void acceptTargets(Set<String> mine,Set<String> others){}

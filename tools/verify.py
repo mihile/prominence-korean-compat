@@ -41,6 +41,7 @@ def main():
  checks.append(('local.prominence.work.LootUiTests',[]))
  checks.append(('local.prominence.work.CraftableRefreshTests',[]))
  checks.append(('SnapshotLeaseTests',[]))
+ checks.append(('PerformanceRetirementChecks',[safe_arg(args.build_dir/'prominence-korean-compat-1.0.0.jar'),safe_arg(classes)]))
  checks.append(('local.prominence.work.ModelWorkSliceTests',[]))
  checks.append(('local.prominence.work.InitialWorkTests',[]))
  if args.mods:checks.append(('local.prominence.weaponhud.WeaponHudPinChecks',[safe_arg(args.mods)]))

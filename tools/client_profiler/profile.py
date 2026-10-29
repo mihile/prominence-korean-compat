@@ -55,6 +55,8 @@ def activation(instance,build):
  expected=list(policy.get('requiredOptimizationActivationMessages',[]))
  for rule in policy.get('activationByBuild',[]):
   if (build or 0)>=rule['minimumBuild']:expected.extend(rule['messages'])
+ for rule in policy.get('retiredActivationByBuild',[]):
+  if (build or 0)>=rule['minimumBuild']:expected=[m for m in expected if m not in rule['messages']]
  deferred=set(policy.get('deferredActivationMessages',[]));log=instance/'minecraft/logs/latest.log';text=log.read_text('utf8',errors='replace') if log.exists() else ''
  return {'verified':[m for m in expected if m in text],'missing':[m for m in expected if m not in text and m not in deferred],'deferred':[m for m in expected if m not in text and m in deferred]}
 def lease(path,payload):

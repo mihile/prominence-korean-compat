@@ -8,7 +8,9 @@ def run(args,name):
  argv=list(map(str,args)); af=W/(name+'.args')
  if os.name=='nt':
   import ctypes
-  instance=Path.cwd().resolve(); buf=ctypes.create_unicode_buffer(1024)
+  # The build sits beside the repository. Shorten the instance prefix too;
+  # shortening only cwd can silently load an older ASCII-path dependency JAR.
+  instance=REPO.parents[2]; buf=ctypes.create_unicode_buffer(1024)
   if ctypes.windll.kernel32.GetShortPathNameW(str(instance),buf,1024):argv=[v.replace(str(instance),buf.value) for v in argv]
  af.write_text('\n'.join('"'+x.replace('\\','/')+'"' for x in argv[1:]),encoding='utf8')
  args=[argv[0],'@'+str(af.resolve())]
