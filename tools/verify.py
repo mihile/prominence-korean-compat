@@ -39,6 +39,7 @@ def main():
  checks.append(('local.prominence.work.StateOrderTests',[]))
  checks.append(('local.prominence.work.StonecuttingTransferTests',[]))
  checks.append(('local.prominence.work.LootUiTests',[]))
+ checks.append(('local.prominence.rewards.RewardScalingTests',[]))
  checks.append(('local.prominence.work.CraftableRefreshTests',[]))
  checks.append(('SnapshotLeaseTests',[]))
  checks.append(('PerformanceRetirementChecks',[safe_arg(args.build_dir/'prominence-korean-compat-1.0.0.jar'),safe_arg(classes)]))
@@ -50,6 +51,6 @@ def main():
   run_args=['-ea','-cp',safe_arg(tests)+os.pathsep+cp,entry,*params]
   run_file=args.build_dir/'test-run.args'
   run_file.write_text('\n'.join('"'+s+'"' for s in run_args),encoding='utf8')
-  p=subprocess.run([str(java),'@'+safe_arg(run_file)],capture_output=True,text=True,encoding='utf8',errors='replace');(args.build_dir/(entry+'.log')).write_text(p.stdout+p.stderr,encoding='utf8');assert p.returncode==0,p.stdout+p.stderr;print(p.stdout.strip());results.append(p.stdout.strip())
+  p=subprocess.run([str(java),'@'+safe_arg(run_file)],capture_output=True,text=True,encoding='utf8',errors='replace',cwd=args.build_dir.resolve());(args.build_dir/(entry+'.log')).write_text(p.stdout+p.stderr,encoding='utf8');assert p.returncode==0,p.stdout+p.stderr;print(p.stdout.strip());results.append(p.stdout.strip())
  (args.build_dir/'verification.json').write_text(json.dumps({'status':'passed','results':results,'runtimeValidated':False,'gameStarted':False,'serverStarted':False},ensure_ascii=False,indent=2),encoding='utf8')
 if __name__=='__main__':main()

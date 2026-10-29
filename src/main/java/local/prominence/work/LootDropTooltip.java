@@ -128,9 +128,12 @@ public final class LootDropTooltip {
             var h=chestHit(table(id==null?"":id.toString()),item,expected);
             if(h==null||probability!=null&&Math.abs(probability-h)>.0001){probability=null;break;}probability=h;
         }
-        return slot.appendTooltip(class_2561.method_43470((LootUiText.korean()?"드롭 확률: ":"Drop chance: ")+(probability==null?(LootUiText.korean()?"확인 불가":"unavailable"):LootNumbers.percent(probability)+"%")));
+        return local.prominence.rewards.client.RewardClientText.present(slot,expected,List.of(),recipe,List.of(class_2561.method_43470((LootUiText.korean()?"드롭 확률: ":"Drop chance: ")+(probability==null?(LootUiText.korean()?"확인 불가":"unavailable"):LootNumbers.percent(probability)+"%"))),List.of());
     }
     public static SlotWidget append(SlotWidget slot,ConditionalStack entry,EmiRecipe recipe){
-        var id=recipe.getId();for(var line:lines(id==null?"":id.toString(),entry,LootUiText.korean()))slot.appendTooltip(line);return slot;
+        var conditions=entry.conditions().stream().map(p->p.method_15441()).toList();
+        var other=conditions.stream().filter(t->!chance(t)&&!key(t).equals("emi_loot.no_conditions")).map(t->compact(t,LootUiText.korean())).toList();
+        var id=recipe.getId();var fallback=lines(id==null?"":id.toString(),entry,LootUiText.korean());
+        return local.prominence.rewards.client.RewardClientText.present(slot,entry.weight(),conditions,recipe,fallback,other);
     }
 }

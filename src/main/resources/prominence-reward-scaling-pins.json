@@ -1,0 +1,71 @@
+{
+  "minecraft": {
+    "version": "1.20.1",
+    "classes": {
+      "net/minecraft/class_55.class": [
+        "cc1332cb07f81c6767a0e34f39f6cbaf9b2b3dc77d470912095a85efbcbed5e8"
+      ],
+      "net/minecraft/class_85.class": [
+        "b6bdc7f58ee560314165e0c0167c14563d6247bb98d8dd80a3ef00f967c82634"
+      ],
+      "net/minecraft/class_219.class": [
+        "d493cd3924bb7161b45f30016ae5bb5c94f5e39f7163f74db8e4838459083734"
+      ],
+      "net/minecraft/class_40.class": [
+        "4ca096a0d40f3aa9db9cc3b063963dababce3754de0eefbce62a52f81b635ab4"
+      ],
+      "net/minecraft/class_77.class": [
+        "fc6f8b642a9501cb4a72b8e1ecc8b0ec39b107aed0214fb59aa310d83734503e"
+      ],
+      "net/minecraft/class_79.class": [
+        "662edc306e9cc298949e5ee1650c14914cfdd7b3feaa093a0b579087fc58047b"
+      ],
+      "net/minecraft/class_85$class_88.class": [
+        "63b321f840b59792ec5d8311e861165a30c6e3561944a7562e0eb2eadef04f54"
+      ]
+    }
+  },
+  "emi_loot": {
+    "version": "0.7.9+1.20.1+fabric",
+    "classes": {
+      "fzzyhmstrs/emi_loot/parser/LootTableParser.class": [
+        "d822d4727df917769e571b32f6c438b904fb9e056b3ce18f9db474b12cfb1a85"
+      ],
+      "fzzyhmstrs/emi_loot/mixins/LootPoolAccessor.class": [
+        "fef2e580aecfe4810eaebb540ddc364cf221266701299e1a69395defbd2b32dd"
+      ],
+      "fzzyhmstrs/emi_loot/mixins/BinomialLootNumberProviderAccessor.class": [
+        "3b484d624d7e0b30b273a6142d768bf0819a80c0861e44c146837dd4140e71b3"
+      ],
+      "fzzyhmstrs/emi_loot/mixins/LeafEntryAccessor.class": [
+        "16f7fad20c598f9efbb23ffb71f3bb220253d64df8a2227aacd1749137ac389e"
+      ],
+      "fzzyhmstrs/emi_loot/mixins/UniformLootNumberProviderAccessor.class": [
+        "ceed3679895e3d3be52f1c23951196b86c323a475a2d2e7e5172d44437452ef3"
+      ],
+      "fzzyhmstrs/emi_loot/mixins/SetCountLootFunctionAccessor.class": [
+        "80a78f2796cd23221aada24024b6d61ce2db3eadee02da797a5f884d3607f3a7"
+      ],
+      "fzzyhmstrs/emi_loot/mixins/ConstantLootNumberProviderAccessor.class": [
+        "99aa8a9e5d9cf1abb4f1cd89cd33d800af29959cc0d3f7b83b1467bdc5064736"
+      ],
+      "fzzyhmstrs/emi_loot/mixins/LootPoolEntryAccessor.class": [
+        "9e7c8f1a414247676928203ae53a12cae6d0e1f907685d86607214bc0168a2ad"
+      ],
+      "fzzyhmstrs/emi_loot/mixins/ItemEntryAccessor.class": [
+        "4c7b349b7b202711b8ced2e8e5ea6c512b031be8ff4180355979768fab223987"
+      ],
+      "fzzyhmstrs/emi_loot/mixins/RandomChanceLootConditionAccessor.class": [
+        "8043166377f07eaaac12d2965e346638f20c2874a49fbae5caadce00f1e634ac"
+      ]
+    }
+  },
+  "emi": {
+    "version": "1.1.24+1.20.1+fabric",
+    "classes": {
+      "dev/emi/emi/api/widget/SlotWidget.class": [
+        "64bec60c523fda7d524153e37b29d1f796316bd9267e7710ad87b321bae898fa"
+      ]
+    }
+  }
+}
