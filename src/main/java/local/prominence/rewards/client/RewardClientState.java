@@ -4,7 +4,7 @@ public final class RewardClientState {
  private static volatile Map<String,List<RewardDefinition>> tables=Map.of();
  public static void clear(){tables=Map.of();}
  public static boolean active(RewardDefinition d){return tables.getOrDefault(d.table(),List.of()).contains(d);}
- public static void install(List<RewardDefinition> definitions){var map=new HashMap<String,List<RewardDefinition>>();for(var d:definitions)map.computeIfAbsent(d.table(),k->new ArrayList<>()).add(d);var copy=new HashMap<String,List<RewardDefinition>>();map.forEach((k,v)->copy.put(k,List.copyOf(v)));tables=Map.copyOf(copy);}
+ public static void install(List<RewardDefinition> definitions){var map=new HashMap<String,List<RewardDefinition>>();for(var d:definitions)map.computeIfAbsent(d.table(),k->new ArrayList<>()).add(d);var copy=new HashMap<String,List<RewardDefinition>>();map.forEach((k,v)->copy.put(k,List.copyOf(v)));tables=Map.copyOf(copy);org.slf4j.LoggerFactory.getLogger("Prominence compatibility").info("Reward metadata installed: {} pools / {} tables",definitions.size(),tables.size());}
  public static RewardDefinition find(String table,List<String> items,double expected,List<class_2561> conditions){
   RewardDefinition result=null;
   for(var d:tables.getOrDefault(table,List.of())){

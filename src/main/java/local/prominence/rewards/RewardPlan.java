@@ -11,7 +11,7 @@ public record RewardPlan(RewardRegistry.Route route,Object gate,String kind,doub
  public RewardDefinition definition(){
   long total=weights.stream().mapToLong(Integer::longValue).sum();var out=new ArrayList<RewardDefinition.Output>();double mean=0;for(int i=0;i<draws.size();i++)mean+=i*draws.get(i);
   for(int i=0;i<items.size();i++){var item=items.get(i);if(item.id().equals("minecraft:air"))continue;double share=(double)item.weight()/total;double expected=100*share*(weighted()?mean:((kind.equals("binomial")||!combat())?base:1));out.add(new RewardDefinition.Output(item.id(),share,expected,i,route.uniqueItems().contains(item.id())));}
-  var p=RewardPolicy.INSTANCE;return new RewardDefinition(route.table(),kind,base,combat()?p.lootingRate:0,p.luckRate,combat(),out,weighted()?weights:List.of(),weighted()?boosts:List.of(),weighted()?draws:List.of());
+  var p=RewardPolicy.INSTANCE;return new RewardDefinition(route.table(),kind,base,eligible()&&combat()?p.lootingRate:0,eligible()?p.luckRate:0,combat(),out,weighted()?weights:List.of(),weighted()?boosts:List.of(),weighted()?draws:List.of());
  }
  public static Double constant(class_5658 n){return n instanceof class_44?(double)((ConstantLootNumberProviderAccessor)n).getValue():null;}
  private static Double minimum(class_5658 n){var c=constant(n);if(c!=null)return c;if(n instanceof class_5662)return constant(((UniformLootNumberProviderAccessor)n).getMin());return null;}
@@ -29,14 +29,17 @@ public record RewardPlan(RewardRegistry.Route route,Object gate,String kind,doub
   var dist=new ArrayList<Double>(Collections.nCopies(max.intValue()+1,0.));for(int n=min.intValue();n<=max.intValue();n++)dist.set(n,1/(max-min+1));return dist;
  }
  private static boolean role(Item i){return i.valuable()||(!i.edible()&&!i.id().startsWith("minecraft:")&&RewardRegistry.required(i.id()));}
- public static RewardPlan inspect(class_55 pool,class_5658 bonus){
+ public static RewardPlan inspect(class_55 pool,class_5658 bonus){return inspect(pool,bonus,false);}
+ public static RewardPlan display(class_55 pool,class_5658 bonus){return inspect(pool,bonus,true);}
+ private static RewardPlan inspect(class_55 pool,class_5658 bonus,boolean displayOnly){
   var route=RewardRegistry.route(pool);if(route==null||!Objects.equals(constant(bonus),0.))return null;
   var access=(LootPoolAccessor)pool;if(!functions(access.getFunctions()))return null;
   if(!route.combat()&&Arrays.stream(access.getConditions()).anyMatch(c->!(c instanceof class_219)))return null;
   var items=new ArrayList<Item>();var leaves=new ArrayList<Object>();var weights=new ArrayList<Integer>();var gates=new ArrayList<class_219>();var ids=new HashSet<String>();
   if(!conditions(access.getConditions(),gates))return null;
   for(var raw:access.getEntries()){
-   if(!(raw instanceof class_77)&&!(raw instanceof class_65))return null;
+   if(!(raw instanceof class_77)&&!(raw instanceof class_73))return null;
+   if(!(raw instanceof class_85)||!(raw instanceof LeafEntryAccessor)||!(raw instanceof RewardLeaf))return null;
    var leaf=(LeafEntryAccessor)raw;
    if(((RewardLeaf)raw).prominence$quality()!=0||leaf.getWeight()<=0||!functions(leaf.getFunctions()))return null;
    var conditions=((LootPoolEntryAccessor)raw).getConditions();if(conditions.length>0&&(access.getEntries().length!=1||!conditions(conditions,gates)))return null;
@@ -56,14 +59,16 @@ public record RewardPlan(RewardRegistry.Route route,Object gate,String kind,doub
    var p=constant(b.getP());if(p==null)return null;probability=p;gate=rolls;kind="binomial";
   }else if(Objects.equals(constant(rolls),1.)&&gates.size()==1){gate=gates.get(0);probability=((RandomChanceLootConditionAccessor)gate).getChance();kind="chance";}
   else if(gates.isEmpty()){
+   if(displayOnly)return null;
    distribution=draws(rolls);if(distribution==null||distribution.size()<2||items.size()<2)return null;
    for(var item:items)boosted.add(!item.id().equals("minecraft:air")&&role(item)&&(double)item.weight()/total<=RewardPolicy.INSTANCE.maximumBase);
    // Scaling every candidate equally cannot improve any probability; leave that pool exact.
    if(boosted.stream().noneMatch(Boolean::booleanValue)||boosted.stream().allMatch(Boolean::booleanValue))return null;
    return new RewardPlan(route,null,"weighted",1,items,leaves,weights,boosted,distribution,true);
   }else return null;
-  if(!Double.isFinite(probability)||probability<=0||probability>RewardPolicy.INSTANCE.maximumBase+1e-7)return null;
-  return new RewardPlan(route,gate,kind,probability,items,leaves,weights,List.of(),distribution,items.stream().anyMatch(RewardPlan::role));
+  if(!Double.isFinite(probability)||probability<=0||probability>(displayOnly?1:RewardPolicy.INSTANCE.maximumBase+1e-7))return null;
+  if(displayOnly&&items.stream().noneMatch(Item::valuable))return null;
+  return new RewardPlan(route,gate,kind,probability,items,leaves,weights,List.of(),distribution,!displayOnly&&items.stream().anyMatch(RewardPlan::role));
  }
  private static boolean conditions(class_5341[] conditions,List<class_219> gates){
   for(var c:conditions){if(c instanceof class_219){gates.add((class_219)c);continue;}

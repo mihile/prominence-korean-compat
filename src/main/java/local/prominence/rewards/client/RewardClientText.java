@@ -25,7 +25,10 @@ public final class RewardClientText {
    effective=RewardMath.weights(raw,boosts,looting,luck,d.lootingRate(),d.luckRate());long total=0;for(int w:effective)total+=w;
    adjusted=RewardMath.atLeastOne((double)effective[a.output().index()]/total,d.draws());base=RewardMath.atLeastOne(a.output().share(),d.draws());
   }else{adjusted=(double)(float)RewardMath.chance(d.base(),looting,luck,d.lootingRate(),d.luckRate())*a.output().share();base=d.base()*a.output().share();}
-  var out=new ArrayList<String>();out.add((ko?"드롭 확률: ":"Drop chance: ")+percentage(adjusted)+(ko?" (기본 ":" (base ")+percentage(base)+")");
+  boolean scaled=d.lootingRate()>0||d.luckRate()>0;
+  var out=new ArrayList<String>();out.add((ko?"드롭 확률: ":"Drop chance: ")+percentage(adjusted)+(scaled?(ko?" (기본 ":" (base ")+percentage(base)+")":""));
+  if(!scaled){if(formula)out.add((ko?"획득 추첨 ":"Pool chance ")+percentage(d.base())+(ko?" × 해당 아이템 ":" × item share ")+percentage(a.output().share()));return out;}
+
   out.add((ko?"현재 장비: ":"Current gear: ")+(d.combat()?(ko?"약탈 ":"Looting ")+Math.max(0,looting)+" · ":"")+(ko?"운 ":"Luck ")+LootNumbers.number(Math.max(0,luck)));
   if(formula){
    if(d.weighted()){long total=0;for(int w:effective)total+=w;out.add((ko?"선택 비중: ":"Selection weight: ")+effective[a.output().index()]+" / "+total);out.add(ko?"드롭 확률은 추첨 횟수까지 반영합니다.":"Drop chance includes the draw distribution.");}

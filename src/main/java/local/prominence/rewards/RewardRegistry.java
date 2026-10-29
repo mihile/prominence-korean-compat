@@ -17,7 +17,7 @@ public final class RewardRegistry {
    var pools=((LootTablePools)table).getPools();var counts=new HashMap<String,Integer>();boolean complete=true;
    for(var pool:pools){var local=new HashSet<String>();for(var entry:((fzzyhmstrs.emi_loot.mixins.LootPoolAccessor)pool).getEntries()){
     if(entry instanceof class_77){var item=((fzzyhmstrs.emi_loot.mixins.ItemEntryAccessor)entry).getItem();local.add(class_7923.field_41178.method_10221(item).toString());}
-    else if(!(entry instanceof class_65))complete=false;
+    else if(!(entry instanceof class_73))complete=false;
    }for(var item:local)counts.merge(item,1,Integer::sum);}
    var unique=new HashSet<String>();if(complete)counts.forEach((item,count)->{if(count==1)unique.add(item);});
    for(var pool:pools){
@@ -30,10 +30,10 @@ public final class RewardRegistry {
   if(recipesAt!=epoch){var found=new HashSet<String>();for(var recipe:recipes.method_8126())for(var ingredient:recipe.method_8117())for(var stack:ingredient.method_8105())found.add(class_7923.field_41178.method_10221(stack.method_7909()).toString());ingredients=Set.copyOf(found);recipesAt=++epoch;}
   var result=new ArrayList<RewardDefinition>();
   for(var pool:new ArrayList<>(routes.keySet())){
-   if(pool==null)continue;var plan=((RewardPool)pool).prominence$rewardPlan();if(plan!=null&&plan.eligible())result.add(plan.definition());
+   if(pool==null)continue;var plan=((RewardPool)pool).prominence$displayPlan();if(plan!=null){var definition=plan.definition();if(definition.valid())result.add(definition);else org.slf4j.LoggerFactory.getLogger("Prominence compatibility").warn("Skipped invalid reward metadata for {}",plan.route().table());}
   }
   metadata=List.copyOf(result);
-  org.slf4j.LoggerFactory.getLogger("Prominence compatibility").info("Rare reward scaling indexed {} eligible pools; recipe/quest references cached for this reload",metadata.size());
+  org.slf4j.LoggerFactory.getLogger("Prominence compatibility").info("Rare reward index: {} scaled/native equipment pools; recipe/quest references cached for this reload",metadata.size());
   return metadata;
  }
 }

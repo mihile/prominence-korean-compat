@@ -16,7 +16,7 @@ stubs={
 'net/minecraft/class_3244':'public class class_3244 {public class_3222 field_14140;public boolean ready;public class_3244(class_3222 p){field_14140=p;p.field_13987=this;}}',
 'net/minecraft/server/MinecraftServer':'public class MinecraftServer {public void execute(Runnable task){task.run();}public Object method_3772(){return this;}}',
 'local/prominence/rewards/RewardRegistry':'public class RewardRegistry {public static int snapshots,disabled;public static boolean fail;public static java.util.List<RewardDefinition> snapshot(Object recipes){snapshots++;if(fail)throw new IllegalArgumentException("recipe failure");return java.util.List.of();}public static void disable(){disabled++;}}',
-'org/slf4j/LoggerFactory':'public class LoggerFactory {public static Log getLogger(String n){return new Log();}public static class Log {public void warn(String s,Throwable t){}}}'
+'org/slf4j/LoggerFactory':'public class LoggerFactory {public static Log getLogger(String n){return new Log();}public static class Log {public void warn(String s,Throwable t){}public void info(String s,Object... args){}}}'
 }
 fixture="""package fixture;
 import local.prominence.rewards.*;import net.fabricmc.fabric.api.networking.v1.*;import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;import net.minecraft.*;import net.minecraft.server.MinecraftServer;

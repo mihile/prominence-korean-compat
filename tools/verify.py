@@ -41,6 +41,9 @@ def main():
  checks.append(('local.prominence.work.LootUiTests',[]))
  checks.append(('local.prominence.rewards.RewardScalingTests',[]))
  checks.append(('MixinPackageBoundaryTests',[safe_arg(args.build_dir/'prominence-korean-compat-1.0.0.jar')]))
+ import gzip
+ live_fixture=args.build_dir/'reward-native-server.json';live_fixture.write_bytes(gzip.decompress((ROOT/'tests/fixtures/reward-native-server.json.gz').read_bytes()))
+ checks.append(('local.prominence.rewards.RewardLiveDataTests',[safe_arg(live_fixture)]))
  checks.append(('local.prominence.work.CraftableRefreshTests',[]))
  checks.append(('SnapshotLeaseTests',[]))
  checks.append(('PerformanceRetirementChecks',[safe_arg(args.build_dir/'prominence-korean-compat-1.0.0.jar'),safe_arg(classes)]))

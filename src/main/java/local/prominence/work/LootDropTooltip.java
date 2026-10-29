@@ -132,7 +132,7 @@ public final class LootDropTooltip {
     }
     public static SlotWidget append(SlotWidget slot,ConditionalStack entry,EmiRecipe recipe){
         var conditions=entry.conditions().stream().map(p->p.method_15441()).toList();
-        var other=conditions.stream().filter(t->!chance(t)&&!key(t).equals("emi_loot.no_conditions")).map(t->compact(t,LootUiText.korean())).toList();
+        var other=conditions.stream().filter(t->!chance(t)&&!key(t).equals("emi_loot.no_conditions")&&!key(t).equals("emi_loot.function.set_nbt")).map(t->compact(t,LootUiText.korean())).toList();
         var id=recipe.getId();var fallback=lines(id==null?"":id.toString(),entry,LootUiText.korean());
         return local.prominence.rewards.client.RewardClientText.present(slot,entry.weight(),conditions,recipe,fallback,other);
     }

@@ -18,8 +18,8 @@ public final class RewardBehavior {
   check(plan(gate("test:rare",.5f,true))==null,"common chance excluded");
   var gear=gate("test:sword",.01f,true);((class_77)gear.entries[0]).item.damage=100;check(plan(gear).eligible(),"equipment discovered without item allowlist");
   check(RewardPlan.inspect(p,new class_44(1))==null,"native bonus rolls protected");
-  p.entries[0].quality=1;check(plan(p)==null,"native luck quality protected");p.entries[0].quality=0;
-  p.entries[0].functions=new class_117[]{new class_117("minecraft:looting_enchant")};check(plan(p)==null,"native Looting function protected");p.entries[0].functions=new class_117[0];
+  ((class_85)p.entries[0]).quality=1;check(plan(p)==null,"native luck quality protected");((class_85)p.entries[0]).quality=0;
+  ((class_85)p.entries[0]).functions=new class_117[]{new class_117("minecraft:looting_enchant")};check(plan(p)==null,"native Looting function protected");((class_85)p.entries[0]).functions=new class_117[0];
   p.conditions=new class_5341[]{new class_5341("minecraft:random_chance_with_looting")};check(plan(p)==null,"native Looting condition protected");
   p.conditions=new class_5341[]{new class_5341("foreign:condition")};check(plan(p)==null,"unknown predicate stays native");p.conditions=new class_5341[0];
   p.functions=new class_117[]{new class_141(new class_5662(new class_44(0),new class_44(2)),false)};check(plan(p)==null,"zero-output set_count cannot claim true drop chance");p.functions=new class_117[0];
@@ -29,7 +29,11 @@ public final class RewardBehavior {
   check(RewardScope.weight(weighted.entries[1],1)==1,"weight scope cleared");
   check(wp.definition().valid(),"server definition reflects production plan");
   var all=new class_55();all.entries=new class_85[10];for(int i=0;i<10;i++)all.entries[i]=new class_77(new class_1792("test:gear"+i,100,1,false),1,0);RewardRegistry.put(all,true);check(plan(all)==null,"equally boosted all-rare pool stays native, no useless RNG domain change");
-  var dup=new class_55();dup.entries=new class_85[]{weighted.entries[1],weighted.entries[1]};RewardRegistry.put(dup,true);check(plan(dup)==null,"duplicate item/NBT ambiguity stays native");
+  var dup=new class_55();dup.entries=new class_79[]{weighted.entries[1],weighted.entries[1]};RewardRegistry.put(dup,true);check(plan(dup)==null,"duplicate item/NBT ambiguity stays native");
+  var alternative=new class_55();alternative.entries=new class_79[]{new class_65()};RewardRegistry.put(alternative,true);check(plan(alternative)==null,"actual AlternativeEntry cannot be cast to leaf");
+  var empty=new class_55();empty.entries=new class_79[]{new class_73(9),new class_77(new class_1792("test:rare",0,64,false),1,0)};RewardRegistry.put(empty,true);check(plan(empty)!=null,"actual EmptyEntry remains a weighted leaf");
+  var nativeGear=gate("test:sword",.3f,true);((class_77)nativeGear.entries[0]).item.damage=100;nativeGear.rolls=new class_44(1);nativeGear.conditions=new class_5341[]{new class_219(.3f)};
+  check(plan(nativeGear)==null,"native 30% pool not silently buffed");var display=RewardPlan.display(nativeGear,new class_44(0));check(display!=null&&!display.eligible()&&display.definition().valid()&&display.definition().lootingRate()==0,"native gear probability independently displayable");
   System.out.println("PASS "+checks+" production eligibility, exact scope, live gear, anonymous/environment kills, chest context, nested/exception cleanup, native bonus protections, equipment discovery and normalized weights; API doubles only");
  }
 }

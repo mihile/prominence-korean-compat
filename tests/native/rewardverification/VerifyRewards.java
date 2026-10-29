@@ -28,7 +28,11 @@ public final class VerifyRewards {
   var helpers=new ArrayList<>(List.of("local.prominence.rewards.RewardCommonInit","local.prominence.rewards.RewardRegistry","local.prominence.rewards.RewardScope","local.prominence.rewards.RewardWire"));
   if(!a[1].equals("server"))helpers.addAll(List.of("local.prominence.rewards.client.RewardClientInit","local.prominence.rewards.client.RewardClientText","local.prominence.rewards.client.RewardClientState","local.prominence.rewards.client.RewardSlot"));
   for(String helper:helpers){byte[] raw=read(loader,helper);byte[] transformed=transformer.transformClassBytes(helper,helper,raw);if(!Arrays.equals(raw,transformed))throw new AssertionError("Ordinary helper unexpectedly transformed: "+helper);System.out.println("PASS ordinary helper load boundary "+helper);}
-  var targets=new ArrayList<>(List.of("net.minecraft.class_55","net.minecraft.class_85","net.minecraft.class_219","net.minecraft.class_40","net.minecraft.class_85$class_88","net.minecraft.class_77","net.minecraft.class_79","net.minecraft.class_44","net.minecraft.class_5662","net.minecraft.class_141","net.minecraft.class_52","fzzyhmstrs.emi_loot.parser.LootTableParser"));
+  var emptyNode=new ClassNode();new ClassReader(read(loader,"net.minecraft.class_73")).accept(emptyNode,ClassReader.SKIP_CODE);
+  var alternativeNode=new ClassNode();new ClassReader(read(loader,"net.minecraft.class_65")).accept(alternativeNode,ClassReader.SKIP_CODE);
+  if(!emptyNode.superName.equals("net/minecraft/class_85")||alternativeNode.superName.equals("net/minecraft/class_85"))throw new AssertionError("native leaf/combined hierarchy mismatch");
+  System.out.println("PASS actual EmptyEntry73 and AlternativeEntry65 hierarchy boundary");
+  var targets=new ArrayList<>(List.of("net.minecraft.class_73","net.minecraft.class_65","net.minecraft.class_55","net.minecraft.class_85","net.minecraft.class_219","net.minecraft.class_40","net.minecraft.class_85$class_88","net.minecraft.class_77","net.minecraft.class_79","net.minecraft.class_44","net.minecraft.class_5662","net.minecraft.class_141","net.minecraft.class_52","fzzyhmstrs.emi_loot.parser.LootTableParser"));
   if(!a[1].equals("server"))targets.add("dev.emi.emi.api.widget.SlotWidget");
   int hooks=0;for(String target:targets){byte[] bytes=transformer.transformClassBytes(target,target,read(loader,target));var n=new ClassNode();new ClassReader(bytes).accept(n,0);int local=0;
    var original=new ClassNode();new ClassReader(read(loader,target)).accept(original,0);
