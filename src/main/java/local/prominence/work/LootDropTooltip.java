@@ -30,7 +30,24 @@ public final class LootDropTooltip {
     private static String string(Object o){return o instanceof class_2561 t?t.getString():String.valueOf(o);}
     private static double numeric(Object o){return Double.parseDouble(string(o));}
     private static boolean chance(class_2561 t){return key(t).equals("emi_loot.condition.chance")||key(t).equals("emi_loot.condition.chance_looting");}
-    private static String victim(LootEntityRule.Node n){if(n.key().equals("emi_loot.entity_predicate.type_single")&&n.args().size()==1&&n.args().get(0).key().startsWith("entity."))return n.args().get(0).key();for(var a:n.args()){var v=victim(a);if(v!=null)return v;}for(var a:n.siblings()){var v=victim(a);if(v!=null)return v;}return null;}
+    // A summary consumes an entire predicate, never just its first matching leaf.
+    private static Set<String> victims(LootEntityRule.Node n,int depth){
+        if(depth>32)return null;
+        if(n.key().isEmpty()&&n.literal().isEmpty()&&n.args().isEmpty()&&!n.siblings().isEmpty()
+            &&n.siblings().stream().allMatch(s->s.key().startsWith("emi_loot.condition.any_of")))return victimUnion(n.siblings(),depth);
+        if(!n.siblings().isEmpty())return null;
+        if(n.key().startsWith("emi_loot.condition.any_of")&&!n.args().isEmpty())return victimUnion(n.args(),depth);
+        if(Set.of("emi_loot.condition.entity_props","emi_loot.entity_predicate.entity_this","emi_loot.entity_predicate.base").contains(n.key())&&n.args().size()==1)return victims(n.args().get(0),depth+1);
+        if(n.key().equals("emi_loot.entity_predicate.type_single")&&n.args().size()==1){var a=n.args().get(0);if(a.key().startsWith("entity.")&&a.args().isEmpty()&&a.siblings().isEmpty())return Set.of(a.key());}
+        if(n.key().equals("emi_loot.entity_predicate.type_tag")&&n.args().size()==1&&n.args().get(0).literal().equals("#minecraft:skeletons"))return Set.of("#minecraft:skeletons");
+        return null;
+    }
+    private static Set<String> victimUnion(List<LootEntityRule.Node> terms,int depth){var result=new LinkedHashSet<String>();for(var term:terms){var found=victims(term,depth+1);if(found==null)return null;result.addAll(found);}return result;}
+    private static boolean justAxe(LootEntityRule.Node n,int depth){
+        if(depth>32||!n.siblings().isEmpty())return false;
+        if(n.key().equals("item.botania.elementium_axe")&&n.args().isEmpty())return true;
+        return Set.of("emi_loot.condition.entity_props","emi_loot.entity_predicate.entity_killer","emi_loot.entity_predicate.base","emi_loot.item_predicate.items").contains(n.key())&&n.args().size()==1&&justAxe(n.args().get(0),depth+1);
+    }
     private static class_2561 compact(class_2561 t,boolean ko){
         if(!ko)return t;
         String k=key(t);var a=args(t);
@@ -81,12 +98,27 @@ public final class LootDropTooltip {
             else label+=(ko?" · 약탈 I/II/III: ":" · Looting I/II/III: ")+LootNumbers.percent(levels[1])+"/"+LootNumbers.percent(levels[2])+"/"+LootNumbers.percent(levels[3])+"%";
         }
         result.add(class_2561.method_43470(label));
-        String victim=nodes.stream().map(LootDropTooltip::victim).filter(Objects::nonNull).findFirst().orElse(null);
         boolean head=!items.isEmpty()&&items.stream().allMatch(item->hit("botania:elementium_axe_beheading",item,expected)!=null);
-        if(ko&&axe&&head&&victim!=null){
-            result.add(class_2561.method_43470(shortBeheading(names.apply(victim),ko)));
-            for(var c:other)if(!key(c).equals("emi_loot.condition.entity_props"))result.add(compact(c,ko));
-        }else for(var c:other)result.add(compact(c,ko));
+        var consumed=new HashSet<Integer>();var excluded=new LinkedHashSet<String>();var exclusionIndices=new HashSet<Integer>();int victimIndex=-1;Set<String> targets=null;boolean ambiguous=false;
+        if(ko&&axe&&head){
+            for(int i=0;i<other.size();i++){
+                var node=LootEntityDisplay.node(other.get(i),0);
+                if(justAxe(node,0))consumed.add(i);
+                var found=victims(node,0);if(found!=null){if(victimIndex!=-1)ambiguous=true;victimIndex=i;targets=found;}
+                if(node.key().equals("emi_loot.condition.invert")&&node.args().size()==1&&node.siblings().isEmpty()){
+                    var inverse=victims(node.args().get(0),0);if(inverse!=null){excluded.addAll(inverse);exclusionIndices.add(i);}
+                }
+            }
+        }
+        if(!consumed.isEmpty()&&victimIndex!=-1&&!ambiguous){
+            var labels=targets.stream().map(t->t.equals("#minecraft:skeletons")?"스켈레톤 계열":names.apply(t)).toList();
+            String targetLabel=String.join(" 또는 ",labels);
+            if(!excluded.isEmpty())targetLabel+="("+String.join(" 또는 ",excluded.stream().map(names).toList())+" 제외)";
+            result.add(class_2561.method_43470(shortBeheading(targetLabel,ko)));
+            consumed.add(victimIndex);
+            consumed.addAll(exclusionIndices);
+        }else consumed.clear();
+        for(int i=0;i<other.size();i++)if(!consumed.contains(i))result.add(compact(other.get(i),ko));
         return result;
     }
     public static SlotWidget appendChest(SlotWidget slot,double expected,EmiRecipe recipe){

@@ -1,5 +1,11 @@
 # Loot names, compass dimensions and display precision — 2026-10-29
 
+## nightly-20261029.10 — consume complete target conditions
+
+The .9 summary picked the first entity-name leaf and removed only top-level entity_props text. An OR condition remained verbatim, duplicating the summary and narrowing its target list. Victim summaries now recognize complete positive target predicates, two-way ORs and native three-way sibling chains; only fully represented weapon/target/exclusion nodes are consumed. Unknown branches and extra sibling constraints remain visible. Skeleton-tag drops retain the wither-skeleton exclusion. The reported piglin case is exactly two lines beneath the item name: `드롭 확률: 7.68% · 약탈 레벨당 +7.68%p` and `엘레멘티움 도끼로 피글린 또는 난폭한 피글린 처치`.
+
+Regression coverage now reads all seven installed Botania beheading pools and recreates EMI Loot's native Text shape, including the piglin OR, zombie/husk/drowned sibling chain, skeleton exclusion and an extra unknown constraint. The previous single-target Gaia test did not cover the reported case. Full native runtime-library classpath is required for the unknown-condition fixture's Minecraft Text translation fallback (Mojang LogUtils); a missing test dependency is not an in-game error. Client-only cumulative publication; actual game screen validation remains pending.
+
 ## nightly-20261029.9 — drop probabilities and concise conditions
 
 The previous expected-selection label is removed from every supported slot layout. Percentages truncate to two decimal places (7.6899999 -> 7.68); positive probabilities below0.01% display `<0.01%` rather than0%. Chance-condition numbers use the same formatter instead of native Float.toString.
