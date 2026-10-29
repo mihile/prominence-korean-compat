@@ -18,3 +18,5 @@ Offline validation covers startup/world/overlay gates, layout boundaries, compil
 ## Stable promotion: 2026-10-30
 
 The user confirmed nightly20261029.16 in-game. The main promotion retains its cumulative functionality and removes the unsupported creative offload/fixed sleep and external Xaero throttle after native-bytecode review. Stable build2026103001 uses track=main; future work continues on nightly. The nightly branch feed remains its own signed prerelease pointer. Promotion details and gameplay-vs-offline verification limits are in MAIN_PROMOTION_REVIEW.md.
+
+When stable promotion and cleanup change the released functionality, also publish the equivalent nightly artifact so users staying on nightly receive the same reviewed code. Use a new globally increasing build and a signed nightly tag; compare all classes and resource contents with stable, normalizing JSON/source formatting and allowing only channel/build metadata to differ. A source merge alone is not binary distribution synchronization.
