@@ -35,6 +35,28 @@
       "source": "Bastion Remnant",
       "ko": "보루 잔해",
       "id": "minecraft:bastion_remnant"
+    },
+    {
+      "source": "Luck (attribute)",
+      "ko": "운",
+      "id": "minecraft:generic.luck",
+      "note": "Used by participating loot draws, reforging and other luck-aware mechanics; distinct from Fortune and Looting."
+    },
+    {
+      "source": "Fortune (attribute)",
+      "ko": "채굴 행운",
+      "id": "puffish_attributes:fortune",
+      "note": "Modifies effective Fortune enchantment level in block apply_bonus; player.fortune is a registry alias."
+    },
+    {
+      "source": "Fortune (enchantment)",
+      "ko": "행운",
+      "id": "minecraft:fortune"
+    },
+    {
+      "source": "Looting (enchantment)",
+      "ko": "약탈",
+      "id": "minecraft:looting"
     }
   ],
   "scope": "A small reviewed starting set, not an exhaustive glossary. Historical files are evidence; conflicting older spellings do not override this list."

@@ -518,7 +518,7 @@
   "&7It slowly deals damage to all flameborn around it, spawning crystals that deal damage. Once enough crystals are broken, its tentacles arise, cutting them off will make Ama'gul vulnerable.": "&7주변의 모든 플레임본에게 서서히 피해를 주고, 피해를 주는 결정을 생성합니다. 충분한 결정을 부수면 촉수가 솟아오르며, 촉수를 잘라내면 아마굴이 취약해집니다.",
   "&7It watched a great Paladin slay a Beast. But he who kills cannot be far from a Beast himself.": "야수를 쓰러뜨린 자를 지켜본 눈",
   "&7It's best if you start farming as soon as possible.": "&7가능한 한 일찍 재배를 시작하세요.",
-  "&7It's not all about grinding! You can &eincrease chances on higher qualities&7 with your &aLuck&7! Items that give luck passively, luck potions, trinkets, wine, get them all!": "&7반복해서 재료만 모을 필요는 없습니다. &e상위 품질이 나올 확률&7은 &a행운&7으로 올릴 수 있습니다. 행운을 주는 장비, 물약, 장신구, 와인을 활용하세요!",
+  "&7It's not all about grinding! You can &eincrease chances on higher qualities&7 with your &aLuck&7! Items that give luck passively, luck potions, trinkets, wine, get them all!": "&7상위 품질이 나올 확률은 &a운&7으로 높일 수 있습니다. 운을 올리는 장비, 물약, 장신구, 와인을 활용하세요!",
   "&7It's obtained from armor pieces, but enemies and bosses will also have an amount armor by default.": "&7갑옷에서 얻을 수 있으며, 적과 우두머리에게도 기본 방어도가 있습니다.",
   "&7It's the Burstiest of all 3. Focuses on &eCritical Damage&7 to maximize damage dealt by critical spells. &eCritical Chance&7 is also important, balancing out both is a good idea.": "&7세 원소 중 순간 화력이 가장 높습니다. 치명타 주문의 피해량을 극대화하려면 &e치명타 피해&7에 집중하세요. &e치명타 확률&7도 중요하므로 두 능력치를 균형 있게 올리는 것이 좋습니다.",
   "&7Just like the Villagers in the Overworld, something like a plague must have corrupted these beings. This \"Infection\" seems a bit more Eldritch in nature, best to not get close and pick them off from a distance.": "&7오버월드의 주민들처럼 이 존재들도 역병에 오염된 듯합니다. 이 감염은 기이한 힘의 영향으로 보이니 가까이 가지 말고 원거리에서 처치하는 편이 좋습니다.",
@@ -793,7 +793,7 @@
   "&7This Torch will stop fish and other Aquatic animals from spawning, not sure why but this would be a great for a Trident farm.": "&7이 횃불은 물고기와 다른 수생 동물이 생성되지 않게 합니다. 삼지창 농장을 만들 때 유용할 수 있습니다.",
   "&7This Weapon has seen the Rise of the Deep Dark. It gives off a pulse of Joy when it sees its Home.": "&7딥 다크의 탄생을 지켜본 검입니다. 고향의 기운을 만나면 반가운 듯 가볍게 맥동합니다.",
   "&7This Wrench is great for also moving Growth Accelerators without picking up the block and also picking up ME Drives, since it drops all items directly into your inventory!": "블록을 부수지 않고 수정 성장 가속기를 옮길 수 있으며, ME 드라이브를 회수하면 내용물이 인벤토리로 바로 들어와 편리합니다.",
-  "&7This backpack gives + 1 Luck if worn": "&7이 배낭을 장착하면 행운이 1 증가합니다.",
+  "&7This backpack gives + 1 Luck if worn": "&7이 배낭을 장착하면 &a운&7이 1 증가합니다.",
   "&7This backpack gives + 2 Armor if worn.": "&7이 배낭을 장착하면 방어력이 2 증가합니다.",
   "&7This backpack gives a 15% to double the amount of incoming experience if worn": "&7이 배낭을 장착하면 획득 경험치가 2배가 될 확률이 15%입니다.",
   "&7This blade reeks of a Betrayal that has changed this Weapon forever. A Betrayal so heartbreaking, it cannot even be forgotten by the ones that don't know it. The Souls in this Weapon ooze guilt.": "&7지독한 배신의 기억이 검에 스며 있습니다. 칼날에 갇힌 영혼들은 여전히 죄책감에 시달립니다.",
@@ -2678,5 +2678,7 @@
   "&7피의 장신구는 요새 잔해에서 찾을 수 있습니다. 탱커나 혈기 죽음의 기사, 그 사이의 어떤 역할에도 꼭 필요합니다.": "&7피의 장신구는 보루 잔해에서 찾을 수 있습니다. 탱커나 혈기 죽음의 기사, 그 사이의 어떤 역할에도 꼭 필요합니다.",
   "&7네더의 요새 잔해에서 찾을 수 있습니다.": "&7네더의 보루 잔해에서 찾을 수 있습니다.",
   "&7필요한 도금된 흑암 조각을 얻을 수도 있으니 최대한 많이 처치하세요.": "&7필요한 금박 흑암 조각을 얻을 수도 있으니 최대한 많이 처치하세요.",
-  "요새 잔해 방문하기": "보루 잔해 방문하기"
+  "요새 잔해 방문하기": "보루 잔해 방문하기",
+  "&7이 배낭을 장착하면 행운이 1 증가합니다.": "&7이 배낭을 장착하면 &a운&7이 1 증가합니다.",
+  "&7반복해서 재료만 모을 필요는 없습니다. &e상위 품질이 나올 확률&7은 &a행운&7으로 올릴 수 있습니다. 행운을 주는 장비, 물약, 장신구, 와인을 활용하세요!": "&7상위 품질이 나올 확률은 &a운&7으로 높일 수 있습니다. 운을 올리는 장비, 물약, 장신구, 와인을 활용하세요!"
 }
