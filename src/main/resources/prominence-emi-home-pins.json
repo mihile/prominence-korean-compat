@@ -316,5 +316,37 @@
         "dev/emi/emi/runtime/EmiSidebars.class": "65228835d6ef979b0b18a6eeeff97432c37504362906ee36c725ea28eb732728"
       }
     }
+  },
+  "lootConditions": {
+    "emi_loot": {
+      "version": "0.7.9+1.20.1+fabric",
+      "classes": {
+        "fzzyhmstrs/emi_loot/emi/MobLootRecipe.class": "15c5df5096107c9c298286f66603c9a9d56db3d005feec554837acc9f052dcf7",
+        "fzzyhmstrs/emi_loot/emi/BlockLootRecipe.class": "b1b228fcb80aa247686246b842818ee1f35ec5d3a4c097f5cff9a092a5cdadc9",
+        "fzzyhmstrs/emi_loot/emi/GameplayLootRecipe.class": "724cfe274cc66492c4248c39f9a3fa380418d787feab2de0c34624da174af2c6",
+        "fzzyhmstrs/emi_loot/util/IconGroupEmiWidget.class": "ff2a0a98c6b85725a7b7f3d06e2fe322f11daae5a47b4011824bc563f633c654",
+        "fzzyhmstrs/emi_loot/util/SymbolText.class": "9adfd9e1b9d3177d24e1aa853592cb0e25f29789ecbb0855a69c8592726bd91f",
+        "fzzyhmstrs/emi_loot/EMILoot$EmiLootConfig.class": "6f1c36c03945fd93ec2ffaff6f0dbf03c232ac80d397ecec1ae6e171ca11dd3a",
+        "fzzyhmstrs/emi_loot/util/ConditionalStack.class": "48154753bbbf7f25185be1a2ba34bcfb3f55ab8770fa2f0e4f5b6f3e1d1511db"
+      }
+    }
+  },
+  "lootVictims": {
+    "emi_loot": {
+      "version": "0.7.9+1.20.1+fabric",
+      "classes": {
+        "fzzyhmstrs/emi_loot/emi/MobLootRecipe.class": "15c5df5096107c9c298286f66603c9a9d56db3d005feec554837acc9f052dcf7",
+        "fzzyhmstrs/emi_loot/emi/MobLootRecipe$MobLootRecipeData.class": "df308c38f6545fe1720380c374540657138657a62ae53a2d42dccb9f8d2b2921",
+        "fzzyhmstrs/emi_loot/parser/EntityPredicateParser.class": "4cfa087726b045a59339d04d7f710918efcec30f16274444465a1945e97a3d4f",
+        "fzzyhmstrs/emi_loot/parser/EntityTypePredicateParser.class": "a9429f53dd65ed210b2d6fadf556c3366adf77d0d7dff1a2e92bcac03fbf5ad1",
+        "fzzyhmstrs/emi_loot/util/TextKey.class": "16c950fce2fee55a57ee46d2c092100319ae4065e51f4ce32d0b9e85201a92dc"
+      }
+    },
+    "botania": {
+      "version": "1.20.1-456-FABRIC",
+      "classes": {
+        "data/botania/loot_tables/elementium_axe_beheading.json": "35b8a075ee230ea769dde4818a34232d7458a45a4c6856d3ec2feb2ca91e448f"
+      }
+    }
   }
 }

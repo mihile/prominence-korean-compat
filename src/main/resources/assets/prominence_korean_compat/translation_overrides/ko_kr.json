@@ -26,5 +26,9 @@
   "emi_loot.chest.minecraft:gameplay/fishing/treasure": "낚시 보물",
   "emi_loot.gameplay.minecraft:gameplay/fishing/treasure": "낚시 보물",
   "emi_loot.chest.minecraft:gameplay/piglin_bartering": "피글린 물물교환",
-  "emi_loot.gameplay.minecraft:gameplay/piglin_bartering": "피글린 물물교환"
+  "emi_loot.gameplay.minecraft:gameplay/piglin_bartering": "피글린 물물교환",
+  "emi_loot.condition.chance": "기본 확률: %s%%",
+  "emi_loot.condition.chance_looting": "기본 확률: %1$s%% · 약탈 레벨당 +%2$s%%p",
+  "emi_loot.condition.killed_player": "플레이어가 처치해야 합니다.",
+  "emi_loot.condition.creeper": "충전된 크리퍼의 폭발로 처치해야 합니다."
 }

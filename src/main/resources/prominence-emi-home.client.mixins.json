@@ -35,7 +35,10 @@
     "NatureDimensionSearchMixin",
     "LootRollStaticMixin",
     "LootRollConfigMixin",
-    "EmiCraftableRefreshMixin"
+    "EmiCraftableRefreshMixin",
+    "LootConditionsVisibleMixin",
+    "LootGroupConditionsMixin",
+    "LootMobEntityFilterMixin"
   ],
   "injectors": {
     "defaultRequire": 1
