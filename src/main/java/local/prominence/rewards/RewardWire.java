@@ -14,9 +14,9 @@ public final class RewardWire {
   if(!ServerPlayNetworking.canSend(player,CHANNEL))return;
   var buf=PacketByteBufs.create();buf.writeBytes(encode(plans));ServerPlayNetworking.send(player,CHANNEL,buf);
   } catch(RuntimeException e) {
-   org.slf4j.LoggerFactory.getLogger("Prominence compatibility").warn("Rare reward metadata could not be prepared; keeping native loot and clearing display",e);
-   RewardRegistry.disable();
-   if(ServerPlayNetworking.canSend(player,CHANNEL)) {var buf=PacketByteBufs.create();buf.writeBytes(encode(List.of()));ServerPlayNetworking.send(player,CHANNEL,buf);}
+   // Optional display metadata must never reject login or disable gameplay bonuses.
+   // Do not retry the same canSend/send operation from the failure handler.
+   org.slf4j.LoggerFactory.getLogger("Prominence compatibility").warn("Rare reward metadata sync skipped; player login and gameplay are unchanged",e);
   }
  }
 }

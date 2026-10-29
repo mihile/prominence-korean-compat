@@ -5,5 +5,5 @@ public abstract class RewardParserMixin {
  @Inject(method="parseLootTables",at=@At("TAIL"))
  private static void prominence$tables(class_60 manager,Map<class_8488<?>,?> tables,CallbackInfo ci){try{RewardRegistry.index(tables);}catch(RuntimeException e){RewardRegistry.disable();org.slf4j.LoggerFactory.getLogger("Prominence compatibility").warn("Rare reward indexing failed; original loot retained",e);}}
  @Inject(method="registerServer",at=@At("HEAD"))
- private void prominence$metadata(class_3222 player,CallbackInfo ci){RewardWire.send(player);}
+ private void prominence$metadata(class_3222 player,CallbackInfo ci){RewardCommonInit.request(player.field_13987);}
 }
