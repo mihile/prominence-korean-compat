@@ -124,6 +124,25 @@ public final class ShaderSourceCacheTests {
             long hitsBefore=cache.stats().hits();for(int i=0;i<32;i++){final int index=i;cache.preprocess("queued"+i,defs,()->{throw new AssertionError("Cache miss "+index);});}
             check(cache.stats().hits()-hitsBefore==32,"Burst not retained");
         }
+        try(var memo=new ShaderSourceDiskCache(dir.resolve("memo"),"schema1")) {
+            String source="// include in comment\r\n/* #include \"ignored\" */\n#version 330\nvoid main(){}\n\ud800";
+            for(int i=0;i<24;i++){
+                var macros=List.of(new ShaderSourceDiskCache.Define("VALUE",Integer.toString(i)));
+                memo.preprocess(new String(source),macros,compiler);memo.awaitWrites();
+                check(Files.isRegularFile(dir.resolve("memo").resolve(memo.key(source,macros)+".bin")),"Memo changed the existing exact UTF-16 disk key");
+            }
+            check(memo.sourceReuses()==23,"Equal expanded source not reused across macros");
+            for(String tail:List.of("#include \"x\"","# /**/ include \"x\"","#in\\\nclude \"x\"")){
+                check(!ShaderSourceDiskCache.safeInput("/* skipped */\n// skipped\r\n"+tail,defs),"Comment fast path concealed external include");
+            }
+            var macros=new ArrayList<ShaderSourceDiskCache.Define>();macros.add(new ShaderSourceDiskCache.Define("A","1"));
+            memo.preprocess(source,macros,compiler);long bypass=memo.stats().bypasses();
+            macros.set(0,new ShaderSourceDiskCache.Define("A","__TIME__"));memo.preprocess(source,macros,compiler);
+            check(memo.stats().bypasses()==bypass+1,"Source memo incorrectly cached dynamic defines");
+            for(int i=0;i<300;i++)memo.preprocess("distinct-source-"+i,defs,compiler);
+            check(memo.preparedSourceCount()<=128,"Source memo unbounded");
+            memo.close();check(memo.preparedSourceCount()==0,"Closed source memo retains entries");
+        }
         System.out.println("PASS: "+checks+" disk cache data/invalidation/bounds/native fingerprint checks; no game or OpenGL");
     }
 }

@@ -141,3 +141,18 @@ Fastload `instant_load=false`, server_render_chunk_radius=3이다. 현재 호환
 - 이번 수정은 remap 시 정렬된 전체 상태의 객체 동일성·순서·개수가 기존 ID 목록과 모두 같을 때만 재삽입을 생략한다. 하나라도 다르면 원래 전체 재구성을 실행한다. 신규 등록 경로·서버 동기화 패킷·ID 결정 방식은 유지하며 영구 캐시는 추가하지 않는다. `Registry state remap: unchanged=..., states=..., elapsedMs=...`로 적용 여부/비용을 남긴다. 서버 ID 순서가 실제로 달라지는 첫 접속에는 이 최적화가 적용되지 않을 수 있다. 수초 프리즈 전체 해결로 보지 않는다.
 - 최신 로그의 반복 shader sampler/uniform 경고는02:04:31~32(접속02:04:42 전)에 집중된다. Discord context queue 경고80회는10초 간격이다. 둘을 수초 프레임 정지의 직접 원인이라고 단정하거나 로그만 숨기지 않았다.02:11~12 Voxy Model factory에서 EMF bed head/foot64회 생성 제한,02:16 stream buffer 삭제 오류도 확인했다. 현재 캡처에는 해당 실행 타임라인이 없으므로 별도 렌더 수명 문제 후보로 남긴다.
 - 검증:10만 상태 동일/순서변경/객체교체/개수변경/동등하지만 다른 객체 fixture, 설치된 StateIdTracker의 실제 Mixin 변환/ASM 검사. 공개는 클라이언트 nightly만, 실제 끊김 감소는 미측정이다.
+
+
+## 2026-10-29 — 153715 측정과 nightly-20261029.5
+
+- 캡처153715-904726는 build2026102904 / SHA256 f5cd3eafc6902df3057fbb044fb617c983f4efc3af70f479e5962d0d02f80156 실행이다. JFR/PresentMon/덤프/MAT가 complete다. 현행 latest.log571,876bytes는 캡처 저장 로그 뒤에 같은 실행의 기록이 추가됐다. ERROR29/WARN1139이며 sampler/uniform 반복 경고는 각59회다. 로그를 숨기지 않았다. FTB Quests Freeze Fix는 사용자 비활성 상태를 유지한다.
+- EMI 완료16,914.5ms: index2,535.4 / plugin registration6,153.8 / recipe bake2,104.6 / search4,367.7ms. 이전005257의20,261ms보다 짧지만 조건을 통제한 A/B가 아니므로 패치별 개선률로 쓰지 않는다. UI 장소 번역 플러그인168ms나 remap118.96ms 하나로 수초 정지를 설명하지 않는다.
+- 첫 접속 기록에는3,333 /1,834 /2,165ms 프레임과 Flywheel 작업 완료 대기, Colorwheel GL link, 초기 클래스/태그 처리가 있다. 모델 bake 모니터 대기는276.1ms, 이전 소유자는 청크 작업자다. EMI가 해당 락을 쥔 증거는 없다. 샘플 수를 경과시간으로 환산하지 않는다.
+- 엔드 pipeline 준비11,661ms(native text1,315ms), 네더3,700ms(text1,252ms), 오버월드 복귀1,449ms(text712ms). 엔드 구간에 PresentMon13,689ms / GPU busy202.6ms / GPU wait13,516ms가 있으며 JFR에서 Iris GL link와 캐시의 externalInclude/key가 관찰된다. 프레임 일관성 경고가 있어 최대 간격을 정확한 단일 프레임/FPS로 단정하지 않는다. GPUTime 전체는 GPU 연산 시간이 아니다. 사용 셰이더는 Unbound5.9.3+Euphoria1.10.5다. 실행 간 드라이버 캐시·셰이더 설정 조건이 통제되지 않았으므로 증가를 .4의 단독 회귀로 확정하지 않는다.
+- GC 정지 합계1,862ms / 최장102ms / Full0. GC후peak95.9%는 여유가 작다는 뜻이지만 수초 정지의 단독 설명은 아니다. MAT WorldEngine538.7MB / ModelFactory358.0MB, 전체 보유 힙은 약3.92GB다. 중첩 retained size를 합산하지 않는다.
+
+수정은 두 경로에 한정한다. 셰이더 원문 안전성 검사와 namespace+원문의 SHA256 중간 상태를 최대128개 weak-key 표에서 재사용한다. 값은 digest 상태만 가지며 원문·월드·팩 참조는 없다. 정의 목록/순서는 매번 검증하고 이어서 해싱한다. UTF-16 길이/키 형식을 유지하므로 기존 디스크 캐시는 그대로 읽는다. 주석 구간 검사는 block 끝을 찾아 건너뛰고 줄 주석은 한 번만 순회한다. 파이프라인 로그에 원문 재사용 횟수·준비/키 시간을 추가해 다음 측정에서 실제 기여를 구분한다. GPU 프로그램이나 파이프라인 수명은 바꾸지 않는다.
+
+배낭 삭제는 사용자가 측정 종료 뒤 확인했다. 이 캡처로 삭제 정지의 원인을 확정하지 않는다. 실제 EMI1.1.24 deleteCursor는 커서 비우기와 기존 CreateItem 패킷 전송이며, recalculate의 updateCraftables는 인벤토리 변경마다 숨겨진 제작 가능 목록까지 동기 계산한다. 숨겨져 있을 때 그 목록 계산만 미루고, 노출 시 기존 inventory 스냅샷을 무효화하여 최신 목록을 원래 함수로 다시 만든다. 인벤토리 동기화·즐겨찾기·레시피 판정·삭제 권한/패킷은 유지한다. 50ms 이상 삭제/인벤토리 갱신에는 짧은 지연 로그를 남겨 추정과 재현을 구분한다. opt-out은 -Dprominence.emiHome.craftableRefresh=false.
+
+검증: 누적 검사, 실제 EMI1.1.24 Mixin 변환/74메서드 ASM 검사, 숨김 변경/노출 갱신 fixture, 캐시 기존 키·동적 정의·한계/손상/재시작 검사. 실제 Iris/JCPP+설치 Unbound includes+Euphoria hook 변환과 출력/진단151검사도 통과했다. CPU fixture의 캐시 반복은 수ms였으나 게임 프레임 개선 실측은 아니다. 클라이언트 nightly 서명 누적본으로 전달하며 운영 JAR·서버·설정·ZIP은 직접 변경하지 않는다.

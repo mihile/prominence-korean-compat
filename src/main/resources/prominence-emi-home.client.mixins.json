@@ -34,7 +34,8 @@
     "ExplorerDimensionSearchMixin",
     "NatureDimensionSearchMixin",
     "LootRollStaticMixin",
-    "LootRollConfigMixin"
+    "LootRollConfigMixin",
+    "EmiCraftableRefreshMixin"
   ],
   "injectors": {
     "defaultRequire": 1

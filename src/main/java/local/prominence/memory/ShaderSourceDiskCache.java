@@ -33,6 +33,11 @@ public final class ShaderSourceDiskCache implements AutoCloseable {
     private final java.util.LinkedHashMap<String,String> memoryCache = new java.util.LinkedHashMap<>(64,0.75f,true);
     private long memoryBytes;
     private final long memoryLimit;
+    // Weak keys: expanded pack source is owned by Iris, never kept alive by this memo.
+    // The value contains digest state only, not the source String or a pack/world.
+    private final java.util.WeakHashMap<String,PreparedSource> preparedSources=new java.util.WeakHashMap<>();
+    private record PreparedSource(MessageDigest prefix) {}
+    private final AtomicLong sourceReuses=new AtomicLong(), preparationNanos=new AtomicLong(), keyNanos=new AtomicLong();
     private final AtomicLong pending=new AtomicLong(), hits=new AtomicLong(), misses=new AtomicLong(), bypasses=new AtomicLong();
     private final AtomicLong writes=new AtomicLong(), readNanos=new AtomicLong(), nativeNanos=new AtomicLong();
     private final AtomicLong skippedDirty=new AtomicLong(), skippedOversize=new AtomicLong(), droppedQueue=new AtomicLong(), writeFailures=new AtomicLong(), evictions=new AtomicLong(), queued=new AtomicLong();
@@ -51,8 +56,12 @@ public final class ShaderSourceDiskCache implements AutoCloseable {
         },new ThreadPoolExecutor.AbortPolicy());
     }
     public String preprocess(String source,List<Define> defines,Supplier<Compilation> nativeCompiler) {
-        if(closed || !safeInput(source,defines)) {bypasses.incrementAndGet();return nativeCompiler.get().text();}
-        String key=key(source,defines);
+        if(closed || !safeDefines(defines)) {bypasses.incrementAndGet();return nativeCompiler.get().text();}
+        long preparationStart=System.nanoTime();PreparedSource prepared=prepare(source);
+        preparationNanos.addAndGet(System.nanoTime()-preparationStart);
+        if(prepared==null){bypasses.incrementAndGet();return nativeCompiler.get().text();}
+        long keyStart=System.nanoTime();String key=key(source,defines,prepared);
+        keyNanos.addAndGet(System.nanoTime()-keyStart);
         String mem=memoryGet(key);
         if(mem!=null){hits.incrementAndGet();return mem;}
         long start=System.nanoTime();String cached=read(key);readNanos.addAndGet(System.nanoTime()-start);
@@ -71,9 +80,26 @@ public final class ShaderSourceDiskCache implements AutoCloseable {
     }
     // These builtins can depend on time/filesystem; token pasting can manufacture their names.
     static boolean safeInput(String source,List<Define> defines) {
-        if(source==null || source.length()>4*1024*1024 || defines==null || defines.size()>4096 || dynamic(source))return false;
+        return source!=null && source.length()<=4*1024*1024 && !dynamic(source) && safeDefines(defines);
+    }
+    private static boolean safeDefines(List<Define> defines) {
+        if(defines==null || defines.size()>4096)return false;
         for(Define d:defines)if(d==null || d.key()==null || d.value()==null || dynamic(d.key()) || dynamic(d.value()))return false;
         return true;
+    }
+    private PreparedSource prepare(String source) {
+        if(source==null || source.length()>4*1024*1024)return null;
+        synchronized(preparedSources){var cached=preparedSources.get(source);if(cached!=null){sourceReuses.incrementAndGet();return cached;}}
+        if(dynamic(source))return null;
+        try {
+            MessageDigest prefix=MessageDigest.getInstance("SHA-256");byte[] scratch=new byte[8192];
+            update(prefix,namespace,scratch);update(prefix,source,scratch);
+            var prepared=new PreparedSource(prefix);
+            // A provider without clone support can still use the exact original key path.
+            try{prefix.clone();}catch(CloneNotSupportedException ignored){return prepared;}
+            synchronized(preparedSources){if(preparedSources.size()>=128)preparedSources.clear();preparedSources.put(source,prepared);}
+            return prepared;
+        }catch(java.security.NoSuchAlgorithmException e){throw new IllegalStateException(e);}
     }
     private static boolean dynamic(String s) {
         // Do not retain complete shader source strings in a process-global memo table.
@@ -98,8 +124,8 @@ public final class ShaderSourceDiskCache implements AutoCloseable {
         boolean block=false,line=false;char quote=0;
         for(int i=0;i<s.length();i++){
             char c=s.charAt(i),next=i+1<s.length()?s.charAt(i+1):0;
-            if(block){if(c=='*'&&next=='/'){block=false;i++;}continue;}
-            if(line){if(c=='\n'||c=='\r')line=false;else continue;}
+            if(block){int end=s.indexOf("*/",i);if(end<0)return false;block=false;i=end+1;continue;}
+            if(line){int end=i;while(end<s.length()&&s.charAt(end)!='\n'&&s.charAt(end)!='\r')end++;if(end==s.length())return false;line=false;i=end;continue;}
             if(quote!=0){if(c=='\\')i++;else if(c==quote)quote=0;continue;}
             if(c=='/'&&next=='*'){block=true;i++;continue;}
             if(c=='/'&&next=='/'){line=true;i++;continue;}
@@ -139,6 +165,18 @@ public final class ShaderSourceDiskCache implements AutoCloseable {
             return HexFormat.of().formatHex(md.digest());
         }catch(Exception e){throw new IllegalStateException(e);}
     }
+    private String key(String source,List<Define> defines,PreparedSource prepared) {
+        MessageDigest md;
+        try {synchronized(prepared.prefix()){md=(MessageDigest)prepared.prefix().clone();}}
+        catch(CloneNotSupportedException e){return key(source,defines);}
+        byte[] scratch=new byte[8192];length(md,defines.size(),scratch);
+        for(Define d:defines){update(md,d.key(),scratch);update(md,d.value(),scratch);}
+        return HexFormat.of().formatHex(md.digest());
+    }
+    long sourceReuses(){return sourceReuses.get();}
+    long preparationNanos(){return preparationNanos.get();}
+    long keyNanos(){return keyNanos.get();}
+    int preparedSourceCount(){synchronized(preparedSources){return preparedSources.size();}}
     private boolean safeDirectory(boolean create) throws IOException {
         // Reject junctions/symlinks in the cache path before reads, writes or pruning.
         Path cursor=directory.getRoot();
@@ -233,5 +271,5 @@ public final class ShaderSourceDiskCache implements AutoCloseable {
         while(pending.get()!=0&&System.nanoTime()<end)Thread.sleep(5);
         if(pending.get()!=0)throw new IllegalStateException("Cache writer did not drain");
     }
-    public void close(){closed=true;writer.shutdown();}
+    public void close(){closed=true;synchronized(preparedSources){preparedSources.clear();}writer.shutdown();}
 }

@@ -306,5 +306,15 @@
         "com/chaosthedude/naturescompass/NaturesCompass.class": "b8ff56c7d6d4690c9bf9e2860065319a0053cd9e963325470b1380ea7f04b437"
       }
     }
+  },
+  "craftableRefresh": {
+    "emi": {
+      "version": "1.1.24+1.20.1+fabric",
+      "classes": {
+        "dev/emi/emi/screen/EmiScreenManager.class": "8390d079ab9d705f44a3596a0d36ecf894311ec058e869f9571909295955373e",
+        "dev/emi/emi/api/recipe/EmiPlayerInventory.class": "50cff8c7fd98f4b5cea7c70b728fced47d9310113c74216760b5e01a554eb582",
+        "dev/emi/emi/runtime/EmiSidebars.class": "65228835d6ef979b0b18a6eeeff97432c37504362906ee36c725ea28eb732728"
+      }
+    }
   }
 }

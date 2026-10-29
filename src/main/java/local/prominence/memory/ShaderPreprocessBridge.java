@@ -39,12 +39,16 @@ public final class ShaderPreprocessBridge {
         });
     }
     private static ShaderSourceDiskCache.Stats previous;
+    private static long priorSourceReuses,priorPreparationNanos,priorKeyNanos;
     public static synchronized void report(long nanos,Object dimension) {
         var current=Holder.CACHE.stats();var old=previous;previous=current;
+        long reuses=Holder.CACHE.sourceReuses(),prep=Holder.CACHE.preparationNanos(),key=Holder.CACHE.keyNanos();
+        long reuseDelta=reuses-priorSourceReuses,prepDelta=prep-priorPreparationNanos,keyDelta=key-priorKeyNanos;
+        priorSourceReuses=reuses;priorPreparationNanos=prep;priorKeyNanos=key;
         if(nanos<100_000_000L)return;
         LoggerFactory.getLogger("Prominence compatibility").info(
-            "Client pipeline preparation: dimension={}, totalMs={}, shaderTextHitsDelta={}, missesDelta={}, nativePreprocessMsDelta={}, cacheReadMsDelta={}, pendingBytes={}, writesDelta={}, queueDroppedDelta={} (GPU compile is included in total, not text time)",
+            "Client pipeline preparation: dimension={}, totalMs={}, shaderTextHitsDelta={}, missesDelta={}, nativePreprocessMsDelta={}, cacheReadMsDelta={}, pendingBytes={}, writesDelta={}, queueDroppedDelta={}, sourceMemoHitsDelta={}, sourcePreparationMsDelta={}, keyMsDelta={} (GPU compile is included in total, not text time)",
             dimension,nanos/1_000_000L,current.hits()-(old==null?0:old.hits()),current.misses()-(old==null?0:old.misses()),
-            (current.nativeNanos()-(old==null?0:old.nativeNanos()))/1_000_000L,(current.readNanos()-(old==null?0:old.readNanos()))/1_000_000L,current.pendingBytes(),current.writes()-(old==null?0:old.writes()),current.droppedQueue()-(old==null?0:old.droppedQueue()));
+            (current.nativeNanos()-(old==null?0:old.nativeNanos()))/1_000_000L,(current.readNanos()-(old==null?0:old.readNanos()))/1_000_000L,current.pendingBytes(),current.writes()-(old==null?0:old.writes()),current.droppedQueue()-(old==null?0:old.droppedQueue()),reuseDelta,prepDelta/1_000_000L,keyDelta/1_000_000L);
     }
 }
