@@ -22,5 +22,26 @@
         "net/irisshaders/iris/shaderpack/materialmap/BlockMaterialMapping.class": "9ce4dffd7f1e722aa03f1230f6cd4698fa898b0bd3c379821476bdd1c405b78e"
       }
     }
+  },
+  "materialPredicates": {
+    "iris": {
+      "version": "1.7.6+mc1.20.1",
+      "classes": {
+        "net/irisshaders/iris/shaderpack/materialmap/BlockMaterialMapping.class": "9ce4dffd7f1e722aa03f1230f6cd4698fa898b0bd3c379821476bdd1c405b78e"
+      }
+    },
+    "minecraft": {
+      "version": "1.20.1",
+      "classes": {
+        "net/minecraft/class_2680.class": "a767334cea478339efa2bb5899a36dcf4bb582d4f86eecbd0012849c15325552",
+        "net/minecraft/class_2688.class": "94dc64209526c1b758e73f457b0a0d8be63863cca37a9f60830b16fdc3e01b68",
+        "net/minecraft/class_2769.class": "07f4a52756b2b6d6562c6b3edcdd0eb33aa0082cfc326140b9fa0567c1c76991",
+        "net/minecraft/class_2746.class": "0f249e1134d777a1a46709f33aa5c86c3a3a4ba7e2114f49e75fed8e40ed4070",
+        "net/minecraft/class_2758.class": "76953b472a9651bf6b866a5f6a5d6aa6fe72dd37e9446d8b836968f0f6307dbd",
+        "net/minecraft/class_2754.class": "14f78ae1e37adff4855c26ef91c4c9e257c2a1a932036a44a7e4818ff5da5712",
+        "net/minecraft/class_2753.class": "421d597b8c6b7476c5d69c04332d0d595fe3d0c65985fd363116e46b03302eee",
+        "net/minecraft/class_2689.class": "08494f07f8f27b74ba2b418f52f301a47d5249ccb45ea9ada44c7b3770abdcff"
+      }
+    }
   }
 }
