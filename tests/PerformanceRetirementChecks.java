@@ -7,7 +7,7 @@ import org.objectweb.asm.tree.*;
 
 public final class PerformanceRetirementChecks {
     public static void main(String[] args)throws Exception {
-        Set<String> forbidden=Set.of("IrisPreprocessDiskCacheMixin","VoxyMeshServiceMixin","VoxyMeshRunMixin","UnchangedStateRemapMixin");
+        Set<String> forbidden=Set.of("IrisPreprocessDiskCacheMixin","VoxyMeshServiceMixin","VoxyMeshRunMixin","UnchangedStateRemapMixin","XaeroMapWriterTimingMixin");
         Set<String> active=new HashSet<>();
         try(var jar=new ZipFile(args[0])){
             var meta=JsonParser.parseString(new String(jar.getInputStream(jar.getEntry("fabric.mod.json")).readAllBytes(),java.nio.charset.StandardCharsets.UTF_8)).getAsJsonObject();
@@ -26,7 +26,11 @@ public final class PerformanceRetirementChecks {
             if(i instanceof FieldInsnNode field && field.owner.contains("Holder"))throw new AssertionError("Timing starts retired cache");
             if(i instanceof MethodInsnNode call && call.owner.contains("ShaderSourceDiskCache"))throw new AssertionError("Timing performs cache work");
         }
-        System.out.println("PASS retired cache/mesh/remap hooks absent, native lifetime routing, no cache in timer; memory/gameplay/backpack fixes retained");
+        var creative=read(root,"work/mixin/EmiCreativeTimingMixin");
+        for(var method:creative.methods)for(var i:method.instructions)if(i instanceof MethodInsnNode call &&
+            ((call.owner.equals("java/lang/Thread")&&call.name.equals("sleep"))||call.owner.equals("java/util/concurrent/ForkJoinPool")||call.name.equals("supplyAsync")))throw new AssertionError("Artificial creative delay or background callback remains");
+        if(creative.methods.stream().anyMatch(m->m.name.contains("offload")))throw new AssertionError("Creative executor interception remains");
+        System.out.println("PASS retired cache/mesh/remap/map throttle absent; native creative executor without sleep/offload; memory/gameplay/backpack fixes retained");
     }
     static ClassNode read(Path root,String name)throws Exception{var node=new ClassNode();new ClassReader(Files.readAllBytes(root.resolve("local/prominence/"+name+".class"))).accept(node,0);return node;}
 }

@@ -42,6 +42,15 @@ public final class VerifyCreativeTransforms {
         for(String target:List.of("appeng.core.FacadeCreativeTab","dev.emi.emi.registry.EmiStackList")){
             byte[] raw;try(var in=resources.getResourceAsStream(target.replace('.','/')+".class")){raw=in.readAllBytes();}byte[] fixed=transformer.transformClassBytes(target,target,raw);if(Arrays.equals(raw,fixed))throw new AssertionError("Missing transform "+target);
             var node=new ClassNode();new ClassReader(fixed).accept(node,0);
+            if(target.endsWith("EmiStackList")){
+                var before=new ClassNode();new ClassReader(raw).accept(before,0);int oldSubmit=0,newSubmit=0;
+                for(var m:before.methods)for(var i:m.instructions)if(i instanceof MethodInsnNode call&&call.owner.equals("net/minecraft/class_310")&&call.name.equals("method_5385"))oldSubmit++;
+                for(var m:node.methods)for(var i:m.instructions)if(i instanceof MethodInsnNode call){
+                    if(call.owner.equals("net/minecraft/class_310")&&call.name.equals("method_5385"))newSubmit++;
+                    if(call.owner.equals("java/util/concurrent/ForkJoinPool")||(call.owner.equals("java/lang/Thread")&&call.name.equals("sleep")))throw new AssertionError("Creative callbacks moved/delayed");
+                }
+                if(oldSubmit==0||oldSubmit!=newSubmit)throw new AssertionError("Native creative client executor call lost");
+            }
             for(var m:node.methods){new Analyzer<BasicValue>(new BasicVerifier()).analyze(node.name,m);methods++;
                 for(var i:m.instructions.toArray())if(i instanceof MethodInsnNode call){scope|=call.owner.equals("local/prominence/work/FacadeBuildScope")&&call.name.equals("begin");dedup|=call.owner.equals("local/prominence/work/FacadeBuildScope")&&call.name.equals("first");timing|=call.owner.equals("org/slf4j/Logger")&&call.name.equals("info");oldIndex|=call.owner.equals("local/prominence/emiindex/EmiIndexBuildScope");}
             }

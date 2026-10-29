@@ -18,7 +18,6 @@
     "RemoteIngestTaskMixin",
     "RemoteIngestSectionMixin",
     "LodBulkDecodeMixin",
-    "XaeroMapWriterTimingMixin",
     "VoxyAtlasReuseMixin",
     "VoxyScreenUvMixin",
     "TrimPreviewReloadMixin",

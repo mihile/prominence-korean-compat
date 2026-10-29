@@ -1,3 +1,5 @@
+> 현행 검토(2026103001): 아래2708 기록의 모델 분할은 이후 변경돼 EMI 실행 여부와 관계없이 모델 작업 스레드에서 완성된 모델 사이를4ms 단위로 양보합니다. 원래 Voxy FIFO·GPU 업로드·ID 발행 순서는 유지합니다. 자세한 유지/철회 근거는 MAIN_PROMOTION_REVIEW.md를 따릅니다.
+
 # First-join contention and recipe index allocation
 
 Client build 2026102708; Minecraft 1.20.1 Fabric. Client compatibility JAR only. Voxy/VoxyServer/LOD Only binaries, server state and user settings are unchanged.

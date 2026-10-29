@@ -14,3 +14,7 @@ Automatic offers appear only at the title menu after the loading overlay has clo
 The modal is capped at308×210 GUI units,70% of the previous440×300. A shared GPU-only copy of the menu frame remains behind a translucent dim layer. No parent Screen.render call or CPU screenshot/file write is used. Channel switching reuses the same snapshot; closing the final modal unregisters and deletes its texture. The captured background is static while the popup is open. Changelog scrolling, saved channel selection and signed post-exit installation remain unchanged.
 
 Offline validation covers startup/world/overlay gates, layout boundaries, compiled capture/dim/release routing, snapshot ownership across channel changes, and the cumulative updater suite. Actual GPU appearance and startup timing still require in-game validation.
+
+## Stable promotion: 2026-10-30
+
+The user confirmed nightly20261029.16 in-game. The main promotion retains its cumulative functionality and removes the unsupported creative offload/fixed sleep and external Xaero throttle after native-bytecode review. Stable build2026103001 uses track=main; future work continues on nightly. The nightly branch feed remains its own signed prerelease pointer. Promotion details and gameplay-vs-offline verification limits are in MAIN_PROMOTION_REVIEW.md.
