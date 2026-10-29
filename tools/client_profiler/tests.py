@@ -67,7 +67,7 @@ class Tests(unittest.TestCase):
 
 def fixture(config,output):
  """Real JFR -> post-JFR compressed heap -> offline MAT, on a tiny disposable JVM only."""
- output.mkdir(parents=True,exist_ok=True);instance=output/'fixture-instance';local=instance/'KoreanPatch/profiler';local.mkdir(parents=True)
+ output.mkdir(parents=True,exist_ok=True);instance=output/'fixture-instance';local=instance/'ClientProfiler';local.mkdir(parents=True)
  cfg=json.loads(config.read_text('utf8'));cfg['run_root']=str(output/'runs');profiler.write(local/'settings.local.json',cfg)
  java=pathlib.Path(cfg['runtime_java']);nonce=uuid.uuid4().hex;stop=output/'fixture-finish'
  src=output/'ClientProfileFixture.java';src.write_text('''import java.nio.file.*; public final class ClientProfileFixture { static final Object retained=new byte[4*1024*1024]; public static void main(String[] args)throws Exception {while(!Files.exists(Path.of(args[1]))){for(int i=0;i<300;i++){byte[] work=new byte[4096];work[0]=1;}Thread.sleep(10);}}}''','utf8')

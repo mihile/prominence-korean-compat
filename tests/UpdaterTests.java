@@ -57,6 +57,15 @@ public final class UpdaterTests {
         game=fixture("manual-change");Path target=game.resolve("mods").resolve(SignedRelease.FILE);String prior=UpdateFiles.sha(target);Path next=incoming(game);Files.writeString(target,"manual update");Path g=game;rejects(()->ApplyUpdate.apply(g,next,valid,prior),"Overwrote manual update");ok(Files.readString(target).equals("manual update"),"Damaged manual update");
         Path other=work.resolve("unrelated.jar");Files.write(other,jar);Path badGame=fixture("outside-staging");String badHash=UpdateFiles.sha(badGame.resolve("mods").resolve(SignedRelease.FILE));rejects(()->ApplyUpdate.apply(badGame,other,valid,badHash),"Accepted arbitrary staged path");
         Path rollback=fixture("rollback");Files.write(rollback.resolve("mods").resolve(SignedRelease.FILE),jar(2026102503L,"client"));String newer=UpdateFiles.sha(rollback.resolve("mods").resolve(SignedRelease.FILE));Path older=incoming(rollback);rejects(()->ApplyUpdate.apply(rollback,older,valid,newer),"Accepted rollback to older build");
+        Path accepted=fixture("approved-return");
+        byte[] nightlyJar=jar(2026102503L,"client");
+        try(var src=new JarInputStream(new ByteArrayInputStream(nightlyJar));var outBytes=new ByteArrayOutputStream();var out=new JarOutputStream(outBytes)){
+            for(JarEntry e;(e=src.getNextJarEntry())!=null;){out.putNextEntry(new JarEntry(e.getName()));byte[] data=src.readAllBytes();if(e.getName().endsWith("update-build.properties"))data=(new String(data,java.nio.charset.StandardCharsets.UTF_8)+"track=nightly\n").getBytes(java.nio.charset.StandardCharsets.UTF_8);out.write(data);out.closeEntry();}out.finish();nightlyJar=outBytes.toByteArray();
+        }
+        Path installed=accepted.resolve("mods").resolve(SignedRelease.FILE);Files.write(installed,nightlyJar);String nightHash=UpdateFiles.sha(installed);ApplyUpdate.apply(accepted,incoming(accepted),valid,nightHash,true);ok(UpdateFiles.sha(installed).equals(valid.sha256()),"Approved stable return failed");
+        Path blocked=fixture("main-cannot-rollback");Files.write(blocked.resolve("mods").resolve(SignedRelease.FILE),jar(2026102503L,"client"));String mainHash=UpdateFiles.sha(blocked.resolve("mods").resolve(SignedRelease.FILE));rejects(()->ApplyUpdate.apply(blocked,incoming(blocked),valid,mainHash,true),"Rollback from stable allowed");
+        Properties night=metadata();night.setProperty("tag","nightly-20261025.2");night.setProperty("url","https://github.com/"+SignedRelease.REPO+"/releases/download/nightly-20261025.2/"+SignedRelease.FILE);SignedRelease ns=SignedRelease.verify(signed(night),pair.getPublic());ok(ns.track().equals("nightly") && valid.track().equals("main"),"Track classification failed");
+        Path wrongTrack=work.resolve("wrong-track.jar");Files.write(wrongTrack,jar);rejects(()->UpdateFiles.verify(wrongTrack,ns),"Nightly manifest accepted stable jar");
         Path corrupt=fixture("corrupt-candidate");String original=UpdateFiles.sha(corrupt.resolve("mods").resolve(SignedRelease.FILE));Path broken=incoming(corrupt);Files.writeString(broken,"broken");rejects(()->ApplyUpdate.apply(corrupt,broken,valid,original),"Applied broken candidate");ok(UpdateFiles.sha(corrupt.resolve("mods").resolve(SignedRelease.FILE)).equals(original),"Damaged original after verification failure");
         Path symbolic=fixture("symlink");Path outside=work.resolve("outside-mods");Files.createDirectories(outside);
         try{Files.delete(symbolic.resolve("mods").resolve(SignedRelease.FILE));Files.delete(symbolic.resolve("mods"));Files.createSymbolicLink(symbolic.resolve("mods"),outside);rejects(()->UpdateFiles.target(symbolic),"Accepted linked mods");}catch(FileSystemException unsupported){System.out.println("SKIP: symbolic links require OS privilege");}
@@ -66,10 +75,13 @@ public final class UpdaterTests {
         // Regression: observed title screen has neither a world nor a player.
         ok(PromptGate.canOpen(true,false,false,false,false,20),"Title prompt incorrectly requires a world/player");
         ok(!PromptGate.canOpen(true,false,false,false,true,40),"Prompt interrupted loading overlay");
-        ok(!PromptGate.canOpen(true,false,false,false,false,19),"Prompt opened before stable menu delay");
+        ok(!PromptGate.canOpen(true,false,false,false,false,0),"Prompt captured the loading frame before the first menu render");
+        ok(PromptGate.canOpen(true,false,false,false,false,1),"Prompt still waits a full second at the title menu");
         ok(!PromptGate.canOpen(false,false,false,true,false,40),"Prompt opened without a title/world");
         ok(!PromptGate.canOpen(false,true,true,false,false,40),"Prompt interrupted inventory/settings");
-        ok(PromptGate.canOpen(false,true,true,true,false,20),"World fallback stopped working");
+        ok(!PromptGate.canOpen(false,true,true,true,false,20),"Automatic prompt still interrupts world play");
+        ok(!PromptGate.canOpen(true,true,true,false,false,40),"World/title transition opened an automatic prompt");
+        var standard=UpdateLayout.of(854,480);ok(standard.width()==308 && standard.height()==210,"Standard popup is not 30 percent smaller");
         ok(!PromptGate.canOpen(false,true,false,true,false,40),"Prompt opened in incomplete world");
         ok(!PromptGate.canOpen(false,false,false,false,false,40),"Prompt interrupted another modal screen");
         testAfterExit(args[0]);
@@ -85,7 +97,7 @@ public final class UpdaterTests {
         }
         String java=Path.of(System.getProperty("java.home"),"bin",System.getProperty("os.name").startsWith("Windows")?"java.exe":"java").toString();
         Path game=fixture("wait for parent 종료");Path target=game.resolve("mods").resolve(SignedRelease.FILE);String before=UpdateFiles.sha(target);incoming(game);Path root=game.resolve(".prominence-update");Path gate=work.resolve("parent-exit.gate");
-        Process parent=new ProcessBuilder(java,"-cp",System.getProperty("java.class.path"),"UpdaterTests$Parent",gate.toString()).start();
+        String parentCp=Path.of(UpdaterTests.class.getProtectionDomain().getCodeSource().getLocation().toURI()).toString();Process parent=new ProcessBuilder(java,"-cp",parentCp,"UpdaterTests$Parent",gate.toString()).start();
         Properties p=new Properties();p.setProperty("game",game.toString());p.setProperty("parentPid",Long.toString(parent.pid()));p.setProperty("parentStarted",parent.toHandle().info().startInstant().orElseThrow().toString());p.setProperty("build",Long.toString(valid.build()));p.setProperty("oldSha256",before);UpdateFiles.writeProperties(root.resolve("pending.properties"),p);Files.write(root.resolve("manifest.properties"),signed(metadata()));
         Process worker=new ProcessBuilder(java,"-cp",testHelper.toString(),ApplyUpdate.class.getName(),root.resolve("pending.properties").toString()).redirectErrorStream(true).redirectOutput(work.resolve("worker.log").toFile()).start();
         Thread.sleep(700);ok(worker.isAlive(),"Helper died while parent alive");ok(UpdateFiles.sha(target).equals(before),"Replaced running parent's JAR");
@@ -98,7 +110,7 @@ public final class UpdaterTests {
         Path testHelper=work.resolve("test-worker.jar"),game=fixture("changed approved plan"),root=game.resolve(".prominence-update"),gate=work.resolve("parent-exit2.gate");incoming(game);
         Path target=game.resolve("mods").resolve(SignedRelease.FILE);String before=UpdateFiles.sha(target);
         String java=Path.of(System.getProperty("java.home"),"bin",System.getProperty("os.name").startsWith("Windows")?"java.exe":"java").toString();
-        Process parent=new ProcessBuilder(java,"-cp",System.getProperty("java.class.path"),"UpdaterTests$Parent",gate.toString()).start();
+        String parentCp=Path.of(UpdaterTests.class.getProtectionDomain().getCodeSource().getLocation().toURI()).toString();Process parent=new ProcessBuilder(java,"-cp",parentCp,"UpdaterTests$Parent",gate.toString()).start();
         Properties p=new Properties();p.setProperty("game",game.toString());p.setProperty("parentPid",Long.toString(parent.pid()));p.setProperty("parentStarted",parent.toHandle().info().startInstant().orElseThrow().toString());p.setProperty("build",Long.toString(valid.build()));p.setProperty("oldSha256",before);UpdateFiles.writeProperties(root.resolve("pending.properties"),p);Files.write(root.resolve("manifest.properties"),signed(metadata()));
         Process worker=new ProcessBuilder(java,"-cp",testHelper.toString(),ApplyUpdate.class.getName(),root.resolve("pending.properties").toString()).redirectErrorStream(true).redirectOutput(work.resolve("changed-worker.log").toFile()).start();
         Thread.sleep(700);p.setProperty("oldSha256","0".repeat(64));UpdateFiles.writeProperties(root.resolve("pending.properties"),p);Files.writeString(gate,"exit");parent.waitFor(10,TimeUnit.SECONDS);

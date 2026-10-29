@@ -62,6 +62,8 @@ public final class VerifyTranslationTransforms {
             var ko=load.invoke(null,empty,List.of("en_us","ko_kr"),false);
             if(!get.invoke(ko,"item.croptopia.calamari","fallback").equals("오징어 다리"))throw new AssertionError("Native Korean factory did not apply JAR corrections");
             if(!get.invoke(ko,"structure.bosses_of_mass_destruction.obsidilith_arena","fallback").equals("옵시딜리스 제단"))throw new AssertionError("Structure correction missing");
+            if(!get.invoke(ko,"attribute.name.generic.luck","행운").equals("운"))throw new AssertionError("Native Luck attribute correction missing");
+            if(!get.invoke(ko,"attribute.puffish_attributes.fortune","행운").equals("채굴 행운"))throw new AssertionError("Native mining Fortune correction missing");
             if(!has.invoke(ko,"dialogue.skellak.molten_core.1_2").equals(true))throw new AssertionError("Native containsKey not updated");
             if(!get.invoke(ko,"unrelated.key","original fallback").equals("팩의 기존 문구"))throw new AssertionError("Unrelated old Paxi translation changed");
             if(!get.invoke(ko,"missing.key","original fallback").equals("original fallback"))throw new AssertionError("Native fallback changed");
@@ -71,8 +73,8 @@ public final class VerifyTranslationTransforms {
             var koAgain=load.invoke(null,empty,List.of("en_us","ko_kr"),false);
             if(!get.invoke(koAgain,"item.croptopia.calamari","fallback").equals("오징어 다리"))throw new AssertionError("Resource reload failed");
         }
-        Files.writeString(work.resolve("report.json"),"{\"status\":\"passed\",\"nativeTargets\":1,\"nativeMethodsVerified\":"+after.methods.size()+",\"nativeLanguageRuntimeChecks\":8,\"oldPaxiLikeResourceLoaded\":true,\"gameStarted\":false}");
-        System.out.println("PASS native language mixin, "+after.methods.size()+" bytecode methods and 8 actual language factory/old pack priority/lookup/reload checks; no Minecraft client, world or graphics launched");
+        Files.writeString(work.resolve("report.json"),"{\"status\":\"passed\",\"nativeTargets\":1,\"nativeMethodsVerified\":"+after.methods.size()+",\"nativeLanguageRuntimeChecks\":10,\"oldPaxiLikeResourceLoaded\":true,\"gameStarted\":false}");
+        System.out.println("PASS native language mixin, "+after.methods.size()+" bytecode methods and 10 actual language factory/old pack priority/lookup/reload checks; no Minecraft client, world or graphics launched");
     }
     private static List<String> calls(MethodNode method){var out=new ArrayList<String>();for(var i:method.instructions)if(i instanceof MethodInsnNode c)out.add(c.owner+"."+c.name+c.desc);return out;}
 }

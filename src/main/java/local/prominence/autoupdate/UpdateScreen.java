@@ -10,18 +10,19 @@ import net.minecraft.class_437;
 import net.minecraft.class_5481;
 
 /** Changelog is immediately visible; only the GitHub release uses collapsible details. */
-public final class UpdateScreen extends class_437 {
+public final class UpdateScreen extends UpdateModalScreen {
     private final SignedRelease release;
     private final class_437 parent;
     private UpdateLayout box;
     private int scroll;
     private List<class_5481> cachedLines;
-    private class_4185 apply,later;
+    private class_4185 apply,later,channel;
     public UpdateScreen(SignedRelease release,class_437 parent){super(text("title"));this.release=release;this.parent=parent;}
     private static class_2561 text(String key){return class_2561.method_43471("prominence.update."+key);}
     @Override protected void method_25426(){
         box=UpdateLayout.of(field_22789,field_22790);
         cachedLines=null;
+        channel=method_37063(class_4185.method_46430(text(release.track().equals("nightly")?"channel_nightly":"channel_main"),b->UpdateClient.openChoose(parent)).method_46434(box.x()+box.width()-110,box.y()+7,98,20).method_46431());
         apply=method_37063(class_4185.method_46430(text("apply"),b->{
             if(UpdateClient.phase==UpdateClient.Phase.QUEUED)field_22787.method_1592();else UpdateClient.prepare(release);
         }).method_46434(box.x()+12,box.buttonsY(),box.buttonWidth(),20).method_46431());
@@ -39,11 +40,11 @@ public final class UpdateScreen extends class_437 {
         return cachedLines=List.copyOf(rows);
     }
     @Override public void method_25394(class_332 draw,int mouseX,int mouseY,float delta){
-        UpdateRender.background(draw,field_22789,field_22790);
+        UpdateRender.background(draw,field_22789,field_22790,this);
         int x=box.x(),y=box.y(),w=box.width(),h=box.height();
         UpdateRender.panel(draw,box);
         draw.method_27535(field_22793,field_22785,x+14,y+13,0xFFF1E7FF);
-        draw.method_25303(field_22793,release.build()==UpdateClient.build?release.label():UpdateClient.label+"  →  "+release.label(),x+14,y+31,0xFFACA6B8);
+        draw.method_25303(field_22793,field_22793.method_27523((release.build()==UpdateClient.build?release.label():UpdateClient.label+"  →  "+release.label()).replace("nightly-",""),w-28),x+14,y+31,0xFFACA6B8);
         draw.method_25294(x+12,y+49,x+w-12,y+50,0xFF494153);
         var rows=lines();int visible=box.notesBottom()-box.notesTop();int content=rows.size()*11;
         scroll=Math.max(0,Math.min(scroll,Math.max(0,content-visible)));
@@ -57,11 +58,13 @@ public final class UpdateScreen extends class_437 {
             draw.method_25294(x+w-12,box.notesTop()+offset,x+w-10,box.notesTop()+offset+thumb,0xFFB39AD8);
         }
         var phase=UpdateClient.phase;
+        channel.field_22763=phase!=UpdateClient.Phase.DOWNLOADING && phase!=UpdateClient.Phase.QUEUED;
         String status=switch(phase){case AVAILABLE->"restart_hint";case DOWNLOADING->"downloading";case QUEUED->"ready";case FAILED->"failed";};
-        boolean current=release.build()<=UpdateClient.build;
-        draw.method_27535(field_22793,text(current?"latest":status),x+14,box.buttonsY()-19,phase==UpdateClient.Phase.FAILED?0xFFE8A0A0:0xFFB8A6D2);
+        boolean returning=release.build()<=UpdateClient.build && release.track().equals("main") && UpdateClient.installedTrack.equals("nightly");
+        boolean current=release.build()<=UpdateClient.build && !returning;
+        draw.method_27535(field_22793,text(current?"latest":returning && phase==UpdateClient.Phase.AVAILABLE?"return_hint":status),x+14,box.buttonsY()-19,phase==UpdateClient.Phase.FAILED?0xFFE8A0A0:0xFFB8A6D2);
         apply.field_22763=!current && phase!=UpdateClient.Phase.DOWNLOADING;
-        apply.method_25355(text(current?"up_to_date":phase==UpdateClient.Phase.QUEUED?"quit":phase==UpdateClient.Phase.FAILED?"retry":"apply"));
+        apply.method_25355(text(current?"up_to_date":returning && phase==UpdateClient.Phase.AVAILABLE?"return_main":phase==UpdateClient.Phase.QUEUED?"quit":phase==UpdateClient.Phase.FAILED?"retry":"apply"));
         later.method_25355(text(phase==UpdateClient.Phase.QUEUED?"keep_playing":"later"));
         if(phase==UpdateClient.Phase.DOWNLOADING){
             int bar=w-28,filled=(int)Math.min(bar,bar*UpdateClient.downloaded/Math.max(1,release.size()));

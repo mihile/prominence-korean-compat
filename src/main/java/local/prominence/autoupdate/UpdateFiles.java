@@ -24,6 +24,18 @@ public final class UpdateFiles {
             try(var in=jar.getInputStream(entry)){
                 Properties m=SignedRelease.properties(in.readNBytes(8192));
                 if(!SignedRelease.required(m,"build").equals(Long.toString(release.build())) || !SignedRelease.required(m,"channel").equals("client") || !SignedRelease.required(m,"pack").equals("4.1.3"))throw new IOException("Wrong build or channel in JAR");
+                if(!m.getProperty("track","main").equals(release.track()))throw new IOException("Wrong release track in JAR");
+            }
+        }
+    }
+    public static String installedTrack(Path p)throws IOException {
+        try(var jar=new JarFile(p.toFile())){
+            var entry=jar.getJarEntry("assets/prominence_korean_compat/update-build.properties");
+            if(entry==null)throw new IOException("Missing build metadata");
+            try(var in=jar.getInputStream(entry)){
+                String track=SignedRelease.properties(in.readNBytes(8192)).getProperty("track","main");
+                if(!track.equals("main") && !track.equals("nightly"))throw new IOException("Invalid installed track");
+                return track;
             }
         }
     }

@@ -1,0 +1,7 @@
+# Soulbound reward message
+
+Prominent 4.1.1 `RelicRecoveryManager.grantOrFlagRelic` inserts the supplied mutable stack before asking that same stack for the display name. A successful inventory insert may consume the stack, so the message names air. Unholy Visions grants the hourglass using this path; Arachne and Vaaz assault also call it. The separate recovered-item claim path already takes a name before insertion.
+
+The common mixin snapshots the original stack immediately before the native insertion, then passes the snapshot to the existing message method only if the original stack was consumed. Insertion, soulbinding, inventory-full recovery and claim behavior remain native. Exact Prominent 4.1.1 class SHA, Minecraft 1.20.1 and MixinExtras 0.5.4 guard this fix. Other versions fall back unchanged.
+
+Offline: actual installed RelicRecoveryManager transformed and 10 methods ASM checked. A child-loader fixture executes its actual transformed grant method with inventory/player/recovery stand-ins and a recording message: successful consumed stack retains the original name, count insertion stays one, full inventory goes to recovery, and null player returns safely. The fixture replaces the native message body and uses a stand-in for MixinExtras generated LocalRef; it does not exercise live client/server, translation rendering or the full Minecraft inventory implementation. Both released builds contain identical fix classes. No live game/server was launched for this test.

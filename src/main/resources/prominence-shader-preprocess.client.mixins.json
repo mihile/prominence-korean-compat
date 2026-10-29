@@ -4,6 +4,10 @@
   "package": "local.prominence.memory.mixin",
   "compatibilityLevel": "JAVA_17",
   "plugin": "local.prominence.memory.ShaderPreprocessGuard",
-  "client": ["IrisPreprocessDiskCacheMixin", "IrisPipelineTimingMixin"],
-  "injectors": {"defaultRequire": 1}
+  "client": [
+    "IrisPipelineTimingMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }

@@ -32,7 +32,7 @@ public final class ApplyUpdate {
             SignedRelease release=SignedRelease.verify(Files.readAllBytes(root.resolve("manifest.properties")),SignedRelease.publicKey());
             if(release.build()!=Long.parseLong(SignedRelease.required(p,"build")))throw new IOException("Unexpected pending build");
             Path incoming=root.resolve("incoming").resolve(release.sha256()+".jar");
-            apply(game,incoming,release,SignedRelease.required(p,"oldSha256"));
+            apply(game,incoming,release,SignedRelease.required(p,"oldSha256"),"true".equals(p.getProperty("approvedMainReturn")));
             receipt.setProperty("status","applied");receipt.setProperty("build",Long.toString(release.build()));
             Files.delete(plan);
         }catch(Exception e){
@@ -41,11 +41,14 @@ public final class ApplyUpdate {
         }finally{UpdateFiles.writeProperties(root.resolve("last-update.properties"),receipt);}
     }
     public static void apply(Path game,Path incoming,SignedRelease release,String oldHash)throws Exception {
+        apply(game,incoming,release,oldHash,false);
+    }
+    public static void apply(Path game,Path incoming,SignedRelease release,String oldHash,boolean approvedMainReturn)throws Exception {
         Path target=UpdateFiles.target(game);Path root=UpdateFiles.directory(game.resolve(".prominence-update"));
         Path staging=UpdateFiles.directory(root.resolve("incoming"));
         if(!incoming.toAbsolutePath().normalize().equals(staging.resolve(release.sha256()+".jar")))throw new IOException("Invalid staged file location");
         if(!oldHash.matches("[a-f0-9]{64}") || !UpdateFiles.sha(target).equals(oldHash))throw new IOException("Installed JAR changed; preserve manual update");
-        if(release.build()<=UpdateFiles.installedBuild(target))throw new IOException("Update is not newer than installed build");
+        if(release.build()<=UpdateFiles.installedBuild(target) && !(approvedMainReturn && release.track().equals("main") && UpdateFiles.installedTrack(target).equals("nightly")))throw new IOException("Update is not newer than installed build");
         UpdateFiles.verify(incoming,release);
         Path backup=UpdateFiles.directory(root.resolve("backups")).resolve(oldHash+"-"+SignedRelease.FILE);
         if(Files.exists(backup)){

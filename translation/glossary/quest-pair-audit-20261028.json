@@ -1,0 +1,540 @@
+{
+  "existingRules": 84,
+  "addedRules": 2586,
+  "totalRules": 2670,
+  "pairs": {
+    "description": 1134,
+    "title": 697,
+    "subtitle": 1052
+  },
+  "conflicts": {
+    "&7Mutated from small plants.": [
+      "&7작은 식물을 뮤탄디스로 변이시키면 얻을 수 있습니다.",
+      "&7작은 식물을 변이시키면 얻습니다."
+    ],
+    "&6Difficulty:&e Medium": [
+      "&6난이도: &e보통",
+      "&6난이도:&e 보통"
+    ],
+    "&6Difficulty:&e Medium &7/ &cHard &7(As Bard)": [
+      "&6난이도:&e 보통 &7/ &c어려움 &7(음유시인으로 플레이할 때)",
+      "&6난이도:&e 보통 &7/ &c어려움 &7(음유시인일 때)"
+    ],
+    "&6Difficulty:&e Medium &7/ &cHard &7(Ash'edar)": [
+      "&6난이도:&e 보통 &7/ &c어려움 &7(애쉬에다르)",
+      "&6난이도:&e 보통 &7/ &c어려움 &7(애쉬에다르로 플레이할 때)"
+    ],
+    "&eAs a Bard": [
+      "&e바드로 플레이하기",
+      "&e음유시인의 길"
+    ],
+    "&6Difficulty:&e Medium &7/ &cHard": [
+      "&6난이도: &e보통 &7/ &c어려움",
+      "&6난이도:&e 보통 &7/ &c어려움"
+    ],
+    "&eBards are supports that buff allies with damage, haste, healing and other buffs.": [
+      "&e음유시인은 공격력, 가속, 치유 등 여러 강화 효과로 아군을 지원합니다.",
+      "&e음유시인은 아군에게 공격력·가속·치유 등 다양한 강화 효과를 제공하는 지원형 직업입니다."
+    ],
+    "&cYou need to be in a party with your allies to give them buffs! &8(/openpac-parties command)": [
+      "&c아군에게 강화 효과를 주려면 같은 파티에 속해야 합니다! &8(/openpac-parties 명령어)",
+      "{\"text\":\"파티를 맺어야 아군에게 강화 효과가 적용됩니다. 명령어 보기→\",\"color\":\"#4d96ee\",\"underlined\":\"false\",\"clickEvent\":{\"action\":\"change_page\",\"value\":\"239866A8BF58469A\"}}"
+    ],
+    "&7Bards are special, as they don't have a specific gear or stat. It mainly requires to have Holy and or spell power to properly utilize it's effects, buffs and damage!": [
+      "&7음유시인은 특정 장비나 능력치에 얽매이지 않습니다. 강화 효과와 피해량을 충분히 활용하려면 신성 주문 위력이나 다른 주문 위력을 높이세요.",
+      "&7전용 장비나 능력치는 없지만, 효과와 강화·피해를 제대로 활용하려면 신성 주문 위력 또는 다른 주문 위력이 중요합니다."
+    ],
+    "- &eWhat to build as a Bard?": [
+      "- &e음유시인 빌드는 어떻게 구성하나요?",
+      "- &e음유시인은 어떤 빌드와 어울리나요?"
+    ],
+    "&7The short answer is hybrid. You can mix a Bard with another build or however you'd like. For example, you can be a support with damage by going into Archery gear, or arcane mage, or healer! It's up to you.": [
+      "&7다른 빌드와 조합하는 방식이 기본입니다. 궁술 장비로 피해를 더하면서 아군을 지원하거나, 비전 마법사·치유사와 결합하는 등 원하는 방식으로 구성하세요.",
+      "&7음유시인은 다른 빌드와 조합해 사용하는 지원형 직업입니다. 궁수나 비전 마법사 장비로 공격 지원을 맡거나, 치유 능력을 더해 회복 지원에 집중할 수 있습니다."
+    ],
+    "&6Difficulty:&a Easy &7/&e Medium &7(As Bard)": [
+      "&6난이도:&a 쉬움 &7/&e 보통 &7(음유시인으로 플레이할 때)",
+      "&6난이도:&a 쉬움 &7/&e 보통 &7(음유시인일 때)"
+    ],
+    "&eRequired Level: 60": [
+      "&e권장 레벨: 60",
+      "&e필요 레벨: 60"
+    ],
+    "&7It can reforge to the following qualities:": [
+      "&7다음 등급으로 재단조할 수 있습니다:",
+      "&7다음 품질 등급으로 재단조할 수 있습니다.",
+      "&7재단조 가능한 품질 등급은 다음과 같습니다."
+    ]
+  },
+  "mismatchedDescriptionLists": [
+    {
+      "chapter": "8the_prision.snbt",
+      "quest": "033D13B0BF22DB3D",
+      "english_lines": 1,
+      "korean_lines": 3
+    },
+    {
+      "chapter": "8the_prision.snbt",
+      "quest": "0D23A31DAF3866F4",
+      "english_lines": 2,
+      "korean_lines": 3
+    },
+    {
+      "chapter": "8the_prision.snbt",
+      "quest": "19A13E818C2E97D7",
+      "english_lines": 6,
+      "korean_lines": 3
+    },
+    {
+      "chapter": "8the_prision.snbt",
+      "quest": "3F0FA8C53795453D",
+      "english_lines": 6,
+      "korean_lines": 5
+    },
+    {
+      "chapter": "8the_prision.snbt",
+      "quest": "447E7AA3CB192FE4",
+      "english_lines": 1,
+      "korean_lines": 3
+    },
+    {
+      "chapter": "8the_prision.snbt",
+      "quest": "6D2F2513F741BEBA",
+      "english_lines": 3,
+      "korean_lines": 5
+    },
+    {
+      "chapter": "8the_prision.snbt",
+      "quest": "786169EB402AB151",
+      "english_lines": 2,
+      "korean_lines": 5
+    },
+    {
+      "chapter": "8the_prision.snbt",
+      "quest": "7FA12D0EE258394E",
+      "english_lines": 4,
+      "korean_lines": 5
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "01DD5096739C4677",
+      "english_lines": 4,
+      "korean_lines": 3
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "0321B60943223211",
+      "english_lines": 7,
+      "korean_lines": 4
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "08F4ECBF7A7821E6",
+      "english_lines": 3,
+      "korean_lines": 2
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "0E6DF5CEDADDB050",
+      "english_lines": 3,
+      "korean_lines": 2
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "11FA7F7B0F3EDD81",
+      "english_lines": 3,
+      "korean_lines": 2
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "15688C158805AD1F",
+      "english_lines": 4,
+      "korean_lines": 3
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "1A3DC0166A287963",
+      "english_lines": 3,
+      "korean_lines": 2
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "23C2C4580B40658E",
+      "english_lines": 5,
+      "korean_lines": 3
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "24F9EC15BD6C2AFC",
+      "english_lines": 4,
+      "korean_lines": 3
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "297896F8CC866077",
+      "english_lines": 3,
+      "korean_lines": 2
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "2A0DA391E309349D",
+      "english_lines": 3,
+      "korean_lines": 2
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "2BB14A1E75713B7F",
+      "english_lines": 3,
+      "korean_lines": 2
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "2CF066B6BB9E8EEB",
+      "english_lines": 3,
+      "korean_lines": 2
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "379078E43DD9DFE3",
+      "english_lines": 3,
+      "korean_lines": 2
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "3B5BECDABF168BA6",
+      "english_lines": 4,
+      "korean_lines": 3
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "40B9DEF0584606C4",
+      "english_lines": 5,
+      "korean_lines": 3
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "40DD1AFB0E6B8DB0",
+      "english_lines": 3,
+      "korean_lines": 2
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "43A1C4B1FF991ADE",
+      "english_lines": 3,
+      "korean_lines": 2
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "462D241038E5C828",
+      "english_lines": 4,
+      "korean_lines": 3
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "58A247BFBAB9DC76",
+      "english_lines": 3,
+      "korean_lines": 2
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "5F98B1EBB30C263F",
+      "english_lines": 7,
+      "korean_lines": 4
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "64CE422A3FB3E4C7",
+      "english_lines": 4,
+      "korean_lines": 3
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "67FC67E1E5581EEE",
+      "english_lines": 3,
+      "korean_lines": 2
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "682938FA8F7A0F93",
+      "english_lines": 4,
+      "korean_lines": 3
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "7B3281DC9A740D84",
+      "english_lines": 5,
+      "korean_lines": 3
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "7BEE0527AEE2AC44",
+      "english_lines": 4,
+      "korean_lines": 3
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "7C9053AAA7862F35",
+      "english_lines": 3,
+      "korean_lines": 2
+    },
+    {
+      "chapter": "c_bewitchment.snbt",
+      "quest": "7EB2177127EDF7B9",
+      "english_lines": 7,
+      "korean_lines": 4
+    },
+    {
+      "chapter": "einformation_7new_mechanics.snbt",
+      "quest": "0DFD6849156C0709",
+      "english_lines": 8,
+      "korean_lines": 9
+    },
+    {
+      "chapter": "einformation_7new_mechanics.snbt",
+      "quest": "7CFDF35E5158679E",
+      "english_lines": 3,
+      "korean_lines": 2
+    },
+    {
+      "chapter": "elhasturian_era.snbt",
+      "quest": "34CA824A855AF82F",
+      "english_lines": 29,
+      "korean_lines": 12
+    },
+    {
+      "chapter": "elhasturian_era.snbt",
+      "quest": "66FA883FD0CBC7E7",
+      "english_lines": 21,
+      "korean_lines": 10
+    },
+    {
+      "chapter": "elhasturian_era.snbt",
+      "quest": "73DA5990952CEA35",
+      "english_lines": 8,
+      "korean_lines": 1
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "04AF2E026BB918AE",
+      "english_lines": 20,
+      "korean_lines": 7
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "0A5F7ABD54251511",
+      "english_lines": 14,
+      "korean_lines": 5
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "0E567E587E669BED",
+      "english_lines": 20,
+      "korean_lines": 7
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "103203350DABF6BB",
+      "english_lines": 20,
+      "korean_lines": 7
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "173314BDF690683E",
+      "english_lines": 8,
+      "korean_lines": 1
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "18E337BC1F3F75FD",
+      "english_lines": 12,
+      "korean_lines": 3
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "1B76F8D3B54F3FE6",
+      "english_lines": 19,
+      "korean_lines": 7
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "245E77F81FB78B58",
+      "english_lines": 12,
+      "korean_lines": 3
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "2500331DBBD67515",
+      "english_lines": 8,
+      "korean_lines": 1
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "250AEC20271670DC",
+      "english_lines": 8,
+      "korean_lines": 1
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "383590146CEEB423",
+      "english_lines": 16,
+      "korean_lines": 5
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "3A8C4B633BAF1EFF",
+      "english_lines": 20,
+      "korean_lines": 7
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "3FEF5FC9AB6C6AAE",
+      "english_lines": 8,
+      "korean_lines": 1
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "40BF64AA85FF6010",
+      "english_lines": 8,
+      "korean_lines": 1
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "45437B8E9AEEF2E5",
+      "english_lines": 8,
+      "korean_lines": 1
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "48AADA398DC4E940",
+      "english_lines": 19,
+      "korean_lines": 7
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "49C9DC2F3D131A14",
+      "english_lines": 25,
+      "korean_lines": 10
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "4AEBBAD5C5474582",
+      "english_lines": 12,
+      "korean_lines": 3
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "5063E49140A8BB20",
+      "english_lines": 20,
+      "korean_lines": 8
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "5472D472A72B4DB9",
+      "english_lines": 9,
+      "korean_lines": 1
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "569B422A5AE03E53",
+      "english_lines": 18,
+      "korean_lines": 7
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "5B31D4D4029F1891",
+      "english_lines": 18,
+      "korean_lines": 6
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "601BDBA6DF073CB0",
+      "english_lines": 8,
+      "korean_lines": 1
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "63A18694A9470D66",
+      "english_lines": 8,
+      "korean_lines": 1
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "67DD847F1737097C",
+      "english_lines": 12,
+      "korean_lines": 3
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "69574BA63A9F05E8",
+      "english_lines": 16,
+      "korean_lines": 5
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "6EEFBD329C02E34A",
+      "english_lines": 16,
+      "korean_lines": 5
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "7023C0EC0A4686E2",
+      "english_lines": 13,
+      "korean_lines": 3
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "759AA6DD39277704",
+      "english_lines": 16,
+      "korean_lines": 5
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "777FC868034D4BA5",
+      "english_lines": 16,
+      "korean_lines": 5
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "7C7838CB12D2C972",
+      "english_lines": 12,
+      "korean_lines": 9
+    },
+    {
+      "chapter": "main_story.snbt",
+      "quest": "7CD3D2757242817B",
+      "english_lines": 10,
+      "korean_lines": 2
+    },
+    {
+      "chapter": "simply_swords.snbt",
+      "quest": "21E3DF72858C3D6B",
+      "english_lines": 8,
+      "korean_lines": 5
+    },
+    {
+      "chapter": "simply_swords.snbt",
+      "quest": "29802A82F21E90C7",
+      "english_lines": 4,
+      "korean_lines": 5
+    },
+    {
+      "chapter": "simply_swords.snbt",
+      "quest": "4602FD0E33DD4D5E",
+      "english_lines": 7,
+      "korean_lines": 2
+    },
+    {
+      "chapter": "simply_swords.snbt",
+      "quest": "547DCAE28B3968ED",
+      "english_lines": 8,
+      "korean_lines": 3
+    },
+    {
+      "chapter": "simply_swords.snbt",
+      "quest": "771507AA08194DE6",
+      "english_lines": 13,
+      "korean_lines": 12
+    }
+  ],
+  "errors": []
+}

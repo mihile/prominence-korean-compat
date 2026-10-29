@@ -11,7 +11,7 @@ import java.util.function.LongConsumer;
 import java.util.concurrent.*;
 
 public final class SafeHttp {
-    private static final Set<String> HOSTS=Set.of("github.com","release-assets.githubusercontent.com","objects.githubusercontent.com");
+    private static final Set<String> HOSTS=Set.of("github.com","release-assets.githubusercontent.com","objects.githubusercontent.com","raw.githubusercontent.com");
     private static final ScheduledExecutorService DEADLINES=Executors.newSingleThreadScheduledExecutor(r->{var t=new Thread(r,"Prominence Download Deadline");t.setDaemon(true);return t;});
     private final HttpClient client=HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(8)).followRedirects(HttpClient.Redirect.NEVER).build();
     public static void trusted(URI uri)throws IOException {
@@ -38,7 +38,11 @@ public final class SafeHttp {
         @Override public void close()throws IOException{deadline.cancel(false);super.close();}
     }
     public byte[] manifest()throws IOException,InterruptedException {
-        try(var in=open(SignedRelease.FEED)){
+        return manifest("main");
+    }
+    public byte[] manifest(String track)throws IOException,InterruptedException {
+        URI feed=switch(track){case "main" -> SignedRelease.FEED; case "nightly" -> URI.create("https://raw.githubusercontent.com/"+SignedRelease.REPO+"/nightly/feed/update.properties"); default -> throw new IOException("Invalid track");};
+        try(var in=open(feed)){
             byte[] bytes=in.readNBytes(128*1024+1);if(bytes.length>128*1024)throw new IOException("Manifest too large");return bytes;
         }
     }

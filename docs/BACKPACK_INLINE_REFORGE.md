@@ -28,3 +28,12 @@ build2026102605부터 작은 단조 버튼에 마우스를 올리면 원래 Tier
 추가 재료 안내 검사는 `tools/verify_inline_tooltip.py`를 사용합니다. 데이터 전용 native registry와 실제 Tierify ReforgeDataLoader로17검사(도구·방어구 수리 재료, 우선 지정 재료와 여러 대안, 같은 스택의 데이터 교체/초기화, 기본 태그, 올바른 재료/수리 경고/메타데이터 보존)를 실행하며 실제 게임·월드·OpenGL은 시작하지 않습니다.
 
 </details>
+
+
+## 2026-10-29: 석재 절단기 EMI 연결 (client nightly-20261029.2)
+
+설치 Sophisticated Core1.2.7.15.166 / Backpacks3.23.4.5.110 / EMI1.1.24+1.20.1+fabric의 원래 `EmiGridMenuInfo.stonecutting()`은 등록돼 있지만 supportsRecipe가CRAFTING만 허용하고 craft도CRAFTING컨테이너를 찾는다. StonecutterUpgradeContainer는ICraftingContainer를 구현하지 않으므로 단순 category 수정으로는 부족하다.
+
+기존 stonecutting 인스턴스에만 전용 handler를 연결한다. 열린 활성 석재 절단기를 우선하고 없으면 활성 업그레이드 중 슬롯 ID가 가장 낮은 것을 선택한다. 배낭/플레이어 보관함과 해당 입력 슬롯을 재료 소스로 쓴다. 실제 클라이언트 recipe manager에 ID가 존재하는지 확인한 뒤, 다른 열린 패널을 닫고 대상 패널을 연다. EMI clientFill의 일반 슬롯 클릭으로 재료를 옮기고, 갱신된 배낭 레시피 목록에서 정확한 ID를 찾아 native selectRecipe를 호출한다. 출력의 아이템/NBT/수량이 맞는지 확인한 뒤 요청한 CURSOR 또는INVENTORY동작을 보낸다. NONE은 선택된 상태로 남겨 둔다. 비동기 예약 클릭이나 사용자 인벤토리를 직접 만드는 코드는 없다.
+
+네트워크는 기존 탭 전환/슬롯 클릭/배낭 레시피 선택 패킷만 사용한다. 서버용 호환 JAR 교체는 필요 없다. 원래 대장장이 패치와 새 믹신을 함께 실제 클래스에 변환해ASM으로 확인했다. 입력Slot.setChanged→레시피 갱신, selectRecipe→출력 갱신/서버 패킷, clientFill→정상 슬롯 클릭 연결도 native bytecode로 검증했다. 순서/실패 fixture는 실제 멀티플레이 검수를 대신하지 않는다. 꽉 찬 보관함에서 기존 입력 재료를 돌려놓을 공간이 없는 등 EMI 원래 clientFill의 제약은 유지된다.

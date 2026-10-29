@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "maximumBaseChance": 0.2,
+  "lootingRelativeBonus": 0.4,
+  "luckRelativeBonus": 0.05,
+  "positiveLuckOnly": true,
+  "maximumChance": 1.0,
+  "selection": "rare recipe or quest materials and durable equipment; retain original conditions, quantities and weights",
+  "calibration": "Vanilla-style 2.5% + 1 percentage point per Looting level gives relative0.4. Luck0.05 is below Zenith rare rarity quality/weight10/150. Existing scaled or uncertain pools are excluded."
+}

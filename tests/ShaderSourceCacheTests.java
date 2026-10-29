@@ -78,12 +78,13 @@ public final class ShaderSourceCacheTests {
             check(!cache.key("ab",List.of(new ShaderSourceDiskCache.Define("c","d"))).equals(cache.key("a",List.of(new ShaderSourceDiskCache.Define("bc","d")))),"Length delimiter collision");
             check(!cache.key("s",List.of(new ShaderSourceDiskCache.Define("A","1"),new ShaderSourceDiskCache.Define("A","2"))).equals(cache.key("s",List.of(new ShaderSourceDiskCache.Define("A","2"),new ShaderSourceDiskCache.Define("A","1")))),"Macro order ignored");
             var file=dir.resolve("cache").resolve(key+".bin");byte[] good=Files.readAllBytes(file);
-            for(int at:new int[]{0,4,8,40,good.length-1}){byte[] broken=good.clone();broken[at]^=1;Files.write(file,broken);int before=count.get();cache.preprocess("source",defs,compiler);cache.awaitWrites();check(count.get()==before+1,"Corrupt entry did not fall back at "+at);}
-            Files.write(file,new byte[]{1,2});int before=count.get();cache.preprocess("source",defs,compiler);cache.awaitWrites();check(count.get()==before+1,"Truncated entry accepted");
+            // A fresh instance checks disk integrity independently of the warm memory cache.
+            for(int at:new int[]{0,4,8,40,good.length-1}){byte[] broken=good.clone();broken[at]^=1;Files.write(file,broken);int before=count.get();try(var fresh=new ShaderSourceDiskCache(dir.resolve("cache"),"schema1")){fresh.preprocess("source",defs,compiler);fresh.awaitWrites();}check(count.get()==before+1,"Corrupt entry did not fall back at "+at);}
+            Files.write(file,new byte[]{1,2});int before=count.get();try(var fresh=new ShaderSourceDiskCache(dir.resolve("cache"),"schema1")){fresh.preprocess("source",defs,compiler);fresh.awaitWrites();}check(count.get()==before+1,"Truncated entry accepted");
             for(String dynamic:List.of("__TIME__","__DATE__","__TIMESTAMP__","__COUNTER__","__FILE__","__BASE_FILE__","__INCLUDE_LEVEL__","A ## B","#include \"x\"","#/**/include \"x\"","#inc\\\nlude \"x\"","%:include \"x\"")){
                 long b=cache.stats().bypasses();cache.preprocess(dynamic,defs,compiler);check(cache.stats().bypasses()==b+1,"Dynamic input cached: "+dynamic);}
             long b=cache.stats().bypasses();cache.preprocess("source",List.of(new ShaderSourceDiskCache.Define("A","__TIME__")),compiler);check(cache.stats().bypasses()==b+1,"Dynamic define cached");
-            cache.preprocess("dirty",defs,()->new ShaderSourceDiskCache.Compilation("partial",false));cache.awaitWrites();check(!Files.exists(dir.resolve("cache").resolve(cache.key("dirty",defs)+".bin")),"Dirty output persisted");
+            cache.preprocess("dirty",defs,()->new ShaderSourceDiskCache.Compilation("partial",false));cache.awaitWrites();check(!Files.exists(dir.resolve("cache").resolve(cache.key("dirty",defs)+".bin")),"Dirty output persisted");check(cache.stats().skippedDirty()>0,"Dirty counter missing");
             try{cache.preprocess("throw",defs,()->{throw new IllegalStateException("native failure");});throw new AssertionError("Exception swallowed");}catch(IllegalStateException expected){check(expected.getMessage().equals("native failure"),"Native exception replaced");}
             try(var changed=new ShaderSourceDiskCache(dir.resolve("cache"),"schema2")){check(!changed.key("source",defs).equals(key),"Native schema change ignored");}
             var pins=ShaderPreprocessGuard.pins();Map<String,String> versions=Map.of("minecraft","1.20.1","iris","1.7.6+mc1.20.1","org_anarres_jcpp","1.4.14");
@@ -97,8 +98,13 @@ public final class ShaderSourceCacheTests {
             Files.createDirectories(dir.resolve("bounded"));Path unrelated=dir.resolve("bounded/user.bin");Files.writeString(unrelated,"preserve");
             for(int i=0;i<10;i++){small.preprocess("s"+i,defs,()->new ShaderSourceDiskCache.Compilation("x".repeat(90),true));small.awaitWrites();}
             try(var files=Files.list(dir.resolve("bounded"))){var owned=files.filter(p->p.getFileName().toString().matches("[0-9a-f]{64}\\.bin")).toList();check(owned.size()<=3,"Entry limit exceeded");long total=0;for(Path p:owned)total+=Files.size(p);check(total<=1000,"Disk byte limit exceeded");}
-            check(Files.readString(unrelated).equals("preserve"),"Unrelated file removed");
-            long w=small.stats().writes();small.preprocess("oversize",defs,()->new ShaderSourceDiskCache.Compilation("x".repeat(101),true));small.awaitWrites();check(small.stats().writes()==w,"Oversized output queued");check(small.pendingBytes()==0,"Queued memory retained");
+            check(Files.readString(unrelated).equals("preserve"),"Unrelated file removed");check(small.stats().evictions()>0,"Eviction counter missing");
+            long w=small.stats().writes();small.preprocess("oversize",defs,()->new ShaderSourceDiskCache.Compilation("x".repeat(101),true));small.awaitWrites();check(small.stats().writes()==w,"Oversized output queued");check(small.pendingBytes()==0,"Queued memory retained");check(small.stats().skippedOversize()>0,"Oversize counter missing");
+        }
+        try(var bounded=new ShaderSourceDiskCache(dir.resolve("memory-limit"),"memory-limit",8_000_000,4_000_000,8192)) {
+            for(int i=0;i<20;i++)bounded.preprocess("bounded-source"+i,defs,()->new ShaderSourceDiskCache.Compilation("x".repeat(300_000),true));
+            check(bounded.memoryBytes()<=8_000_000,"Memory cache exceeds byte bound");
+            bounded.awaitWrites();
         }
         Path blocked=dir.resolve("blocked");Files.writeString(blocked,"not a directory");
         try(var cache=new ShaderSourceDiskCache(blocked.resolve("cache"),"blocked")){
@@ -109,10 +115,33 @@ public final class ShaderSourceCacheTests {
             var executor=(java.util.concurrent.ThreadPoolExecutor)field.get(cache);var gate=new java.util.concurrent.CountDownLatch(1);
             executor.execute(()->{try{gate.await();}catch(InterruptedException e){Thread.currentThread().interrupt();}});
             try {for(int i=0;i<32;i++)cache.preprocess("queued"+i,defs,()->new ShaderSourceDiskCache.Compilation("q".repeat(200_000),true));
-                check(cache.pendingBytes()>0&&cache.pendingBytes()<=4L*1024*1024,"Pending text byte budget exceeded");
-                check(executor.getQueue().size()<=16,"Pending task count exceeded");
+                check(cache.pendingBytes()>0&&cache.pendingBytes()<=16L*1024*1024,"Pending text byte budget exceeded");
+                check(executor.getQueue().size()<=64,"Pending task count exceeded");
             }finally{gate.countDown();}
             cache.awaitWrites();check(cache.pendingBytes()==0,"Completed queue retains text budget");
+            check(cache.indexScans()==1,"Burst rescanned disk directory per shader");
+            check(cache.stats().writes()==32 && cache.stats().queued()==32 && cache.stats().droppedQueue()==0 && cache.stats().pendingBytes()==0,"Burst entries lost");
+            long hitsBefore=cache.stats().hits();for(int i=0;i<32;i++){final int index=i;cache.preprocess("queued"+i,defs,()->{throw new AssertionError("Cache miss "+index);});}
+            check(cache.stats().hits()-hitsBefore==32,"Burst not retained");
+        }
+        try(var memo=new ShaderSourceDiskCache(dir.resolve("memo"),"schema1")) {
+            String source="// include in comment\r\n/* #include \"ignored\" */\n#version 330\nvoid main(){}\n\ud800";
+            for(int i=0;i<24;i++){
+                var macros=List.of(new ShaderSourceDiskCache.Define("VALUE",Integer.toString(i)));
+                memo.preprocess(new String(source),macros,compiler);memo.awaitWrites();
+                check(Files.isRegularFile(dir.resolve("memo").resolve(memo.key(source,macros)+".bin")),"Memo changed the existing exact UTF-16 disk key");
+            }
+            check(memo.sourceReuses()==23,"Equal expanded source not reused across macros");
+            for(String tail:List.of("#include \"x\"","# /**/ include \"x\"","#in\\\nclude \"x\"")){
+                check(!ShaderSourceDiskCache.safeInput("/* skipped */\n// skipped\r\n"+tail,defs),"Comment fast path concealed external include");
+            }
+            var macros=new ArrayList<ShaderSourceDiskCache.Define>();macros.add(new ShaderSourceDiskCache.Define("A","1"));
+            memo.preprocess(source,macros,compiler);long bypass=memo.stats().bypasses();
+            macros.set(0,new ShaderSourceDiskCache.Define("A","__TIME__"));memo.preprocess(source,macros,compiler);
+            check(memo.stats().bypasses()==bypass+1,"Source memo incorrectly cached dynamic defines");
+            for(int i=0;i<300;i++)memo.preprocess("distinct-source-"+i,defs,compiler);
+            check(memo.preparedSourceCount()<=128,"Source memo unbounded");
+            memo.close();check(memo.preparedSourceCount()==0,"Closed source memo retains entries");
         }
         System.out.println("PASS: "+checks+" disk cache data/invalidation/bounds/native fingerprint checks; no game or OpenGL");
     }

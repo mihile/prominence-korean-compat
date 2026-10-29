@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public final class ModelWorkSlice implements AutoCloseable {
     private static final ThreadLocal<ModelWorkSlice> CURRENT = new ThreadLocal<>();
     private static final AtomicLong YIELDS = new AtomicLong();
-    private static final long BUDGET_NS = 8_000_000L;
+    private static final long BUDGET_NS = 4_000_000L;
     private final ModelWorkSlice previous;
     private final long start;
     private boolean closed;
@@ -16,7 +16,7 @@ public final class ModelWorkSlice implements AutoCloseable {
     public static boolean continueBatch(boolean more) { return continueBatch(more, System.nanoTime()); }
     static boolean continueBatch(boolean more, long now) {
         var slice=CURRENT.get();
-        if (!more || slice==null || now-slice.start < BUDGET_NS || !InitialWork.active()) return more;
+        if (!more || slice==null || now-slice.start < BUDGET_NS) return more;
         YIELDS.incrementAndGet();
         return false;
     }

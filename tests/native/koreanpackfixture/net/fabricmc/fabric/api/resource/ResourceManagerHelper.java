@@ -1,0 +1,1 @@
+package net.fabricmc.fabric.api.resource; public interface ResourceManagerHelper {static boolean registerBuiltinResourcePack(net.minecraft.class_2960 id,net.fabricmc.loader.api.ModContainer mod,String name,ResourcePackActivationType type){fixture.Recorder.namespace=id.namespace;fixture.Recorder.path=id.path;fixture.Recorder.type=type;return true;}}

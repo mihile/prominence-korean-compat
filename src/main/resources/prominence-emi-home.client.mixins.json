@@ -6,7 +6,6 @@
   "plugin": "local.prominence.work.WorkGuard",
   "client": [
     "EmiInitialWorkMixin",
-    "TerrainInitialBudgetMixin",
     "ItemPropertyParsedIdMixin",
     "LootStableKeyMixin",
     "FacadeCreativeBuildMixin",
@@ -15,7 +14,28 @@
     "AttributeCandidateIterationMixin",
     "VoxyServerEarlyRendererMixin",
     "EmiRecipeInsertionMixin",
-    "VoxyModelWorkSliceMixin"
+    "VoxyModelWorkSliceMixin",
+    "RemoteIngestTaskMixin",
+    "RemoteIngestSectionMixin",
+    "LodBulkDecodeMixin",
+    "VoxyAtlasReuseMixin",
+    "VoxyScreenUvMixin",
+    "TrimPreviewReloadMixin",
+    "TrimPreviewLoaderMixin",
+    "TrimPreviewReferencesMixin",
+    "VoxyDeferredOpacityEntryMixin",
+    "VoxyDeferredOpacityMapperMixin",
+    "BackpackStonecuttingMixin",
+    "LootTitleSharedMixin",
+    "ExplorerDimensionSearchMixin",
+    "NatureDimensionSearchMixin",
+    "LootRollStaticMixin",
+    "LootRollConfigMixin",
+    "EmiCraftableRefreshMixin",
+    "LootChestChanceMixin",
+    "LootConditionsVisibleMixin",
+    "LootGroupConditionsMixin",
+    "LootMobEntityFilterMixin"
   ],
   "injectors": {
     "defaultRequire": 1

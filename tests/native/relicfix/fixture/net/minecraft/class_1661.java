@@ -1,0 +1,1 @@
+package net.minecraft; public class class_1661 {public boolean accept=true; public int inserted;public boolean method_7394(class_1799 s){if(!accept)return false; inserted+=s.count;s.count=0;return true;}}

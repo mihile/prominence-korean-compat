@@ -136,5 +136,217 @@
         "dev/emi/emi/runtime/EmiReloadManager$ReloadWorker.class": "008f48bb5dd34acde623ce3f27654aa672ba7053d6d5084828e247b0c0e231e4"
       }
     }
+  },
+  "remoteIngestScratch": {
+    "voxyserver": {
+      "version": "1.2.4+1.20.1-port.3",
+      "classes": {
+        "com/dripps/voxyserver/client/service/RemoteIngestService.class": "f059d9d6ad121dc8a42de3365b26b432578f66ab43c827c189b38ab4c2ce1020",
+        "com/dripps/voxyserver/client/service/RemoteIngestService$IngestTask.class": "5191ce6563909c864ccad35dec88208e49bada0c0f8cfe78c95dd01a93b1f483"
+      }
+    },
+    "voxy": {
+      "version": "0.2.20-beta+1.20.1-port.9",
+      "classes": {
+        "me/cortex/voxy/common/world/WorldUpdater.class": "f14e2639bef93eff1670a4f0462a5ca6f5a4e3eda564eada5066058f74377cac",
+        "me/cortex/voxy/common/voxelization/VoxelizedSection.class": "c5bd8e2430d141786aef379dbb16892fa26598fa5efaa6f67911986dfc1e3fc3",
+        "me/cortex/voxy/common/voxelization/WorldVoxilizedSectionMipper.class": "001993669a93343aa38350d74da1b7193b9857fe95857a5f009f6513b150a007"
+      }
+    }
+  },
+  "remoteIngestDecode": {
+    "voxyserver": {
+      "version": "1.2.4+1.20.1-port.3",
+      "classes": {
+        "com/dripps/voxyserver/network/LODBulkPayload.class": "b0b8ad96626eabfdc8f01cb27b4a8f2fdc569ae4be29bc0a5b35046fad60f3e4",
+        "com/dripps/voxyserver/network/LODSectionPayload.class": "a5282116e7ff9baf040f0e54703bfc82dd26846bc7f1df7d52e711826893e80e",
+        "com/dripps/voxyserver/network/PreSerializedLodPayload.class": "c179c6088c6ed5071a844422f081deb956660c8084e390eeabfb637f95ee87ce"
+      }
+    }
+  },
+  "voxyMeshAdmission": {
+    "voxy": {
+      "version": "0.2.20-beta+1.20.1-port.9",
+      "classes": {
+        "me/cortex/voxy/client/core/rendering/building/RenderGenerationService.class": "6c6aba2fc227b24df7fa646003a6de45e31740426efea2bc6f05307c2f492771",
+        "me/cortex/voxy/common/thread/Service.class": "454f056714beabb0940b3d8cb939b9972b345ad8f8f381fa20ca92eb85336678",
+        "me/cortex/voxy/common/thread/ServiceManager.class": "5d641ff83e9ad7aef210eb7a638f6973bc905140d4452b6d4a96429ea90ebbd6",
+        "me/cortex/voxy/common/thread/MultiThreadPrioritySemaphore.class": "684cde36934d2649ad2b29c78012995c7d49d3ae7efee4f5b12ced54cbc28c74",
+        "me/cortex/voxy/common/thread/UnifiedServiceThreadPool.class": "b7c4022b549622bf545b7efab4859493bd4960e740eff61748e5f3bbd1f9b253"
+      }
+    },
+    "emi": {
+      "version": "1.1.24+1.20.1+fabric",
+      "classes": {
+        "dev/emi/emi/runtime/EmiReloadManager$ReloadWorker.class": "008f48bb5dd34acde623ce3f27654aa672ba7053d6d5084828e247b0c0e231e4"
+      }
+    }
+  },
+  "xaeroMapTiming": {
+    "xaeroworldmap": {
+      "version": "1.47.0",
+      "classes": {
+        "xaero/map/MapWriter.class": "221a234a3a5cd20b9eede3db905dfed7e01b6407a5bf98950d968b751e0e61cb"
+      }
+    }
+  },
+  "voxyAtlasReuse": {
+    "voxy": {
+      "version": "0.2.20-beta+1.20.1-port.9",
+      "classes": {
+        "me/cortex/voxy/client/core/model/bakery/SoftwareModelTextureBakery.class": "ec575b50e5758f96e85de19686e689a5a0c3499275a1b8ec79debb497a636cc7",
+        "me/cortex/voxy/client/core/model/bakery/ModelAtlasReadback.class": "1b99464f7ce277bfb58a02282950f897adb925e7566d3f92cfa2e5a211971246",
+        "me/cortex/voxy/client/core/RenderResourceReuse.class": "1786add4124b8dd0bda5a27b689559fa9447c75bf320c893bab8009f4e531a97"
+      }
+    }
+  },
+  "ftbQuestsSearch": {
+    "ftbquests": {
+      "version": "2001.4.18",
+      "classes": {
+        "dev/ftb/mods/ftbquests/integration/item_filtering/DisplayStacksCache.class": "2d08f5ae6ddf3bfb474481d47b50554000a836bec450ab379a30812309c87189"
+      }
+    }
+  },
+  "voxyScreenUv": {
+    "voxy": {
+      "version": "0.2.20-beta+1.20.1-port.9",
+      "classes": {
+        "me/cortex/voxy/client/iris/IrisShaderPatch.class": "c6354491fa1ec969a576714d25cea274da71942f805b28b5cefec268d3e72e2c"
+      }
+    }
+  },
+  "trimPreviewAssets": {
+    "dynamictrim": {
+      "version": "1.4.1",
+      "classes": {
+        "io/github/andrew6rant/dynamictrim/resource/DynamicTrimLoader.class": "5829707a849cd293b4dcdfe8d5879bdd495ade448391dfcac9241bf55170036b",
+        "io/github/andrew6rant/dynamictrim/resource/TrimmableResource.class": "5dc18f60e6e828cca08bfa840c83cdaf58668e3908d594e56efdf7bee8012379",
+        "io/github/andrew6rant/dynamictrim/resource/TrimModelHelper.class": "6478aad1bf5b024c8faf8b58cfa232a50539bca0fb0db37536e7ff18c5bcdc13"
+      }
+    }
+  },
+  "voxyDeferredOpacity": {
+    "voxy": {
+      "version": "0.2.20-beta+1.20.1-port.9",
+      "classes": {
+        "me/cortex/voxy/common/world/other/Mapper.class": "6442696b4d810751c39a91f7cbc27407e33a3f3292f6cb55d70fc5a3769856ee",
+        "me/cortex/voxy/common/world/other/Mapper$StateEntry.class": "510ecfa4473d8035a80ae3a6eaf48b1ef724431f7ee79139da8e77c5b3485a96",
+        "me/cortex/voxy/common/world/other/Mapper$StateEntry$1.class": "e51a00437d993c16132ca4c8c1b136dc1233bdde08655e1e123e9f24400fb07c",
+        "me/cortex/voxy/common/world/other/Mipper.class": "4dbed3a40557fabbac4bb7e6b4d84481f3571a4d4cc13769f72d3ef7940dcec4"
+      }
+    }
+  },
+  "backpackStonecutting": {
+    "sophisticatedcore": {
+      "version": "1.20.1-1.2.7.15.166",
+      "classes": {
+        "net/p3pp3rf1y/sophisticatedcore/compat/emi/EmiGridMenuInfo.class": "899038c5431e3ad627c5bcfa6575c58f0ba32caad11ec1adfe97148c3ef69ad5",
+        "net/p3pp3rf1y/sophisticatedcore/upgrades/stonecutter/StonecutterRecipeContainer.class": "0ab1863f20e7cefb9498be32b8b2f4b247981b4432e01799e147648a184b84d1",
+        "net/p3pp3rf1y/sophisticatedcore/upgrades/stonecutter/StonecutterUpgradeContainer.class": "f68055ee251091825a98d77a9d9023545d218ade327bfcc7f581b2d245578d16",
+        "net/p3pp3rf1y/sophisticatedcore/common/gui/StorageContainerMenuBase.class": "424154d8f2c1c621c44f58cc49298fb8668f569e430c62c64dfc24d8b7bb3550",
+        "net/p3pp3rf1y/sophisticatedcore/upgrades/stonecutter/StonecutterRecipeContainer$1.class": "3c20873e1f1e1f2203b81cafbc25c79aa4fd20e01407386db3c69cf5fd460ac8",
+        "net/p3pp3rf1y/sophisticatedcore/common/gui/UpgradeContainerBase.class": "c925e395ed2f47900220cbfdf180cf569dd65e2072585787c65218800b814603",
+        "net/p3pp3rf1y/sophisticatedcore/util/RecipeHelper.class": "d559b9aeb3aa848ef9e2372616b005559960aac42712215b8ba037a209e52887"
+      }
+    },
+    "emi": {
+      "version": "1.1.24+1.20.1+fabric",
+      "classes": {
+        "dev/emi/emi/registry/EmiRecipeFiller.class": "07929f52318524a3bcfc0d3d63cdd893a87c1cf07980fac4d716134a2aaa2860"
+      }
+    },
+    "sophisticatedbackpacks": {
+      "version": "1.20.1-3.23.4.5.110",
+      "classes": {
+        "net/p3pp3rf1y/sophisticatedbackpacks/compat/emi/EmiCompat.class": "ad1cf125c430e3267a6ca90579a6f24a37a058b060c71e97ccba156b245a141d"
+      }
+    }
+  },
+  "unchangedStateRemap": {
+    "fabric-registry-sync-v0": {
+      "version": "2.4.1+4c0a70e677",
+      "classes": {
+        "net/fabricmc/fabric/impl/registry/sync/trackers/StateIdTracker.class": "cbc78d12ffacea5aa97af502c5f0a703d5432827e77c412d26c750bdbbe4c665",
+        "net/fabricmc/fabric/mixin/registry/sync/IdListMixin.class": "d57230d11c1762595f1c914e72423ab46842cf3f78fbc63298f0010f42c2372d"
+      }
+    },
+    "minecraft": {
+      "version": "1.20.1",
+      "classes": {
+        "net/minecraft/class_2361.class": "f8e7f514cf20e5afd7698b41f3650838c2d35ef538e138d6623a831f72150de2"
+      }
+    }
+  },
+  "lootUi": {
+    "emi_loot": {
+      "version": "0.7.9+1.20.1+fabric",
+      "classes": {
+        "fzzyhmstrs/emi_loot/util/stack/EmiStackWithTitle.class": "39601e9418d614f07480f2838fa9b0b563bfd3eaef841d59fda3eced53fc703c",
+        "fzzyhmstrs/emi_loot/emi/ChestLootRecipe.class": "50fed9a3b6302f4fb9ef421941f78efca671ab9424c31390866ed342e627adb2",
+        "fzzyhmstrs/emi_loot/emi/ArchaeologyLootRecipe.class": "bbff8b051a49967cee837a2078b51ecb7c3f896e9e8c625705d7f462467d3b6f",
+        "fzzyhmstrs/emi_loot/emi/MobLootRecipe.class": "15c5df5096107c9c298286f66603c9a9d56db3d005feec554837acc9f052dcf7",
+        "fzzyhmstrs/emi_loot/emi/BlockLootRecipe.class": "b1b228fcb80aa247686246b842818ee1f35ec5d3a4c097f5cff9a092a5cdadc9",
+        "fzzyhmstrs/emi_loot/emi/GameplayLootRecipe.class": "724cfe274cc66492c4248c39f9a3fa380418d787feab2de0c34624da174af2c6",
+        "fzzyhmstrs/emi_loot/util/IconGroupEmiWidget.class": "ff2a0a98c6b85725a7b7f3d06e2fe322f11daae5a47b4011824bc563f633c654",
+        "fzzyhmstrs/emi_loot/util/FloatTrimmer.class": "b97b433ec19fc921fa172e7f5c5efa8c7b0749ef2865c1eeff6a102bef3cac5f"
+      }
+    },
+    "explorerscompass": {
+      "version": "1.20.1-2.6.0-fabric",
+      "classes": {
+        "com/chaosthedude/explorerscompass/gui/ExplorersCompassScreen.class": "1767cb2e8147533f58dcc2f79346c633c08181304521e86018e7517556fc21ed",
+        "com/chaosthedude/explorerscompass/ExplorersCompass.class": "99b7c99f471158fceafbd3e133e1a9b14617d068f07863d0e9fa7cae6cab6c6a"
+      }
+    },
+    "naturescompass": {
+      "version": "1.20.1-2.6.0-fabric",
+      "classes": {
+        "com/chaosthedude/naturescompass/gui/NaturesCompassScreen.class": "5c2da912f08bfacf0bf753fe5234bc993c6b6b55ce2550e97f590747cd110ca7",
+        "com/chaosthedude/naturescompass/NaturesCompass.class": "b8ff56c7d6d4690c9bf9e2860065319a0053cd9e963325470b1380ea7f04b437"
+      }
+    }
+  },
+  "craftableRefresh": {
+    "emi": {
+      "version": "1.1.24+1.20.1+fabric",
+      "classes": {
+        "dev/emi/emi/screen/EmiScreenManager.class": "8390d079ab9d705f44a3596a0d36ecf894311ec058e869f9571909295955373e",
+        "dev/emi/emi/api/recipe/EmiPlayerInventory.class": "50cff8c7fd98f4b5cea7c70b728fced47d9310113c74216760b5e01a554eb582",
+        "dev/emi/emi/runtime/EmiSidebars.class": "65228835d6ef979b0b18a6eeeff97432c37504362906ee36c725ea28eb732728"
+      }
+    }
+  },
+  "lootConditions": {
+    "emi_loot": {
+      "version": "0.7.9+1.20.1+fabric",
+      "classes": {
+        "fzzyhmstrs/emi_loot/emi/MobLootRecipe.class": "15c5df5096107c9c298286f66603c9a9d56db3d005feec554837acc9f052dcf7",
+        "fzzyhmstrs/emi_loot/emi/BlockLootRecipe.class": "b1b228fcb80aa247686246b842818ee1f35ec5d3a4c097f5cff9a092a5cdadc9",
+        "fzzyhmstrs/emi_loot/emi/GameplayLootRecipe.class": "724cfe274cc66492c4248c39f9a3fa380418d787feab2de0c34624da174af2c6",
+        "fzzyhmstrs/emi_loot/util/IconGroupEmiWidget.class": "ff2a0a98c6b85725a7b7f3d06e2fe322f11daae5a47b4011824bc563f633c654",
+        "fzzyhmstrs/emi_loot/util/SymbolText.class": "9adfd9e1b9d3177d24e1aa853592cb0e25f29789ecbb0855a69c8592726bd91f",
+        "fzzyhmstrs/emi_loot/EMILoot$EmiLootConfig.class": "6f1c36c03945fd93ec2ffaff6f0dbf03c232ac80d397ecec1ae6e171ca11dd3a",
+        "fzzyhmstrs/emi_loot/util/ConditionalStack.class": "48154753bbbf7f25185be1a2ba34bcfb3f55ab8770fa2f0e4f5b6f3e1d1511db"
+      }
+    }
+  },
+  "lootVictims": {
+    "emi_loot": {
+      "version": "0.7.9+1.20.1+fabric",
+      "classes": {
+        "fzzyhmstrs/emi_loot/emi/MobLootRecipe.class": "15c5df5096107c9c298286f66603c9a9d56db3d005feec554837acc9f052dcf7",
+        "fzzyhmstrs/emi_loot/emi/MobLootRecipe$MobLootRecipeData.class": "df308c38f6545fe1720380c374540657138657a62ae53a2d42dccb9f8d2b2921",
+        "fzzyhmstrs/emi_loot/parser/EntityPredicateParser.class": "4cfa087726b045a59339d04d7f710918efcec30f16274444465a1945e97a3d4f",
+        "fzzyhmstrs/emi_loot/parser/EntityTypePredicateParser.class": "a9429f53dd65ed210b2d6fadf556c3366adf77d0d7dff1a2e92bcac03fbf5ad1",
+        "fzzyhmstrs/emi_loot/util/TextKey.class": "16c950fce2fee55a57ee46d2c092100319ae4065e51f4ce32d0b9e85201a92dc"
+      }
+    },
+    "botania": {
+      "version": "1.20.1-456-FABRIC",
+      "classes": {
+        "data/botania/loot_tables/elementium_axe_beheading.json": "35b8a075ee230ea769dde4818a34232d7458a45a4c6856d3ec2feb2ca91e448f"
+      }
+    }
   }
 }

@@ -50,5 +50,6 @@ public record SignedRelease(long build,String label,String title,String sha256,l
     public static String required(Properties p,String key)throws IOException {
         String s=p.getProperty(key);if(s==null || s.isBlank())throw new IOException("Missing "+key);return s;
     }
+    public String track(){return tag.startsWith("nightly-")?"nightly":"main";}
     public URI page(){return URI.create("https://github.com/"+REPO+"/releases/tag/"+tag);}
 }

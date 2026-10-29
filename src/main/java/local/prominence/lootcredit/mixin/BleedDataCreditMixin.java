@@ -1,0 +1,6 @@
+package local.prominence.lootcredit.mixin;
+import local.prominence.lootcredit.*;import net.minecraft.*;import net.soulsweaponry.entitydata.IEntityDataSaver;import org.spongepowered.asm.mixin.Mixin;import org.spongepowered.asm.mixin.injection.*;import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+@Mixin(targets="net.soulsweaponry.entitydata.BleedData",remap=false) public abstract class BleedDataCreditMixin {
+ @Inject(method="addBleed(Lnet/soulsweaponry/entitydata/IEntityDataSaver;I)I",at=@At("RETURN")) private static void credit$add(IEntityDataSaver entity,int amount,CallbackInfoReturnable<Integer> ci){var data=entity.getPersistentData();if(ci.getReturnValue()<=0){data.method_10551("ProminenceBleedLoot");return;}if(amount<=0)return;var scope=CreditScope.current();if(scope==null||scope.credit()==null)data.method_10551("ProminenceBleedLoot");else{var n=new class_2487();scope.credit().write(n);data.method_10566("ProminenceBleedLoot",n);}}
+ @Inject(method="setBleed",at=@At("RETURN")) private static void credit$reset(IEntityDataSaver entity,int amount,CallbackInfoReturnable<Integer> ci){if(amount<=0)entity.getPersistentData().method_10551("ProminenceBleedLoot");}
+}

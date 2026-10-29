@@ -14,4 +14,5 @@ public abstract class IrisPipelineTimingMixin {
         long start=System.nanoTime();
         try{return original.call(dimension);}finally{ShaderPreprocessBridge.report(System.nanoTime()-start,dimension);}
     }
+
 }

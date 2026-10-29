@@ -1,0 +1,139 @@
+{
+  "clientProfiling": {
+    "requiredOptimizationActivationMessages": [
+      "Client EMI CIA item lookup optimization enabled",
+      "Client EMI recipe generation optimizations: enchanting=enabled, createCutting=enabled",
+      "Client load coordination: emiReloadScope=enabled, flywheelWake=enabled",
+      "Client EMI index build optimizations: suffixDedupe=enabled, lootKeys=enabled",
+      "Client tooltip/EMIffect/Xaero optimizations: customTooltips=enabled, extraSpell=enabled, simplySwords=enabled, emiffect=enabled, xaeroImageStream=enabled",
+      "Client Sortilege optimizations: loadScope=enabled, curseShortcut=enabled",
+      "Client shader parser cache lifetime: enabled",
+      "Client backpack unload listener lifetime: enabled",
+      "Client obsolete world references: aquamirae=enabled, bumblezone=enabled, sortilege=enabled",
+      "Client BetterDays world lifetime: enabled",
+      "Client BetterDays world lifetime: corrected 2 obsolete-world registration calls",
+      "Client obsolete interaction/music holders: porting=enabled, melodies=enabled",
+      "Client batch memory fixes: footsteps=enabled, azure=enabled, aquamirae=enabled, emptyStack=enabled, variants=enabled, armor=enabled",
+      "Client MMV visual NBT projection: 11 targets verified",
+      "Client armor owner fields verified: 2",
+      "Client shader source disk cache: enabled",
+      "Client Voxy storage lock recovery: enabled",
+      "Client world cache lifetimes: iceberg=enabled, inventories=enabled, mi=enabled, balm=enabled",
+      "Client Xaero biome world lifetime: enabled"
+    ],
+    "rule": "Before recording the combined optimization profile, verify all expected activation messages in the current startup and the installed payload hash. Mark deliberate diagnostic-disabled runs separately.",
+    "latestMemoryFollowup": {
+      "capturedBuild": 2026102603,
+      "summary": "KoreanPatch/client-memory-followup-20261026/summary.json",
+      "jfrSeconds": 180.067,
+      "gcPauseMs": 533.039,
+      "fullGcCount": 0,
+      "evacuationFailedUniqueGcCount": 10,
+      "newHeapDump": false,
+      "controlledBeforeAfter": false,
+      "improvementBuild": 2026102606
+    },
+    "defaultDurationSeconds": 180,
+    "mandatoryPostRecordingHeapDump": true,
+    "heapDumpDuringTimedRecordingAllowed": false,
+    "matAfterClientExit": true,
+    "forceGameExitAllowed": false,
+    "primaryMemoryMetric": "target JVM MaxHeapSize and after-GC heapUsed; MAT retained owners",
+    "systemAvailableRamIsPrimaryMetric": false,
+    "reuseTool": "KoreanPatch/auto-update-20261025/repository/tools/client_profiler/profile.py",
+    "toolGuide": "KoreanPatch/profiler/README.md",
+    "upstreamReviewGuide": "KoreanPatch/auto-update-20261025/repository/docs/SOURCE_REVIEW_WORKFLOW.md",
+    "heapDumpAnnouncementRequiredBeforeCapture": true,
+    "announceCanCloseAfterHeapSaved": true,
+    "deferredActivationMessages": [
+      "Client MMV visual NBT projection: 11 targets verified"
+    ],
+    "activationByBuild": [
+      {
+        "minimumBuild": 2026102703,
+        "messages": [
+          "EMI and first-join work: terrain=enabled",
+          "EMI and first-join work: keys=enabled",
+          "EMI and first-join work: itemIds=enabled"
+        ]
+      },
+      {
+        "minimumBuild": 2026102704,
+        "messages": [
+          "EMI and first-join work: facades=enabled",
+          "EMI and first-join work: creativeTiming=enabled"
+        ]
+      },
+      {
+        "minimumBuild": 2026102705,
+        "messages": [
+          "Client AzureLib stale query cleanup: enabled"
+        ]
+      },
+      {
+        "minimumBuild": 2026102706,
+        "messages": [
+          "EMI and first-join work: attributeCandidates=enabled"
+        ]
+      },
+      {
+        "minimumBuild": 2026102707,
+        "messages": [
+          "EMI and first-join work: voxyEarlyRenderer=enabled"
+        ]
+      },
+      {
+        "minimumBuild": 2026102708,
+        "messages": [
+          "EMI and first-join work: recipeInsertion=enabled",
+          "EMI and first-join work: voxyModelSlice=enabled"
+        ]
+      },
+      {
+        "minimumBuild": 2026102710,
+        "messages": [
+          "EMI and first-join work: remoteIngestScratch=enabled"
+        ]
+      },
+      {
+        "minimumBuild": 2026102711,
+        "messages": [
+          "EMI and first-join work: remoteIngestDecode=enabled"
+        ]
+      },
+      {
+        "minimumBuild": 2026102714,
+        "messages": [
+          "EMI and first-join work: voxyMeshAdmission=enabled"
+        ]
+      },
+      {
+        "minimumBuild": 2026102908,
+        "messages": [
+          "Client shader source disk cache: retired",
+          "Client experimental work retired: meshAdmission, unchangedStateRemap"
+        ]
+      }
+    ],
+    "toolVerification": "KoreanPatch/profiler/tool-verification-20261027c/fixture-report.json",
+    "latestExistingHeapReview": {
+      "maxHeapBytes": 6341787648,
+      "highestAfterGcBytes": 6115295232,
+      "highestAfterGcRatio": 0.9642857142857143,
+      "fullGcCount": 0,
+      "afterYoungGcIsNotRetainedLiveHeap": true,
+      "systemFreeRamIsNotPrimaryMetric": true,
+      "source": "KoreanPatch/emi-groups-20261027/measurement/capture.jfr"
+    },
+    "realClientFrameGpuValidationPending": true,
+    "retiredActivationByBuild": [
+      {
+        "minimumBuild": 2026102908,
+        "messages": [
+          "Client shader source disk cache: enabled",
+          "EMI and first-join work: voxyMeshAdmission=enabled"
+        ]
+      }
+    ]
+  }
+}

@@ -40,6 +40,7 @@ public final class VerifyShaderTransforms {
     }
     public static void main(String[] args)throws Exception {
         Path work=Path.of(args[1]);Files.createDirectories(work);
+        boolean retired=!Files.readString(Path.of(args[0])).contains("IrisPreprocessDiskCacheMixin");
         Path configs=work.resolve("configs");Files.createDirectories(configs);
         Files.writeString(configs.resolve("offline-shader-cache.mixins.json"),Files.readString(Path.of(args[0]))
             .replace("local.prominence.memory.ShaderPreprocessGuard",VerifyMixinTransforms.OfflinePlugin.class.getName()));
@@ -52,14 +53,17 @@ public final class VerifyShaderTransforms {
         var f=VerifyMixinTransforms.class.getDeclaredField("LOADER");f.setAccessible(true);f.set(null,resources);
         MixinBootstrap.init();Method phase=MixinEnvironment.class.getDeclaredMethod("gotoPhase",MixinEnvironment.Phase.class);phase.setAccessible(true);
         phase.invoke(null,MixinEnvironment.Phase.INIT);MixinExtrasBootstrap.init();MixinEnvironment.getCurrentEnvironment().setObfuscationContext("named:intermediary");
-        Mixins.addConfiguration("offline-euphoria-pipeline.mixins.json");Mixins.addConfiguration("offline-shader-cache.mixins.json");
+        boolean hasEuphoria=resources.getResource("com/euphoriapatches/euphoria_patcher/fabric/mixin/IrisModernPipelineManagerMixin.class")!=null;
+        if(hasEuphoria)Mixins.addConfiguration("offline-euphoria-pipeline.mixins.json");Mixins.addConfiguration("offline-shader-cache.mixins.json");
         for(Config c:Mixins.getConfigs()){c.getConfig().decorate(FabricUtil.KEY_MOD_ID,"prominence_korean_compat");c.getConfig().decorate(FabricUtil.KEY_COMPATIBILITY,FabricUtil.COMPATIBILITY_LATEST);}
         phase.invoke(null,MixinEnvironment.Phase.DEFAULT);MixinEnvironment.getCurrentEnvironment().setObfuscationContext("named:intermediary");
         f=VerifyMixinTransforms.class.getDeclaredField("TRANSFORMER");f.setAccessible(true);var transformer=(IMixinTransformer)f.get(null);
         var defs=new HashMap<String,byte[]>();int methods=0,bridges=0;boolean observed=false,euphoria=false;
         for(String target:List.of("net.irisshaders.iris.shaderpack.preprocessor.JcppProcessor","net.irisshaders.iris.pipeline.PipelineManager")){
             byte[] raw;try(var in=resources.getResourceAsStream(target.replace('.','/')+".class")){raw=in.readAllBytes();}
-            byte[] fixed=transformer.transformClassBytes(target,target,raw);if(Arrays.equals(raw,fixed))throw new AssertionError("Missing native transform: "+target);
+            byte[] fixed=transformer.transformClassBytes(target,target,raw);
+            if(target.endsWith("JcppProcessor") && retired){if(!Arrays.equals(raw,fixed))throw new AssertionError("Retired preprocessing still transforms native code");}
+            else if(Arrays.equals(raw,fixed))throw new AssertionError("Missing native transform: "+target);
             ClassNode node=new ClassNode();new ClassReader(fixed).accept(node,0);
             for(var m:node.methods){new Analyzer<BasicValue>(new BasicVerifier()).analyze(node.name,m);methods++;
                 for(var i:m.instructions)if(i instanceof MethodInsnNode call){
@@ -71,11 +75,24 @@ public final class VerifyShaderTransforms {
                     if(call.owner.contains("DimensionShaderRefresh")&&call.name.equals("beforePreparePipeline"))euphoria=true;
                 }
             }
+            if(retired && target.endsWith("PipelineManager")){
+                var original=new ClassNode();new ClassReader(raw).accept(original,0);
+                var before=original.methods.stream().filter(m->m.name.equals("destroyPipeline")).findFirst().orElseThrow();
+                var after=node.methods.stream().filter(m->m.name.equals("destroyPipeline")).findFirst().orElseThrow();
+                var a=new org.objectweb.asm.util.Textifier();before.accept(new org.objectweb.asm.util.TraceMethodVisitor(a));
+                var b=new org.objectweb.asm.util.Textifier();after.accept(new org.objectweb.asm.util.TraceMethodVisitor(b));
+                if(!a.getText().toString().equals(b.getText().toString())){
+                    Files.writeString(work.resolve("destroy-before.txt"),a.getText().toString());
+                    Files.writeString(work.resolve("destroy-after.txt"),b.getText().toString());
+                    throw new AssertionError("Native destruction changed");
+                }
+            }
             var writer=new ClassWriter(0);node.accept(writer);defs.put(target,writer.toByteArray());Files.write(work.resolve(target+".class"),fixed);
         }
-        if(bridges!=1||!observed||!euphoria)throw new AssertionError("Native bridge/listener/Euphoria hook missing");
-        ShaderSourceCacheTests.nativeTests(new NativeLoader(defs).loadClass("net.irisshaders.iris.shaderpack.preprocessor.JcppProcessor"),work,Path.of(args[2]));
-        Files.writeString(work.resolve("native-mixin-report.json"),"{\"status\":\"passed\",\"targets\":2,\"methodsBytecodeVerified\":"+methods+",\"euphoriaHookPreserved\":true,\"nativeListenerObserved\":true,\"gameStarted\":false}");
-        System.out.println("PASS: native shader Mixin transforms, "+methods+" methods; Euphoria pipeline hook preserved");
+        if((retired?(bridges!=0||observed):(bridges!=1||!observed))||(hasEuphoria&&!euphoria))throw new AssertionError("Native bridge/listener/Euphoria hook missing");
+        if(!retired)ShaderSourceCacheTests.nativeTests(new NativeLoader(defs).loadClass("net.irisshaders.iris.shaderpack.preprocessor.JcppProcessor"),work,Path.of(args[2]));
+        else System.out.println("PASS native JCPP unchanged; original destroyPipeline bytecode unchanged; timing/Euphoria callbacks retained");
+        Files.writeString(work.resolve("native-mixin-report.json"),"{\"status\":\"passed\",\"targets\":2,\"methodsBytecodeVerified\":"+methods+",\"euphoriaHookPreserved\":"+euphoria+",\"nativeListenerObserved\":"+observed+",\"nativePreprocessingRestored\":"+retired+",\"gameStarted\":false}");
+        System.out.println("PASS: native shader Mixin transforms, "+methods+" methods; optional Euphoria hook preserved="+hasEuphoria);
     }
 }
