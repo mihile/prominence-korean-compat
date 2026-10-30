@@ -49161,8 +49161,8 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.twin_bow_1",
       "english": "The Twin Bow is the champion",
-      "korean": "트윈 활은 많은 적을",
-      "status": "language_reviewed",
+      "korean": "수많은 적을 홀로 상대해야 하는",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
@@ -49176,8 +49176,8 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.twin_bow_2",
       "english": "of the hero who finds themselves",
-      "korean": "홀로 상대해야 하는",
-      "status": "language_reviewed",
+      "korean": "영웅에게 힘이 되어 주는",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
@@ -49191,13 +49191,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.twin_bow_3",
       "english": "outnumbered and alone.",
-      "korean": "영웅의 대변자입니다.",
-      "status": "pending",
+      "korean": "활입니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49206,12 +49207,13 @@
       "key": "tooltip_info_item.mcdw.winters_touch_1",
       "english": "Arrows fired from this legendary",
       "korean": "이 전설적인 활에서",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49220,12 +49222,13 @@
       "key": "tooltip_info_item.mcdw.winters_touch_2",
       "english": "bow are said to be carried by the",
       "korean": "발사된 화살은 겨울 바람을",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49234,12 +49237,13 @@
       "key": "tooltip_info_item.mcdw.winters_touch_3",
       "english": "winter winds themselves.",
       "korean": "타고 날아간다고 합니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49247,13 +49251,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.shivering_bow_1",
       "english": "The Shivering Bow pierces even",
-      "korean": "전율의 활은 가장 해묵은",
-      "status": "pending",
+      "korean": "전율의 활은 아주 오래된",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49261,13 +49266,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.shivering_bow_2",
       "english": "the most ancient ice and strikes a",
-      "korean": "얼음조차 꿰뚫고 모든 적들의",
-      "status": "pending",
+      "korean": "얼음조차 꿰뚫고, 적의 심장에",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49275,13 +49281,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.shivering_bow_3",
       "english": "chill into the heart of any enemy.",
-      "korean": "심장에 한기를 박아 넣습니다.",
-      "status": "pending",
+      "korean": "한기를 불어넣습니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49290,12 +49297,13 @@
       "key": "tooltip_info_item.mcdw.wind_bow_1",
       "english": "A mesmerizing bow that captures",
       "korean": "이 활은 바람의 힘을 ",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49304,12 +49312,13 @@
       "key": "tooltip_info_item.mcdw.wind_bow_2",
       "english": "the power of the wind to fire",
       "korean": "포착하여 강력한 게일 화살을",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49318,12 +49327,13 @@
       "key": "tooltip_info_item.mcdw.wind_bow_3",
       "english": "mighty Gale Arrows.",
       "korean": "발사하는 매혹적인 활입니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49332,12 +49342,13 @@
       "key": "tooltip_info_item.mcdw.echo_of_the_valley_1",
       "english": "This bow calls upon the twisting",
       "korean": "이 활은 처음 줄이",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49346,12 +49357,13 @@
       "key": "tooltip_info_item.mcdw.echo_of_the_valley_2",
       "english": "winds of the hidden valley where",
       "korean": "매어졌던 숨겨진 계곡의",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49360,12 +49372,13 @@
       "key": "tooltip_info_item.mcdw.echo_of_the_valley_3",
       "english": "it was first strung.",
       "korean": "뒤틀린 바람을 불러냅니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49374,12 +49387,13 @@
       "key": "tooltip_info_item.mcdw.burst_gale_bow_1",
       "english": "A bow infused with the force",
       "korean": "순식간에 타오르는",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49388,12 +49402,13 @@
       "key": "tooltip_info_item.mcdw.burst_gale_bow_2",
       "english": "of a rolling wind which can",
       "korean": "바람의 힘을 담은",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49402,12 +49417,13 @@
       "key": "tooltip_info_item.mcdw.burst_gale_bow_3",
       "english": "flare up in an instant.",
       "korean": "활입니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49415,13 +49431,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.twisting_vine_bow_1",
       "english": "This bow writhes within your",
-      "korean": "길에 있는 모든 것을",
-      "status": "pending",
+      "korean": "이 활은 덩굴손으로 앞에 있는",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49429,13 +49446,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.twisting_vine_bow_2",
       "english": "grasp as if trying to wrap its",
-      "korean": "활의 덩굴손으로 모든 것을",
-      "status": "pending",
+      "korean": "모든 것을 휘감으려는 듯",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49443,13 +49461,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.twisting_vine_bow_3",
       "english": "tendrils around everything",
-      "korean": "감싸려는 것처럼 당신의 손에서",
-      "status": "pending",
+      "korean": "손아귀에서",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49457,13 +49476,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.twisting_vine_bow_4",
       "english": "in its path.",
-      "korean": "비틀거리는 활입니다.",
-      "status": "pending",
+      "korean": "꿈틀거립니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49471,13 +49491,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.weeping_vine_bow_1",
       "english": "The Weeping Vine Bow's toxic",
-      "korean": "수양 동굴 활의 독성 덩굴은",
-      "status": "pending",
+      "korean": "수양 덩굴 활의 독성 덩굴은",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English flavor claims an effect; installed BowsID getInnateEnchantments returns empty for this item and McdwBow has no shooting override. Other mods/datapacks not ruled out; actual mechanic remains unverified."
     },
     {
       "mod": "mcdw",
@@ -49485,13 +49506,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.weeping_vine_bow_2",
       "english": "vines create a poisonous haze",
-      "korean": "전장에 독이 가득한 안개를",
-      "status": "pending",
+      "korean": "전장에 독 안개를",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English flavor claims an effect; installed BowsID getInnateEnchantments returns empty for this item and McdwBow has no shooting override. Other mods/datapacks not ruled out; actual mechanic remains unverified."
     },
     {
       "mod": "mcdw",
@@ -49499,13 +49521,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.weeping_vine_bow_3",
       "english": "on the battlefield.",
-      "korean": "만들어냅니다.",
-      "status": "pending",
+      "korean": "피워냅니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English flavor claims an effect; installed BowsID getInnateEnchantments returns empty for this item and McdwBow has no shooting override. Other mods/datapacks not ruled out; actual mechanic remains unverified."
     },
     {
       "mod": "mcdw",
@@ -49513,13 +49536,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.bubble_bow_1",
       "english": "Let your troubles float away",
-      "korean": "충전된 샷에서 목표물을",
-      "status": "pending",
+      "korean": "이 거품 활은 시위를 당겨 쏘면",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English flavor claims an effect; installed BowsID getInnateEnchantments returns empty for this item and McdwBow has no shooting override. Other mods/datapacks not ruled out; actual mechanic remains unverified."
     },
     {
       "mod": "mcdw",
@@ -49527,13 +49551,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.bubble_bow_2",
       "english": "with the Bubble Bow, which",
-      "korean": "거품으로 가둬버리는",
-      "status": "pending",
+      "korean": "목표를 거품에 가둡니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English flavor claims an effect; installed BowsID getInnateEnchantments returns empty for this item and McdwBow has no shooting override. Other mods/datapacks not ruled out; actual mechanic remains unverified."
     },
     {
       "mod": "mcdw",
@@ -49541,13 +49566,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.bubble_bow_3",
       "english": "seals your target in a bubble",
-      "korean": "버블 활을 사용해서",
-      "status": "pending",
+      "korean": "골칫거리를",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English flavor claims an effect; installed BowsID getInnateEnchantments returns empty for this item and McdwBow has no shooting override. Other mods/datapacks not ruled out; actual mechanic remains unverified."
     },
     {
       "mod": "mcdw",
@@ -49555,13 +49581,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.bubble_bow_4",
       "english": "on a charged shot.",
-      "korean": "골칫거리들을 날려버리세요.",
-      "status": "pending",
+      "korean": "훌훌 날려 보내세요.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English flavor claims an effect; installed BowsID getInnateEnchantments returns empty for this item and McdwBow has no shooting override. Other mods/datapacks not ruled out; actual mechanic remains unverified."
     },
     {
       "mod": "mcdw",
@@ -49569,13 +49596,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.bubble_burster_1",
       "english": "The Bubble Burster creates a",
-      "korean": "버블 버스터는 적들에게",
-      "status": "pending",
+      "korean": "이 활로 적에게",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49583,13 +49611,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.bubble_burster_2",
       "english": "chain effect of bubble trouble",
-      "korean": "버블 트러블의 연쇄 효과를",
-      "status": "pending",
+      "korean": "거품 소동을",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49597,13 +49626,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.bubble_burster_3",
       "english": "for your enemies.",
-      "korean": "만들어냅니다.",
-      "status": "pending",
+      "korean": "연달아 일으켜 보세요.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49612,12 +49642,13 @@
       "key": "tooltip_info_item.mcdw.gloopy_bow_1",
       "english": "Entrap your enemies in a strange,",
       "korean": "이상하고 끈적한 시럽 거품에",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49626,12 +49657,13 @@
       "key": "tooltip_info_item.mcdw.gloopy_bow_2",
       "english": "syrupy bubble and show them who's",
       "korean": "적을 가두고 누가 우두머리인지",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49640,12 +49672,13 @@
       "key": "tooltip_info_item.mcdw.gloopy_bow_3",
       "english": "boss!",
       "korean": "보여 주세요!",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49653,13 +49686,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.void_bow_1",
       "english": "When you pluck the string of the",
-      "korean": "공허 활의 실을 당기면",
-      "status": "pending",
+      "korean": "공허의 활시위를 당기면",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49667,13 +49701,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.void_bow_2",
       "english": "Void Bow, an unsettling silence",
-      "korean": "불안한 침묵이 전장에",
-      "status": "pending",
+      "korean": "섬뜩한 침묵이 전장에",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49682,12 +49717,13 @@
       "key": "tooltip_info_item.mcdw.void_bow_3",
       "english": "reverberates across the battlefield.",
       "korean": "울려 퍼집니다.",
-      "status": "pending",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49696,12 +49732,13 @@
       "key": "tooltip_info_item.mcdw.call_of_the_void_1",
       "english": "You can feel the Void whispering",
       "korean": "이 활의 깊숙한 내면에서",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49710,12 +49747,13 @@
       "key": "tooltip_info_item.mcdw.call_of_the_void_2",
       "english": "from deep within this bow, but",
       "korean": "공허의 속삭임을 느낄 수 있지만,",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49724,12 +49762,13 @@
       "key": "tooltip_info_item.mcdw.call_of_the_void_3",
       "english": "behind that sound is another voice",
       "korean": "그 소리의 뒤편에는 어둠 속에",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49738,12 +49777,13 @@
       "key": "tooltip_info_item.mcdw.call_of_the_void_4",
       "english": "in the darkness.",
       "korean": "또 다른 목소리가 존재합니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49752,12 +49792,13 @@
       "key": "tooltip_info_item.mcdw.phantom_bow_1",
       "english": "The arrows that take flight from",
       "korean": "팬텀 활로 쏜 화살은",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49766,12 +49807,13 @@
       "key": "tooltip_info_item.mcdw.phantom_bow_2",
       "english": "the Phantom Bow swoop down on",
       "korean": "활의 악몽 같은",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49780,12 +49822,13 @@
       "key": "tooltip_info_item.mcdw.phantom_bow_3",
       "english": "your enemies like the bow's",
       "korean": "이름처럼 적에게",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49794,12 +49837,13 @@
       "key": "tooltip_info_item.mcdw.phantom_bow_4",
       "english": "nightmarish namesake.",
       "korean": "들이닥칩니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49808,12 +49852,13 @@
       "key": "tooltip_info_item.mcdw.web_bow_1",
       "english": "Crafted from the webs of",
       "korean": "강력한 거미줄로 만들어진",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49822,12 +49867,13 @@
       "key": "tooltip_info_item.mcdw.web_bow_2",
       "english": "mighty spiders, the Web Bow",
       "korean": "거미줄 활은 어떠한",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49836,12 +49882,13 @@
       "key": "tooltip_info_item.mcdw.web_bow_3",
       "english": "will get you out of any",
       "korean": "끈적거리는 상황에서도",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49850,12 +49897,13 @@
       "key": "tooltip_info_item.mcdw.web_bow_4",
       "english": "sticky situation.",
       "korean": "당신을 구해줄 겁니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49864,12 +49912,13 @@
       "key": "tooltip_info_item.mcdw.auto_crossbow_1",
       "english": "The Arch-Illager said the design",
       "korean": "우민왕은 환상 속에서",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49878,12 +49927,13 @@
       "key": "tooltip_info_item.mcdw.auto_crossbow_2",
       "english": "for this powerful crossbow came",
       "korean": "이 강력한 석궁의 제조법을",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49892,12 +49942,13 @@
       "key": "tooltip_info_item.mcdw.auto_crossbow_3",
       "english": "to him in a vision.",
       "korean": "발견했다고 말했습니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49905,13 +49956,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.azure_seeker_1",
       "english": "If the color blue had a sound,",
-      "korean": "파란색에 소리가,",
-      "status": "pending",
+      "korean": "푸른색에 소리가 있다면",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49919,13 +49971,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.azure_seeker_2",
       "english": "it would be shots fired by",
-      "korean": "있다면 아마 푸른 수색자의",
-      "status": "pending",
+      "korean": "아마도 푸른 수색자가",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49933,13 +49986,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.azure_seeker_3",
       "english": "the Azure Seeker.",
-      "korean": "공격일 겁니다.",
-      "status": "pending",
+      "korean": "쏘는 소리일 겁니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49947,13 +50001,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.baby_crossbow_1",
       "english": "While some discuss the cute",
-      "korean": "어떤 사람들은 귀여운 아기 석궁을",
-      "status": "pending",
+      "korean": "작고 귀엽다고 얕보는 사람도 있지만,",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49961,13 +50016,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.baby_crossbow_2",
       "english": "Baby Crossbow,these deadly weapons",
-      "korean": "무시하지만 이 치명적인 무기는",
-      "status": "pending",
+      "korean": "아기 석궁은 만만찮은",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49975,13 +50031,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.baby_crossbow_3",
       "english": "grow into heavy hitters.",
-      "korean": "강한 타격 무기로 성장합니다.",
-      "status": "pending",
+      "korean": "위력을 지닌 무기입니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -49990,12 +50047,13 @@
       "key": "tooltip_info_item.mcdw.burst_crossbow_1",
       "english": "A tactical crossbow favored by warriors",
       "korean": "전사와 사냥꾼 모두가 선호하는",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50004,12 +50062,13 @@
       "key": "tooltip_info_item.mcdw.burst_crossbow_2",
       "english": "and hunters alike, the Burst Crossbow",
       "korean": "전술적 석궁인 버스트 석궁은",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50018,12 +50077,13 @@
       "key": "tooltip_info_item.mcdw.burst_crossbow_3",
       "english": "is a powerful tool for any hero.",
       "korean": "모든 영웅에게 강력한 도구입니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50032,12 +50092,13 @@
       "key": "tooltip_info_item.mcdw.butterfly_crossbow_1",
       "english": "This crossbow moves faster than",
       "korean": "이 석궁은 퍼덕거리는 날개보다",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50046,12 +50107,13 @@
       "key": "tooltip_info_item.mcdw.butterfly_crossbow_2",
       "english": "wings in flight and strikes down",
       "korean": "더 빠르게 움직여 화살이 눈에",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50060,12 +50122,13 @@
       "key": "tooltip_info_item.mcdw.butterfly_crossbow_3",
       "english": "enemies before they see the bolt.",
       "korean": "띄기도 전에 적을 쓰러뜨립니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50074,12 +50137,13 @@
       "key": "tooltip_info_item.mcdw.cog_crossbow_1",
       "english": "The gears of this ancient Cog",
       "korean": "이 고대 톱니 석궁의 부품은",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50088,12 +50152,13 @@
       "key": "tooltip_info_item.mcdw.cog_crossbow_2",
       "english": "Crossbow still turn up smoothly,",
       "korean": "여전히 부드럽게 돌아가",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50102,12 +50167,13 @@
       "key": "tooltip_info_item.mcdw.cog_crossbow_3",
       "english": "making it a reliable weapon choice",
       "korean": "오늘날까지 신뢰할 수 있는",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50116,12 +50182,13 @@
       "key": "tooltip_info_item.mcdw.cog_crossbow_4",
       "english": "to this day.",
       "korean": "무기가 되었습니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50129,13 +50196,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.corrupted_crossbow_1",
       "english": "This crossbow has a subtle yet",
-      "korean": "이 석궁에는 미묘하지만 ",
-      "status": "pending",
+      "korean": "은근히 상대를 타락시키는 힘을 지닌",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50143,13 +50211,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.corrupted_crossbow_2",
       "english": "corrupting power that is suitable",
-      "korean": "타락한 힘이 있어 도둑과",
-      "status": "pending",
+      "korean": "이 석궁은 도둑과 민첩한 전사",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50157,13 +50226,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.corrupted_crossbow_3",
       "english": "for thieves and nimble warriors alike.",
-      "korean": "민첩한 전사 모두에게 적합합니다.",
-      "status": "pending",
+      "korean": "모두에게 어울립니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50172,12 +50242,13 @@
       "key": "tooltip_info_item.mcdw.doom_crossbow_1",
       "english": "Many thought that the Doom Crossbow",
       "korean": "많은 사람들은 파멸의 석궁이 그저",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50186,12 +50257,13 @@
       "key": "tooltip_info_item.mcdw.doom_crossbow_2",
       "english": "was just a myth, but this time",
       "korean": "전설 속 허구의 물건이라고 생각했지만,",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50200,12 +50272,13 @@
       "key": "tooltip_info_item.mcdw.doom_crossbow_3",
       "english": "the rumors turned out to be true.",
       "korean": "이번만큼은 정말로 존재하는 것으로 드러났습니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50214,12 +50287,13 @@
       "key": "tooltip_info_item.mcdw.dual_crossbow_1",
       "english": "Dual crossbows are the perfect choice",
       "korean": "이중 석궁은 빠르게 진행되는",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50228,12 +50302,13 @@
       "key": "tooltip_info_item.mcdw.dual_crossbow_2",
       "english": "for a warrior with quick reflexes in",
       "korean": "전투에서 빠른 반사 신경을 가진",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50242,12 +50317,13 @@
       "key": "tooltip_info_item.mcdw.dual_crossbow_3",
       "english": "a fast-paced battle.",
       "korean": "전사를 위한 완벽한 선택입니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50255,13 +50331,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.exploding_crossbow_1",
       "english": "The power of TNT fused with the",
-      "korean": "강력한 TNT와 최신 활 ",
-      "status": "pending",
+      "korean": "TNT의 힘과 최신 활 제작 기술을",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50269,13 +50346,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.exploding_crossbow_2",
       "english": "latest in archery design resulted",
-      "korean": "디자인이 결합해",
-      "status": "pending",
+      "korean": "결합해 만든",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50283,13 +50361,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.exploding_crossbow_3",
       "english": "in this devastating crossbow.",
-      "korean": "강력한 석궁이 되었습니다.",
-      "status": "pending",
+      "korean": "파괴적인 석궁입니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50298,12 +50377,13 @@
       "key": "tooltip_info_item.mcdw.feral_soul_crossbow_1",
       "english": "If you listen closely you can hear the",
       "korean": "잘 들어보면 석궁 안에서",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50312,12 +50392,13 @@
       "key": "tooltip_info_item.mcdw.feral_soul_crossbow_2",
       "english": "souls inside the crossbow,",
       "korean": "영혼이 말하는 소리가 들립니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50326,12 +50407,13 @@
       "key": "tooltip_info_item.mcdw.feral_soul_crossbow_3",
       "english": "usually ridiculing you.",
       "korean": "주로 사용자를 조롱하는 내용입니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50339,13 +50421,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.firebolt_thrower_1",
       "english": "The Firebolt Thrower launches chaos",
-      "korean": "파이어볼트 발사기는 폭발하는",
-      "status": "pending",
+      "korean": "파이어볼트 발사기는 화살이 연달아",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50353,13 +50436,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.firebolt_thrower_2",
       "english": "in a chain reaction of exploding arrows.",
-      "korean": "화살의 연쇄 반응으로 혼란을 선사합니다.",
-      "status": "pending",
+      "korean": "폭발하며 아수라장을 만듭니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50367,13 +50451,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.harp_crossbow_1",
       "english": "Half musical instrument and fully",
-      "korean": "악기인 동시에 완벽하게",
-      "status": "pending",
+      "korean": "반은 악기이지만",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50381,13 +50466,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.harp_crossbow_2",
       "english": "deadly weapon, the Harp Crossbow",
-      "korean": "치명적인 무기 하프 석궁은",
-      "status": "pending",
+      "korean": "무기로서의 위력은 확실한 하프 석궁은",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50395,13 +50481,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.harp_crossbow_3",
       "english": "is the life of the party.",
-      "korean": "파티의 핵심입니다.",
-      "status": "pending",
+      "korean": "잔치의 주인공입니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50410,12 +50497,13 @@
       "key": "tooltip_info_item.mcdw.harpoon_crossbow_1",
       "english": "The Harpoon Crossbow shoots harpoons",
       "korean": "작살 석궁은 강력한 힘으로",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50424,12 +50512,13 @@
       "key": "tooltip_info_item.mcdw.harpoon_crossbow_2",
       "english": "that cut through wind and water with",
       "korean": "바람과 물을 가르며 날아가는",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50438,12 +50527,13 @@
       "key": "tooltip_info_item.mcdw.harpoon_crossbow_3",
       "english": "devastating power.",
       "korean": "작살을 발사합니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50451,13 +50541,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.heavy_crossbow_1",
       "english": "The weighted crossbow is a damage-dealing",
-      "korean": "무거운 석궁은 원거리에",
-      "status": "pending",
+      "korean": "묵직한 이 석궁은",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50465,13 +50556,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.heavy_crossbow_2",
       "english": "menace and a real threat from a",
-      "korean": "피해를 입히는 위험한 존재이자",
-      "status": "pending",
+      "korean": "먼 거리에서도 적을 위협하는",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50479,13 +50571,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.heavy_crossbow_3",
       "english": "ranged distance.",
-      "korean": "진정한 위협입니다.",
-      "status": "pending",
+      "korean": "강력한 무기입니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50494,12 +50587,13 @@
       "key": "tooltip_info_item.mcdw.imploding_crossbow_1",
       "english": "The Imploding Crossbow has been",
       "korean": "폭발 석궁은 마법으로",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50508,12 +50602,13 @@
       "key": "tooltip_info_item.mcdw.imploding_crossbow_2",
       "english": "magically fine-tuned to maximize",
       "korean": "섬세하게 다듬어 폭발 효과를",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50522,12 +50617,13 @@
       "key": "tooltip_info_item.mcdw.imploding_crossbow_3",
       "english": "the impact of the explosion.",
       "korean": "최대한으로 높였습니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50536,12 +50632,13 @@
       "key": "tooltip_info_item.mcdw.lightning_harp_crossbow_1",
       "english": "Adding electrical energy to this",
       "korean": "석궁에 전기 에너지를",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50550,12 +50647,13 @@
       "key": "tooltip_info_item.mcdw.lightning_harp_crossbow_2",
       "english": "crossbow changed the firing",
       "korean": "더하자 발사음이",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50564,12 +50662,13 @@
       "key": "tooltip_info_item.mcdw.lightning_harp_crossbow_3",
       "english": "sound dramatically.",
       "korean": "완전히 바뀌었습니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50577,13 +50676,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.nautical_crossbow_1",
       "english": "Why harpoon one enemy when you",
-      "korean": "많은 작살을 사용할 수 있는데",
-      "status": "pending",
+      "korean": "여러 적에게 작살을 꽂을 수 있는데",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50591,13 +50691,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.nautical_crossbow_2",
       "english": "can harpoon many!",
-      "korean": "어째서 한 명의 적을 작살로 공격하는가!",
-      "status": "pending",
+      "korean": "굳이 한 명만 노릴 필요가 있을까요?",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50605,13 +50706,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.pride_of_the_piglins_1",
       "english": "Found in the farthest reaches",
-      "korean": "네더의 가장 먼 곳에서 발견되는",
-      "status": "pending",
+      "korean": "네더의 가장 먼 곳에서 발견된",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50619,13 +50721,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.pride_of_the_piglins_2",
       "english": "of the Nether, the Pride of the",
-      "korean": "피글린의 긍지는",
-      "status": "pending",
+      "korean": "피글린의 긍지는 오래된 무기지만",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50633,13 +50736,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.pride_of_the_piglins_3",
       "english": "Piglins is both vintage and vicious.",
-      "korean": "빈티지하면서도 악랄합니다.",
-      "status": "pending",
+      "korean": "그만큼 무시무시합니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50648,12 +50752,13 @@
       "key": "tooltip_info_item.mcdw.rapid_crossbow_1",
       "english": "New reloading technology helps this",
       "korean": "새로운 장전 기술 덕분에",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50662,12 +50767,13 @@
       "key": "tooltip_info_item.mcdw.rapid_crossbow_2",
       "english": "crossbow fire more rapidly than those",
       "korean": "이 석궁은 이전보다 더 빠르게",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50676,12 +50782,13 @@
       "key": "tooltip_info_item.mcdw.rapid_crossbow_3",
       "english": "that came before it.",
       "korean": "발사할 수 있습니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50690,12 +50797,13 @@
       "key": "tooltip_info_item.mcdw.scatter_crossbow_1",
       "english": "This crossbow, modified to hold and fire",
       "korean": "동시에 여러 개의 화살을 장전하고",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50704,12 +50812,13 @@
       "key": "tooltip_info_item.mcdw.scatter_crossbow_2",
       "english": "multiple bolts, is also a half-decent",
       "korean": "발사할 수 있도록 개조된 이 석궁은",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50718,12 +50827,13 @@
       "key": "tooltip_info_item.mcdw.scatter_crossbow_3",
       "english": "musical instrument.",
       "korean": "꽤 괜찮은 악기이기도 합니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50731,13 +50841,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.shadow_crossbow_1",
       "english": "Those who wish to use the Shadow",
-      "korean": "그림자 석궁을 사용하려는 사람은",
-      "status": "pending",
+      "korean": "그림자 석궁을 다루는 이들은",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50745,13 +50856,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.shadow_crossbow_2",
       "english": "Crossbow must train in total",
-      "korean": "사용하기 전에 완전한 어둠 속에서",
-      "status": "pending",
+      "korean": "깊은 어둠 속에서",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50759,13 +50871,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.shadow_crossbow_3",
       "english": "darkness before wielding it.",
-      "korean": "먼저 훈련을 받아야 합니다.",
-      "status": "pending",
+      "korean": "몸을 단련한다고 합니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50774,12 +50887,13 @@
       "key": "tooltip_info_item.mcdw.shrieking_crossbow_1",
       "english": "As you wield this unsettling",
       "korean": "이 불길한 무기를 들고 있으면",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50788,12 +50902,13 @@
       "key": "tooltip_info_item.mcdw.shrieking_crossbow_2",
       "english": "weapon, you might find yourself",
       "korean": "어둠에 굴복해 밤과 하나가",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50802,12 +50917,13 @@
       "key": "tooltip_info_item.mcdw.shrieking_crossbow_3",
       "english": "succumbing to the darkness and",
       "korean": "되어 버릴지도",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50816,12 +50932,13 @@
       "key": "tooltip_info_item.mcdw.shrieking_crossbow_4",
       "english": "becoming one with the night.",
       "korean": "모릅니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50830,12 +50947,13 @@
       "key": "tooltip_info_item.mcdw.slayer_crossbow_1",
       "english": "The Slayer Crossbow is the treasured",
       "korean": "슬레이어의 석궁은 수많은 전설적인",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50844,12 +50962,13 @@
       "key": "tooltip_info_item.mcdw.slayer_crossbow_2",
       "english": "heirloom of many legendary hunters.",
       "korean": "헌터가 소중히 여기는 가보입니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50857,13 +50976,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.the_slicer_1",
       "english": "The peak of mischievous Illager",
-      "korean": "해를 끼치는 데 특화된 우민들의",
-      "status": "pending",
+      "korean": "장난기 많은 우민 기술의 정수인",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50871,13 +50991,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.the_slicer_2",
       "english": "engineering, the famous Slicer",
-      "korean": "기술 중에서도 가장 강력한 슬라이서는",
-      "status": "pending",
+      "korean": "유명한 슬라이서는",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50885,13 +51006,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.the_slicer_3",
       "english": "was designed to fire bolts that",
-      "korean": "유명한 무기입니다. 슬라이서에서",
-      "status": "pending",
+      "korean": "화살이 가장 두꺼운",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50899,13 +51021,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.the_slicer_4",
       "english": "pierce through even the thickest",
-      "korean": "발사된 화살은 아주 두꺼운",
-      "status": "pending",
+      "korean": "갑옷도 꿰뚫을 수 있도록",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50913,13 +51036,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.the_slicer_5",
       "english": "of armor.",
-      "korean": "방어구도 뚫을 수 있습니다.",
-      "status": "pending",
+      "korean": "만들어졌습니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50928,12 +51052,13 @@
       "key": "tooltip_info_item.mcdw.soul_crossbow_1",
       "english": "The Soul Crossbow was crafted by the",
       "korean": "영혼의 석궁은 신비한 소환사들과",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50942,12 +51067,13 @@
       "key": "tooltip_info_item.mcdw.soul_crossbow_2",
       "english": "mysterious Evokers and Enchanters of",
       "korean": "효과부여자들이 음산한",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50956,12 +51082,13 @@
       "key": "tooltip_info_item.mcdw.soul_crossbow_3",
       "english": "the Woodland Mansions.",
       "korean": "삼림 대저택에서 만든 것입니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50970,12 +51097,13 @@
       "key": "tooltip_info_item.mcdw.soul_hunter_crossbow_1",
       "english": "This crossbow was made in a soul-rich",
       "korean": "영혼이 풍부한 대장간에서",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50984,12 +51112,13 @@
       "key": "tooltip_info_item.mcdw.soul_hunter_crossbow_2",
       "english": "forge, and it thrives when there are",
       "korean": "만들어진 이 석궁은 근처에 영혼이",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -50998,12 +51127,13 @@
       "key": "tooltip_info_item.mcdw.soul_hunter_crossbow_3",
       "english": "a large number of souls nearby.",
       "korean": "많으면 더 큰 힘을 발휘합니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -51012,12 +51142,13 @@
       "key": "tooltip_info_item.mcdw.spellbound_crossbow_1",
       "english": "Enchanted enemies are especially vulnerable",
       "korean": "마법에 걸린 적들은",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -51026,12 +51157,13 @@
       "key": "tooltip_info_item.mcdw.spellbound_crossbow_2",
       "english": "to the magic of this crossbow.",
       "korean": "이 석궁의 마법에 특히 취약합니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -51039,13 +51171,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.veiled_crossbow_1",
       "english": "The Veiled Crossbow cloaks the wielder",
-      "korean": "베일에 가려진 석궁은 그림자 속에 가려져 있어",
-      "status": "pending",
+      "korean": "장막의 석궁은 사용자를 그림자로 감싸",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -51053,13 +51186,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.veiled_crossbow_2",
       "english": "in shadow, perfect for those who prefer",
-      "korean": "눈에 띄지 않으면서도 지고 싶지 않은",
-      "status": "pending",
+      "korean": "눈에 띄지 않고 싸우려는 이들에게",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -51067,13 +51201,14 @@
       "resource": "assets/mcdw/lang/en_us.json",
       "key": "tooltip_info_item.mcdw.veiled_crossbow_3",
       "english": "to go unnoticed (and undefeated).",
-      "korean": "사람들에게 완벽한 무기입니다.",
-      "status": "pending",
+      "korean": "잘 어울립니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -51082,12 +51217,13 @@
       "key": "tooltip_info_item.mcdw.voidcaller_crossbow_1",
       "english": "This weapon calls out to souls that",
       "korean": "이 무기는 이 세계와",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -51096,12 +51232,13 @@
       "key": "tooltip_info_item.mcdw.voidcaller_crossbow_2",
       "english": "are trapped between this world and",
       "korean": "다음 세계 사이에 갇힌",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -51110,12 +51247,13 @@
       "key": "tooltip_info_item.mcdw.voidcaller_crossbow_3",
       "english": "the next.",
       "korean": "영혼을 부릅니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Individually compared English flavor text and Korean; actual mechanics not verified."
     },
     {
       "mod": "mcdw",
@@ -82998,13 +83136,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.magic_damage_description_1",
       "english": "- While the target has over §c33% Health§r, deal",
-      "korean": "- 적의 체력이 §c33% 이상§r일 때, ",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "- 적의 현재 체력이 최대 체력의 §c1/3보다 높고§r",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "LichBane.method_7873 checks target current health > maxHealth/3 AND > getBonusMagicDamage; bonus is configured lich_bane_bonus_magic_damage plus Fire Aspect level, then applyDamage; burning duration is 4 + 3*level seconds. Installed LichBane.class SHA-256 04d4287bda257f0a966592a0ee84d182252da060a8675f66ea600109974379f4"
     },
     {
       "mod": "soulsweapons",
@@ -83012,13 +83151,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.magic_damage_description_2",
       "english": "bonus §9Magic Damage§r based on §6Fire Aspect§r",
-      "korean": "갑옷을 관통하는 §9마법 피해§r를",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "추가 피해보다 클 때, 방어력을 관통하는 §9마법 피해§r를",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "LichBane.method_7873 checks target current health > maxHealth/3 AND > getBonusMagicDamage; bonus is configured lich_bane_bonus_magic_damage plus Fire Aspect level, then applyDamage; burning duration is 4 + 3*level seconds. Installed LichBane.class SHA-256 04d4287bda257f0a966592a0ee84d182252da060a8675f66ea600109974379f4"
     },
     {
       "mod": "soulsweapons",
@@ -83026,13 +83166,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.magic_damage_description_3",
       "english": "level that penetrates armor.",
-      "korean": "§6발화§r 레벨에 따라 추가로 가합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "§6발화§r 레벨에 따라 추가로 입힙니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "LichBane.method_7873 checks target current health > maxHealth/3 AND > getBonusMagicDamage; bonus is configured lich_bane_bonus_magic_damage plus Fire Aspect level, then applyDamage; burning duration is 4 + 3*level seconds. Installed LichBane.class SHA-256 04d4287bda257f0a966592a0ee84d182252da060a8675f66ea600109974379f4"
     },
     {
       "mod": "soulsweapons",
@@ -83068,13 +83209,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.blazing_blade_description_1",
       "english": "- Set mobs on fire for longer, scaling",
-      "korean": "- 몬스터를 더 오랜 시간 동안 불태우며,",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "- 적을 불태웁니다. 지속 시간은 기본 4초이며",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "LichBane.method_7873 checks target current health > maxHealth/3 AND > getBonusMagicDamage; bonus is configured lich_bane_bonus_magic_damage plus Fire Aspect level, then applyDamage; burning duration is 4 + 3*level seconds. Installed LichBane.class SHA-256 04d4287bda257f0a966592a0ee84d182252da060a8675f66ea600109974379f4 AbstractDawnbreaker.method_7873 uses same hit fire duration; installed class SHA-256 35019e9831bad2e5ad875f8db0496af240dc4adb4015328595d849a38a008b89"
     },
     {
       "mod": "soulsweapons",
@@ -83082,13 +83224,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.blazing_blade_description_2",
       "english": "off of §6Fire Aspect§r level.",
-      "korean": "이는 §6발화§r 레벨에 따라 조정됩니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "§6발화§r 레벨당 3초 늘어납니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "LichBane.method_7873 checks target current health > maxHealth/3 AND > getBonusMagicDamage; bonus is configured lich_bane_bonus_magic_damage plus Fire Aspect level, then applyDamage; burning duration is 4 + 3*level seconds. Installed LichBane.class SHA-256 04d4287bda257f0a966592a0ee84d182252da060a8675f66ea600109974379f4 AbstractDawnbreaker.method_7873 uses same hit fire duration; installed class SHA-256 35019e9831bad2e5ad875f8db0496af240dc4adb4015328595d849a38a008b89"
     },
     {
       "mod": "soulsweapons",
