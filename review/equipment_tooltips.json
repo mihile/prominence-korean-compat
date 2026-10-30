@@ -57610,13 +57610,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "item.prominent.ability.fyralath.greater_scorch.desc1",
       "english": "Set in flames your target and give yourself resistance for",
-      "korean": "대상을 불태우고 자신에게 저항 효과를 부여합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "대상에게 화염 피해를 주고",
+      "status": "corrected",
+      "mechanics": "installed_data_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Installed spell assignment selects prominent:scorch, wrath, meteor; scorch JSON applies fire for 2s and does not list Resistance; wrath has duration 6s/channel_ticks 3, scorch and meteor duration zero. Other runtime/datapack overrides not completely ruled out. SHA256 {'data/prominent/spell_assignments/fyralath.json': '294fc32dea32eb6ada7be39c073b6b33de81f19ce9fb7a498a15f03c935b9d4b', 'data/prominent/spells/scorch.json': 'bc0cb0d1af7d130a4bccbced690789e07998bcdd993f18a9f43fc2900c79599b', 'data/prominent/spells/wrath.json': '5abd1e1bc66900c70a79336972aa26cbd4dff2bb6384254aee96e51c352042cc', 'data/prominent/spells/meteor.json': 'be6868932859291a3df08fe71b570bb407cbbd42c0e6c88e11de49ead109e2f6'}"
     },
     {
       "mod": "prominent",
@@ -57624,13 +57625,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "item.prominent.ability.fyralath.greater_scorch.desc2",
       "english": "4 seconds. Attacks have a chance to extend the duration.",
-      "korean": "4초간 지속되며, 공격 시 일정 확률로 지속 시간이 늘어납니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "2초 동안 불을 붙입니다.",
+      "status": "corrected",
+      "mechanics": "installed_data_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Installed spell assignment selects prominent:scorch, wrath, meteor; scorch JSON applies fire for 2s and does not list Resistance; wrath has duration 6s/channel_ticks 3, scorch and meteor duration zero. Other runtime/datapack overrides not completely ruled out. SHA256 {'data/prominent/spell_assignments/fyralath.json': '294fc32dea32eb6ada7be39c073b6b33de81f19ce9fb7a498a15f03c935b9d4b', 'data/prominent/spells/scorch.json': 'bc0cb0d1af7d130a4bccbced690789e07998bcdd993f18a9f43fc2900c79599b', 'data/prominent/spells/wrath.json': '5abd1e1bc66900c70a79336972aa26cbd4dff2bb6384254aee96e51c352042cc', 'data/prominent/spells/meteor.json': 'be6868932859291a3df08fe71b570bb407cbbd42c0e6c88e11de49ead109e2f6'}"
     },
     {
       "mod": "prominent",
@@ -57736,13 +57738,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "item.prominent.ability.fyralath.fiery_core.desc1",
       "english": "Fyr'alath can invoke improved fire spells that have instant",
-      "korean": "강화된 화염 주문을 즉시 시전할 수 있습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "강화된 화염 주문 세 가지를 사용할 수 있습니다.",
+      "status": "corrected",
+      "mechanics": "installed_data_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Installed spell assignment selects prominent:scorch, wrath, meteor; scorch JSON applies fire for 2s and does not list Resistance; wrath has duration 6s/channel_ticks 3, scorch and meteor duration zero. Other runtime/datapack overrides not completely ruled out. SHA256 {'data/prominent/spell_assignments/fyralath.json': '294fc32dea32eb6ada7be39c073b6b33de81f19ce9fb7a498a15f03c935b9d4b', 'data/prominent/spells/scorch.json': 'bc0cb0d1af7d130a4bccbced690789e07998bcdd993f18a9f43fc2900c79599b', 'data/prominent/spells/wrath.json': '5abd1e1bc66900c70a79336972aa26cbd4dff2bb6384254aee96e51c352042cc', 'data/prominent/spells/meteor.json': 'be6868932859291a3df08fe71b570bb407cbbd42c0e6c88e11de49ead109e2f6'}"
     },
     {
       "mod": "prominent",
@@ -57750,13 +57753,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "item.prominent.ability.fyralath.fiery_core.desc2",
       "english": "cast times, more damage and improved effects.",
-      "korean": "각 주문의 피해와 부가 효과도 강화됩니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "연소와 유성은 즉시 시전하고, 불꽃 칼날은 집중해 연속으로 발사합니다.",
+      "status": "corrected",
+      "mechanics": "installed_data_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Installed spell assignment selects prominent:scorch, wrath, meteor; scorch JSON applies fire for 2s and does not list Resistance; wrath has duration 6s/channel_ticks 3, scorch and meteor duration zero. Other runtime/datapack overrides not completely ruled out. SHA256 {'data/prominent/spell_assignments/fyralath.json': '294fc32dea32eb6ada7be39c073b6b33de81f19ce9fb7a498a15f03c935b9d4b', 'data/prominent/spells/scorch.json': 'bc0cb0d1af7d130a4bccbced690789e07998bcdd993f18a9f43fc2900c79599b', 'data/prominent/spells/wrath.json': '5abd1e1bc66900c70a79336972aa26cbd4dff2bb6384254aee96e51c352042cc', 'data/prominent/spells/meteor.json': 'be6868932859291a3df08fe71b570bb407cbbd42c0e6c88e11de49ead109e2f6'}"
     },
     {
       "mod": "prominent",
