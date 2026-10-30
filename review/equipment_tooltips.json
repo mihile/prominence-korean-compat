@@ -59325,13 +59325,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "tooltip.prominent.armorset.juggernaut.sapphire_spikes.desc",
       "english": "Deflects %s%% of damage dealt to you.",
-      "korean": "받는 피해의 %s%%를 튕겨냅니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "다른 개체에게 받은 피해를 %s%% 줄이고, 3블록 이내의 생물 공격자에게 그만큼 반사합니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Juggernaut applies Mythic Upgrades damage deflection; LivingEntityMixin reduces damage with a non-null attacker and reflects reduced portion only to living attacker within squared distance <=9. Four-piece proc triggered by damage from another entity. Percent quantized in 10-point steps; current config uses 10/30/30. SHA256 b19599f61c6184597309b619486881254b1cc245d7a3a0edea7cf2f230495018 5176a40b2af8f3177518c796e96ee07a16f1df72c999ccd3ba55aeeee1a628b5"
     },
     {
       "mod": "prominent",
@@ -59353,13 +59354,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "tooltip.prominent.armorset.juggernaut.tortoise_shell.desc1",
       "english": "Deflected damage is increased to %s%%.",
-      "korean": "반사하는 피해가 %s%%로 증가합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "피해 감소 및 반사 비율이 %s%%로 증가합니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Juggernaut applies Mythic Upgrades damage deflection; LivingEntityMixin reduces damage with a non-null attacker and reflects reduced portion only to living attacker within squared distance <=9. Four-piece proc triggered by damage from another entity. Percent quantized in 10-point steps; current config uses 10/30/30. SHA256 b19599f61c6184597309b619486881254b1cc245d7a3a0edea7cf2f230495018 5176a40b2af8f3177518c796e96ee07a16f1df72c999ccd3ba55aeeee1a628b5"
     },
     {
       "mod": "prominent",
@@ -59367,13 +59369,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "tooltip.prominent.armorset.juggernaut.tortoise_shell.desc2",
       "english": "You also have a %s%% chance every time you're hit",
-      "korean": "공격받을 때마다 %s%% 확률로",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "다른 개체에게 공격받을 때마다 %s%% 확률로",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Juggernaut applies Mythic Upgrades damage deflection; LivingEntityMixin reduces damage with a non-null attacker and reflects reduced portion only to living attacker within squared distance <=9. Four-piece proc triggered by damage from another entity. Percent quantized in 10-point steps; current config uses 10/30/30. SHA256 b19599f61c6184597309b619486881254b1cc245d7a3a0edea7cf2f230495018 5176a40b2af8f3177518c796e96ee07a16f1df72c999ccd3ba55aeeee1a628b5"
     },
     {
       "mod": "prominent",
@@ -59382,12 +59385,13 @@
       "key": "tooltip.prominent.armorset.juggernaut.tortoise_shell.desc3",
       "english": "to further reduce %s%% of the damage you take for %s seconds.",
       "korean": "받는 피해가 추가로 %s%% 감소하며 %s초 동안 지속됩니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Juggernaut applies Mythic Upgrades damage deflection; LivingEntityMixin reduces damage with a non-null attacker and reflects reduced portion only to living attacker within squared distance <=9. Four-piece proc triggered by damage from another entity. Percent quantized in 10-point steps; current config uses 10/30/30. SHA256 b19599f61c6184597309b619486881254b1cc245d7a3a0edea7cf2f230495018 5176a40b2af8f3177518c796e96ee07a16f1df72c999ccd3ba55aeeee1a628b5"
     },
     {
       "mod": "prominent",
