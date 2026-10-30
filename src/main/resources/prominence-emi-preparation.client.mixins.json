@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "local.prominence.work.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "plugin": "local.prominence.work.EmiPreparationGuard",
+  "client": [
+    "ProminentHiddenItemMixin",
+    "EmiAnvilPreparationMixin",
+    "EmiRecipePreparationScopeMixin",
+    "EmiSortedPreparationScopeMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

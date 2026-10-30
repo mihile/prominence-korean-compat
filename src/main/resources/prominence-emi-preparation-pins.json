@@ -1,0 +1,42 @@
+{
+  "hiddenItem": {
+    "emi": {
+      "version": "1.1.24+1.20.1+fabric",
+      "classes": {
+        "dev/emi/emi/api/stack/ItemEmiStack.class": "6672b20adb00d50b279bd96b98ea6979d07248d7124932c425e102f62bf89499"
+      }
+    },
+    "prominent": {
+      "version": "4.1.1",
+      "classes": {
+        "elocindev/prominent/plugin/ProminentEMIPlugin.class": "da713417cbc374420cb2a8b5dd68e336e0ade09e0c18c8a01b20cfcdae435cc9"
+      }
+    },
+    "minecraft": {
+      "version": "1.20.1",
+      "classes": {
+        "net/minecraft/class_1792.class": "ce1e7f6643b034099a9a810728e43bc4735304a472892e25ba490001dbb63e4a",
+        "net/minecraft/class_1799.class": "ab95538ac5fde26a5d78cbc01c77073fb31596f45d19aa1579ca7778627fe2f5"
+      }
+    }
+  },
+  "anvilPreparation": {
+    "emi": {
+      "version": "1.1.24+1.20.1+fabric",
+      "classes": {
+        "dev/emi/emi/registry/EmiRecipes.class": "38aae6c1156533937009e5f606417e1741d4feb6a3b31fbe3a66f7e83ef22016",
+        "dev/emi/emi/registry/EmiRecipes$Manager.class": "ed7dd4ccf307198aec64c6f639367e090cff0f8d4b2a65c334c90e9f14511f62",
+        "dev/emi/emi/registry/EmiRecipes$Worker.class": "85900ad61f3f3d39b7c5765e830c26cde3e4131073ea33fd4b1a9a0bf6be28cc",
+        "dev/emi/emi/api/stack/ItemEmiStack.class": "6672b20adb00d50b279bd96b98ea6979d07248d7124932c425e102f62bf89499",
+        "dev/emi/emi/recipe/special/EmiAnvilEnchantRecipe.class": "14bb7354f4c1e894920b8f96a7e3caf99d07415b3b30a9b86abd92bbae68276e"
+      }
+    },
+    "minecraft": {
+      "version": "1.20.1",
+      "classes": {
+        "net/minecraft/class_1792.class": "ce1e7f6643b034099a9a810728e43bc4735304a472892e25ba490001dbb63e4a",
+        "net/minecraft/class_1799.class": "ab95538ac5fde26a5d78cbc01c77073fb31596f45d19aa1579ca7778627fe2f5"
+      }
+    }
+  }
+}
