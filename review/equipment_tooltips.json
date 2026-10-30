@@ -57491,13 +57491,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "item.prominent.ability.azhar.breath_of_azhar.desc2",
       "english": "large cone. If you don't have a broken soul stack, you will receive continuous damage while the breath is active.",
-      "korean": "부서진 영혼 스택이 없으면 숨결이 활성화된 동안 지속적인 피해를 받습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "숨결 효과가 끝날 때 부서진 영혼이 없으면 최대 체력의 5%만큼 피해를 받습니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "BreathOfAzhar.onRemoved (Yarn method_5562) applies maxHealth*0.05 once if no Broken Soul; spell applies a short caster status during channel. Class SHA256 66e78b40ec50d9ad049670c75065774a3565273c189bf83d01d434d8cf6b35a4"
     },
     {
       "mod": "prominent",
@@ -57519,13 +57520,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "item.prominent.ability.azhar.broken_souls.desc1",
       "english": "Broken Souls last 5 seconds, each stack will not reset the duration.",
-      "korean": "부서진 영혼은 5초간 지속되며, 중첩을 얻어도 시간이 갱신되지 않습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "부서진 영혼은 최대 3중첩까지 쌓이며, 중첩을 얻어도 5초의 지속시간이 갱신되지 않습니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Azhar.method_7873 applies damage of maxHealth*0.01 for noncreative attackers and addStack; BrokenSoul.addStack caps amplifier at 2 (three levels), preserves original remaining 100 ticks; removal heals maxHealth*0.1*(amplifier+1). Class SHA256 {'elocindev/prominent/item/artifacts/Azhar.class': 'e701af7014f9fb8ecc2a26be9294386941062cdc53ac3f69105781cead1f951e', 'elocindev/prominent/spells/azhar/BrokenSoul.class': 'cd10e79c7921d98447c6af0d9b3a444febfe90b6824bd10f2cc34fafdecb6d04', 'elocindev/prominent/spells/azhar/SoulAbsorption.class': '976e4bc98e2c730775b614ee7ec356e8b2327d6719cc9feb94adf96392ff73ba'}"
     },
     {
       "mod": "prominent",
@@ -57533,13 +57535,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "item.prominent.ability.azhar.broken_souls.desc2",
       "english": "When souls expire, you get healed 10% of your maximum health.",
-      "korean": "효과가 끝나면 최대 체력의 10%를 회복합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "효과가 끝나면 중첩당 최대 체력의 10%를 회복합니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Azhar.method_7873 applies damage of maxHealth*0.01 for noncreative attackers and addStack; BrokenSoul.addStack caps amplifier at 2 (three levels), preserves original remaining 100 ticks; removal heals maxHealth*0.1*(amplifier+1). Class SHA256 {'elocindev/prominent/item/artifacts/Azhar.class': 'e701af7014f9fb8ecc2a26be9294386941062cdc53ac3f69105781cead1f951e', 'elocindev/prominent/spells/azhar/BrokenSoul.class': 'cd10e79c7921d98447c6af0d9b3a444febfe90b6824bd10f2cc34fafdecb6d04', 'elocindev/prominent/spells/azhar/SoulAbsorption.class': '976e4bc98e2c730775b614ee7ec356e8b2327d6719cc9feb94adf96392ff73ba'}"
     },
     {
       "mod": "prominent",
@@ -57547,13 +57550,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "item.prominent.ability.azhar.broken_souls.subdesc1",
       "english": "Attacks generate a Broken Soul, but damage you 10% of your health.",
-      "korean": "공격 시 부서진 영혼이 생성되지만, 체력의 10%만큼 피해를 입습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "공격 시 부서진 영혼이 생성되지만, 최대 체력의 1%만큼 피해를 입습니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Azhar.method_7873 applies damage of maxHealth*0.01 for noncreative attackers and addStack; BrokenSoul.addStack caps amplifier at 2 (three levels), preserves original remaining 100 ticks; removal heals maxHealth*0.1*(amplifier+1). Class SHA256 {'elocindev/prominent/item/artifacts/Azhar.class': 'e701af7014f9fb8ecc2a26be9294386941062cdc53ac3f69105781cead1f951e', 'elocindev/prominent/spells/azhar/BrokenSoul.class': 'cd10e79c7921d98447c6af0d9b3a444febfe90b6824bd10f2cc34fafdecb6d04', 'elocindev/prominent/spells/azhar/SoulAbsorption.class': '976e4bc98e2c730775b614ee7ec356e8b2327d6719cc9feb94adf96392ff73ba'}"
     },
     {
       "mod": "prominent",
@@ -57561,13 +57565,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "item.prominent.ability.azhar.broken_souls.subdesc2",
       "english": "Killing an enemy will generate a Broken Soul without damaging you.",
-      "korean": "적을 처치하면 피해를 입지 않고 부서진 영혼이 생성됩니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "처치 여부와 관계없이 공격이 적중할 때 적용됩니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Azhar.method_7873 always calls addStack and noncreative self-damage with no kill branch; top-level installed JAR scan found no other direct BrokenSoul.addStack callers outside Azhar. Kill-only free stack assertion removed; external dynamic behavior not ruled out. Azhar SHA256 e701af7014f9fb8ecc2a26be9294386941062cdc53ac3f69105781cead1f951e"
     },
     {
       "mod": "prominent",
