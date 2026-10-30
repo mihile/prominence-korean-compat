@@ -483,5 +483,8 @@
   "item.prominent.ability.azhar.breath_of_azhar.desc2": "숨결 효과가 끝날 때 부서진 영혼이 없으면 최대 체력의 5%만큼 피해를 받습니다.",
   "item.prominent.ability.azhar.broken_souls.subdesc2": "처치 여부와 관계없이 공격이 적중할 때 적용됩니다.",
   "item.prominent.ability.thunderwrath.damage_message": "근접 공격 적중 시 25%% 확률로 %d의 추가 번개 피해를 줍니다.",
-  "item.prominent.ability.thunderwrath.warriors_devotion": "거인의 손아귀 효과가 활성화되면 발동 확률이 35%%로 증가합니다."
+  "item.prominent.ability.thunderwrath.warriors_devotion": "거인의 손아귀 효과가 활성화되면 발동 확률이 35%%로 증가합니다.",
+  "item.simplyswords.stormscalesworditem.tooltip2": "피뢰침이 꽂혀 있는 동안 이 무기로 적을 맞히면 피뢰침 주변에 범위 피해를 줍니다.",
+  "item.simplyswords.stormscalesworditem.tooltip4": "공격으로 발사한 파동이 피뢰침에 도착할 때마다 피해와 범위가 1% 증가하며 최대 80%까지 중첩됩니다.",
+  "item.simplyswords.ionbound_stormscalesworditem.tooltip3": "최대 체력의 일정 비율을 넘는 피해를 받으면 큐브를 소모해 피해를 막고 2초 동안 보호막을 펼칩니다. 무적을 무시하는 피해는 막지 못합니다."
 }

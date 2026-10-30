@@ -71427,13 +71427,14 @@
       "resource": "assets/simplyswords/lang/en_us.json",
       "key": "item.simplyswords.stormscalesworditem.tooltip2",
       "english": "While you have a Stormscale planted in the ground, your melee attacks trigger area damage around it.",
-      "korean": "스톰스케일이 지면에 꽂혀 있는 동안 근접 공격이 주변에 범위 피해를 줍니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "피뢰침이 꽂혀 있는 동안 이 무기로 적을 맞히면 피뢰침 주변에 범위 피해를 줍니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "StormscaleLightningRodManager.onMeleeHit checks same Stormscale item and active rod and queues traveling pulse; tickRod uses arrivedHits and pulseGrowthPerHit to scale pulse at rod anchor. Current config 0.01 growth and 0.8 maximum; configurable. Class SHA256 5a2215df27338e3680105b9ef346cd5b092bc0a6177cbd553578cc2f88f014a3"
     },
     {
       "mod": "simplyswords",
@@ -71455,13 +71456,14 @@
       "resource": "assets/simplyswords/lang/en_us.json",
       "key": "item.simplyswords.stormscalesworditem.tooltip4",
       "english": "Each melee attack you perform increases its pulse damage and radius by 1%, stacking up to 80%.",
-      "korean": "근접 공격을 할 때마다 파동 피해와 범위가 1% 증가하며 최대 80%까지 중첩됩니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "공격으로 발사한 파동이 피뢰침에 도착할 때마다 피해와 범위가 1% 증가하며 최대 80%까지 중첩됩니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "StormscaleLightningRodManager.onMeleeHit checks same Stormscale item and active rod and queues traveling pulse; tickRod uses arrivedHits and pulseGrowthPerHit to scale pulse at rod anchor. Current config 0.01 growth and 0.8 maximum; configurable. Class SHA256 5a2215df27338e3680105b9ef346cd5b092bc0a6177cbd553578cc2f88f014a3"
     },
     {
       "mod": "simplyswords",
@@ -71497,13 +71499,14 @@
       "resource": "assets/simplyswords/lang/en_us.json",
       "key": "item.simplyswords.ionbound_stormscalesworditem.tooltip3",
       "english": "When receiving a single large hit of damage, consume an ion cube to negate the damage and surround yourself with a protective field for 2 seconds.",
-      "korean": "한 번에 큰 피해를 받으면 이온 큐브를 소모해 피해를 무효화하고 2초 동안 보호막을 두릅니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "최대 체력의 일정 비율을 넘는 피해를 받으면 큐브를 소모해 피해를 막고 2초 동안 보호막을 펼칩니다. 무적을 무시하는 피해는 막지 못합니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "handleIncomingDamage excludes BYPASSES_INVULNERABILITY, requires incoming amount strictly > maxHealth * shieldTriggerHealthFraction and consumes cube; shields block eligible subsequent damage. Current config threshold 0.2 and 40 ticks; configurable. SHA256 87d0bcdcf1888fcf02af608e6aa94f6829a361591d0005a0d1d6adb2d28e4050"
     },
     {
       "mod": "simplyswords",
