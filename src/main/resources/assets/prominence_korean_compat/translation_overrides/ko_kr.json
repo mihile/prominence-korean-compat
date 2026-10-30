@@ -453,5 +453,16 @@
   "tooltip.prominent.armorset.monk.martial_artist.desc1": "권갑 계열 무기로 피해를 주면 %s%% 확률로",
   "tooltip.prominent.armorset.monk.meditation.desc1": "천 개의 주먹의 분노로 격노한 뒤 권갑 쌍수 장착이 풀리거나",
   "tooltip.prominent.armorset.monk.meditation.desc2": "격노가 끝나면 자신과 주변 플레이어를 최대 체력의 %s%%만큼",
-  "tooltip.prominent.armorset.monk.meditation.desc3": "%s초에 걸쳐 회복시킵니다."
+  "tooltip.prominent.armorset.monk.meditation.desc3": "%s초에 걸쳐 회복시킵니다.",
+  "tooltip.prominent.armorset.rogue.lethal_combo.desc": "그림자 걸음을 시전하면 물리 피해가 %s%% 증가하며 %s초 동안 지속됩니다.",
+  "tooltip.prominent.armorset.warrior.rah.desc2": "이후 물리 피해가 %s%% 증가하며 %s초 동안 지속됩니다.",
+  "tooltip.prominent.armorset.fire_armor_set.ekavar.inner_power.desc2": "축적한 피해량의 %s%%를 %s초마다 화염 피해로 입힙니다. 화염 숨결 시전 중에는 %s%%가 적용됩니다.",
+  "tooltip.prominent.armorset.valkyrie.wrath_of_the_heavens.desc2": "자신과 주변 아군에게 폭풍 쇄도를 부여해 이동 속도와 가속이 %s%% 증가하며 %s초 동안 지속됩니다.",
+  "tooltip.prominent.armorset.archer.hunters_snare.desc2": "또한 해당 적이 자신과 아군에게 주는 피해가 %s%% 감소하며 %s초 동안 지속됩니다.",
+  "tooltip.prominent.armorset.astral_mage.default.prismatic_shift.desc": "한 속성의 주문을 시전하면 나머지 두 속성의 피해가 %s%% 증가하며 %s초 동안 지속됩니다.",
+  "tooltip.prominent.armorset.astral_mage.ekavar.prismatic_focus.desc": "별의 기원으로 강력한 주문을 시전하면 해당 속성의 마법 위력이 %s%% 증가하며 %s초 동안 지속됩니다.",
+  "tooltip.prominent.armorset.priest.savior.desc1": "체력이 낮은 아군을 치유할 때 치유량이 %s%% 증가합니다.",
+  "tooltip.prominent.armorset.priest.savior.desc2": "기준은 체력 %s%% 미만이며, 공명하는 징벌은",
+  "tooltip.prominent.armorset.fire_armor_set.ashedar.twin_resonance.desc": "애쉬와 에다르를 전환하거나 비전 주문을 시전하면 화염 피해가 %s%% 증가하며 %s초 동안 지속됩니다.",
+  "tooltip.prominent.armorset.fire_armor_set.ashedar.solar_mastery.desc1": "애쉬의 프로미넌스로 적의 눈을 멀게 하면 거대한 태양 섬광을 소환해 화염 주문력의 %s%%만큼 강력한 범위 화염 피해를 줍니다."
 }

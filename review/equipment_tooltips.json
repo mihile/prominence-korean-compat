@@ -59512,13 +59512,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "tooltip.prominent.armorset.rogue.lethal_combo.desc",
       "english": "Casting Shadowstep increases your physical damage by %s%% for %s seconds.",
-      "korean": "그림자 걸음을 시전하면 %s초 동안 물리 피해가 %s%% 증가합니다.",
-      "status": "pending",
+      "korean": "그림자 걸음을 시전하면 물리 피해가 %s%% 증가하며 %s초 동안 지속됩니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Compared original argument order and Korean text; gameplay mechanics still require independent verification."
     },
     {
       "mod": "prominent",
@@ -59638,13 +59639,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "tooltip.prominent.armorset.priest.savior.desc1",
       "english": "Your heals are %s%% more effective on allies",
-      "korean": "아군에게 주는 치유량이 %s%% 증가합니다.",
-      "status": "pending",
+      "korean": "체력이 낮은 아군을 치유할 때 치유량이 %s%% 증가합니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Compared original argument order and Korean text; gameplay mechanics still require independent verification."
     },
     {
       "mod": "prominent",
@@ -59652,13 +59654,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "tooltip.prominent.armorset.priest.savior.desc2",
       "english": "under %s%% health. Resonating Punishment will",
-      "korean": "체력이 %s%% 미만인 아군에게 사용하면 공명하는 징벌이",
-      "status": "pending",
+      "korean": "기준은 체력 %s%% 미만이며, 공명하는 징벌은",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Compared original argument order and Korean text; gameplay mechanics still require independent verification."
     },
     {
       "mod": "prominent",
@@ -60016,13 +60019,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "tooltip.prominent.armorset.warrior.rah.desc2",
       "english": "then grants +%s%% Physical Damage for %s seconds.",
-      "korean": "이후 %s초 동안 물리 피해가 %s%% 증가합니다.",
-      "status": "pending",
+      "korean": "이후 물리 피해가 %s%% 증가하며 %s초 동안 지속됩니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Compared original argument order and Korean text; gameplay mechanics still require independent verification."
     },
     {
       "mod": "prominent",
@@ -60086,13 +60090,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "tooltip.prominent.armorset.fire_armor_set.ekavar.inner_power.desc2",
       "english": "Enemies burn %s%% of the damage every %s seconds (%s%% while casting Fire Breath).",
-      "korean": "적은 %s초마다 피해량의 %s%%만큼 불탑니다. 화염 숨결 시전 중에는 %s%%가 적용됩니다.",
-      "status": "pending",
+      "korean": "축적한 피해량의 %s%%를 %s초마다 화염 피해로 입힙니다. 화염 숨결 시전 중에는 %s%%가 적용됩니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Compared original argument order and Korean text; gameplay mechanics still require independent verification."
     },
     {
       "mod": "prominent",
@@ -60226,13 +60231,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "tooltip.prominent.armorset.fire_armor_set.ashedar.twin_resonance.desc",
       "english": "Swapping between Ash and Edar or casting an Arcane spell increases your Fire damage by %s%% for %s seconds.",
-      "korean": "비전 주문을 시전하면 화염 피해가 %s%% 증가하며 %s초 동안 지속됩니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "애쉬와 에다르를 전환하거나 비전 주문을 시전하면 화염 피해가 %s%% 증가하며 %s초 동안 지속됩니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "FireArmorSetBonus.detectBladeSwap and onArcaneCastReleased each call applyTwinResonance; existing text omitted blade switching. SHA256 83f26b66f91e0169226d6a3ceadc9ee16c3d4e3bdc5192ffdf38ab2e8062a36b"
     },
     {
       "mod": "prominent",
@@ -60254,13 +60260,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "tooltip.prominent.armorset.fire_armor_set.ashedar.solar_mastery.desc1",
       "english": "Blinding an enemy with Ash's Prominence summons a massive Solar Flare, dealing %s%% of your Fire power as heavy AoE Fire damage.",
-      "korean": "아쉬의 프로미넌스로 적의 눈을 멀게 하면 거대한 태양 섬광을 소환해 화염 주문력의 %s%%만큼 강력한 범위 화염 피해를 줍니다.",
-      "status": "pending",
+      "korean": "애쉬의 프로미넌스로 적의 눈을 멀게 하면 거대한 태양 섬광을 소환해 화염 주문력의 %s%%만큼 강력한 범위 화염 피해를 줍니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Matched the displayed Ash form name to the weapon description; effect remains unverified."
     },
     {
       "mod": "prominent",
@@ -60730,13 +60737,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "tooltip.prominent.armorset.valkyrie.wrath_of_the_heavens.desc2",
       "english": "and granting you and nearby allies Stormsurge, increasing movement speed and haste by %s%% for %s seconds.",
-      "korean": "자신과 주변 아군에게 폭풍 쇄도를 부여해 %s초 동안 이동 속도와 가속이 %s%% 증가합니다.",
-      "status": "pending",
+      "korean": "자신과 주변 아군에게 폭풍 쇄도를 부여해 이동 속도와 가속이 %s%% 증가하며 %s초 동안 지속됩니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Compared original argument order and Korean text; gameplay mechanics still require independent verification."
     },
     {
       "mod": "prominent",
@@ -60814,13 +60822,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "tooltip.prominent.armorset.archer.hunters_snare.desc2",
       "english": "and deal %s%% less damage to you and your allies for %s seconds.",
-      "korean": "또한 %s초 동안 해당 적이 자신과 아군에게 주는 피해가 %s%% 감소합니다.",
-      "status": "pending",
+      "korean": "또한 해당 적이 자신과 아군에게 주는 피해가 %s%% 감소하며 %s초 동안 지속됩니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Compared original argument order and Korean text; gameplay mechanics still require independent verification."
     },
     {
       "mod": "prominent",
@@ -61346,13 +61355,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "tooltip.prominent.armorset.astral_mage.default.prismatic_shift.desc",
       "english": "Casting a spell of one element increases the damage of your other two elements by %s%% for %s seconds.",
-      "korean": "한 속성의 주문을 시전하면 %s초 동안 나머지 두 속성의 피해가 %s%% 증가합니다.",
-      "status": "pending",
+      "korean": "한 속성의 주문을 시전하면 나머지 두 속성의 피해가 %s%% 증가하며 %s초 동안 지속됩니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Compared original argument order and Korean text; gameplay mechanics still require independent verification."
     },
     {
       "mod": "prominent",
@@ -61416,13 +61426,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "tooltip.prominent.armorset.astral_mage.ekavar.prismatic_focus.desc",
       "english": "Casting a big spell from Astral Invocations grants you %s%% bonus Magic Power for that specific element for %s seconds.",
-      "korean": "별의 기원으로 강력한 주문을 시전하면 %s초 동안 해당 속성의 마법 위력이 %s%% 증가합니다.",
-      "status": "pending",
+      "korean": "별의 기원으로 강력한 주문을 시전하면 해당 속성의 마법 위력이 %s%% 증가하며 %s초 동안 지속됩니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Compared original argument order and Korean text; gameplay mechanics still require independent verification."
     },
     {
       "mod": "prominent",
