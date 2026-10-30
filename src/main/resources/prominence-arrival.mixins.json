@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "local.prominence.arrival.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "plugin": "local.prominence.arrival.ArrivalGuard",
+  "mixins": [
+    "WaystoneArrivalMixin",
+    "PlayerArrivalDamageMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "fwaystones": {
+    "version": "3.3.3+mc1.20.1",
+    "classes": {
+      "wraith/fwaystones/block/WaystoneBlockEntity.class": "23bfd49c8bbf164dc8900e44899dc58e7e6847523dc85a276bc933771b66c3e1"
+    }
+  },
+  "minecraft": {
+    "version": "1.20.1",
+    "classes": {
+      "net/minecraft/class_3222.class": "8e2b466b8f9ef64c5e5f869978bc4bfcddce575ddf9b5237bb6a4c462e02eb17"
+    }
+  }
+}
