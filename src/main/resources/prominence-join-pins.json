@@ -43,5 +43,19 @@
         "net/minecraft/class_2689.class": "08494f07f8f27b74ba2b418f52f301a47d5249ccb45ea9ada44c7b3770abdcff"
       }
     }
+  },
+  "resourceNames": {
+    "fabric-resource-loader-v0": {
+      "version": "0.11.12+fb82e9d777",
+      "classes": {
+        "net/fabricmc/fabric/impl/resource/loader/ModNioResourcePack.class": "7c6ddc237ad45452b42901fd0806121403754a84fdb3e94f924e111bb5c4e56c"
+      }
+    },
+    "minecraft": {
+      "version": "1.20.1",
+      "classes": {
+        "net/minecraft/class_3258.class": "cfa87ebd8797a1014715ebaadbd28bf3f7ad4c9926a8d631c9c08290b71470c5"
+      }
+    }
   }
 }

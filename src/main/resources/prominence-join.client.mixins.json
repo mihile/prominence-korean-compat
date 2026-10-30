@@ -8,7 +8,9 @@
     "IdleMusicMixin",
     "MenuBrowserPresenceMixin",
     "IrisMaterialCapacityMixin",
-    "IrisMaterialPredicateMixin"
+    "IrisMaterialPredicateMixin",
+    "FabricResourceFilenameMixin",
+    "VanillaResourceFilenameMixin"
   ],
   "injectors": {
     "defaultRequire": 1
