@@ -57029,13 +57029,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "item.prominent.ability.thunderwrath.damage_message",
       "english": "Attacks have a 25%% chance of striking again with %d lightning damage.",
-      "korean": "공격 시 25%% 확률로 %d의 번개 피해를 입히며 다시 공격합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "근접 공격 적중 시 25%% 확률로 %d의 추가 번개 피해를 줍니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Thunderwrath.method_7873 uses 0.25 chance or 0.35 if attacker has simplyskills:titans_grip (Korean 거인의 손아귀); direct lightning damage scales with attack and lightning attributes. SHA256 180fefbd94990d1bb40f39629ab8fe28d515c5e495324d3c37c1358fea77d7a9"
     },
     {
       "mod": "prominent",
@@ -57043,13 +57044,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "item.prominent.ability.thunderwrath.warriors_devotion",
       "english": "Being fated to the Warrior's Devotion increases its chance to 35%%.",
-      "korean": "전사의 헌신을 받도록 운명이 정해지면 확률이 35%%로 증가합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "거인의 손아귀 효과가 활성화되면 발동 확률이 35%%로 증가합니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Thunderwrath.method_7873 uses 0.25 chance or 0.35 if attacker has simplyskills:titans_grip (Korean 거인의 손아귀); direct lightning damage scales with attack and lightning attributes. SHA256 180fefbd94990d1bb40f39629ab8fe28d515c5e495324d3c37c1358fea77d7a9"
     },
     {
       "mod": "prominent",
