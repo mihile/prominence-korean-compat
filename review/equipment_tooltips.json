@@ -70255,13 +70255,14 @@
       "resource": "assets/simplyswords/lang/en_us.json",
       "key": "item.simplyswords.bramblesworditem.tooltip4",
       "english": "On hit, send a bramble from your previous target to your current target, damaging and slowing enemies in its path.",
-      "korean": "적중 시 이전 대상에서 현재 대상으로 가시덤불을 뻗어 경로의 적에게 피해를 주고 느리게 합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "짧은 시간 안에 서로 다른 적을 연달아 공격하면 이전 대상에서 현재 대상으로 가시덤불이 뻗어, 경로의 적에게 피해와 둔화를 줍니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "BramblethornAbilityManager.onWeaponHit requires a live different previously marked target before its memory expiry for hunt; onBoundTargetDamaged requires a Bramblethorn weapon hit during binding phase. SHA256 395ebaaa940224da1a74bfd5318b93b7eeb98895732343b3cc80ac7cf05734af"
     },
     {
       "mod": "simplyswords",
@@ -70269,13 +70270,14 @@
       "resource": "assets/simplyswords/lang/en_us.json",
       "key": "item.simplyswords.bramblesworditem.tooltip5",
       "english": "Damage dealt to one bound enemy echoes through the others.",
-      "korean": "연결된 적 하나가 받은 피해는 나머지 적들에게도 전달됩니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "묶인 적을 이 무기로 공격하면 피해가 다른 묶인 적에게도 전달됩니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "BramblethornAbilityManager.onWeaponHit requires a live different previously marked target before its memory expiry for hunt; onBoundTargetDamaged requires a Bramblethorn weapon hit during binding phase. SHA256 395ebaaa940224da1a74bfd5318b93b7eeb98895732343b3cc80ac7cf05734af"
     },
     {
       "mod": "simplyswords",
@@ -70354,12 +70356,13 @@
       "key": "item.simplyswords.watchersworditem.tooltip2",
       "english": "Your weapon hits build up to %d Dread on targets, summoning a bat for each stack.",
       "korean": "무기 공격이 대상에게 공포를 최대 %d까지 쌓고, 중첩마다 박쥐를 소환합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "WatcherAbilityManager adds Dread/bats per hit; final omen damage scales with missing health. On successful final hit, max Dread and post-hit health <= configured threshold cause a large extra damage attempt, not guaranteed death; swoop/final kill resets cooldown. SHA256 a87edc9400a6acef00a674818db1b70582d5687012e3b4782dfdc5a3e1c8e0f5"
     },
     {
       "mod": "simplyswords",
@@ -70382,12 +70385,13 @@
       "key": "item.simplyswords.watchersworditem.claymore.tooltip2",
       "english": "A stream of bats repeatedly tear into the enemy before delivering a final attack based on the targets missing health.",
       "korean": "박쥐 떼가 적을 반복해서 할퀸 뒤, 대상이 잃은 체력에 비례한 최후의 공격을 가합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "WatcherAbilityManager adds Dread/bats per hit; final omen damage scales with missing health. On successful final hit, max Dread and post-hit health <= configured threshold cause a large extra damage attempt, not guaranteed death; swoop/final kill resets cooldown. SHA256 a87edc9400a6acef00a674818db1b70582d5687012e3b4782dfdc5a3e1c8e0f5"
     },
     {
       "mod": "simplyswords",
@@ -70395,13 +70399,14 @@
       "resource": "assets/simplyswords/lang/en_us.json",
       "key": "item.simplyswords.watchersworditem.claymore.tooltip3",
       "english": "At maximum Dread, enemies left below %d%% health are executed.",
-      "korean": "공포가 최대 중첩일 때 체력이 %d%% 미만인 적을 처형합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "공포가 최대 중첩일 때 최후의 공격 후 체력이 %d%% 이하인 적을 처형하려 합니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "WatcherAbilityManager adds Dread/bats per hit; final omen damage scales with missing health. On successful final hit, max Dread and post-hit health <= configured threshold cause a large extra damage attempt, not guaranteed death; swoop/final kill resets cooldown. SHA256 a87edc9400a6acef00a674818db1b70582d5687012e3b4782dfdc5a3e1c8e0f5"
     },
     {
       "mod": "simplyswords",
@@ -70410,12 +70415,13 @@
       "key": "item.simplyswords.watchersworditem.claymore.tooltip4",
       "english": "Killing the target resets the cooldown.",
       "korean": "대상을 처치하면 재사용 대기시간이 초기화됩니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "WatcherAbilityManager adds Dread/bats per hit; final omen damage scales with missing health. On successful final hit, max Dread and post-hit health <= configured threshold cause a large extra damage attempt, not guaranteed death; swoop/final kill resets cooldown. SHA256 a87edc9400a6acef00a674818db1b70582d5687012e3b4782dfdc5a3e1c8e0f5"
     },
     {
       "mod": "simplyswords",
