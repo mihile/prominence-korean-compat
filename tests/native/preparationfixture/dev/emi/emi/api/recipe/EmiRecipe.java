@@ -1,0 +1,1 @@
+package dev.emi.emi.api.recipe;import java.util.*;import dev.emi.emi.api.stack.*;import net.minecraft.*;public interface EmiRecipe {class_2960 getId();EmiRecipeCategory getCategory();List<EmiIngredient> getInputs();List<EmiStack> getOutputs();default List<EmiIngredient> getCatalysts(){return List.of();}default boolean supportsRecipeTree(){return false;}}

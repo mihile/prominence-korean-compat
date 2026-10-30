@@ -1,0 +1,1 @@
+package net.minecraft;public class class_2960 {final String s;public class_2960(){this("fixture:none");}public class_2960(String s){this.s=s;}public String method_12832(){return s;}public String toString(){return s;}public boolean equals(Object o){return o instanceof class_2960 t&&s.equals(t.s);}public int hashCode(){return s.hashCode();}}

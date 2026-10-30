@@ -3,15 +3,16 @@ import fzzyhmstrs.emi_loot.mixins.*;
 import java.util.*;import net.minecraft.*;
 
 /** Live native loot data. Unknown structures or existing luck/enchantment scaling stay native. */
-public record RewardPlan(RewardRegistry.Route route,Object gate,String kind,double base,List<Item> items,List<Object> leaves,List<Integer> weights,List<Boolean> boosts,List<Double> draws,boolean eligible){
+public record RewardPlan(RewardRegistry.Route route,Object gate,String kind,double base,List<Item> items,List<Object> leaves,List<Integer> weights,List<Boolean> boosts,List<Double> draws,boolean eligible,double bonusRolls){
  public record Item(String id,int weight,boolean valuable,boolean edible){}
  public RewardPlan {items=List.copyOf(items);leaves=List.copyOf(leaves);weights=List.copyOf(weights);boosts=List.copyOf(boosts);draws=List.copyOf(draws);}
+ public RewardPlan(RewardRegistry.Route route,Object gate,String kind,double base,List<Item> items,List<Object> leaves,List<Integer> weights,List<Boolean> boosts,List<Double> draws,boolean eligible){this(route,gate,kind,base,items,leaves,weights,boosts,draws,eligible,0);}
  public boolean combat(){return route.combat();}
  public boolean weighted(){return kind.equals("weighted");}
  public RewardDefinition definition(){
   long total=weights.stream().mapToLong(Integer::longValue).sum();var out=new ArrayList<RewardDefinition.Output>();double mean=0;for(int i=0;i<draws.size();i++)mean+=i*draws.get(i);
   for(int i=0;i<items.size();i++){var item=items.get(i);if(item.id().equals("minecraft:air"))continue;double share=(double)item.weight()/total;double expected=100*share*(weighted()?mean:((kind.equals("binomial")||!combat())?base:1));out.add(new RewardDefinition.Output(item.id(),share,expected,i,route.uniqueItems().contains(item.id())));}
-  var p=RewardPolicy.INSTANCE;return new RewardDefinition(route.table(),kind,base,eligible()&&combat()?p.lootingRate:0,eligible()?p.luckRate:0,combat(),out,weighted()?weights:List.of(),weighted()?boosts:List.of(),weighted()?draws:List.of());
+  var p=RewardPolicy.INSTANCE;return new RewardDefinition(route.table(),kind,base,eligible()&&combat()?p.lootingRate:0,eligible()?p.luckRate:0,combat(),out,weighted()?weights:List.of(),weighted()?boosts:List.of(),weighted()?draws:List.of(),bonusRolls);
  }
  public static Double constant(class_5658 n){return n instanceof class_44?(double)((ConstantLootNumberProviderAccessor)n).getValue():null;}
  private static Double minimum(class_5658 n){var c=constant(n);if(c!=null)return c;if(n instanceof class_5662)return constant(((UniformLootNumberProviderAccessor)n).getMin());return null;}
@@ -23,6 +24,13 @@ public record RewardPlan(RewardRegistry.Route route,Object gate,String kind,doub
   }return true;
  }
  private static List<Double> draws(class_5658 rolls){
+  if(rolls instanceof class_40){
+   var b=(BinomialLootNumberProviderAccessor)rolls;var n=constant(b.getN());var p=constant(b.getP());
+   if(n==null||p==null||n<0||n>32||n!=Math.floor(n)||!Double.isFinite(p)||p<0||p>1)return null;
+   var dist=new double[n.intValue()+1];dist[0]=1;
+   for(int i=0;i<n.intValue();i++)for(int k=i+1;k>=0;k--)dist[k]=(k>0?dist[k-1]*p:0)+dist[k]*(1-p);
+   return Arrays.stream(dist).boxed().toList();
+  }
   Double min=constant(rolls),max=min;
   if(rolls instanceof class_5662){var u=(UniformLootNumberProviderAccessor)rolls;min=constant(u.getMin());max=constant(u.getMax());}
   if(min==null||max==null||min<0||max<min||max>32||min!=Math.floor(min)||max!=Math.floor(max))return null;
@@ -32,7 +40,8 @@ public record RewardPlan(RewardRegistry.Route route,Object gate,String kind,doub
  public static RewardPlan inspect(class_55 pool,class_5658 bonus){return inspect(pool,bonus,false);}
  public static RewardPlan display(class_55 pool,class_5658 bonus){return inspect(pool,bonus,true);}
  private static RewardPlan inspect(class_55 pool,class_5658 bonus,boolean displayOnly){
-  var route=RewardRegistry.route(pool);if(route==null||!Objects.equals(constant(bonus),0.))return null;
+  var route=RewardRegistry.route(pool);var extra=constant(bonus);
+  if(route==null||extra==null||!Double.isFinite(extra)||extra<0||extra>64||!displayOnly&&extra!=0)return null;
   var access=(LootPoolAccessor)pool;if(!functions(access.getFunctions()))return null;
   if(!route.combat()&&Arrays.stream(access.getConditions()).anyMatch(c->!(c instanceof class_219)))return null;
   var items=new ArrayList<Item>();var leaves=new ArrayList<Object>();var weights=new ArrayList<Integer>();var gates=new ArrayList<class_219>();var ids=new HashSet<String>();
@@ -54,7 +63,12 @@ public record RewardPlan(RewardRegistry.Route route,Object gate,String kind,doub
   }
   long total=weights.stream().mapToLong(Integer::longValue).sum();if(items.isEmpty()||items.size()>128||total>Integer.MAX_VALUE)return null;
   Object gate;String kind;double probability;var rolls=access.getRolls();List<Double> distribution=List.of();var boosted=new ArrayList<Boolean>();
-  if(rolls instanceof class_40&&gates.isEmpty()){
+  if(displayOnly&&gates.isEmpty()){
+   distribution=draws(rolls);if(distribution==null||distribution.size()<2)return null;
+   for(var item:items)boosted.add(false);
+   return new RewardPlan(route,null,"weighted",1,items,leaves,weights,boosted,distribution,false,extra);
+  }else if(extra!=0)return null;
+  else if(rolls instanceof class_40&&gates.isEmpty()){
    var b=(BinomialLootNumberProviderAccessor)rolls;if(!Objects.equals(constant(b.getN()),1.))return null;
    var p=constant(b.getP());if(p==null)return null;probability=p;gate=rolls;kind="binomial";
   }else if(Objects.equals(constant(rolls),1.)&&gates.size()==1){gate=gates.get(0);probability=((RandomChanceLootConditionAccessor)gate).getChance();kind="chance";}

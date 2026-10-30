@@ -16,7 +16,7 @@ public final class RewardCommonInit implements ModInitializer {
   for(var handler:due)if(handler.field_14140.field_13987==handler)RewardWire.send(handler.field_14140);
  }
  public void onInitialize(){
-  S2CPlayChannelEvents.REGISTER.register((handler,sender,server,channels)->{if(channels.contains(RewardWire.CHANNEL))request(handler);});
+  S2CPlayChannelEvents.REGISTER.register((handler,sender,server,channels)->{if(channels.contains(RewardWire.CHANNEL)||channels.contains(RewardWire.DISPLAY_CHANNEL))request(handler);});
   ServerPlayConnectionEvents.JOIN.register((handler,sender,server)->request(handler));
   ServerPlayConnectionEvents.DISCONNECT.register((handler,server)->forget(handler));
   ServerTickEvents.END_SERVER_TICK.register(RewardCommonInit::flush);

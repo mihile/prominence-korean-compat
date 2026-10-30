@@ -19,7 +19,12 @@ public final class RewardMath {
   return result;
  }
  public static double atLeastOne(double share,java.util.List<Double> draws){
+  return atLeastOne(share,draws,0,0);
+ }
+ /** Native LootPool adds floor(bonusRolls * context luck), clamping total draws at zero. */
+ public static double atLeastOne(double share,java.util.List<Double> draws,double bonusRolls,double luck){
   if(share<0||share>1)throw new IllegalArgumentException("share");double chance=0;
-  for(int n=1;n<draws.size();n++)chance+=draws.get(n)*(share==1?1:-Math.expm1(n*Math.log1p(-share)));return Math.min(1,chance);
+  double extra=Math.floor((double)(float)((float)bonusRolls*(float)luck));
+  for(int n=0;n<draws.size();n++){double count=Math.max(0,n+extra);if(count>0)chance+=draws.get(n)*(share==1?1:-Math.expm1(count*Math.log1p(-share)));}return Math.min(1,chance);
  }
 }

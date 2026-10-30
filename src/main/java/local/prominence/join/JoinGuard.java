@@ -51,7 +51,7 @@ public final class JoinGuard implements IMixinConfigPlugin {
         } catch (Exception e) { enabled.clear(); }
     }
     public boolean shouldApplyMixin(String target,String mixin) {
-        String group=mixin.endsWith("IdleMusicMixin")?"music":mixin.endsWith("MenuBrowserPresenceMixin")?"menu":mixin.endsWith("IrisMaterialCapacityMixin")?"material":null;
+        String group=mixin.endsWith("IdleMusicMixin")?"music":mixin.endsWith("MenuBrowserPresenceMixin")?"menu":mixin.endsWith("IrisMaterialCapacityMixin")?"material":mixin.endsWith("IrisMaterialPredicateMixin")?"materialPredicates":mixin.endsWith("ResourceFilenameMixin")?"resourceNames":null;
         return group!=null && enabled.getOrDefault(group,false);
     }
     public String getRefMapperConfig(){return null;}

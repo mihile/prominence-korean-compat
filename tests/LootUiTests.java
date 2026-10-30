@@ -66,6 +66,10 @@ public final class LootUiTests {
   if(gold.size()!=1||!gold.get(0).getString().equals("드롭 확률: 10%"))throw new AssertionError("actual binomial summary");
   var unknown=LootDropTooltip.lines("emi_loot:/mob/custom/entities/unknown",List.of("custom:item"),200,List.of(),true,key->key);
   if(!unknown.get(0).getString().equals("드롭 확률: 확인 불가"))throw new AssertionError("mean is not a probability");
+  var runner=LootDropTooltip.lines("emi_loot:/mob/minecells/entities/runner",List.of("minecells:guts","minecells:monster_cell","minecells:metal_shards"),50,List.of(),true,key->key);
+  if(!runner.get(0).getString().equals("드롭 확률: 50%"))throw new AssertionError("actual untyped Mine Cells uniform counts "+runner);
+  var sweeper=LootDropTooltip.lines("emi_loot:/mob/minecells/entities/sweeper",List.of("minecells:metal_shards","minecells:molten_chunk"),75,List.of(),true,key->key);
+  if(!sweeper.get(0).getString().equals("드롭 확률: 53.12%"))throw new AssertionError("zero-to-three draws are not 75% "+sweeper);
   String a=SearchDimensions.append("진홍빛 숲","minecraft:crimson_forest",List.of("minecraft:the_nether"),x->"네더");if(!a.contains("네더")||!a.contains("crimson forest"))throw new AssertionError("biome dimension/English search");
   String b=SearchDimensions.append("주조소","dungeons_arise:foundry",List.of("minecraft:overworld","prominent:past"),x->x.equals("prominent:past")?"과거":"오버월드");if(b.contains("네더")||!b.contains("과거"))throw new AssertionError("dimension guessed from name");
   String e=SearchDimensions.append("엔드 도시","minecraft:end_city",List.of("minecraft:the_end"),x->"엔드");if(!e.contains("엔더"))throw new AssertionError("End alias");

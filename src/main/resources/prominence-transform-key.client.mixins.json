@@ -1,0 +1,9 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "local.prominence.memory.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "plugin": "local.prominence.memory.ShaderTransformGuard",
+  "client": ["IrisTransformKeyMixin"],
+  "injectors": {"defaultRequire": 1}
+}

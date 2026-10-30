@@ -50,6 +50,8 @@ def main():
  checks.append(('PerformanceRetirementChecks',[safe_arg(args.build_dir/'prominence-korean-compat-1.0.0.jar'),safe_arg(classes)]))
  checks.append(('local.prominence.work.ModelWorkSliceTests',[]))
  checks.append(('local.prominence.work.InitialWorkTests',[]))
+ checks.append(('local.prominence.memory.ShaderTransformKeyTests',[safe_arg(ROOT/'src/main/resources/prominence-transform-key-pins.json')]))
+ checks.append(('RuntimeGsonAbiTests',[safe_arg(args.build_dir/'prominence-korean-compat-1.0.0.jar')]))
  if args.mods:checks.append(('local.prominence.weaponhud.WeaponHudPinChecks',[safe_arg(args.mods)]))
  if args.fancymenu:checks.append(('FancyMenuIsolationChecks',[safe_arg(args.fancymenu)]))
  for entry,params in checks:

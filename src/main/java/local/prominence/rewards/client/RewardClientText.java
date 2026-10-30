@@ -14,12 +14,35 @@ public final class RewardClientText {
   var id=recipe.getId();target.prominence$source(new TooltipSource(LootDropTooltip.table(id==null?"":id.toString()),items(slot),expected,conditions,fallback,other));return slot;
  }
  public static List<class_2561> current(TooltipSource source){
-  var player=class_310.method_1551().field_1724;var d=RewardClientState.find(source.table(),source.items(),source.expected(),source.conditions());
+  var player=class_310.method_1551().field_1724;
   if(player==null)return source.nativeLines();
   var gear=GEAR.poll(player,System.nanoTime(),()->new Gear(class_1890.method_8226(player),player.method_7292()));
-  if(d==null)return LootDropTooltip.currentNative(source,gear.looting(),gear.luck(),LootUiText.korean(),class_437.method_25442());
-  var output=d.outputs().stream().filter(o->o.item().equals(source.items().get(0))).findFirst().orElseThrow();
-  var out=new ArrayList<class_2561>();for(var line:lines(new Attachment(d,output),gear.looting(),gear.luck(),LootUiText.korean(),class_437.method_25442()))out.add(class_2561.method_43470(line));out.addAll(source.otherConditions());return out;
+  return resolved(source,gear.looting(),gear.luck(),LootUiText.korean(),class_437.method_25442(),id->class_7923.field_41178.method_10223(new class_2960(id)).method_7848().getString());
+ }
+ public static List<class_2561> resolved(TooltipSource source,int looting,double luck,boolean ko,boolean formula,java.util.function.Function<String,String> names){
+  var shared=RewardClientState.find(source.table(),source.items(),source.expected(),source.conditions());
+  if(shared!=null){
+   var output=shared.outputs().stream().filter(o->o.item().equals(source.items().get(0))).findFirst().orElseThrow();
+   var out=new ArrayList<class_2561>();for(var line:lines(new Attachment(shared,output),looting,luck,ko,formula))out.add(class_2561.method_43470(line));out.addAll(source.otherConditions());return out;
+  }
+  // EMI coalesces equal-weight outputs even when they originate in separate pools.
+  // Resolve each member against authoritative metadata; never treat the whole icon as one draw.
+  var all=new ArrayList<List<String>>();
+  for(String item:source.items()){
+   var d=RewardClientState.find(source.table(),List.of(item),source.expected(),source.conditions());
+   if(d==null)return LootDropTooltip.currentNative(source,looting,luck,ko,formula);
+   var output=d.outputs().stream().filter(o->o.item().equals(item)).findFirst().orElseThrow();
+   all.add(lines(new Attachment(d,output),looting,luck,ko,formula));
+  }
+  if(all.isEmpty())return source.nativeLines();
+  var out=new ArrayList<class_2561>();
+  if(all.stream().allMatch(all.get(0)::equals))for(var line:all.get(0))out.add(class_2561.method_43470(line));
+  else for(int i=0;i<all.size();i++){
+   var lines=all.get(i);String label=ko?"드롭 확률: ":"Drop chance: ";
+   out.add(class_2561.method_43470(names.apply(source.items().get(i))+": "+lines.get(0).substring(label.length())));
+   if(formula)for(var line:lines.subList(1,lines.size()))out.add(class_2561.method_43470(line));
+  }
+  out.addAll(source.otherConditions());return out;
  }
  private static String percentage(double chance){double percent=new BigDecimal(Float.toString((float)chance)).movePointRight(2).doubleValue();return LootNumbers.percent(percent)+"%";}
  public static List<String> lines(Attachment a,int looting,double luck,boolean ko,boolean formula){
@@ -28,19 +51,23 @@ public final class RewardClientText {
   if(d.weighted()){
    int[] raw=d.weights().stream().mapToInt(Integer::intValue).toArray();boolean[] boosts=new boolean[raw.length];for(int i=0;i<raw.length;i++)boosts[i]=d.boosts().get(i);
    effective=RewardMath.weights(raw,boosts,looting,luck,d.lootingRate(),d.luckRate());long total=0;for(int w:effective)total+=w;
-   adjusted=RewardMath.atLeastOne((double)effective[a.output().index()]/total,d.draws());base=RewardMath.atLeastOne(a.output().share(),d.draws());
+   adjusted=RewardMath.atLeastOne((double)effective[a.output().index()]/total,d.draws(),d.bonusRolls(),luck);base=RewardMath.atLeastOne(a.output().share(),d.draws());
   }else{adjusted=(double)(float)RewardMath.chance(d.base(),looting,luck,d.lootingRate(),d.luckRate())*a.output().share();base=d.base()*a.output().share();}
-  boolean scaled=d.lootingRate()>0||d.luckRate()>0;
-  var out=new ArrayList<String>();out.add((ko?"드롭 확률: ":"Drop chance: ")+percentage(adjusted)+(scaled?(ko?" (기본 ":" (base ")+percentage(base)+")":""));
-  if(!scaled){if(formula)out.add(d.weighted()?drawFormula(a.output().share(),d.draws(),ko):(ko?"기본 확률 ":"Pool chance ")+percentage(d.base())+(ko?" × 해당 아이템 ":" × item share ")+percentage(a.output().share()));return out;}
+  boolean scaled=d.lootingRate()>0||d.luckRate()>0,nativeBonus=d.bonusRolls()>0;
+  var out=new ArrayList<String>();out.add((ko?"드롭 확률: ":"Drop chance: ")+percentage(adjusted)+(scaled||nativeBonus?(ko?" (기본 ":" (base ")+percentage(base)+")":""));
+  if(!scaled&&!nativeBonus){if(formula)out.add(d.weighted()?drawFormula(a.output().share(),d.draws(),ko):(ko?"기본 확률 ":"Pool chance ")+percentage(d.base())+(ko?" × 해당 아이템 ":" × item share ")+percentage(a.output().share()));return out;}
 
-  out.add((ko?"현재 장비: ":"Current gear: ")+(d.combat()?(ko?"약탈 ":"Looting ")+Math.max(0,looting)+" · ":"")+(ko?"운 ":"Luck ")+LootNumbers.number(Math.max(0,luck)));
+  out.add((ko?"현재 장비: ":"Current gear: ")+(d.combat()&&scaled?(ko?"약탈 ":"Looting ")+Math.max(0,looting)+" · ":"")+(ko?"운 ":"Luck ")+LootNumbers.number(nativeBonus?luck:Math.max(0,luck)));
   if(formula){
-   if(d.weighted()){long total=0;for(int w:effective)total+=w;out.add((ko?"선택 비중: ":"Selection weight: ")+effective[a.output().index()]+" / "+total);out.add(drawFormula((double)effective[a.output().index()]/total,d.draws(),ko));}
+   if(d.weighted()){long total=0;for(int w:effective)total+=w;out.add((ko?"선택 비중: ":"Selection weight: ")+effective[a.output().index()]+" / "+total);
+    double extra=Math.floor((double)(float)((float)d.bonusRolls()*(float)luck));
+    if(nativeBonus)out.add((ko?"추가 횟수: ⌊":"Bonus draws: ⌊")+LootNumbers.number(d.bonusRolls())+" × "+LootNumbers.number(luck)+"⌋ = "+LootNumbers.number(extra));
+    out.add(drawFormula((double)effective[a.output().index()]/total,d.draws(),extra,ko));}
    else out.add((ko?"확률 계산: ":"Gate: ")+percentage(d.base())+" × (1"+(d.combat()?" + "+LootNumbers.number(d.lootingRate())+" × "+Math.max(0,looting):"")+" + "+LootNumbers.number(d.luckRate())+" × "+LootNumbers.number(Math.max(0,luck))+")"+(a.output().share()<1?" × "+percentage(a.output().share()):""));
-   if(d.combat())out.add(ko?"수집가의 추가 추첨은 별도로 적용됩니다.":"Scavenger adds a separate loot roll.");
+   if(d.combat()&&scaled)out.add(ko?"수집가의 추가 추첨은 별도로 적용됩니다.":"Scavenger adds a separate loot roll.");
   }
   return out;
  }
- private static String drawFormula(double share,List<Double> draws,boolean ko){var terms=new ArrayList<String>();for(int n=0;n<draws.size();n++)if(draws.get(n)>0)terms.add(LootNumbers.number(draws.get(n))+" × (1 − "+LootNumbers.number(share)+")^"+n);return (ko?"확률 계산: ":"Calculation: ")+"1 − ["+String.join(" + ",terms)+"]";}
+ private static String drawFormula(double share,List<Double> draws,boolean ko){return drawFormula(share,draws,0,ko);}
+ private static String drawFormula(double share,List<Double> draws,double extra,boolean ko){var terms=new ArrayList<String>();for(int n=0;n<draws.size();n++)if(draws.get(n)>0)terms.add(LootNumbers.number(draws.get(n))+" × (1 − "+LootNumbers.number(share)+")^"+LootNumbers.number(Math.max(0,n+extra)));return (ko?"확률 계산: ":"Calculation: ")+"1 − ["+String.join(" + ",terms)+"]";}
 }

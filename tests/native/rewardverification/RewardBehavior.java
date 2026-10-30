@@ -38,6 +38,16 @@ public final class RewardBehavior {
   var guaranteed=new class_55();guaranteed.entries=new class_79[]{new class_77(new class_1792("minecraft:bone",0,64,false),1,0)};RewardRegistry.put(guaranteed,true);var certain=RewardPlan.display(guaranteed,new class_44(0));check(certain!=null&&certain.definition().valid()&&!certain.eligible(),"guaranteed common drops have native display");near(RewardMath.atLeastOne(1,certain.draws()),1,"guaranteed percentage");
   var unscaled=RewardPlan.display(weighted,new class_44(0));check(unscaled!=null&&!unscaled.eligible()&&unscaled.boosts().stream().noneMatch(Boolean::booleanValue),"weighted native display never boosts weights");near(RewardMath.atLeastOne(.1,unscaled.draws()),.145,"native one-or-two draws actual probability");
   check(RewardPlan.display(alternative,new class_44(0))==null,"unknown composite does not manufacture a probability");check(RewardPlan.display(p,new class_44(1))==null,"unknown native luck terms remain conservative for display");
+  // Shapes from Mine Cells 2.0.0 and the live RPG Series configuration. No item allowlist.
+  var runner=new class_55();runner.entries=new class_79[]{new class_77(new class_1792("minecells:guts",0,64,false),1,0)};runner.rolls=new class_5662(new class_44(0),new class_44(1));RewardRegistry.put(runner,true);
+  var runnerDisplay=RewardPlan.display(runner,new class_44(0));near(RewardMath.atLeastOne(1,runnerDisplay.draws()),.5,"Mine Cells zero-or-one draw");check(!runnerDisplay.eligible(),"display cannot add a bonus policy");
+  var rpg=new class_55();rpg.entries=new class_79[90];for(int i=0;i<90;i++)rpg.entries[i]=new class_77(new class_1792("test:rpg_gear_"+i,100,1,false),1,0);rpg.rolls=new class_40(new class_44(2),new class_44(1));RewardRegistry.put(rpg,true);
+  check(RewardPlan.inspect(rpg,new class_44(.2f))==null,"native bonus rolls never become a scaling scope");
+  var rpgDisplay=RewardPlan.display(rpg,new class_44(.2f));check(rpgDisplay!=null&&!rpgDisplay.eligible()&&rpgDisplay.definition().valid(),"native two-draw plus Luck display");
+  near(rpgDisplay.bonusRolls(),.2,"authoritative bonus coefficient retained");near(RewardMath.atLeastOne(1./90,rpgDisplay.draws(),rpgDisplay.bonusRolls(),0),1-Math.pow(89./90,2),"Concierge per-ring chance");
+  near(RewardMath.atLeastOne(1./90,rpgDisplay.draws(),rpgDisplay.bonusRolls(),5),1-Math.pow(89./90,3),"native floor(.2*Luck) additional draw");
+  rpg.rolls=new class_40(new class_44(2),new class_44(.5f));var fractional=RewardPlan.display(rpg,new class_44(0));near(RewardMath.atLeastOne(.1,fractional.draws()),.0975,"general native binomial distribution");
+  check(RewardPlan.display(rpg,new class_44(Float.NaN))==null,"nonfinite native bonus refused");
   System.out.println("PASS "+checks+" production eligibility, exact scope, live gear, anonymous/environment kills, chest context, nested/exception cleanup, native bonus protections, equipment discovery and normalized weights; API doubles only");
  }
 }

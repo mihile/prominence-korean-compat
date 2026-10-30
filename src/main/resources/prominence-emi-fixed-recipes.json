@@ -1,0 +1,92 @@
+{
+  "aztech.modern_industrialization.compat.viewer.impl.emi.ViewerCategoryEmi$ViewerRecipe": [
+    "aztech.modern_industrialization.compat.viewer.impl.emi.ViewerCategoryEmi$ViewerRecipe#inputs",
+    "aztech.modern_industrialization.compat.viewer.impl.emi.ViewerCategoryEmi$ViewerRecipe#outputs",
+    "aztech.modern_industrialization.compat.viewer.impl.emi.ViewerCategoryEmi$ViewerRecipe#catalysts"
+  ],
+  "dev.emi.emi.api.recipe.EmiCraftingRecipe": [
+    "dev.emi.emi.api.recipe.EmiCraftingRecipe#input",
+    "dev.emi.emi.api.recipe.EmiCraftingRecipe#output"
+  ],
+  "dev.emi.emi.recipe.EmiAnvilRecipe": [
+    "dev.emi.emi.recipe.EmiAnvilRecipe#tool",
+    "dev.emi.emi.recipe.EmiAnvilRecipe#resource",
+    "dev.emi.emi.recipe.EmiAnvilRecipe#tool"
+  ],
+  "dev.emi.emi.recipe.EmiBrewingRecipe": [
+    "dev.emi.emi.recipe.EmiBrewingRecipe#input3",
+    "dev.emi.emi.recipe.EmiBrewingRecipe#ingredient",
+    "dev.emi.emi.recipe.EmiBrewingRecipe#output3"
+  ],
+  "dev.emi.emi.recipe.EmiCookingRecipe": [
+    "dev.emi.emi.recipe.EmiCookingRecipe#input",
+    "dev.emi.emi.recipe.EmiCookingRecipe#output"
+  ],
+  "dev.emi.emi.recipe.EmiFuelRecipe": [
+    "dev.emi.emi.recipe.EmiFuelRecipe#stack"
+  ],
+  "dev.emi.emi.recipe.EmiShapedRecipe": [
+    "dev.emi.emi.api.recipe.EmiCraftingRecipe#input",
+    "dev.emi.emi.api.recipe.EmiCraftingRecipe#output"
+  ],
+  "dev.emi.emi.recipe.EmiShapelessRecipe": [
+    "dev.emi.emi.api.recipe.EmiCraftingRecipe#input",
+    "dev.emi.emi.api.recipe.EmiCraftingRecipe#output"
+  ],
+  "dev.emi.emi.recipe.EmiSmithingRecipe": [
+    "dev.emi.emi.recipe.EmiSmithingRecipe#template",
+    "dev.emi.emi.recipe.EmiSmithingRecipe#input",
+    "dev.emi.emi.recipe.EmiSmithingRecipe#addition",
+    "dev.emi.emi.recipe.EmiSmithingRecipe#output"
+  ],
+  "dev.emi.emi.recipe.EmiStonecuttingRecipe": [
+    "dev.emi.emi.recipe.EmiStonecuttingRecipe#input",
+    "dev.emi.emi.recipe.EmiStonecuttingRecipe#output"
+  ],
+  "dev.emi.emi.recipe.special.EmiArmorDyeRecipe": [
+    "dev.emi.emi.api.recipe.EmiCraftingRecipe#input",
+    "dev.emi.emi.api.recipe.EmiCraftingRecipe#output"
+  ],
+  "dev.emi.emi.recipe.special.EmiBannerDuplicateRecipe": [
+    "dev.emi.emi.api.recipe.EmiCraftingRecipe#input",
+    "dev.emi.emi.api.recipe.EmiCraftingRecipe#output"
+  ],
+  "dev.emi.emi.recipe.special.EmiBannerShieldRecipe": [
+    "dev.emi.emi.api.recipe.EmiCraftingRecipe#input",
+    "dev.emi.emi.api.recipe.EmiCraftingRecipe#output"
+  ],
+  "dev.emi.emi.recipe.special.EmiBookCloningRecipe": [
+    "dev.emi.emi.api.recipe.EmiCraftingRecipe#input",
+    "dev.emi.emi.api.recipe.EmiCraftingRecipe#output"
+  ],
+  "dev.emi.emi.recipe.special.EmiFireworkRocketRecipe": [
+    "dev.emi.emi.api.recipe.EmiCraftingRecipe#input",
+    "dev.emi.emi.api.recipe.EmiCraftingRecipe#output"
+  ],
+  "dev.emi.emi.recipe.special.EmiFireworkStarFadeRecipe": [
+    "dev.emi.emi.api.recipe.EmiCraftingRecipe#input",
+    "dev.emi.emi.api.recipe.EmiCraftingRecipe#output"
+  ],
+  "dev.emi.emi.recipe.special.EmiFireworkStarRecipe": [
+    "dev.emi.emi.api.recipe.EmiCraftingRecipe#input",
+    "dev.emi.emi.api.recipe.EmiCraftingRecipe#output"
+  ],
+  "dev.emi.emi.recipe.special.EmiMapCloningRecipe": [
+    "dev.emi.emi.api.recipe.EmiCraftingRecipe#input",
+    "dev.emi.emi.api.recipe.EmiCraftingRecipe#output"
+  ],
+  "dev.emi.emi.recipe.special.EmiRepairItemRecipe": [
+    "dev.emi.emi.api.recipe.EmiCraftingRecipe#input",
+    "dev.emi.emi.api.recipe.EmiCraftingRecipe#output"
+  ],
+  "dev.emi.emi.recipe.special.EmiSmithingTrimRecipe": [
+    "dev.emi.emi.recipe.EmiSmithingRecipe#template",
+    "dev.emi.emi.recipe.EmiSmithingRecipe#input",
+    "dev.emi.emi.recipe.EmiSmithingRecipe#addition",
+    "dev.emi.emi.recipe.EmiSmithingRecipe#output"
+  ],
+  "dev.emi.emi.recipe.special.EmiSuspiciousStewRecipe": [
+    "dev.emi.emi.api.recipe.EmiCraftingRecipe#input",
+    "dev.emi.emi.api.recipe.EmiCraftingRecipe#output"
+  ]
+}

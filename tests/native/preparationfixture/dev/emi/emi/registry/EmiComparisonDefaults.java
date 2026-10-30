@@ -1,0 +1,1 @@
+package dev.emi.emi.registry;import dev.emi.emi.api.stack.*;import java.util.*;public class EmiComparisonDefaults {public static Map<Object,Comparison> comparisons=new IdentityHashMap<>();public static Comparison get(Object key){return comparisons.getOrDefault(key,Comparison.DEFAULT_COMPARISON);}}

@@ -1,0 +1,1 @@
+package net.minecraft; public class class_1792 implements class_1935 {public static int defaults; public class_1792 method_8389(){return this;}public class_1799 method_7854(){defaults++;return new class_1799(this);}}

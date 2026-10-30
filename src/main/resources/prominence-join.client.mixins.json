@@ -4,6 +4,15 @@
   "package": "local.prominence.join.mixin",
   "compatibilityLevel": "JAVA_17",
   "plugin": "local.prominence.join.JoinGuard",
-  "client": ["IdleMusicMixin", "MenuBrowserPresenceMixin", "IrisMaterialCapacityMixin"],
-  "injectors": {"defaultRequire": 1}
+  "client": [
+    "IdleMusicMixin",
+    "MenuBrowserPresenceMixin",
+    "IrisMaterialCapacityMixin",
+    "IrisMaterialPredicateMixin",
+    "FabricResourceFilenameMixin",
+    "VanillaResourceFilenameMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }
