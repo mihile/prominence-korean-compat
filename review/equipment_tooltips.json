@@ -70300,12 +70300,13 @@
       "key": "item.simplyswords.stormsworditem.tooltip2",
       "english": "Weapon hits cause enemies to become Conductive.",
       "korean": "무기 공격이 적에게 전도 효과를 부여합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "MjolnirStormManager.onMeleeHit applies STORM conductive effect; strikePulse consumes that effect and releases a conductive burst only when the summoned storm hits. SHA256 77fef5f35726d743c6502cf315fa092af84fd9cbd277d0516ce09fb706e23a07"
     },
     {
       "mod": "simplyswords",
@@ -70327,13 +70328,14 @@
       "resource": "assets/simplyswords/lang/en_us.json",
       "key": "item.simplyswords.stormsworditem.tooltip5",
       "english": "Conductive enemies release a smaller thunderclap when struck.",
-      "korean": "전도 효과가 있는 적은 공격을 받으면 작은 천둥 폭발을 일으킵니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "폭풍이 전도 상태인 적을 내리치면 전도를 소모해 작은 천둥 폭발을 일으킵니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "MjolnirStormManager.onMeleeHit applies STORM conductive effect; strikePulse consumes that effect and releases a conductive burst only when the summoned storm hits. SHA256 77fef5f35726d743c6502cf315fa092af84fd9cbd277d0516ce09fb706e23a07"
     },
     {
       "mod": "simplyswords",
@@ -70724,12 +70726,13 @@
       "key": "item.simplyswords.ferocitysworditem.tooltip2",
       "english": "Chance on hit to gain Ferocity, increasing attack speed and stacking up to %d times.",
       "korean": "적중 시 일정 확률로 흉포 효과를 얻어 공격 속도가 증가합니다. 최대 %d회 중첩됩니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "tryGainFerocity rolls configured chance on hit and caps level at maxStacks; FerocityEffect modifies GENERIC_ATTACK_SPEED per level. SHA256 {'net/sweenus/simplyswords/world/TwistedBladeAbilityManager.class': 'c7d01a3626fdf20e042c378d3144414c9327835cf1339da8686ed063591eac85', 'net/sweenus/simplyswords/effect/FerocityEffect.class': '41363420bd5f12ee2e6873b2a983c6a4f159fce0d3298034d237e47144a64396'}"
     },
     {
       "mod": "simplyswords",

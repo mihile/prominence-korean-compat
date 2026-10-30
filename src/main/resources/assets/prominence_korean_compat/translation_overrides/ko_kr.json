@@ -477,5 +477,6 @@
   "item.simplyswords.rendsworditem.tooltip4": "주변에서 둔화와 나약함이 모두 걸린 적의 효과를 해제합니다. 둔화가 Ⅱ 이상이면 단계에 따라 피해를 주고 체력을 회복합니다.",
   "item.simplyswords.watchersworditem.claymore.tooltip3": "공포가 최대 중첩일 때 최후의 공격 후 체력이 %d%% 이하인 적을 처형하려 합니다.",
   "item.simplyswords.bramblesworditem.tooltip4": "짧은 시간 안에 서로 다른 적을 연달아 공격하면 이전 대상에서 현재 대상으로 가시덤불이 뻗어, 경로의 적에게 피해와 둔화를 줍니다.",
-  "item.simplyswords.bramblesworditem.tooltip5": "묶인 적을 이 무기로 공격하면 피해가 다른 묶인 적에게도 전달됩니다."
+  "item.simplyswords.bramblesworditem.tooltip5": "묶인 적을 이 무기로 공격하면 피해가 다른 묶인 적에게도 전달됩니다.",
+  "item.simplyswords.stormsworditem.tooltip5": "폭풍이 전도 상태인 적을 내리치면 전도를 소모해 작은 천둥 폭발을 일으킵니다."
 }
