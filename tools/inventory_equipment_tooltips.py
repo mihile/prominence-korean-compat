@@ -9,8 +9,10 @@ with zipfile.ZipFile(r/'translation/Prominence_II_Korean_Translate.zip') as z:
    try:ko.update(json.loads(z.read(n)))
    except (ValueError,UnicodeError):pass
 ko.update(json.loads((r/'src/main/resources/assets/prominence_korean_compat/translation_overrides/ko_kr.json').read_text('utf8')))
-prior={}
-if a.output.exists():prior={x['source']+'|'+x['key']:x for x in json.loads(a.output.read_text('utf8'))['entries']}
+prior={}; prior_data={}
+if a.output.exists():
+ prior_data=json.loads(a.output.read_text('utf8'))
+ prior={x['source']+'|'+x['key']:x for x in prior_data['entries']}
 entries=[];classes=[];mods=[]
 for file in sorted(a.mods.glob('*.jar')):
  if 'prominence-korean-compat' in file.name:continue
@@ -38,6 +40,9 @@ for file in sorted(a.mods.glob('*.jar')):
    elif n.endswith('.class') and any(s in n.lower() for s in ['item','weapon','armor','trinket','accessor','tooltip']):
     data=z.read(n)
     if b'method_7851' in data or b'appendTooltip' in data:classes.append({'mod':mod,'source':file.name,'class':n,'sha256':hashlib.sha256(data).hexdigest(),'status':'pending','reason':'Native tooltip method/reference; includes dynamically generated and literal text'})
-result={'scope':'Conservative candidates; includes non-equipment descriptions until classified. Dynamic tooltip classes require separate manual review. Inventory is not completed review.','mods':mods,'entries':entries,'nativeTooltipClasses':classes}
+# Nested JAR candidates are separately inspected; retain their work until this
+# scanner can regenerate them rather than silently dropping reviewed scope.
+entries.extend(x for x in prior_data.get('entries',[]) if '!' in x.get('source',''))
+result={'scope':'Conservative candidates; includes non-equipment descriptions until classified. Dynamic tooltip classes require separate manual review. Inventory is not completed review.','mods':mods,'entries':entries,'nativeTooltipClasses':classes,'nestedModCandidates':prior_data.get('nestedModCandidates',[])}
 a.output.parent.mkdir(parents=True,exist_ok=True);a.output.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n','utf8')
 print('Inventoried',len(entries),'language entries,',len(classes),'native tooltip classes across',len(mods),'mods; no automatic review approvals')

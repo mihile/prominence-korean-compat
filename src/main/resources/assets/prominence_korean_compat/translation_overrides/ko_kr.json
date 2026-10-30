@@ -127,7 +127,7 @@
   "tooltip.soulsweapons.obliterate_description": "- 힘을 모아 전방의 적을 강타합니다.",
   "tooltip.soulsweapons.galeforce_description_1": "- 발사 후 §f신속§r 효과를 얻습니다.",
   "tooltip.soulsweapons.galeforce_description_2": "- 능력 단축키를 누르면 원하는 방향으로 §f돌진§r하며,",
-  "tooltip.soulsweapons.galeforce_description_4": "대상의 잃은 체력에 따라 최대 §c100%§r의 추가 피해를 줍니다.",
+  "tooltip.soulsweapons.galeforce_description_4": "대상의 잃은 체력에 따라 최대 §c100%§r의",
   "tooltip.soulsweapons.meridias_retribution_description_1": "- §5언데드§r를 처치하면 일정 확률로 폭발이 일어나",
   "tooltip.soulsweapons.dragon_staff_description_1": "- §5정화된 용의 안개§r를 만들어내는 투사체를 발사합니다.",
   "tooltip.soulsweapons.shield_description": "- 능력 단축키로 §d저항§r과 §6흡수§r 효과를 얻습니다.",
@@ -429,5 +429,11 @@
   "tooltip.soulsweapons.magic_damage_description_2": "추가 피해보다 클 때, 방어력을 관통하는 §9마법 피해§r를",
   "tooltip.soulsweapons.magic_damage_description_3": "§6발화§r 레벨에 따라 추가로 입힙니다.",
   "tooltip.soulsweapons.blazing_blade_description_1": "- 적을 불태웁니다. 지속 시간은 기본 4초이며",
-  "tooltip.soulsweapons.blazing_blade_description_2": "§6발화§r 레벨당 3초 늘어납니다."
+  "tooltip.soulsweapons.blazing_blade_description_2": "§6발화§r 레벨당 3초 늘어납니다.",
+  "tooltip.soulsweapons.galeforce_description_3": "마지막으로 공격한 대상을 향해 화살을 쏩니다.",
+  "tooltip.soulsweapons.galeforce_description_5": "추가 피해를 줍니다. 대상이 없으면",
+  "tooltip.soulsweapons.galeforce_description_6": "바라보는 방향으로 화살을 쏩니다.",
+  "tooltip.soulsweapons.flame_enraged_description": "- 자신이 §c불타는§r 동안 공격하면 §4힘 III§r을 10초간 얻습니다.",
+  "tooltip.soulsweapons.fury_description": "- 공격할 때마다 §6성급함§r 단계가 오르며 3초간 유지됩니다.",
+  "tooltip.soulsweapons.haste_description": "- §9휘몰아치는 칼날§r 레벨에 따라 §6성급함§r의 최대 단계가 높아집니다."
 }

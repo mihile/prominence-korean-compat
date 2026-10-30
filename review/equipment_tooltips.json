@@ -83371,13 +83371,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.flame_enraged_description",
       "english": "- Gain §4Strength§r when on §cFire§r post hit.",
-      "korean": "- §c불§r에 타고 있을 때 §4힘§r을 얻음.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "- 자신이 §c불타는§r 동안 공격하면 §4힘 III§r을 10초간 얻습니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "GuinsoosRageblade.method_7873: attacker isOnFire grants Strength amplifier 2 duration 200 ticks; hit grants Haste 60 ticks and increments amplifier; with rageblade_haste_cap=true caps amplifier at 3 + Sweeping Edge level. Installed config sets cap true. Class SHA256 978bd3fb5be6f02c7b38e668888b0929d8a6c8eb28754bb8b6ffb0121d3eeb84"
     },
     {
       "mod": "soulsweapons",
@@ -83399,13 +83400,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.fury_description",
       "english": "- Gain progressively more §6Haste§r post hit.",
-      "korean": "- 타격 후 점점 더 많은 §6성급함§r을 얻습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "- 공격할 때마다 §6성급함§r 단계가 오르며 3초간 유지됩니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "GuinsoosRageblade.method_7873: attacker isOnFire grants Strength amplifier 2 duration 200 ticks; hit grants Haste 60 ticks and increments amplifier; with rageblade_haste_cap=true caps amplifier at 3 + Sweeping Edge level. Installed config sets cap true. Class SHA256 978bd3fb5be6f02c7b38e668888b0929d8a6c8eb28754bb8b6ffb0121d3eeb84"
     },
     {
       "mod": "soulsweapons",
@@ -83427,13 +83429,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.haste_description",
       "english": "- §9Sweeping Edge§r increases §6Haste§r cap.",
-      "korean": "- §9휘몰아치는 칼날§r이 §6성급함§r 최대치를 증가시킵니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "- §9휘몰아치는 칼날§r 레벨에 따라 §6성급함§r의 최대 단계가 높아집니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "GuinsoosRageblade.method_7873: attacker isOnFire grants Strength amplifier 2 duration 200 ticks; hit grants Haste 60 ticks and increments amplifier; with rageblade_haste_cap=true caps amplifier at 3 + Sweeping Edge level. Installed config sets cap true. Class SHA256 978bd3fb5be6f02c7b38e668888b0929d8a6c8eb28754bb8b6ffb0121d3eeb84"
     },
     {
       "mod": "soulsweapons",
@@ -84129,13 +84132,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.galeforce_description_3",
       "english": "firing an arrow at the player's last attacked",
-      "korean": "플레이어가 마지막으로 공격한 대상을 향해 화살을 쏘고,",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "마지막으로 공격한 대상을 향해 화살을 쏩니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Galeforce.useKeybindAbilityServer uses LivingEntity.getAttacking or player look direction; shootArrow creates scaleDamageHp ChargedArrow; ChargedArrow.method_7454 multiplies base projectile damage by 1 + missing-health fraction. Class SHA256: {'net/soulsweaponry/items/bow/Galeforce.class': '6e0ef9ad42099f87bc9a7f76f52af2acc63f39da78e2418ebda33dc1cf1aa0dc', 'net/soulsweaponry/entity/projectile/arrow/ChargedArrow.class': 'cf20a122cf91516b515841a078d1ee1882f7a4d08a886748154578b4c2b21c36'}"
     },
     {
       "mod": "soulsweapons",
@@ -84143,14 +84147,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.galeforce_description_4",
       "english": "target, dealing up to §c100%§r more damage based",
-      "korean": "대상의 잃은 체력에 따라 최대 §c100%§r의 추가 피해를 줍니다.",
+      "korean": "대상의 잃은 체력에 따라 최대 §c100%§r의",
       "status": "corrected",
-      "mechanics": "unverified",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Original installed mod language compared; behavior not independently reproduced."
+      "notes": "Galeforce.useKeybindAbilityServer uses LivingEntity.getAttacking or player look direction; shootArrow creates scaleDamageHp ChargedArrow; ChargedArrow.method_7454 multiplies base projectile damage by 1 + missing-health fraction. Class SHA256: {'net/soulsweaponry/items/bow/Galeforce.class': '6e0ef9ad42099f87bc9a7f76f52af2acc63f39da78e2418ebda33dc1cf1aa0dc', 'net/soulsweaponry/entity/projectile/arrow/ChargedArrow.class': 'cf20a122cf91516b515841a078d1ee1882f7a4d08a886748154578b4c2b21c36'}"
     },
     {
       "mod": "soulsweapons",
@@ -84158,13 +84162,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.galeforce_description_5",
       "english": "on the target's missing health. If no target",
-      "korean": "만약 대상이 없으면, 앞쪽으로 화살을 쏩니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "추가 피해를 줍니다. 대상이 없으면",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Galeforce.useKeybindAbilityServer uses LivingEntity.getAttacking or player look direction; shootArrow creates scaleDamageHp ChargedArrow; ChargedArrow.method_7454 multiplies base projectile damage by 1 + missing-health fraction. Class SHA256: {'net/soulsweaponry/items/bow/Galeforce.class': '6e0ef9ad42099f87bc9a7f76f52af2acc63f39da78e2418ebda33dc1cf1aa0dc', 'net/soulsweaponry/entity/projectile/arrow/ChargedArrow.class': 'cf20a122cf91516b515841a078d1ee1882f7a4d08a886748154578b4c2b21c36'}"
     },
     {
       "mod": "soulsweapons",
@@ -84172,13 +84177,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.galeforce_description_6",
       "english": "is present, shoots an arrow in front instead.",
-      "korean": "",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "바라보는 방향으로 화살을 쏩니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Galeforce.useKeybindAbilityServer uses LivingEntity.getAttacking or player look direction; shootArrow creates scaleDamageHp ChargedArrow; ChargedArrow.method_7454 multiplies base projectile damage by 1 + missing-health fraction. Class SHA256: {'net/soulsweaponry/items/bow/Galeforce.class': '6e0ef9ad42099f87bc9a7f76f52af2acc63f39da78e2418ebda33dc1cf1aa0dc', 'net/soulsweaponry/entity/projectile/arrow/ChargedArrow.class': 'cf20a122cf91516b515841a078d1ee1882f7a4d08a886748154578b4c2b21c36'}"
     },
     {
       "mod": "soulsweapons",
@@ -99410,6 +99416,1281 @@
         "missingKorean": false,
         "sameAsEnglish": false
       }
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "armorset.prominent.priest",
+      "english": "Divine Preacher",
+      "korean": "신성한 설교자",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.priest_helmet",
+      "english": "Divine Preacher's Hood",
+      "korean": "신성한 설교자의 후드",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.priest_chestplate",
+      "english": "Divine Preacher's High Robes",
+      "korean": "신성한 설교자의 예복 상의",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.priest_leggings",
+      "english": "Divine Preacher's Low Robes",
+      "korean": "신성한 설교자의 예복 하의",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.priest_boots",
+      "english": "Divine Preacher's Boots",
+      "korean": "신성한 설교자의 부츠",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "armorset.prominent.frost_dk",
+      "english": "Lich King",
+      "korean": "리치 왕",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.frost_dk_helmet",
+      "english": "Lich King's Helmet",
+      "korean": "리치 왕의 투구",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.frost_dk_chestplate",
+      "english": "Lich King's Chestplate",
+      "korean": "리치 왕의 흉갑",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.frost_dk_leggings",
+      "english": "Lich King's Leggings",
+      "korean": "리치 왕의 레깅스",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.frost_dk_boots",
+      "english": "Lich King's Boots",
+      "korean": "리치 왕의 부츠",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "armorset.prominent.blood_dk",
+      "english": "Crimson Lord",
+      "korean": "진홍의 군주",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.blood_dk_helmet",
+      "english": "Crimson Lord's Helmet",
+      "korean": "진홍의 군주의 투구",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.blood_dk_chestplate",
+      "english": "Crimson Lord's Chestplate",
+      "korean": "진홍의 군주의 흉갑",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.blood_dk_leggings",
+      "english": "Crimson Lord's Leggings",
+      "korean": "진홍의 군주의 레깅스",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.blood_dk_boots",
+      "english": "Crimson Lord's Boots",
+      "korean": "진홍의 군주의 부츠",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "armorset.prominent.unholy_dk",
+      "english": "Plague Lord",
+      "korean": "역병의 군주",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.unholy_dk_helmet",
+      "english": "Plague Lord's Helmet",
+      "korean": "역병의 군주의 투구",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.unholy_dk_chestplate",
+      "english": "Plague Lord's Chestplate",
+      "korean": "역병의 군주의 흉갑",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.unholy_dk_leggings",
+      "english": "Plague Lord's Leggings",
+      "korean": "역병의 군주의 레깅스",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.unholy_dk_boots",
+      "english": "Plague Lord's Boots",
+      "korean": "역병의 군주의 부츠",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "armorset.prominent.warrior",
+      "english": "Berserkers King",
+      "korean": "광전사의 왕",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.warrior_helmet",
+      "english": "Berserkers King's Helmet",
+      "korean": "광전사의 왕의 투구",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.warrior_chestplate",
+      "english": "Berserkers King's Chestplate",
+      "korean": "광전사의 왕의 흉갑",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.warrior_leggings",
+      "english": "Berserkers King's Leggings",
+      "korean": "광전사의 왕의 레깅스",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.warrior_boots",
+      "english": "Berserkers King's Boots",
+      "korean": "광전사의 왕의 부츠",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "armorset.prominent.juggernaut",
+      "english": "Great Juggernaut",
+      "korean": "대저거너트",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.juggernaut_helmet",
+      "english": "Great Juggernaut's Helmet",
+      "korean": "대저거너트의 투구",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.juggernaut_chestplate",
+      "english": "Great Juggernaut's Chestplate",
+      "korean": "대저거너트의 흉갑",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.juggernaut_leggings",
+      "english": "Great Juggernaut's Leggings",
+      "korean": "대저거너트의 레깅스",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.juggernaut_boots",
+      "english": "Great Juggernaut's Boots",
+      "korean": "대저거너트의 부츠",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "armorset.prominent.monk",
+      "english": "Soulweaver",
+      "korean": "영혼의 직조자",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.monk_helmet",
+      "english": "Soulweaver's Hat",
+      "korean": "영혼의 직조자의 투구",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.monk_chestplate",
+      "english": "Soulweaver's Chestplate",
+      "korean": "영혼의 직조자의 흉갑",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.monk_leggings",
+      "english": "Soulweaver's Leggings",
+      "korean": "영혼의 직조자의 레깅스",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.monk_boots",
+      "english": "Soulweaver's Boots",
+      "korean": "영혼의 직조자의 부츠",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "armorset.prominent.rogue",
+      "english": "Shadowalker",
+      "korean": "그림자 나그네",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.rogue_helmet",
+      "english": "Shadowalker's Hat",
+      "korean": "그림자 나그네의 가면",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.rogue_chestplate",
+      "english": "Shadowalker's Chestplate",
+      "korean": "그림자 나그네의 흉갑",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.rogue_leggings",
+      "english": "Shadowalker's Leggings",
+      "korean": "그림자 나그네의 레깅스",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.rogue_boots",
+      "english": "Shadowalker's Boots",
+      "korean": "그림자 나그네의 부츠",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "armorset.prominent.paladin",
+      "english": "Lightbringer",
+      "korean": "빛의 인도자",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.paladin_helmet",
+      "english": "Lightbringer's Helmet",
+      "korean": "빛의 인도자의 투구",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.paladin_chestplate",
+      "english": "Lightbringer's Chestplate",
+      "korean": "빛의 인도자의 흉갑",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.paladin_leggings",
+      "english": "Lightbringer's Leggings",
+      "korean": "빛의 인도자의 레깅스",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.paladin_boots",
+      "english": "Lightbringer's Boots",
+      "korean": "빛의 인도자의 부츠",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "armorset.prominent.frost_mage",
+      "english": "Elder Cryomancer",
+      "korean": "원로 냉기술사",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.frost_mage_helmet",
+      "english": "Elder Cryomancer's Hat",
+      "korean": "원로 냉기술사의 모자",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.frost_mage_chestplate",
+      "english": "Elder Cryomancer's High Robes",
+      "korean": "원로 냉기술사의 예복 상의",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.frost_mage_leggings",
+      "english": "Elder Cryomancer's Low Robes",
+      "korean": "원로 냉기술사의 예복 하의",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.frost_mage_boots",
+      "english": "Elder Cryomancer's Boots",
+      "korean": "원로 냉기술사의 부츠",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "armorset.prominent.fire_mage",
+      "english": "Elder Pyromancer",
+      "korean": "원로 화염술사",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.fire_mage_helmet",
+      "english": "Elder Pyromancer's Hat",
+      "korean": "원로 화염술사의 모자",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.fire_mage_chestplate",
+      "english": "Elder Pyromancer's High Robes",
+      "korean": "원로 화염술사의 예복 상의",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.fire_mage_leggings",
+      "english": "Elder Pyromancer's Low Robes",
+      "korean": "원로 화염술사의 예복 하의",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.fire_mage_boots",
+      "english": "Elder Pyromancer's Boots",
+      "korean": "원로 화염술사의 부츠",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "armorset.prominent.arcane_mage",
+      "english": "Elder Arcanist",
+      "korean": "원로 비전술사",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.arcane_mage_helmet",
+      "english": "Elder Arcanist's Hat",
+      "korean": "원로 비전술사의 모자",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.arcane_mage_chestplate",
+      "english": "Elder Arcanist's High Robes",
+      "korean": "원로 비전술사의 예복 상의",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.arcane_mage_leggings",
+      "english": "Elder Arcanist's Low Robes",
+      "korean": "원로 비전술사의 예복 하의",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.arcane_mage_boots",
+      "english": "Elder Arcanist's Boots",
+      "korean": "원로 비전술사의 부츠",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "armorset.prominent.astral_mage",
+      "english": "Weaver of the Cosmos",
+      "korean": "우주의 직조자",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.astral_mage_helmet",
+      "english": "Weaver of the Cosmos' Hat",
+      "korean": "우주의 직조자의 모자",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.astral_mage_chestplate",
+      "english": "Weaver of the Cosmos' High Robes",
+      "korean": "우주의 직조자의 예복 상의",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.astral_mage_leggings",
+      "english": "Weaver of the Cosmos' Low Robes",
+      "korean": "우주의 직조자의 예복 하의",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.astral_mage_boots",
+      "english": "Weaver of the Cosmos' Boots",
+      "korean": "우주의 직조자의 부츠",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "armorset.prominent.bard",
+      "english": "Famous Troubadour",
+      "korean": "명성 높은 음유시인",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.bard_helmet",
+      "english": "Famous Troubadour's Hat",
+      "korean": "명성 높은 음유시인의 모자",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.bard_chestplate",
+      "english": "Famous Troubadour's Chestpiece",
+      "korean": "명성 높은 음유시인의 의상",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.bard_leggings",
+      "english": "Famous Troubadour's Leggings",
+      "korean": "명성 높은 음유시인의 바지",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.bard_boots",
+      "english": "Famous Troubadour's Boots",
+      "korean": "명성 높은 음유시인의 부츠",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "armorset.prominent.archer",
+      "english": "Deadly Arrow",
+      "korean": "필살의 화살",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.archer_helmet",
+      "english": "Deadly Arrow's Mask",
+      "korean": "필살의 화살의 가면",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.archer_chestplate",
+      "english": "Deadly Arrow's Chestplate",
+      "korean": "필살의 화살의 흉갑",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.archer_leggings",
+      "english": "Deadly Arrow's Leggings",
+      "korean": "필살의 화살의 레깅스",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.archer_boots",
+      "english": "Deadly Arrow's Boots",
+      "korean": "필살의 화살의 부츠",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "armorset.prominent.forge_guard",
+      "english": "Forge Guard",
+      "korean": "대장간 수호자",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.forge_guard_helmet",
+      "english": "Forge Guard's Helmet",
+      "korean": "대장간 수호자의 투구",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.forge_guard_chestplate",
+      "english": "Forge Guard's Chestplate",
+      "korean": "대장간 수호자의 흉갑",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.forge_guard_leggings",
+      "english": "Forge Guard's Leggings",
+      "korean": "대장간 수호자의 레깅스",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.forge_guard_boots",
+      "english": "Forge Guard's Boots",
+      "korean": "대장간 수호자의 부츠",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "armorset.prominent.valkyrie",
+      "english": "Valkyrie",
+      "korean": "발키리",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.valkyrie_helmet",
+      "english": "Valkyrie's Helmet",
+      "korean": "발키리의 투구",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.valkyrie_chestplate",
+      "english": "Valkyrie's Chestplate",
+      "korean": "발키리의 흉갑",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.valkyrie_leggings",
+      "english": "Valkyrie's Leggings",
+      "korean": "발키리의 레깅스",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+    },
+    {
+      "mod": "prominentbase",
+      "source": "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar",
+      "resource": "assets/prominent/lang/en_us.json",
+      "key": "item.prominent.armor.valkyrie_boots",
+      "english": "Valkyrie's Boots",
+      "korean": "발키리의 부츠",
+      "status": "pending",
+      "mechanics": "unverified",
+      "screening": {
+        "missingKorean": false,
+        "sameAsEnglish": false
+      },
+      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
     }
   ],
   "nativeTooltipClasses": [
@@ -103660,6 +104941,265 @@
       "sha256": "777a23814e64b05c68e4e93f0d8e2f7f4cdb7ff743ee041170043a3cb6ef0d82",
       "status": "pending",
       "reason": "Native tooltip method/reference; includes dynamically generated and literal text"
+    }
+  ],
+  "nestedModCandidates": [
+    {
+      "sha256": "844f49c339c8f3144e167ab21b7d0059f0d571054e26285a0749348da25c49fa",
+      "id": "cloth-config",
+      "version": "11.1.136",
+      "parents": [
+        "appleskin-fabric-mc1.20.1-2.5.2.jar!META-INF/jars/cloth-config-fabric-11.1.136.jar",
+        "letsdo-vinery-fabric-1.4.41.jar!META-INF/jars/cloth-config-fabric-11.1.136.jar"
+      ],
+      "candidateKeyCount": 1,
+      "nativeTooltipClasses": [],
+      "status": "pending"
+    },
+    {
+      "sha256": "9e01626014e45b7dce8f09515f0dfc670f4f6e37739cacbaa2ca193d862ebca0",
+      "id": "ranged_weapon_api",
+      "version": "1.1.0+1.20.1",
+      "parents": [
+        "archers-1.3.0+1.20.1.jar!META-INF/jars/ranged-weapon-api-1.1.0+1.20.1.jar",
+        "archers-expansion-0.2.6-1.20.1.jar!META-INF/jars/ranged-weapon-api-1.1.0+1.20.1.jar"
+      ],
+      "candidateKeyCount": 6,
+      "nativeTooltipClasses": [],
+      "status": "pending"
+    },
+    {
+      "sha256": "4cbfd7bdee5281fd01d7c0d174a80d505928500bdcfa98e494eae571820402f2",
+      "id": "whitenoise",
+      "version": "1.1.1",
+      "parents": [
+        "betterdays-1.20.1-3.3.4.5-FABRIC.jar!META-INF/jars/whitenoise-1.20.1-fabric-1.1.1.jar"
+      ],
+      "candidateKeyCount": 8,
+      "nativeTooltipClasses": [],
+      "status": "pending"
+    },
+    {
+      "sha256": "fa817af60df4738630b95f8e1df271934e6d3b84921012229e2ef01fe8cda34d",
+      "id": "cloth-config",
+      "version": "11.1.106",
+      "parents": [
+        "BetterF3-7.0.2-Fabric-1.20.1.jar!META-INF/jars/cloth-config-fabric-11.1.106.jar"
+      ],
+      "candidateKeyCount": 1,
+      "nativeTooltipClasses": [],
+      "status": "pending"
+    },
+    {
+      "sha256": "c24e3485cb76b6a62978f06859c560c8a3bccc0465315f650e0f4bf4b235fe02",
+      "id": "citresewn-defaults",
+      "version": "1.2.2+1.20.1",
+      "parents": [
+        "citresewn-1.2.2+1.20.1.jar!META-INF/jars/citresewn-defaults-1.2.2+1.20.1.jar"
+      ],
+      "candidateKeyCount": 2,
+      "nativeTooltipClasses": [],
+      "status": "pending"
+    },
+    {
+      "sha256": "b818ab8bacb8f98320327bebc1c36dee876d8ad88fc59c59ecadfbaaa67a5469",
+      "id": "ponder",
+      "version": "1.0.91",
+      "parents": [
+        "create-fabric-6.0.8.1+build.1744-mc1.20.1.jar!META-INF/jars/Ponder-Fabric-1.20.1-1.0.91.jar"
+      ],
+      "candidateKeyCount": 6,
+      "nativeTooltipClasses": [],
+      "status": "pending"
+    },
+    {
+      "sha256": "00009c06f11593662646335cb7ca7eeae4fcb9063d23c4c6f0248d7ff696e268",
+      "id": "milk",
+      "version": "1.2.60",
+      "parents": [
+        "create-fabric-6.0.8.1+build.1744-mc1.20.1.jar!META-INF/jars/milk-lib-1.2.60.jar"
+      ],
+      "candidateKeyCount": 0,
+      "nativeTooltipClasses": [
+        "io/github/tropheusj/milk/potion/bottle/LingeringMilkBottle.class",
+        "io/github/tropheusj/milk/potion/bottle/SplashMilkBottle.class"
+      ],
+      "status": "pending"
+    },
+    {
+      "sha256": "5f121bdc1a3882fa87d9acd8b5b55c32a1aa157d375f293f553d3d8f1025d1a7",
+      "id": "porting_lib_tags",
+      "version": "3.0",
+      "parents": [
+        "create-fabric-6.0.8.1+build.1744-mc1.20.1.jar!META-INF/jars/tags-2.3.13+1.20.1.jar"
+      ],
+      "candidateKeyCount": 4,
+      "nativeTooltipClasses": [],
+      "status": "pending"
+    },
+    {
+      "sha256": "eed2264fdce3e1961e687bbbdba6e98819749762aad9b65eb7313fbc70d090a2",
+      "id": "trender",
+      "version": "1.0.17",
+      "parents": [
+        "entityculling-fabric-1.11.2-mc1.20.1.jar!META-INF/jars/TRender-1.0.17-1.20.1-fabric-SNAPSHOT.jar",
+        "skinlayers3d-fabric-1.11.3-mc1.20.1.jar!META-INF/jars/TRender-1.0.17-1.20.1-fabric-SNAPSHOT.jar"
+      ],
+      "candidateKeyCount": 2,
+      "nativeTooltipClasses": [],
+      "status": "pending"
+    },
+    {
+      "sha256": "f62957a1e3f24efd7ad5cfd97184f8cb0d2863369eb0e6f5e968517b0609f913",
+      "id": "porting_lib_tags",
+      "version": "3.0",
+      "parents": [
+        "FarmersDelight-1.20.1-2.4.1+refabricated.jar!META-INF/jars/tags-2.3.8+1.20.1.jar"
+      ],
+      "candidateKeyCount": 4,
+      "nativeTooltipClasses": [],
+      "status": "pending"
+    },
+    {
+      "sha256": "7a2389ca436ea8f7abee787d6373f9526deece5d06785f3623b7fe89bd9b31ac",
+      "id": "yet_another_config_lib_v3",
+      "version": "3.6.6+1.20.1-fabric",
+      "parents": [
+        "fragmentum-5.2.0+1.20.1-fabric.jar!META-INF/jars/yet-another-config-lib-3.6.6+1.20.1-fabric.jar"
+      ],
+      "candidateKeyCount": 7,
+      "nativeTooltipClasses": [],
+      "status": "pending"
+    },
+    {
+      "sha256": "2276bf187f2a357c6f2ad60cfb4df87dea144ac6b7300ba6414ad3ffa8723f4f",
+      "id": "gimm1q",
+      "version": "0.7.9+1.20.1",
+      "parents": [
+        "minecells-2.0.0.jar!META-INF/jars/gimm1q-0.7.9+1.20.1.jar"
+      ],
+      "candidateKeyCount": 1,
+      "nativeTooltipClasses": [],
+      "status": "pending"
+    },
+    {
+      "sha256": "342205db4e95c9964244414b1562126c1d219daacb03305412953ed14af3dc25",
+      "id": "patchouli",
+      "version": "1.20.1-81-FABRIC",
+      "parents": [
+        "Modern-Industrialization-1.8.6.jar!META-INF/jars/Patchouli-1.20.1-81-FABRIC.jar"
+      ],
+      "candidateKeyCount": 4,
+      "nativeTooltipClasses": [
+        "vazkii/patchouli/common/item/ItemModBook.class"
+      ],
+      "status": "pending"
+    },
+    {
+      "sha256": "78d9865453dc4697c848d0bad6c4e4c1f0ed0ea92123513fcd7e749c6237a413",
+      "id": "trender",
+      "version": "1.0.10",
+      "parents": [
+        "notenoughanimations-fabric-1.11.3-mc1.20.1.jar!META-INF/jars/TRender-1.0.10-1.20.1-fabric-SNAPSHOT.jar"
+      ],
+      "candidateKeyCount": 2,
+      "nativeTooltipClasses": [],
+      "status": "pending"
+    },
+    {
+      "sha256": "a8ea3957723c9f110d000c07515b2f98ab370a1b68e1349bdd7fd5b912ab3db1",
+      "id": "prominentbase",
+      "version": "4.1.1",
+      "parents": [
+        "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentbase-4.1.1.jar"
+      ],
+      "candidateKeyCount": 134,
+      "nativeTooltipClasses": [
+        "elocindev/prominentbase/item/HourglassItem.class"
+      ],
+      "status": "pending"
+    },
+    {
+      "sha256": "27e63119cb66855e2e36a78c2ae2ba0f84519fe663efbd5db83e3a586cd7b93b",
+      "id": "prominent_settings",
+      "version": "4.0.0",
+      "parents": [
+        "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominentsettings-4.0.0.jar"
+      ],
+      "candidateKeyCount": 4,
+      "nativeTooltipClasses": [],
+      "status": "pending"
+    },
+    {
+      "sha256": "ee85edc568a4f512c9c5dbf7bebe12ff9eb1464501bd374734d1606428093e24",
+      "id": "prominent_talents",
+      "version": "2.6.0",
+      "parents": [
+        "Prominent-GLOBAL-MC1.20.1-4.1.1.jar!META-INF/jars/prominenttalents-2.6.0.jar"
+      ],
+      "candidateKeyCount": 0,
+      "nativeTooltipClasses": [
+        "elocindev/prominent_talents/client/LevelStatIndicator.class"
+      ],
+      "status": "pending"
+    },
+    {
+      "sha256": "ce663ab7cc62d349329d2742d7d2ecae94ceb2fc1cd5af19cf68bc757b9bccce",
+      "id": "cloth-config",
+      "version": "13.0.121",
+      "parents": [
+        "quartz-elevator-2.2.7+1.20.4.jar!META-INF/jars/cloth-config-fabric-13.0.121-fabric.jar"
+      ],
+      "candidateKeyCount": 1,
+      "nativeTooltipClasses": [],
+      "status": "pending"
+    },
+    {
+      "sha256": "6e650d2660cc37a69762ba965f6c29cda42fbb046fb1f055224a0720be6c1558",
+      "id": "reborncore",
+      "version": "5.8.14",
+      "parents": [
+        "TechReborn-5.8.14.jar!META-INF/jars/RebornCore-5.8.14.jar"
+      ],
+      "candidateKeyCount": 20,
+      "nativeTooltipClasses": [],
+      "status": "pending"
+    },
+    {
+      "sha256": "d8705ae7865120e144eb4420be0e7d823a1114dcae56d3315fb2f2a916c2e332",
+      "id": "lavender",
+      "version": "0.1.0-pre.18+1.20",
+      "parents": [
+        "things-0.3.3+1.20.jar!META-INF/jars/lavender-0.1.0-pre.18+1.20.jar"
+      ],
+      "candidateKeyCount": 2,
+      "nativeTooltipClasses": [
+        "io/wispforest/lavender/book/LavenderBookItem.class"
+      ],
+      "status": "pending"
+    },
+    {
+      "sha256": "4c3db498e3b473a64816353a12c254f69a59b334cc31ca213274054994aa1cf3",
+      "id": "xaerolib",
+      "version": "1.7.3",
+      "parents": [
+        "xaerominimap-fabric-1.20.1-26.6.0.jar!META-INF/jars/xaerolib-fabric-1.20.1-1.7.3.jar",
+        "xaeroworldmap-fabric-1.20.1-1.47.0.jar!META-INF/jars/xaerolib-fabric-1.20.1-1.7.3.jar"
+      ],
+      "candidateKeyCount": 3,
+      "nativeTooltipClasses": [],
+      "status": "pending"
+    },
+    {
+      "sha256": "3f39a2fe31f64c2a05c71360ffe739a387331ee3fb09200172b7a1dd525879cb",
+      "id": "porting_lib_tags",
+      "version": "3.0",
+      "parents": [
+        "zenith_renewed-2.0.2.jar!META-INF/jars/tags-2.3.4+1.20.1.jar"
+      ],
+      "candidateKeyCount": 4,
+      "nativeTooltipClasses": [],
+      "status": "pending"
     }
   ]
 }
