@@ -53,3 +53,5 @@ ResourceFilename 실행과 native Formatter 경로 축소를 확인했지만 PBR
 GC총1,561ms / 최장71ms / Full0회, GC후 최고5,632,950,272 / 최대6,341,787,648B(88.8%)다. MAT Voxy WorldEngine538.7MB / ModelFactory361.0MB, ItemEmiStack약254만개다. 메모리 보유 양상은 크게 달라지지 않았고 수초 정지를 FullGC로 설명할 수 없다.
 
 현재 로그의 Xaero minecraft:item variant ID 클래스 불일치(MIIdentifier)는11:59:57로 trace 종료11:59:43 뒤다. Azure armor texture 누락도12:02:04로 이후다. 실제 별도 오류로 남기되 이번 첫 접속 프레임의 원인에 합산하지 않는다. 이 후속 기록에서는 분석만 갱신했고 새 JAR이나 운영 파일을 변경하지 않았다.
+
+이 자료를 바탕으로 native Iris 변환 캐시의 mutable parameter key 문제를 재현하고 nightly2026103006에서 수정했다. 기존 heap의 키116개도 변환 후type을 보관하고 있었다. native 반복 입력80회의 재변환이0회로 줄었고 GLSL120결과가 같았다. 상세 근거·범위·미측정 한계는 [IRIS_TRANSFORM_KEY.md](IRIS_TRANSFORM_KEY.md)를 따른다. 실제 게임 가속률은 아직 검증 전이다.

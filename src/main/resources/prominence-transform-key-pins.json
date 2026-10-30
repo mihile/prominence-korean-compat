@@ -1,0 +1,14 @@
+{
+  "net/irisshaders/iris/pipeline/transform/TransformPatcher.class": "93a74acd6636fc8e166e98dfb1adc77b3523c1412d33c8bc0b7672e15830f00d",
+  "net/irisshaders/iris/pipeline/transform/TransformPatcher$CacheKey.class": "1426c02d38bda3db34e36976563654b042118a1512b25626811e61ac774843b7",
+  "net/irisshaders/iris/gl/state/ShaderAttributeInputs.class": "ebc9128c676b3d98c4b5e0a0e2aab182c59605e354357f29124505df07f65283",
+  "net/irisshaders/iris/gl/blending/AlphaTest.class": "4ace602b7339424ce35811b3511d9752d9807dd50c11023de6c8e87371f415d9",
+  "net/irisshaders/iris/helpers/Tri.class": "d356e6e60c880ed43b26888131a2eb77e2e2dab1683a41a1cdf87e9b2fd92ffc",
+  "net/irisshaders/iris/pipeline/transform/parameter/Parameters.class": "7d0ae879698454fd09ba05756d1f5687ec9e7c1b478711719eb7d19ddea4e482",
+  "net/irisshaders/iris/pipeline/transform/parameter/GeometryInfoParameters.class": "91673ab40292f99a70fa6870a365280ebd13e3f467d712f1c376482ebf7a1632",
+  "net/irisshaders/iris/pipeline/transform/parameter/VanillaParameters.class": "2b43ecd36c39914088d04af94b4f5aea8e94b9dad9936adcf92f263cc8a78843",
+  "net/irisshaders/iris/pipeline/transform/parameter/SodiumParameters.class": "e5c5cb163d144c39a7cdf8dd90ec0f35a1c716eb5aea4bdd2f1fc52d05a26abf",
+  "net/irisshaders/iris/pipeline/transform/parameter/TextureStageParameters.class": "2fc32cf931d7b3b02abe9a6d1a3c4d49d8264484ad801e15c136b1afb74478d9",
+  "net/irisshaders/iris/pipeline/transform/parameter/ComputeParameters.class": "257706bd0bf8f36b872e552cfad8dd92aeb2cf28e2b28c85b1baa9b4148ee0f4",
+  "net/irisshaders/iris/pipeline/transform/parameter/DHParameters.class": "9cc5ce2d814975cac2024eb374c644800cf618e2114120d2eca06518576057b7"
+}
