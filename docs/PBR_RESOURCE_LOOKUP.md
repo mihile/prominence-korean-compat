@@ -29,3 +29,27 @@ Fabric resource-loader0.11.12+fb82e9d777와 Minecraft1.20.1의 실제 native byt
 Bliss shaders.properties661행의 `isInPaleGardenBiomes=in(biome,BIOME_PALE_GARDEN)`은 설치 Iris1.7.6에서 알 수 없는 변수 경고를5회 발생시킨다. 셰이더 SHA256은94fe5abd6f8963d2a3b1aff96af26a1c22c2dc184574493b0afcd4d9f78e6c20이다. 이 정의의 호환 문제는 확인했지만 이번 path 수정과 별개이며 경고를 필터로 숨기지 않았다. pipeline 준비·전처리·GL 작업, PBR 파일 조회 자체, dynamic model bake 대기, EMI recipe generation은 남아 있다.
 
 지금 수정은 반복 경로 포맷의 불필요한 비용만 제거한다. 수초 끊김 전체 해소나 실제 프레임 감소량은 아직 입증되지 않았다. 설치본·서버·셰이더 파일·개인 설정은 직접 수정하지 않고 nightly JAR로 배포한다.
+
+## 후속 측정: 20261030-115641-6db6ea / build2026103004
+
+서명된 build3004의 SHA256과 resourceNames=enabled를 확인했다. JFR·PresentMon·GPU·사후 heap/MAT가 완료됐고 이번 frame-consistency에는 불일치가 없다. 저장 로그 ERROR29/WARN955, 종료 후 현재 로그 ERROR31/WARN978이다.
+
+| 구간 | 긴 프레임 | Iris 준비 | 첫 렌더 재질표 |
+|---|---:|---:|---:|
+| 첫 입장 | 2,865ms + 4,368ms | 386ms | 162ms |
+| 엔드 첫 방문 | 1,929ms | 1,221ms | 139ms |
+| 네더 | 1,237ms | 807ms | 89ms |
+| 엔드 재방문 | 809ms | 376ms | 97ms |
+| 오버월드 복귀 | 1,067ms | 423ms | 90ms |
+
+첫 두 프레임은 UTC02:56:52.564~55.429, 55.429~59.797이다. GPU busy는 각각123/212ms이며 GPU wait는2,748/4,152ms였다. GPU 사용률만으로 원인을 판단하지 않는다. 이전 capture 첫 프레임의 불일치와 방문 순서 차이 때문에 수치를 단순 개선률로 계산하지 않는다.
+
+첫 구간 Render 표본142개 중 PBR39 / registry sync27 / shader transform18이 관측됐다. 다음4.37초 구간177표본에는 EMI creative41 / tag sync33 / Voxy mapper load9 등이 있었다. 이들은 겹칠 수 있는 call-stack 집계이며 시간 비율이 아니다. 첫 구간 이후에도 main-thread 초기화가 이어진다는 증거다. 구체적으로 Create의 모델 분류가 lazy baking을 유발했고 tab195.6ms, AE2 덮개 tab405.2ms가 기록됐다. 이 두 값만으로4.37초 전체를 설명하지 않는다. 태그 적용 뒤 block-state cache 갱신, 스킬 배경 텍스처 준비, Voxy 매핑 로드도 같은 구간에 있다.
+
+ResourceFilename 실행과 native Formatter 경로 축소를 확인했지만 PBR 조회 자체가 남아 있다. EMI 전체18,034ms는 직전18,118ms와 비슷하다. index1,702 / plugin7,241 / recipe2,626 / search4,178ms다. 현재 근거로 큰 체감 개선을 주장하지 않는다.
+
+엔드 재방문과 오버월드 복귀에도 TransformPatcher.patchVanilla/patchComposite의 AST 파싱·변환이 실행됐다. 차원 재방문은 최초보다 짧지만 재구축 비용이 남는다. 같은 셰이더의 native 결과 캐시가 이미 존재하므로 다음 조사는 재방문 입력·파라미터와 miss 경로를 확인하는 쪽이다. 첫 입장은 creative/tab·태그 동기 초기화의 누적을 우선 조사한다. Create195ms 한 경로만 고쳐 전체 수초를 해결했다고 보지 않는다.
+
+GC총1,561ms / 최장71ms / Full0회, GC후 최고5,632,950,272 / 최대6,341,787,648B(88.8%)다. MAT Voxy WorldEngine538.7MB / ModelFactory361.0MB, ItemEmiStack약254만개다. 메모리 보유 양상은 크게 달라지지 않았고 수초 정지를 FullGC로 설명할 수 없다.
+
+현재 로그의 Xaero minecraft:item variant ID 클래스 불일치(MIIdentifier)는11:59:57로 trace 종료11:59:43 뒤다. Azure armor texture 누락도12:02:04로 이후다. 실제 별도 오류로 남기되 이번 첫 접속 프레임의 원인에 합산하지 않는다. 이 후속 기록에서는 분석만 갱신했고 새 JAR이나 운영 파일을 변경하지 않았다.
