@@ -62,6 +62,7 @@ public final class ShaderTransformKeyTests {
         check(!ShaderTransformGuard.matches(pins,"1.20.1","different",read),"Wrong Iris accepted");
         check(!ShaderTransformGuard.matches(pins,"1.20.1","1.7.6+mc1.20.1",p->null),"Missing class accepted");
         check(!ShaderTransformGuard.matches(pins,"1.20.1","1.7.6+mc1.20.1",p->new byte[]{1}),"Modified class accepted");
+        check(!ShaderTransformGuard.matches(pins,"1.20.1","1.7.6+mc1.20.1",p->{throw new NoSuchMethodError("fixture dependency drift");}),"Optional guard linkage failure escaped");
         System.setProperty("prominence.shaderTransformKey","false");
         try {var guard=new ShaderTransformGuard();guard.onLoad("");check(!guard.shouldApplyMixin("",""),"Opt-out ignored");}
         finally {System.clearProperty("prominence.shaderTransformKey");}

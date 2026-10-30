@@ -21,8 +21,8 @@ public final class ShaderTransformGuard implements IMixinConfigPlugin {
                 if (bytes == null || !HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256")
                     .digest(bytes)).equals(entry.getValue().getAsString())) return false;
             }
-            return !pins.isEmpty();
-        } catch (Exception failure) { return false; }
+            return pins.size() > 0;
+        } catch (Exception | LinkageError failure) { return false; }
     }
     public void onLoad(String pkg) {
         if (!"false".equalsIgnoreCase(System.getProperty("prominence.shaderTransformKey", "true"))) {
@@ -35,7 +35,7 @@ public final class ShaderTransformGuard implements IMixinConfigPlugin {
                     iris.get().getMetadata().getVersion().getFriendlyString(),
                     path -> { try { var file = iris.get().findPath(path); return file.isPresent()
                         ? Files.readAllBytes(file.get()) : null; } catch (Exception failure) { return null; } });
-            } catch (Exception failure) { enabled = false; }
+            } catch (Exception | LinkageError failure) { enabled = false; }
         }
         org.slf4j.LoggerFactory.getLogger("Prominence compatibility").info(
             "Iris transform result cache key: {} (native 400-entry cache; isolated parameter snapshot)",

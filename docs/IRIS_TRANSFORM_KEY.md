@@ -26,3 +26,7 @@
 - 테스트는 메모리 내 IrisConfig와 짧은 GLSL fixture를 쓴다. 게임·월드·GL context를 시작하지 않으며 fixture 실행 시간을 실제 팩 가속률로 바꾸지 않는다.
 
 기존 측정은 수정 전이다. 같은 입력의 재변환 제거는 재현했지만 실제 게임의 프레임 감소량은 아직 측정하지 않았다. 첫 방문의 최초 변환·드라이버 작업·PBR 조회와 첫 접속 EMI creative/tab·태그/registry 초기화는 남는다. 이전 캐시·품질·기능을 무작정 끄지 않고 확인된 중복 작업만 제거했다.
+
+## 시작 오류 정정: build3007
+
+build3006의 guard가 Gson2.10에는 없는 `JsonObject.isEmpty()`를 호출해 preLaunch에서 NoSuchMethodError가 발생했다. 최초 표시는 BetterTrims entrypoint였지만 근본 원인은 이 guard다. 기존 검사는 private classpath의Gson2.10.1을 먼저 읽어 누락을 잡지 못했다. build3007은 `size()>0`으로 교체하고 optional guard의 LinkageError를 비활성화로 처리한다. 실제 런처 metadata의Gson2.10으로 컴파일·native 변환을 검증하고, 누적632클래스가 참조하는Gson44멤버를 점검한다. build3006을 이 ABI 검사에 넣으면 실제 누락 메서드로 실패하는 음성 대조도 수행한다.
