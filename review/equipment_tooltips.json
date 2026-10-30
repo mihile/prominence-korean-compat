@@ -70731,13 +70731,14 @@
       "resource": "assets/simplyswords/lang/en_us.json",
       "key": "item.simplyswords.ferocitysworditem.tooltip3",
       "english": "While you have Ferocity, your hits can trigger Crescendo strikes that damage and knock back nearby enemies.",
-      "korean": "흉포 효과가 있는 동안 공격이 크레셴도 타격을 발동하여 주변 적에게 피해를 주고 밀쳐낼 수 있습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "흉포가 쌓인 동안 일정 횟수마다 크레셴도 타격이 발동해 주변 적에게 피해를 주고 밀쳐냅니다. 중첩이 많을수록 더 자주 발동합니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "TwistedBladeAbilityManager activation requires >=1 stack and arms an expiring next-hit window; Ferocity is removed on the armed melee hit, not on activation. Normal crescendo is hit-count based and gets more frequent as stacks grow. Class SHA256 {'net/sweenus/simplyswords/world/TwistedBladeAbilityManager.class': 'c7d01a3626fdf20e042c378d3144414c9327835cf1339da8686ed063591eac85', 'net/sweenus/simplyswords/item/custom/TwistedBladeItem.class': '3c91f6b7df19b09a9e20c5d7dead66592bbfbe7c864fc2fbb4d44062b7651114'}"
     },
     {
       "mod": "simplyswords",
@@ -70745,13 +70746,14 @@
       "resource": "assets/simplyswords/lang/en_us.json",
       "key": "item.simplyswords.ferocitysworditem.tooltip4",
       "english": "Consume all Ferocity to empower your next successful hit with Grand Crescendo.",
-      "korean": "흉포 중첩을 모두 소모하여 다음 적중 공격을 그랜드 크레셴도로 강화합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "흉포가 있을 때 사용하면 잠시 동안 다음 공격이 그랜드 크레셴도로 강화됩니다. 적중 시 흉포를 모두 소모합니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "TwistedBladeAbilityManager activation requires >=1 stack and arms an expiring next-hit window; Ferocity is removed on the armed melee hit, not on activation. Normal crescendo is hit-count based and gets more frequent as stacks grow. Class SHA256 {'net/sweenus/simplyswords/world/TwistedBladeAbilityManager.class': 'c7d01a3626fdf20e042c378d3144414c9327835cf1339da8686ed063591eac85', 'net/sweenus/simplyswords/item/custom/TwistedBladeItem.class': '3c91f6b7df19b09a9e20c5d7dead66592bbfbe7c864fc2fbb4d44062b7651114'}"
     },
     {
       "mod": "simplyswords",
@@ -70773,13 +70775,14 @@
       "resource": "assets/simplyswords/lang/en_us.json",
       "key": "item.simplyswords.rendsworditem.tooltip2",
       "english": "Chance on hit to inflict stacking weakening effects.",
-      "korean": "적중 시 일정 확률로 중첩되는 약화 효과를 부여합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "적중 시 일정 확률로 둔화와 나약함을 부여합니다. 공격을 거듭하면 효과 단계가 높아집니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "SoulrenderSwordItem applies Weakness and Slowness; consumeSoulrenderMarks requires both, uses zero-based Slowness amplifier for damage and healing (level I contributes zero), sums amplifiers for healing with cap. SHA256 9ba152d326731a193bc6a2fd4f58c0238d7a54ad2b750d555cbe0160cf206346"
     },
     {
       "mod": "simplyswords",
@@ -70787,13 +70790,14 @@
       "resource": "assets/simplyswords/lang/en_us.json",
       "key": "item.simplyswords.rendsworditem.tooltip4",
       "english": "Consume all stacks from surrounding foes, damaging them and healing you relative to the stacks consumed.",
-      "korean": "주변 적의 중첩을 모두 소모합니다. 소모한 중첩에 비례해 적에게 피해를 주고 자신의 체력을 회복합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "주변에서 둔화와 나약함이 모두 걸린 적의 효과를 해제합니다. 둔화가 Ⅱ 이상이면 단계에 따라 피해를 주고 체력을 회복합니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "SoulrenderSwordItem applies Weakness and Slowness; consumeSoulrenderMarks requires both, uses zero-based Slowness amplifier for damage and healing (level I contributes zero), sums amplifiers for healing with cap. SHA256 9ba152d326731a193bc6a2fd4f58c0238d7a54ad2b750d555cbe0160cf206346"
     },
     {
       "mod": "simplyswords",

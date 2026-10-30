@@ -470,5 +470,9 @@
   "tooltip.prominent.armorset.frost_mage_set.frostmourne.runic_execution.desc2": "자신과 주변 플레이어에게 성급함 %s 효과를 %s초 동안 부여합니다.",
   "tooltip.prominent.armorset.juggernaut.sapphire_spikes.desc": "다른 개체에게 받은 피해를 %s%% 줄이고, 3블록 이내의 생물 공격자에게 그만큼 반사합니다.",
   "tooltip.prominent.armorset.juggernaut.tortoise_shell.desc1": "피해 감소 및 반사 비율이 %s%%로 증가합니다.",
-  "tooltip.prominent.armorset.juggernaut.tortoise_shell.desc2": "다른 개체에게 공격받을 때마다 %s%% 확률로"
+  "tooltip.prominent.armorset.juggernaut.tortoise_shell.desc2": "다른 개체에게 공격받을 때마다 %s%% 확률로",
+  "item.simplyswords.ferocitysworditem.tooltip3": "흉포가 쌓인 동안 일정 횟수마다 크레셴도 타격이 발동해 주변 적에게 피해를 주고 밀쳐냅니다. 중첩이 많을수록 더 자주 발동합니다.",
+  "item.simplyswords.ferocitysworditem.tooltip4": "흉포가 있을 때 사용하면 잠시 동안 다음 공격이 그랜드 크레셴도로 강화됩니다. 적중 시 흉포를 모두 소모합니다.",
+  "item.simplyswords.rendsworditem.tooltip2": "적중 시 일정 확률로 둔화와 나약함을 부여합니다. 공격을 거듭하면 효과 단계가 높아집니다.",
+  "item.simplyswords.rendsworditem.tooltip4": "주변에서 둔화와 나약함이 모두 걸린 적의 효과를 해제합니다. 둔화가 Ⅱ 이상이면 단계에 따라 피해를 주고 체력을 회복합니다."
 }
