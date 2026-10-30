@@ -3,17 +3,23 @@ from pathlib import Path
 import argparse, json, zipfile, math, hashlib
 
 def distribution(value):
-    if isinstance(value,(int,float)) and value>=0 and int(value)==value:return [(int(value),1.)]
+    if isinstance(value,(int,float)) and not isinstance(value,bool) and math.isfinite(value) and value>=0 and int(value)==value:return [(int(value),1.)]
     if not isinstance(value,dict):return None
     kind=value.get('type','').split(':')[-1]
+    # Minecraft 1.20.1 also accepts the compact {min, max} uniform form.
+    # Mine Cells uses this form for most of its entity drop counts.
+    if not kind and set(value)=={'min','max'}:kind='uniform'
     if kind=='constant':return distribution(value.get('value'))
     if kind=='binomial':
         n,p=value.get('n'),value.get('p')
-        if isinstance(n,int) and 0<=n<=64 and isinstance(p,(int,float)) and 0<=p<=1:
+        if isinstance(n,(int,float)) and not isinstance(n,bool) and math.isfinite(n) and 0<=n<=64 and int(n)==n and isinstance(p,(int,float)) and not isinstance(p,bool) and math.isfinite(p) and 0<=p<=1:
+            n=int(n)
             return [(k,math.comb(n,k)*p**k*(1-p)**(n-k)) for k in range(n+1)]
     if kind=='uniform':
         lo,hi=value.get('min'),value.get('max')
-        if all(isinstance(x,int) for x in (lo,hi)) and 0<=lo<=hi<=64:return [(k,1/(hi-lo+1)) for k in range(lo,hi+1)]
+        if all(isinstance(x,(int,float)) and not isinstance(x,bool) and math.isfinite(x) and int(x)==x for x in (lo,hi)) and 0<=lo<=hi<=64:
+            lo,hi=int(lo),int(hi)
+            return [(k,1/(hi-lo+1)) for k in range(lo,hi+1)]
     return None
 
 def main():

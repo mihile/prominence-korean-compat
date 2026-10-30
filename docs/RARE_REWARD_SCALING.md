@@ -1,5 +1,17 @@
 # Rare reward scaling (Minecraft 1.20.1 Fabric)
 
+## Native draw display correction (client2026103011 / server2026103002)
+
+Mine Cells2.0.0 uses compact `{min,max}` number providers without `type`. The generated client fallback catalog previously skipped these uniform distributions, and also rejected integer-valued JSON floats in typed ranges/binomial trials. It now includes3,608 additional item rows across the installed mods;56 previously accepted rows become ambiguous once a second independent pool is recognized, and remain conservative rather than inventing a combined chance. Runner guts/cells/metal are50%; Sweeper metal/molten chunk are53.125% (shown53.12%), not their75% expected selection count.
+
+Live display inspection separately rejected every nonzero native `bonus_rolls` and binomial draw count above1. Display-only metadata now carries the actual bounded uniform/binomial distribution and constant native bonus coefficient. The client computes `1 − E[(1 − itemShare)^max(0, draws + floor(float(bonus × Luck)))]`. The RPG Series Concierge pool expands24 weapon,48 armor and18 accessory entries with equal weights and two draws, plus0.2 bonus draws per Luck. A particular ring is therefore `1−(89/90)^2` at Luck0; this is derived from the server's loaded entries, not an item-specific mapping or the obsolete Jewelry config. Gameplay scaling eligibility and native drops stay unchanged.
+
+EMI also merges equal-weight items from separate pools into one cycling slot. A shared server definition remains the fast path; otherwise each member is resolved independently. Equal probability lines are shared, while different probabilities receive item labels. Hover lookup stays limited to that table; the existing250ms gear poll and reload-scoped metadata cache remain.
+
+The v3 display channel carries the bonus coefficient. New clients still read v2; new servers negotiate v3 or send a v2 subset excluding native-bonus plans, so older clients cannot silently ignore the coefficient. Constructor-time callbacks still only queue work for END_SERVER_TICK. Bounded GZIP, failure isolation and session cleanup are preserved. Complete jewelry display requires both the new client and server JAR; static Mine Cells fallback also works with an older server.
+
+Offline validation covers actual installed JSON, production inspector and probability/UI code, previous/current JAR wire interoperability, safe login/channel negotiation, exact client/server native Mixin transforms, cumulative preservation and Gson2.10. No Minecraft/world/server was started and no live installation/configuration was changed. In-game screenshots remain to be checked after updating.
+
 A cumulative compatibility module makes previously unscaled rare progression materials and equipment respond to Looting and positive Luck. Rates are read from the server's current loot objects, not a hand-written item-to-percentage map. New rolls use the existing originating-weapon attribution fix.
 
 ## Balance
