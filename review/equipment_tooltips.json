@@ -59409,13 +59409,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "tooltip.prominent.armorset.monk.martial_artist.desc1",
       "english": "Dealing damage with a Fist weapon has a %s%% chance of increasing",
-      "korean": "주먹 무기로 피해를 주면 %s%% 확률로",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "권갑 계열 무기로 피해를 주면 %s%% 확률로",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "MonkArmorSetBonus: two-piece fist weapon hits roll configured chance and outgoing damage multiplier; four-piece healing starts when tracked Rage/valid two-fist Fury loadout ends and heals all living, non-spectator same-world players in configured radius, not only allies. SHA256 1fc89c0b3faf5a79bf62e54712fbe021134764a7c82ee867505f3ee342f04e0d"
     },
     {
       "mod": "prominent",
@@ -59424,12 +59425,13 @@
       "key": "tooltip.prominent.armorset.monk.martial_artist.desc2",
       "english": "your damage done by %s%% for %s seconds.",
       "korean": "주는 피해가 %s%%만큼 %s초 동안 증가합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "MonkArmorSetBonus: two-piece fist weapon hits roll configured chance and outgoing damage multiplier; four-piece healing starts when tracked Rage/valid two-fist Fury loadout ends and heals all living, non-spectator same-world players in configured radius, not only allies. SHA256 1fc89c0b3faf5a79bf62e54712fbe021134764a7c82ee867505f3ee342f04e0d"
     },
     {
       "mod": "prominent",
@@ -59451,13 +59453,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "tooltip.prominent.armorset.monk.meditation.desc1",
       "english": "Calm your state of mind after enraging with Fury of a Thousand Fists,",
-      "korean": "천 개의 주먹의 분노로 격앙된 마음을 가라앉혀",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "천 개의 주먹의 분노로 격노한 뒤 권갑 쌍수 장착이 풀리거나",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "MonkArmorSetBonus: two-piece fist weapon hits roll configured chance and outgoing damage multiplier; four-piece healing starts when tracked Rage/valid two-fist Fury loadout ends and heals all living, non-spectator same-world players in configured radius, not only allies. SHA256 1fc89c0b3faf5a79bf62e54712fbe021134764a7c82ee867505f3ee342f04e0d"
     },
     {
       "mod": "prominent",
@@ -59465,13 +59468,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "tooltip.prominent.armorset.monk.meditation.desc2",
       "english": "healing you and nearby allies for %s%% of their maximum health",
-      "korean": "자신과 주변 아군을 각자 최대 체력의 %s%%만큼 치유합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "격노가 끝나면 자신과 주변 플레이어를 최대 체력의 %s%%만큼",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "MonkArmorSetBonus: two-piece fist weapon hits roll configured chance and outgoing damage multiplier; four-piece healing starts when tracked Rage/valid two-fist Fury loadout ends and heals all living, non-spectator same-world players in configured radius, not only allies. SHA256 1fc89c0b3faf5a79bf62e54712fbe021134764a7c82ee867505f3ee342f04e0d"
     },
     {
       "mod": "prominent",
@@ -59479,13 +59483,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "tooltip.prominent.armorset.monk.meditation.desc3",
       "english": "across %s seconds.",
-      "korean": "%s초에 걸쳐 적용됩니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "%s초에 걸쳐 회복시킵니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "MonkArmorSetBonus: two-piece fist weapon hits roll configured chance and outgoing damage multiplier; four-piece healing starts when tracked Rage/valid two-fist Fury loadout ends and heals all living, non-spectator same-world players in configured radius, not only allies. SHA256 1fc89c0b3faf5a79bf62e54712fbe021134764a7c82ee867505f3ee342f04e0d"
     },
     {
       "mod": "prominent",
@@ -83282,13 +83287,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.overheal_description",
       "english": "- At full health, gain a §eShield§r instead of heal",
-      "korean": "- 체력이 가득 찰 때, 회복 대신 §e흡수§r를 얻습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "- 체력이 가득 찼을 때 생명 흡수가 발동하면 §e흡수§r 효과를 얻습니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Bloodthirster.method_7873 applies Absorption only when attacker is player, item cooldown is ready, health equals maximum and bloodthirster_overshields is true; current config enables it. SHA256 4c6d2aee8062833d03a6dcb6e30d6c0259d66922311974cbce558c3c0e8aeeae"
     },
     {
       "mod": "soulsweapons",
@@ -83787,13 +83793,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.night_prowler_description",
       "english": "- Massive §9Attack Damage§r during the §1Night§1.",
-      "korean": "- §1밤§1 동안 막대한 §9공격 피해§r를 입힙니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "- 하늘이 있는 차원의 §1밤§r에는 주 손에 들면 §9공격력§r이 증가합니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Draugr refreshDayTime stores hasSkyLight && world.isNight; enabled item getAttributeModifiers applies configured night attack modifier only for mainhand. SHA256 a05ab6fb5da6e339b00153f54016ba57dce2e79e9f64bb27abeccd1e6a5b4a7f"
     },
     {
       "mod": "soulsweapons",
@@ -99424,13 +99431,13 @@
       "key": "armorset.prominent.priest",
       "english": "Divine Preacher",
       "korean": "신성한 설교자",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99439,13 +99446,13 @@
       "key": "item.prominent.armor.priest_helmet",
       "english": "Divine Preacher's Hood",
       "korean": "신성한 설교자의 후드",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99454,13 +99461,13 @@
       "key": "item.prominent.armor.priest_chestplate",
       "english": "Divine Preacher's High Robes",
       "korean": "신성한 설교자의 예복 상의",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99469,13 +99476,13 @@
       "key": "item.prominent.armor.priest_leggings",
       "english": "Divine Preacher's Low Robes",
       "korean": "신성한 설교자의 예복 하의",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99484,13 +99491,13 @@
       "key": "item.prominent.armor.priest_boots",
       "english": "Divine Preacher's Boots",
       "korean": "신성한 설교자의 부츠",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99499,13 +99506,13 @@
       "key": "armorset.prominent.frost_dk",
       "english": "Lich King",
       "korean": "리치 왕",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99514,13 +99521,13 @@
       "key": "item.prominent.armor.frost_dk_helmet",
       "english": "Lich King's Helmet",
       "korean": "리치 왕의 투구",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99529,13 +99536,13 @@
       "key": "item.prominent.armor.frost_dk_chestplate",
       "english": "Lich King's Chestplate",
       "korean": "리치 왕의 흉갑",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99544,13 +99551,13 @@
       "key": "item.prominent.armor.frost_dk_leggings",
       "english": "Lich King's Leggings",
       "korean": "리치 왕의 레깅스",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99559,13 +99566,13 @@
       "key": "item.prominent.armor.frost_dk_boots",
       "english": "Lich King's Boots",
       "korean": "리치 왕의 부츠",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99574,13 +99581,13 @@
       "key": "armorset.prominent.blood_dk",
       "english": "Crimson Lord",
       "korean": "진홍의 군주",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99589,13 +99596,13 @@
       "key": "item.prominent.armor.blood_dk_helmet",
       "english": "Crimson Lord's Helmet",
       "korean": "진홍의 군주의 투구",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99604,13 +99611,13 @@
       "key": "item.prominent.armor.blood_dk_chestplate",
       "english": "Crimson Lord's Chestplate",
       "korean": "진홍의 군주의 흉갑",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99619,13 +99626,13 @@
       "key": "item.prominent.armor.blood_dk_leggings",
       "english": "Crimson Lord's Leggings",
       "korean": "진홍의 군주의 레깅스",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99634,13 +99641,13 @@
       "key": "item.prominent.armor.blood_dk_boots",
       "english": "Crimson Lord's Boots",
       "korean": "진홍의 군주의 부츠",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99649,13 +99656,13 @@
       "key": "armorset.prominent.unholy_dk",
       "english": "Plague Lord",
       "korean": "역병의 군주",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99664,13 +99671,13 @@
       "key": "item.prominent.armor.unholy_dk_helmet",
       "english": "Plague Lord's Helmet",
       "korean": "역병의 군주의 투구",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99679,13 +99686,13 @@
       "key": "item.prominent.armor.unholy_dk_chestplate",
       "english": "Plague Lord's Chestplate",
       "korean": "역병의 군주의 흉갑",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99694,13 +99701,13 @@
       "key": "item.prominent.armor.unholy_dk_leggings",
       "english": "Plague Lord's Leggings",
       "korean": "역병의 군주의 레깅스",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99709,13 +99716,13 @@
       "key": "item.prominent.armor.unholy_dk_boots",
       "english": "Plague Lord's Boots",
       "korean": "역병의 군주의 부츠",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99724,13 +99731,13 @@
       "key": "armorset.prominent.warrior",
       "english": "Berserkers King",
       "korean": "광전사의 왕",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99739,13 +99746,13 @@
       "key": "item.prominent.armor.warrior_helmet",
       "english": "Berserkers King's Helmet",
       "korean": "광전사의 왕의 투구",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99754,13 +99761,13 @@
       "key": "item.prominent.armor.warrior_chestplate",
       "english": "Berserkers King's Chestplate",
       "korean": "광전사의 왕의 흉갑",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99769,13 +99776,13 @@
       "key": "item.prominent.armor.warrior_leggings",
       "english": "Berserkers King's Leggings",
       "korean": "광전사의 왕의 레깅스",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99784,13 +99791,13 @@
       "key": "item.prominent.armor.warrior_boots",
       "english": "Berserkers King's Boots",
       "korean": "광전사의 왕의 부츠",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99799,13 +99806,13 @@
       "key": "armorset.prominent.juggernaut",
       "english": "Great Juggernaut",
       "korean": "대저거너트",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99814,13 +99821,13 @@
       "key": "item.prominent.armor.juggernaut_helmet",
       "english": "Great Juggernaut's Helmet",
       "korean": "대저거너트의 투구",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99829,13 +99836,13 @@
       "key": "item.prominent.armor.juggernaut_chestplate",
       "english": "Great Juggernaut's Chestplate",
       "korean": "대저거너트의 흉갑",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99844,13 +99851,13 @@
       "key": "item.prominent.armor.juggernaut_leggings",
       "english": "Great Juggernaut's Leggings",
       "korean": "대저거너트의 레깅스",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99859,13 +99866,13 @@
       "key": "item.prominent.armor.juggernaut_boots",
       "english": "Great Juggernaut's Boots",
       "korean": "대저거너트의 부츠",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99874,13 +99881,13 @@
       "key": "armorset.prominent.monk",
       "english": "Soulweaver",
       "korean": "영혼의 직조자",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99888,14 +99895,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "item.prominent.armor.monk_helmet",
       "english": "Soulweaver's Hat",
-      "korean": "영혼의 직조자의 투구",
-      "status": "pending",
+      "korean": "영혼의 직조자 투구",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99903,14 +99910,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "item.prominent.armor.monk_chestplate",
       "english": "Soulweaver's Chestplate",
-      "korean": "영혼의 직조자의 흉갑",
-      "status": "pending",
+      "korean": "영혼의 직조자 흉갑",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99918,14 +99925,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "item.prominent.armor.monk_leggings",
       "english": "Soulweaver's Leggings",
-      "korean": "영혼의 직조자의 레깅스",
-      "status": "pending",
+      "korean": "영혼의 직조자 레깅스",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99933,14 +99940,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "item.prominent.armor.monk_boots",
       "english": "Soulweaver's Boots",
-      "korean": "영혼의 직조자의 부츠",
-      "status": "pending",
+      "korean": "영혼의 직조자 부츠",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99949,13 +99956,13 @@
       "key": "armorset.prominent.rogue",
       "english": "Shadowalker",
       "korean": "그림자 나그네",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99964,13 +99971,13 @@
       "key": "item.prominent.armor.rogue_helmet",
       "english": "Shadowalker's Hat",
       "korean": "그림자 나그네의 가면",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99979,13 +99986,13 @@
       "key": "item.prominent.armor.rogue_chestplate",
       "english": "Shadowalker's Chestplate",
       "korean": "그림자 나그네의 흉갑",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -99994,13 +100001,13 @@
       "key": "item.prominent.armor.rogue_leggings",
       "english": "Shadowalker's Leggings",
       "korean": "그림자 나그네의 레깅스",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100009,13 +100016,13 @@
       "key": "item.prominent.armor.rogue_boots",
       "english": "Shadowalker's Boots",
       "korean": "그림자 나그네의 부츠",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100024,13 +100031,13 @@
       "key": "armorset.prominent.paladin",
       "english": "Lightbringer",
       "korean": "빛의 인도자",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100039,13 +100046,13 @@
       "key": "item.prominent.armor.paladin_helmet",
       "english": "Lightbringer's Helmet",
       "korean": "빛의 인도자의 투구",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100054,13 +100061,13 @@
       "key": "item.prominent.armor.paladin_chestplate",
       "english": "Lightbringer's Chestplate",
       "korean": "빛의 인도자의 흉갑",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100069,13 +100076,13 @@
       "key": "item.prominent.armor.paladin_leggings",
       "english": "Lightbringer's Leggings",
       "korean": "빛의 인도자의 레깅스",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100084,13 +100091,13 @@
       "key": "item.prominent.armor.paladin_boots",
       "english": "Lightbringer's Boots",
       "korean": "빛의 인도자의 부츠",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100099,13 +100106,13 @@
       "key": "armorset.prominent.frost_mage",
       "english": "Elder Cryomancer",
       "korean": "원로 냉기술사",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100114,13 +100121,13 @@
       "key": "item.prominent.armor.frost_mage_helmet",
       "english": "Elder Cryomancer's Hat",
       "korean": "원로 냉기술사의 모자",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100129,13 +100136,13 @@
       "key": "item.prominent.armor.frost_mage_chestplate",
       "english": "Elder Cryomancer's High Robes",
       "korean": "원로 냉기술사의 예복 상의",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100144,13 +100151,13 @@
       "key": "item.prominent.armor.frost_mage_leggings",
       "english": "Elder Cryomancer's Low Robes",
       "korean": "원로 냉기술사의 예복 하의",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100159,13 +100166,13 @@
       "key": "item.prominent.armor.frost_mage_boots",
       "english": "Elder Cryomancer's Boots",
       "korean": "원로 냉기술사의 부츠",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100174,13 +100181,13 @@
       "key": "armorset.prominent.fire_mage",
       "english": "Elder Pyromancer",
       "korean": "원로 화염술사",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100189,13 +100196,13 @@
       "key": "item.prominent.armor.fire_mage_helmet",
       "english": "Elder Pyromancer's Hat",
       "korean": "원로 화염술사의 모자",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100204,13 +100211,13 @@
       "key": "item.prominent.armor.fire_mage_chestplate",
       "english": "Elder Pyromancer's High Robes",
       "korean": "원로 화염술사의 예복 상의",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100219,13 +100226,13 @@
       "key": "item.prominent.armor.fire_mage_leggings",
       "english": "Elder Pyromancer's Low Robes",
       "korean": "원로 화염술사의 예복 하의",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100234,13 +100241,13 @@
       "key": "item.prominent.armor.fire_mage_boots",
       "english": "Elder Pyromancer's Boots",
       "korean": "원로 화염술사의 부츠",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100249,13 +100256,13 @@
       "key": "armorset.prominent.arcane_mage",
       "english": "Elder Arcanist",
       "korean": "원로 비전술사",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100264,13 +100271,13 @@
       "key": "item.prominent.armor.arcane_mage_helmet",
       "english": "Elder Arcanist's Hat",
       "korean": "원로 비전술사의 모자",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100279,13 +100286,13 @@
       "key": "item.prominent.armor.arcane_mage_chestplate",
       "english": "Elder Arcanist's High Robes",
       "korean": "원로 비전술사의 예복 상의",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100294,13 +100301,13 @@
       "key": "item.prominent.armor.arcane_mage_leggings",
       "english": "Elder Arcanist's Low Robes",
       "korean": "원로 비전술사의 예복 하의",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100309,13 +100316,13 @@
       "key": "item.prominent.armor.arcane_mage_boots",
       "english": "Elder Arcanist's Boots",
       "korean": "원로 비전술사의 부츠",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100324,13 +100331,13 @@
       "key": "armorset.prominent.astral_mage",
       "english": "Weaver of the Cosmos",
       "korean": "우주의 직조자",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100338,14 +100345,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "item.prominent.armor.astral_mage_helmet",
       "english": "Weaver of the Cosmos' Hat",
-      "korean": "우주의 직조자의 모자",
-      "status": "pending",
+      "korean": "우주의 직조자 모자",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100353,14 +100360,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "item.prominent.armor.astral_mage_chestplate",
       "english": "Weaver of the Cosmos' High Robes",
-      "korean": "우주의 직조자의 예복 상의",
-      "status": "pending",
+      "korean": "우주의 직조자 예복 상의",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100368,14 +100375,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "item.prominent.armor.astral_mage_leggings",
       "english": "Weaver of the Cosmos' Low Robes",
-      "korean": "우주의 직조자의 예복 하의",
-      "status": "pending",
+      "korean": "우주의 직조자 예복 하의",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100383,14 +100390,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "item.prominent.armor.astral_mage_boots",
       "english": "Weaver of the Cosmos' Boots",
-      "korean": "우주의 직조자의 부츠",
-      "status": "pending",
+      "korean": "우주의 직조자 부츠",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100399,13 +100406,13 @@
       "key": "armorset.prominent.bard",
       "english": "Famous Troubadour",
       "korean": "명성 높은 음유시인",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100414,13 +100421,13 @@
       "key": "item.prominent.armor.bard_helmet",
       "english": "Famous Troubadour's Hat",
       "korean": "명성 높은 음유시인의 모자",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100429,13 +100436,13 @@
       "key": "item.prominent.armor.bard_chestplate",
       "english": "Famous Troubadour's Chestpiece",
       "korean": "명성 높은 음유시인의 의상",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100444,13 +100451,13 @@
       "key": "item.prominent.armor.bard_leggings",
       "english": "Famous Troubadour's Leggings",
       "korean": "명성 높은 음유시인의 바지",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100459,13 +100466,13 @@
       "key": "item.prominent.armor.bard_boots",
       "english": "Famous Troubadour's Boots",
       "korean": "명성 높은 음유시인의 부츠",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100474,13 +100481,13 @@
       "key": "armorset.prominent.archer",
       "english": "Deadly Arrow",
       "korean": "필살의 화살",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100488,14 +100495,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "item.prominent.armor.archer_helmet",
       "english": "Deadly Arrow's Mask",
-      "korean": "필살의 화살의 가면",
-      "status": "pending",
+      "korean": "필살의 화살 가면",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100503,14 +100510,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "item.prominent.armor.archer_chestplate",
       "english": "Deadly Arrow's Chestplate",
-      "korean": "필살의 화살의 흉갑",
-      "status": "pending",
+      "korean": "필살의 화살 흉갑",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100518,14 +100525,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "item.prominent.armor.archer_leggings",
       "english": "Deadly Arrow's Leggings",
-      "korean": "필살의 화살의 레깅스",
-      "status": "pending",
+      "korean": "필살의 화살 레깅스",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100533,14 +100540,14 @@
       "resource": "assets/prominent/lang/en_us.json",
       "key": "item.prominent.armor.archer_boots",
       "english": "Deadly Arrow's Boots",
-      "korean": "필살의 화살의 부츠",
-      "status": "pending",
+      "korean": "필살의 화살 부츠",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100549,13 +100556,13 @@
       "key": "armorset.prominent.forge_guard",
       "english": "Forge Guard",
       "korean": "대장간 수호자",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100564,13 +100571,13 @@
       "key": "item.prominent.armor.forge_guard_helmet",
       "english": "Forge Guard's Helmet",
       "korean": "대장간 수호자의 투구",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100579,13 +100586,13 @@
       "key": "item.prominent.armor.forge_guard_chestplate",
       "english": "Forge Guard's Chestplate",
       "korean": "대장간 수호자의 흉갑",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100594,13 +100601,13 @@
       "key": "item.prominent.armor.forge_guard_leggings",
       "english": "Forge Guard's Leggings",
       "korean": "대장간 수호자의 레깅스",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100609,13 +100616,13 @@
       "key": "item.prominent.armor.forge_guard_boots",
       "english": "Forge Guard's Boots",
       "korean": "대장간 수호자의 부츠",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100624,13 +100631,13 @@
       "key": "armorset.prominent.valkyrie",
       "english": "Valkyrie",
       "korean": "발키리",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100639,13 +100646,13 @@
       "key": "item.prominent.armor.valkyrie_helmet",
       "english": "Valkyrie's Helmet",
       "korean": "발키리의 투구",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100654,13 +100661,13 @@
       "key": "item.prominent.armor.valkyrie_chestplate",
       "english": "Valkyrie's Chestplate",
       "korean": "발키리의 흉갑",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100669,13 +100676,13 @@
       "key": "item.prominent.armor.valkyrie_leggings",
       "english": "Valkyrie's Leggings",
       "korean": "발키리의 레깅스",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     },
     {
       "mod": "prominentbase",
@@ -100684,13 +100691,13 @@
       "key": "item.prominent.armor.valkyrie_boots",
       "english": "Valkyrie's Boots",
       "korean": "발키리의 부츠",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Nested JAR armor name/set candidate; equipment and associated dynamically generated tooltip still require individual review."
+      "notes": "Compared nested mod English armor/set name and current Korean individually; equipment tooltip mechanics remain unverified."
     }
   ],
   "nativeTooltipClasses": [
