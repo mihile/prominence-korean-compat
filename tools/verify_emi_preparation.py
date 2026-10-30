@@ -26,4 +26,4 @@ run('java',[*base,'-cp',os.pathsep.join([safe_arg(fixture),safe_arg(classes),*cp
 run('java',[*base,'-cp',os.pathsep.join([safe_arg(fixture),safe_arg(classes),*cp]),'-Dmixin.service='+service,'-Dmixin.bootstrapService='+service+'$Bootstrap','workverification.VerifySortedView',safe_arg(root/'src/main/resources/prominence-emi-preparation.client.mixins.json'),safe_arg(work/'sorted')],'sorted-view')
 
 emi_jar=next(x for x in json.loads(a.classpath.read_text('utf8')) if Path(x).name=='emi-1.1.24+1.20.1+fabric.jar')
-run('java',[*base,'-cp',native_cp,'workverification.AuditRecipeShapes',safe_arg(emi_jar),safe_arg(work/'native-shapes.json'),safe_arg(root/'src/main/resources/prominence-emi-fixed-recipes.json')],'native-shapes')
+run('java',[*base,'-cp',native_cp,'workverification.AuditRecipeShapes',safe_arg(emi_jar),safe_arg(work/'native-shapes.json'),safe_arg(root/'src/main/resources/prominence-emi-fixed-recipes.json'),safe_arg(next(x for x in json.loads(a.classpath.read_text('utf8')) if Path(x).name=='Modern-Industrialization-1.8.6.jar'))],'native-shapes')

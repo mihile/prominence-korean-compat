@@ -1,4 +1,9 @@
 {
+  "aztech.modern_industrialization.compat.viewer.impl.emi.ViewerCategoryEmi$ViewerRecipe": [
+    "aztech.modern_industrialization.compat.viewer.impl.emi.ViewerCategoryEmi$ViewerRecipe#inputs",
+    "aztech.modern_industrialization.compat.viewer.impl.emi.ViewerCategoryEmi$ViewerRecipe#outputs",
+    "aztech.modern_industrialization.compat.viewer.impl.emi.ViewerCategoryEmi$ViewerRecipe#catalysts"
+  ],
   "dev.emi.emi.api.recipe.EmiCraftingRecipe": [
     "dev.emi.emi.api.recipe.EmiCraftingRecipe#input",
     "dev.emi.emi.api.recipe.EmiCraftingRecipe#output"

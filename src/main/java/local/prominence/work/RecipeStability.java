@@ -28,6 +28,15 @@ public final class RecipeStability {
             return Map.copyOf(names);
         }catch(Exception|LinkageError e){return Map.of();}
     }
+    private static final ClassValue<List<Field>> FIELDS=new ClassValue<>() {
+        protected List<Field> computeValue(Class<?> type){
+            var paths=FIXED.get(type.getName());if(paths==null)return List.of();
+            try{var fields=new ArrayList<Field>();for(String path:paths){int split=path.indexOf('#');
+                var owner=Class.forName(path.substring(0,split),false,type.getClassLoader());
+                var field=owner.getDeclaredField(path.substring(split+1));field.setAccessible(true);if(!fields.contains(field))fields.add(field);
+            }return List.copyOf(fields);}catch(Exception|LinkageError e){return List.of();}
+        }
+    };
     private static final ClassValue<Boolean> IDENTITY_EQUALITY=new ClassValue<>() {
         protected Boolean computeValue(Class<?> type){try{return type.getMethod("equals",Object.class).getDeclaringClass()==Object.class
                 && type.getMethod("hashCode").getDeclaringClass()==Object.class;}catch(Exception|LinkageError e){return false;}}
@@ -48,17 +57,15 @@ public final class RecipeStability {
     private static boolean ingredient(Object x){return x!=null&&INGREDIENTS.contains(x.getClass().getName());}
     private static int contentHash(Object value){
         if(value instanceof List<?> list){int h=1;for(Object x:list)h=31*h+contentHash(x);return h;}
-        if(value instanceof EmiStack s)return Objects.hash(s.getKey(),s.getAmount(),s.getNbt(),s.getRemainder());
+        if(value instanceof EmiStack s){int h=Objects.hashCode(s.getKey());h=31*h+Long.hashCode(s.getAmount());h=31*h+Objects.hashCode(s.getNbt());return 31*h+Objects.hashCode(s.getRemainder());}
         return System.identityHashCode(value);
     }
     public static State capture(EmiRecipe r) {
         Class<?> type=r.getClass();
-        var fields=FIXED.get(type.getName());
-        if(fields!=null)try {
+        var fields=FIELDS.get(type);
+        if(FIXED.containsKey(type.getName())&&!fields.isEmpty())try {
             var fs=new ArrayList<Field>();var values=new ArrayList<Object>();var elements=new ArrayList<Object[]>();var hashes=new ArrayList<Integer>();
-            for(String path:fields){int split=path.indexOf('#');
-                var owner=Class.forName(path.substring(0,split),false,type.getClassLoader());
-                var f=owner.getDeclaredField(path.substring(split+1));f.setAccessible(true);
+            for(var f:fields){
                 Object value=f.get(r);Object[] array=null;
                 if(value instanceof List<?> list){
                     if(list.getClass().getClassLoader()!=null&&!list.getClass().getName().startsWith("com.google.common.collect."))return null;

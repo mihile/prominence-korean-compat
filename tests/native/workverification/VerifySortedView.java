@@ -44,6 +44,23 @@ public final class VerifySortedView {
         EmiRecipeManager initial=manager(false);outer.getField("manager").set(null,initial);Object owner=newWorker();outer.getField("activeWorker").set(null,owner);runWorker(owner);check(outer.getField("manager").get(null) instanceof SortedRecipeView,"Native worker did not use sorted view");check(outer.getField("activeWorker").get(null)==null,"Worker not released");var released=worker.getDeclaredField("prominence$base");released.setAccessible(true);check(released.get(owner)==null,"Worker retained source manager");
         var initial2=manager(false);outer.getField("manager").set(null,initial2);Object stale=newWorker();Object replacement=newWorker();outer.getField("activeWorker").set(null,replacement);runWorker(stale);check(outer.getField("activeWorker").get(null)==replacement&&outer.getField("manager").get(null)==initial2,"Stale worker overwrote new generation");
         Object stale2=newWorker();outer.getField("activeWorker").set(null,stale2);outer.getField("manager").set(null,expected);runWorker(stale2);check(outer.getField("manager").get(null)==expected,"Disconnected manager replaced");outer.getField("activeWorker").set(null,null);
+        if(!Boolean.getBoolean("preparation.skipMI")){
+            var miInputs=new ArrayList<EmiIngredient>(List.of(keys.get(0)));
+            var mi=new aztech.modern_industrialization.compat.viewer.impl.emi.ViewerCategoryEmi.ViewerRecipe(miInputs,List.of(keys.get(1)),List.of(keys.get(2)));
+            var state=RecipeStability.capture(mi);check(state!=null&&state.unchanged(),"Reviewed MI field getter not selected");miInputs.set(0,keys.get(2));check(!state.unchanged(),"MI input mutation not detected");
+        }
+        // Dense/sparse buckets, interleaved duplicate identities and stable comparator ties.
+        var random=new Random(7612);var largeKeys=new ArrayList<EmiStack>();for(int i=0;i<256;i++)largeKeys.add(stack(new class_1792(),1));
+        var largeRecipes=new ArrayList<EmiRecipe>();for(int i=0;i<20000;i++){
+            var inputs=new ArrayList<EmiIngredient>();for(int j=0;j<8;j++)inputs.add(largeKeys.get(random.nextInt(largeKeys.size())));
+            largeRecipes.add(new EmiCraftingRecipe(inputs,largeKeys.get(i%256),"bench:"+random.nextInt(100000),i%3==0?c1:c2));
+        }
+        for(int i=0;i<32;i++)largeRecipes.add(largeRecipes.get(i*521));
+        var repeatedDynamic=new Dynamic(c1,largeKeys.get(0),largeKeys.get(1));largeRecipes.add(repeatedDynamic);largeRecipes.add(repeatedDynamic);
+        recipes=largeRecipes;var largeBase=manager(false);var largeExpected=manager(true);var largeCapture=SortedRecipeView.capture(largeBase,recipes);
+        var largeActual=SortedRecipeView.create(largeBase,cats,stations,recipes,largeCapture);same(largeExpected,largeActual,largeKeys);
+        var allocationBean=(com.sun.management.ThreadMXBean)java.lang.management.ManagementFactory.getThreadMXBean();allocationBean.setThreadAllocatedMemoryEnabled(true);long[] timings=new long[12],allocations=new long[12];for(int i=-8;i<timings.length;i++){long allocated=allocationBean.getThreadAllocatedBytes(Thread.currentThread().getId());long start=System.nanoTime();var capture=SortedRecipeView.capture(largeBase,recipes);var v=SortedRecipeView.create(largeBase,cats,stations,recipes,capture);if(v==null)throw new AssertionError("Benchmark fallback");if(i>=0){timings[i]=System.nanoTime()-start;allocations[i]=allocationBean.getThreadAllocatedBytes(Thread.currentThread().getId())-allocated;}}
+        Arrays.sort(timings);Arrays.sort(allocations);System.out.println("BENCHMARK capture+sorted-view 20034 recipes /256 keys: medianMs="+timings[6]/1e6+", minMs="+timings[0]/1e6+", p90Ms="+timings[10]/1e6+", allocatedBytesMedian="+allocations[6]+" (data-only, not game time)");
         String report="{\"checks\":"+checks+",\"targets\":2,\"methods\":"+methods+",\"originalFixedGetterCalls\":"+originalCalls+",\"viewFixedGetterCalls\":"+patchedCalls+",\"fixedRecipes\":"+actual.reusedRecipes+",\"dynamicRecipes\":"+actual.dynamicRecipes+",\"nativeManagerConstructorExecuted\":true,\"minecraftAndRecipeBoundariesAreFacades\":true,\"gameStarted\":false}";Files.writeString(out.resolve("report.json"),report);System.out.println(report);
  }
 }

@@ -517,6 +517,13 @@
         "dev/emi/emi/widget/RecipeScreenshotButtonWidget.class": "948451f5d71d3942b6423f48f2a4258a5d21181d3a27d39c6674fd62d783a02b",
         "dev/emi/emi/widget/RecipeTreeButtonWidget.class": "e75893e2d717493ae0cb4a37a93536e14e87a5fd23f2eb78f5f0349b7cb843bb"
       }
+    },
+    "modern_industrialization": {
+      "version": "1.8.6",
+      "classes": {
+        "aztech/modern_industrialization/compat/viewer/impl/emi/ViewerCategoryEmi.class": "2653c6f1a54a000954c0d1233922fc3b99e44ded366a0e8340c2a971c4769649",
+        "aztech/modern_industrialization/compat/viewer/impl/emi/ViewerCategoryEmi$ViewerRecipe.class": "95f5ecf3fac1f08c6f84774a1b7743de46f4566177c4585e3b2643b2cc85ab27"
+      }
     }
   }
 }

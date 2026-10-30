@@ -406,3 +406,20 @@ MAT의 ItemEmiStack 수는2,546,337→2,546,207, ItemStack은1,916,630→1,914,9
 현재 로그582,047bytes/WARN945/ERROR32와 저장 로그576,479bytes/WARN940/ERROR32를 대조했다. 새 EMI 예외·reload 재시도는 없다. 셰이더 uniform 경고·EMF 모델 재생성·Xaero ID형 경고는 지속된다. 별도 `Armor Formula a/(a+armor)`의0/0 평가 오류는18:10:58, 즉 이180초 기록과 접속 이전 발생이라 이번 EMI 비용의 원인으로 묶지 않는다. 운영 설정이나 JAR은 이 검토에서 변경하지 않았다.
 
 비교 근거는 로컬 `Compat/build/review-181143/comparison.json`, `frames-comparison.json`, `cpu-emi.json`, `alloc-emi.json` 및 두 원본 측정 폴더다. 이번 결론은 **수정 실행 확인 / 일부 반복 생성 감소 / 전체 초기화·첫 접속 개선 미확인**이다.
+
+
+## 18. 2026103010 — 순서에 따른 재생으로 버킷 재정렬 제거
+
+18:11 측정의 `finish`/rank/TimSort/Map 재삽입 비용을 겨냥했다. 새 경로는 카테고리별 native 정렬을 끝낸 뒤 그 순서로 레시피를 한 번 순회해 각 입력/출력 Bucket의 결과를 쌓는다. 고정 레시피는 첫 관계표에서 만든 recipe→bucket 링크로 바로 넣고, 동적 레시피는 원래 getter와 복사/비교 경로로 평가한다. 이미 확정된 순서로 쌓으므로 버킷별 sort와 최종 색인 Map 재삽입이 사라졌다.
+
+중복 재료는 직전 recipe identity로 억제하며, 같은 recipe 인스턴스가 비연속으로 두 번 등록된 경우만 별도의 작은 identity 집합을 사용한다. 동적 인스턴스가 반복되면 getter는 반복 평가하고, 새 입력 bucket에는 필요한 membership을 추가하므로 전체 getter를 생략하는 방식으로 중복을 처리하지 않는다. 완료 후 Bucket 목록은 불변으로 바꾸고 임시 duplicate/마지막 recipe 참조를 해제한다.
+
+MI1.8.6의 실제 `ViewerCategoryEmi$ViewerRecipe` 입력/출력/촉매 getter가 final 필드를 그대로 반환함을 bytecode로 확인했다. native shape계획은20→21종이며 MI 래퍼/외부 클래스 SHA와 모드 버전을 추가 가드로 고정했다. ID·카테고리 callback은 계속 실행하고 필드/리스트/수량/NBT/비교 기본값 변이 검증도 유지한다. 캡처 대상14593개 전체가 반드시 재사용되는 것은 아니며, 다음 실제 로그의 fixedRecipes로 범위를 확인한다.
+
+필드 반사 metadata는 ClassValue로 재사용해 매 recipe마다 Field를 찾아 접근 권한을 설정하는 작업을 줄였다. NBT 검증 hash를 만들 때 불필요한 varargs 배열도 제거했다. metadata만 Class 수명으로 보유하며 recipe/world/player는 static cache에 저장하지 않는다.
+
+오프라인 검증은 native Manager 결과와 대조하는20892검사로 확대했다. 20034 recipe/256 key의 밀집·희소 bucket, comparator 동률, 비연속 중복 인스턴스, 동적 반복, MI 입력 변이를 포함한다. preparation2056검사, 실제21 getter shape/현재3개 guard그룹/649클래스의 실제 Gson2.10 ABI44연결 및 전체 회귀 검사도 통과했다. Minecraft/레시피 경계에 data facade가 있으므로 실제 게임 실행 검수는 아니다.
+
+비교 벤치마크는 같은 fixture와 JDK/힙 조건으로 build3009·3010을 별도 JVM에서 세 쌍, 순서를 바꿔 실행했다. 각 JVM은8회 warmup 후12회 capture+sorted-view를 실행했다. 실행별 중앙값들의 중앙값은 **46.9627→31.3335ms(-33.3%)**, 해당 스레드의 작업당 직접 측정 할당 중앙값은 **45,093,616→23,735,296bytes(-47.4%)**였다. MI 개별 검사는 공정 비교를 위해 양쪽 시간 측정에서 제외했고, 동일 native20종 데이터로 비교했다. 이것은 해당 fixture의 결과로 실제 EMI 전체19.719초를 같은 비율로 줄인다고 예측하지 않는다.
+
+이번 빌드는 bucket 정렬 비용과 지원 범위를 함께 보완했다. 플러그인 등록·전체 툴팁 검색 등은 별도 비용으로 남아 있으며 다음 실제 측정은 EMI 전체/단계 시간과 first-join 프레임을 함께 비교해야 한다. 근거는 `Compat/build/reviewed3010/paired-benchmark.json`, 각 paired log, `emi-preparation-verification`, `verification.json`, `cumulative-comparison.json`이다.
