@@ -42,7 +42,9 @@ public final class EmiPreparationGuard implements IMixinConfigPlugin {
         } catch (Exception | LinkageError e) { enabled.clear(); }
     }
     public boolean shouldApplyMixin(String target, String mixin) {
-        return enabled.getOrDefault(mixin.endsWith("ProminentHiddenItemMixin") ? "hiddenItem" : "anvilPreparation", false);
+        String group=mixin.endsWith("EmiSortedViewWorkerMixin")||mixin.endsWith("EmiRecipeIndexAccessMixin")?"sortedView"
+            :mixin.endsWith("ProminentHiddenItemMixin")?"hiddenItem":"anvilPreparation";
+        return enabled.getOrDefault(group,false);
     }
     public String getRefMapperConfig() { return null; }
     public List<String> getMixins() { return null; }

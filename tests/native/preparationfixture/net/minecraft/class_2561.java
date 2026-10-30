@@ -1,0 +1,1 @@
+package net.minecraft;public class class_2561 {final String s;public class_2561(String s){this.s=s;}public boolean equals(Object o){return o instanceof class_2561 t&&s.equals(t.s);}public int hashCode(){return s.hashCode();}}

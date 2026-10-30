@@ -27,6 +27,9 @@ public final class EmiStackBuildScope implements AutoCloseable {
 
     private EmiStackBuildScope(String phase) { this.phase = phase; CURRENT.set(this); }
     public static EmiStackBuildScope begin(String phase) { return new EmiStackBuildScope(phase); }
+    public static boolean wasPlain(class_1792 item) {
+        var scope=CURRENT.get();return scope!=null&&scope.items.containsKey(item);
+    }
 
     public static EmiStack item(class_1935 convertible, Supplier<EmiStack> original) {
         EmiStackBuildScope scope = CURRENT.get();

@@ -8,7 +8,9 @@
     "ProminentHiddenItemMixin",
     "EmiAnvilPreparationMixin",
     "EmiRecipePreparationScopeMixin",
-    "EmiSortedPreparationScopeMixin"
+    "EmiSortedPreparationScopeMixin",
+    "EmiRecipeIndexAccessMixin",
+    "EmiSortedViewWorkerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -355,3 +355,22 @@ Upstream와 설치 클래스 대조:
 검사2056개: 반복 출력/NBT 동일, 반환 객체 변이 격리, 고유 기본 인챈트 순서, 생성자 NBT fallback, 범위 종료/예외/중첩/다른 스레드 격리, 수량 경계와 custom 스택. 반복 모루 사례의 Minecraft stack 생성은4000→6, 숨김 검사10000→0이었다. fixture 감소 배수를 실제 전체 로딩 개선량으로 환산하지 않는다. native 버전/해시 guard10시나리오, 현재 실제 resource fingerprint2그룹, 누적639클래스의 실제 Gson2.10 멤버44연결 및 전체 기존 회귀 검사를 통과했다.
 
 이전632클래스와 updater helper는 byte-identical이며 새7클래스가 추가됐다. 준비된 파일은 `Compat/build/reviewed3008/prominence-korean-compat-1.0.0.jar`다. 실사용 성능 검증은 다음 같은 조건의 측정에서 한다. B는 custom getter/비교 전략/순서 및 worker 취소를 함께 다루는 별도 구조 변경으로 남아 있다.
+
+
+## 16. 2026103009 구현 결과 — B 정렬 뷰
+
+이제 B도 구현했다. 첫 native Manager의 완성된 입력/출력 membership을 사용해 정렬 뷰를 만든다. 재사용 가능한 레시피의 입력·촉매·출력을 다시 펼쳐 전체 해시 색인을 만드는 경로를 생략한다. 동적 레시피는 원래 순서로 getter를 다시 실행해 새 결과를 합친다. 카테고리별 native comparator와 stable order를 유지하고 각 버킷의 결과를 그 순서로 정렬한다. 기존 빠른 unsorted 결과는 그대로 제공한다.
+
+재사용 대상은 실제 EMI1.1.24 바이트코드에서 getter가 필드 읽기/List.of 구성뿐인20개의 정확한 native 클래스, 그리고 build3008 범위에서 일반 기본 스택으로 확인된 native 모루 인챈트 레시피다. 상속 getter·식별된 필드 계획은 `prominence-emi-fixed-recipes.json`, actual getter shape 재검증은 `AuditRecipeShapes.java`에 있다. EMI473클래스의 지문을 모듈 가드에서 확인한다.
+
+기본 레시피라도 custom ingredient/stack/comparison/remainder가 끼면 다시 평가한다. 비교 기본값 Map, 필드 참조, 리스트 요소 순서, stack key/수량/NBT 내용이 바뀌면 원래 worker로 돌아간다. 사용자 정의 recipe.equals/hashCode, 다른 index Map/strategy, developer 진단 모드는 전체 native worker로 돌아간다. 따라서 '모든 플러그인의 임의 callback이 영구 캐시됐다'거나 '모든 두 번째 계산을 무조건 없앴다'는 구현은 아니다.
+
+작업대 결과는 native의 append 순서/중복 의미를 보존한다. native byWorkstation의 기존 중복 누적 동작 자체를 별도 수정하지 않았다. 새 뷰는 별도 객체로 완성한 뒤 자신이 activeWorker이며 source Manager가 그대로일 때만 publish한다. 취소·재접속으로 남은 이전 작업은 새 worker/Manager를 덮거나 비우지 않는다. 캡처한 필드/membership/source Manager 참조는 finally에서 해제하며 static world/player 캐시를 만들지 않는다.
+
+새 snapshot 검사는 첫 bake에 추가 비용과 일시 객체 보유를 만든다. 이를 숨기지 않고 다음 측정에서 bake+sorted view+search 및 GC 후 heap을 함께 비교한다. 현재 목표는 전체 두 번째 membership 재해석을 피하는 것이며, 2.220초를 그대로 전체 시간 절감량으로 빼지 않는다.
+
+현재 검증은 installed native Manager 생성자와 native Worker/Mixin을 실행하되 Minecraft와 재료/레시피 경계는 data facade를 사용한다. 입력/출력 목록과 순서, 카테고리, 작업대 전체 concatenation, 중복/null ID first-wins, 동적 재료 변경, 직접 필드 교체/리스트 변이/NBT·수량 변경, custom comparison fallback, 취소·재접속·참조 해제를 확인했다. 고정301개+동적1개 사례에서 native 정렬 Manager의 고정 getter602회가 새 뷰에서0회이며 동적 getter는 다시 실행된다. 이 수치는 fixture 결과이고 실제 팩의 eligible 수나 전체 속도 향상 배수가 아니다.
+
+실행 로그는 `EMI sorted view eligibility`, `EMI sorted relationship view`에 재사용/동적 레시피 수와 시간을 한 번씩 남긴다. 지원되지 않는 recipe equality나 중간 변이가 있으면 fallback 원인이 나온다. 독립 opt-out은 `-Dprominence.emiPreparation.sortedView=false`다.
+
+B 전용336검사/actual native2대상34메서드, 기존 preparation2056검사/4대상58메서드, 실제 getter20shape/3가드 그룹/647누적 클래스의 Gson44연결 및 전체 회귀 검사를 통과했다. 이전639클래스 중637개와 updater helper는 byte-identical이고 guard/스코프 helper2개만 확장했으며 새8클래스를 추가했다. 서버 변경은 필요하지 않은 클라이언트 기능이다.

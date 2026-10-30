@@ -1,0 +1,1 @@
+package dev.emi.emi.api.recipe;import java.util.*;import net.minecraft.*;public class EmiRecipeCategory {final class_2960 id;public Comparator<EmiRecipe> sort=EmiRecipeSorting.none();public EmiRecipeCategory(String s){id=new class_2960(s);}public class_2960 getId(){return id;}public class_2561 getName(){return new class_5250("translated");}}
