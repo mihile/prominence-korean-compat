@@ -84895,13 +84895,13 @@
       "key": "tooltip.soulsweapons.disable_heal_description_1",
       "english": "- Post hit will inflict §5Cursed Wounds§r, making",
       "korean": "- 타격 후 §5저주받은 상처§r를 입혀,",
-      "status": "corrected",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "Corrected Korean particle; actual effect not yet verified."
+      "notes": "Skofnung postHit applies configured DISABLE_HEAL duration plus enchant scaling; LivingEntityMixin interceptHeal cancels healing while effect active. Skofnung SHA256 81ab05ef868ee585124740e41b6c57f1fbbe10fa2e51fcf830d8d55fc560b830 mixin SHA256 9ad4b4cebf171f250ddafda346bb5d38e1179e8e48808c5c250a42272560b3f0"
     },
     {
       "mod": "soulsweapons",
@@ -84910,12 +84910,13 @@
       "key": "tooltip.soulsweapons.disable_heal_description_2",
       "english": "the target unable to heal for said time.",
       "korean": "대상이 해당 시간 동안 치유되지 않도록 만듭니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Skofnung postHit applies configured DISABLE_HEAL duration plus enchant scaling; LivingEntityMixin interceptHeal cancels healing while effect active. Skofnung SHA256 81ab05ef868ee585124740e41b6c57f1fbbe10fa2e51fcf830d8d55fc560b830 mixin SHA256 9ad4b4cebf171f250ddafda346bb5d38e1179e8e48808c5c250a42272560b3f0"
     },
     {
       "mod": "soulsweapons",
@@ -85007,13 +85008,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.sharpen_description_2",
       "english": "is in hand to empower this weapon. It will then",
-      "korean": "이 무기가 강화됩니다. 그러면 공격 피해가 증가하고",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "이 무기가 강화됩니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Joined with following line to describe finite empowered hit count; SkofnungStone sets empowered_attacks_left."
     },
     {
       "mod": "soulsweapons",
@@ -85021,13 +85023,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.sharpen_description_3",
       "english": "gain more attack damage and §cBleed§r post hit.",
-      "korean": "타격 후 §c출혈§r 효과가 추가됩니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "일정 횟수 동안 공격 피해가 증가하고 적에게 §c출혈§r을 줍니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "SkofnungStone sets configured empowered_attacks_left; Skofnung applies bleed and boosted attributes while empowered and decrements counter on hit. SHA256 81ab05ef868ee585124740e41b6c57f1fbbe10fa2e51fcf830d8d55fc560b830"
     },
     {
       "mod": "soulsweapons",
@@ -86001,12 +86004,13 @@
       "key": "tooltip.soulsweapons.heavy_weapon_description_1",
       "english": "- Gain §6Haste§r post hit while having §4Strength§r effect.",
       "korean": "- §4힘§r 효과를 보유하고 있을 때 타격 후 §6성급함§r을 얻습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "IUltraHeavy requires heavy flag and configuration ultra_heavy_haste_when_strength; with Strength applies Haste II 200 ticks on hit. applyPostureLoss adds getPostureLoss to target when heavy. SHA256 8a1f737adfed8647fe800201ee42bcd867e3f4d09db939acb53faf32eae87f1d"
     },
     {
       "mod": "soulsweapons",
@@ -86043,12 +86047,13 @@
       "key": "tooltip.soulsweapons.heavy_weapon_description_4",
       "english": "- Apply %s §fPosture Loss§r post hit.",
       "korean": "- 적중 후 %s의 §f균형 피해§r를 줍니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "IUltraHeavy requires heavy flag and configuration ultra_heavy_haste_when_strength; with Strength applies Haste II 200 ticks on hit. applyPostureLoss adds getPostureLoss to target when heavy. SHA256 8a1f737adfed8647fe800201ee42bcd867e3f4d09db939acb53faf32eae87f1d"
     },
     {
       "mod": "soulsweapons",
@@ -86057,12 +86062,13 @@
       "key": "tooltip.soulsweapons.heavy_weapon_description_5",
       "english": "- This weapon disables shields.",
       "korean": "- 이 무기는 방패를 무력화합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "LivingEntityMixin.interceptDisablesShield returns true for main-hand IUltraHeavy with isHeavy when ultra_heavy_disables_shields enabled; standard shield-disable mechanics still apply. SHA256 9ad4b4cebf171f250ddafda346bb5d38e1179e8e48808c5c250a42272560b3f0"
     },
     {
       "mod": "soulsweapons",
@@ -86085,12 +86091,13 @@
       "key": "tooltip.soulsweapons.righteous_description_1",
       "english": "- Does increased damage against §fUndead§r.",
       "korean": "- §f언데드§r에 대해 피해가 증가합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "EnchantmentHelperMixin adds IUndeadBonus.getUndeadBonus plus Fire Aspect enchantment level to damage against undead when isRighteous is true. SHA256 fcf388653dd38359916789dba83bc2e39af3ed005bf9701553a1fa7f771b69d1"
     },
     {
       "mod": "soulsweapons",
@@ -86099,12 +86106,13 @@
       "key": "tooltip.soulsweapons.righteous_description_2",
       "english": "Scales with Fire Aspect, current bonus: ",
       "korean": "발화 레벨에 따라 증가되며, 현재 추가 피해량: ",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "EnchantmentHelperMixin adds IUndeadBonus.getUndeadBonus plus Fire Aspect enchantment level to damage against undead when isRighteous is true. SHA256 fcf388653dd38359916789dba83bc2e39af3ed005bf9701553a1fa7f771b69d1"
     },
     {
       "mod": "soulsweapons",
