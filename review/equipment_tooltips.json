@@ -83084,12 +83084,13 @@
       "key": "item.soulsweapons.chungus_disc.desc",
       "english": "Endigo - Big Chungus (Official Main Theme)",
       "korean": "Endigo - Big Chungus (공식 메인 테마)",
-      "status": "pending",
+      "status": "not_equipment",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Music disc description; excluded from gear scope."
     },
     {
       "mod": "soulsweapons",
@@ -83098,12 +83099,13 @@
       "key": "item.soulsweapons.fallen_icon_disc.desc",
       "english": "NoRestForWicked - The Fallen Icon",
       "korean": "NoRestForWicked - The Fallen Icon",
-      "status": "pending",
+      "status": "not_equipment",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": true
-      }
+      },
+      "notes": "Music disc description; excluded from gear scope."
     },
     {
       "mod": "soulsweapons",
@@ -83112,12 +83114,13 @@
       "key": "item.soulsweapons.draugr_boss_disc.desc",
       "english": "NoRestForWicked - Gladius ad Gladium",
       "korean": "NoRestForWicked - Gladius ad Gladium",
-      "status": "pending",
+      "status": "not_equipment",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": true
-      }
+      },
+      "notes": "Music disc description; excluded from gear scope."
     },
     {
       "mod": "soulsweapons",
@@ -83126,12 +83129,13 @@
       "key": "item.soulsweapons.frenzied_shade_disc.desc",
       "english": "NoRestForWicked - Frenzied Shade",
       "korean": "NoRestForWicked - Frenzied Shade",
-      "status": "pending",
+      "status": "not_equipment",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": true
-      }
+      },
+      "notes": "Music disc description; excluded from gear scope."
     },
     {
       "mod": "soulsweapons",
@@ -84019,13 +84023,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.dragon_staff_description_2",
       "english": "The mist will damage mobs, while healing players.",
-      "korean": "이 안개는 적에게 피해를 주고, 플레이어를 치유합니다",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "안개는 플레이어와 플레이어가 길들인 생명체를 치유하고, 그 밖의 생명체에게 피해를 줍니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "HallowedDragonMist.method_5572 heals players or Tameable whose owner is player, damages other living targets. Actual mist target selection still requires game verification. SHA256 8fc09211543cba626b0645c708f007fb3c00fc972c0e45c53d5489a001d54233"
     },
     {
       "mod": "soulsweapons",

@@ -494,5 +494,6 @@
   "item.simplyswords.plaguesworditem.tooltip4": "공격이 이로운 효과를 해로운 효과로 바꾸기도 합니다. 이때 열병을 추가로 부여하고 다음 종소리를 강화합니다.",
   "item.simplyswords.emberiresworditem.tooltip6": "일정 시간 집중하면 조준한 대상에게 자동으로 발사합니다.",
   "item.simplyswords.emberiresworditem.tooltip9": "대상을 조준해 발사하면 일정 확률로 신속, 성급함, 힘 효과를 얻습니다. 오래 집중할수록 확률이 높아집니다.",
-  "item.simplyswords.brimstoneclaymoreitem.tooltip4": "대상 위에 브림스톤 클레이모어를 소환합니다. 대검은 주변에 반복해서 피해를 준 뒤 지면에 내리꽂혀 추가 피해를 줍니다."
+  "item.simplyswords.brimstoneclaymoreitem.tooltip4": "대상 위에 브림스톤 클레이모어를 소환합니다. 대검은 주변에 반복해서 피해를 준 뒤 지면에 내리꽂혀 추가 피해를 줍니다.",
+  "tooltip.soulsweapons.dragon_staff_description_2": "안개는 플레이어와 플레이어가 길들인 생명체를 치유하고, 그 밖의 생명체에게 피해를 줍니다."
 }
