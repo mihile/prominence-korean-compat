@@ -70627,13 +70627,14 @@
       "resource": "assets/simplyswords/lang/en_us.json",
       "key": "item.simplyswords.emberiresworditem.tooltip6",
       "english": "Releasing the channel within the last second allows you to fire an additional piece of shrapnel.",
-      "korean": "집중 시간이 끝나기 전 마지막 1초 안에 집중을 풀면 파편을 하나 더 발사합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "일정 시간 집중하면 조준한 대상에게 자동으로 발사합니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "method_7852 invokes release below 20 ticks; method_7840 finds one target, applies one damage call and checks charge-dependent buff chance only when target exists. No second projectile found in release bytecode. SHA256 0dae441dc5b721a5413a3a683f84864bdc6300311bc9a1514778024c2a5954c2 Use duration is 80 ticks; automatic release at remaining 10 ticks; target existence required but damage success not checked."
     },
     {
       "mod": "simplyswords",
@@ -70641,13 +70642,14 @@
       "resource": "assets/simplyswords/lang/en_us.json",
       "key": "item.simplyswords.emberiresworditem.tooltip9",
       "english": "When releasing shrapnel, you have a chance relative to your channel time to gain Speed, Haste, and Strength.",
-      "korean": "파편을 발사할 때 집중한 시간에 비례한 확률로 신속, 성급함, 힘 효과를 얻습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "대상을 조준해 발사하면 일정 확률로 신속, 성급함, 힘 효과를 얻습니다. 오래 집중할수록 확률이 높아집니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "method_7852 invokes release below 20 ticks; method_7840 finds one target, applies one damage call and checks charge-dependent buff chance only when target exists. No second projectile found in release bytecode. SHA256 0dae441dc5b721a5413a3a683f84864bdc6300311bc9a1514778024c2a5954c2 Use duration is 80 ticks; automatic release at remaining 10 ticks; target existence required but damage success not checked."
     },
     {
       "mod": "simplyswords",
