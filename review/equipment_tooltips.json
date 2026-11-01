@@ -70224,13 +70224,14 @@
       "resource": "assets/simplyswords/lang/en_us.json",
       "key": "item.simplyswords.brimstoneclaymoreitem.tooltip4",
       "english": "Summon a Brimstone Claymore above the target that pulses area damage before plunging into the ground.",
-      "korean": "대상 위에 브림스톤 클레이모어를 소환합니다. 대검은 주위에 반복해서 범위 피해를 준 뒤 지면으로 내리꽂힙니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "대상 위에 브림스톤 클레이모어를 소환합니다. 대검은 주변에 반복해서 피해를 준 뒤 지면에 내리꽂혀 추가 피해를 줍니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "tickInstance calls pulse at configured intervals then startPlunge and impact; both pulse and impact call damageInRadius with separate scaling. SHA256 bb00bef0e04f7c1f552b2beaa42d92d490baa38c9cfb6560212ff55320faa153"
     },
     {
       "mod": "simplyswords",
