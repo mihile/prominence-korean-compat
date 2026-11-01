@@ -508,5 +508,6 @@
   "tooltip.soulsweapons.grand_skyfall_description_3": "낙하 거리에 따라 주변 몬스터에게 범위 피해를 줍니다.",
   "tooltip.soulsweapons.transformation_description_2": "수동적인 생명체나 원거리 공격을 하는 적은",
   "tooltip.soulsweapons.transformation_description_3": "§b파란 영혼§r을, 그 밖의 생명체는",
-  "tooltip.soulsweapons.transformation_description_4": "§c빨간 영혼§r을 줍니다."
+  "tooltip.soulsweapons.transformation_description_4": "§c빨간 영혼§r을 줍니다.",
+  "tooltip.soulsweapons.transformation_description_6": "영혼을 다 모은 뒤 손에 들면, 더 많은 영혼의 종류에 따라 낫이 변형됩니다."
 }

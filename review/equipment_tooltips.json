@@ -85732,12 +85732,13 @@
       "key": "tooltip.soulsweapons.transformation_description_5",
       "english": "the damage of the weapon. When reaching max number of",
       "korean": "영혼의 수가 증가할수록 무기의 피해도 증가합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "getBonusDamage scales with total souls / configured maximum; transformation copies enchantment entries to new item. SHA256 9c61d7ef70ff87ca2aabcb42de11e9a6c9c3f667ac1b6656c9ef05cff34e9ea7"
     },
     {
       "mod": "soulsweapons",
@@ -85745,13 +85746,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.transformation_description_6",
       "english": "souls, the item transforms based on the dominant soul type.",
-      "korean": "최대 영혼 수에 도달하면, 주된 영혼 유형에 따라 아이템이 변형됩니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "영혼을 다 모은 뒤 손에 들면, 더 많은 영혼의 종류에 따라 낫이 변형됩니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Inventory tick transforms only selected hotbar slot after soul threshold; dominant color decides result; tie chooses RED. SHA256 9c61d7ef70ff87ca2aabcb42de11e9a6c9c3f667ac1b6656c9ef05cff34e9ea7"
     },
     {
       "mod": "soulsweapons",
@@ -85760,12 +85762,13 @@
       "key": "tooltip.soulsweapons.transformation_description_7",
       "english": "Enchants will carry over to the transforming weapon.",
       "korean": "마법 부여는 변형된 무기로 이어집니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "getBonusDamage scales with total souls / configured maximum; transformation copies enchantment entries to new item. SHA256 9c61d7ef70ff87ca2aabcb42de11e9a6c9c3f667ac1b6656c9ef05cff34e9ea7"
     },
     {
       "mod": "soulsweapons",
