@@ -85275,13 +85275,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.grand_skyfall_description_1",
       "english": "- Use in off-hand to §3Riptide§r the user,",
-      "korean": "- 보조 손에 사용하여",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "- 보조 손에 들고 충전해 사용하면",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "CometSpear.method_7840 requires chargeTime >= 10 and offhand stack, launches player and adds CALCULATED_FALL; IDetonateGround applies fall-distance scaled impact. SHA256 240631a8402c8dc23b7dd7f2109f5bf02d6fe6bbcffa023cb8dfaf0d974f7f38"
     },
     {
       "mod": "soulsweapons",
@@ -85289,13 +85290,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.grand_skyfall_description_2",
       "english": "then upon landing, smash the ground, damaging",
-      "korean": "사용자에게 §3급류§r을 적용한 후, 착지 시 지면을 가격하여",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "§3급류§r로 돌진한 뒤, 착지할 때 지면을 강타해",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "CometSpear.method_7840 requires chargeTime >= 10 and offhand stack, launches player and adds CALCULATED_FALL; IDetonateGround applies fall-distance scaled impact. SHA256 240631a8402c8dc23b7dd7f2109f5bf02d6fe6bbcffa023cb8dfaf0d974f7f38"
     },
     {
       "mod": "soulsweapons",
@@ -85303,13 +85305,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.grand_skyfall_description_3",
       "english": "all mobs in a radius based on falling distance.",
-      "korean": "낙하 거리에 따라 반경 내 모든 몬스터에 피해를 줍니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "낙하 거리에 따라 주변 몬스터에게 범위 피해를 줍니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "CometSpear.method_7840 requires chargeTime >= 10 and offhand stack, launches player and adds CALCULATED_FALL; IDetonateGround applies fall-distance scaled impact. SHA256 240631a8402c8dc23b7dd7f2109f5bf02d6fe6bbcffa023cb8dfaf0d974f7f38"
     },
     {
       "mod": "soulsweapons",
