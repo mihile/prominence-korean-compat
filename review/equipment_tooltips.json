@@ -83375,12 +83375,13 @@
       "key": "tooltip.soulsweapons.omnivamp_description",
       "english": "- §cHeal§r for every mob hit with the weapons ability.",
       "korean": "- 무기의 능력으로 몬스터를 타격할 때마다 §c회복§r합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "DarkinBlade uses IDetonateGround: heal is applied per valid target when healMod positive and hit succeeds, or if calculated_fall_hits_immune_entities permits immune targets. DarkinScythePrime enables healing on mounted-ability resolution. Values depend on config. IDetonateGround SHA256 5fee730160e7762773a3a7de2c4a8d75876600b5fa9f1347da18ef0c76207c4a"
     },
     {
       "mod": "soulsweapons",
@@ -83642,12 +83643,13 @@
       "key": "tooltip.soulsweapons.returning_description_1",
       "english": "- Press keybind to return the thrown weapon to yourself.",
       "korean": "- 단축키를 눌러 던진 무기를 자신에게 되돌립니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "ReturnThrownWeaponC2S looks up player saved projectile UUID in current server world and sets shouldReturn; actual flight starts when projectile has hit something or is grounded. SHA256 ce03921c0bc1bb25e4d78849ddc7065b85a49711c0ef9a837653c76f799fd6bd"
     },
     {
       "mod": "soulsweapons",
@@ -83656,12 +83658,13 @@
       "key": "tooltip.soulsweapons.returning_description_2",
       "english": "- Damage and effects trigger on collision on the way back.",
       "korean": "- 돌아오는 동안 충돌 시 피해와 효과가 발동합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "method_5773 scans non-owner, non-teammate living entities every return tick and calls subtype collide; separately inserts item when owner intersects projectile after dealtDamage, under pickup and inventory rules. SHA256 5b9779102d1faec78e3b42f5433d75bbf040f5666ffd72260ece0be85f8e1f71"
     },
     {
       "mod": "soulsweapons",
@@ -83670,12 +83673,13 @@
       "key": "tooltip.soulsweapons.returning_description_3",
       "english": "Walking over it will auto pick it up. Returning keybind: ",
       "korean": "위를 지나가면 자동으로 줍습니다. 귀환 단축키: ",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "method_5773 scans non-owner, non-teammate living entities every return tick and calls subtype collide; separately inserts item when owner intersects projectile after dealtDamage, under pickup and inventory rules. SHA256 5b9779102d1faec78e3b42f5433d75bbf040f5666ffd72260ece0be85f8e1f71"
     },
     {
       "mod": "soulsweapons",
@@ -84501,12 +84505,13 @@
       "key": "tooltip.soulsweapons.lunar_herald_description_1",
       "english": "- Use to gain the §dLunar Herald§r effect. Press ",
       "korean": "- §d달의 전령§r 효과를 얻습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "MoonstoneRing use grants MOON_HERALD if absent; configurable effect duration. KeyBindRegistry registers effect_shoot_moonlight and sends MOONLIGHT packet; server calls summonSmallProjectile, subject to cooldown. Ring SHA256 42bfebdbba900a1ce661ff47c8f840b98bf615175ddd26c80335a75dd36441b9 keybind SHA256 b323fd61f874806839489b165343a9a9d7322a3370497c2cf75c744da999f5ac"
     },
     {
       "mod": "soulsweapons",
@@ -84515,12 +84520,13 @@
       "key": "tooltip.soulsweapons.lunar_herald_description_2",
       "english": "to shoot moonlight beams with the effect.",
       "korean": "이 효과로 달빛 광선을 발사하려면 단축키를 누르세요.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "MoonstoneRing use grants MOON_HERALD if absent; configurable effect duration. KeyBindRegistry registers effect_shoot_moonlight and sends MOONLIGHT packet; server calls summonSmallProjectile, subject to cooldown. Ring SHA256 42bfebdbba900a1ce661ff47c8f840b98bf615175ddd26c80335a75dd36441b9 keybind SHA256 b323fd61f874806839489b165343a9a9d7322a3370497c2cf75c744da999f5ac"
     },
     {
       "mod": "soulsweapons",
@@ -85326,12 +85332,13 @@
       "key": "tooltip.soulsweapons.arkenplate_description_1",
       "english": "- When the user is under §c50% Health§r, gain",
       "korean": "- 사용자의 체력이 §c50%§r 이하일 때,",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Arkenplate checks health <= maxHealth/2 and active armor slot, applies resistance and magic resistance amplifier 1 (level II). SHA256 633a5b666dc0fdc16130d6b9aceb5e18d438b7f71c669722c534b84d47a076b4"
     },
     {
       "mod": "soulsweapons",
@@ -85340,12 +85347,13 @@
       "key": "tooltip.soulsweapons.arkenplate_description_2",
       "english": "§3Resistance II§r & §bMagic Resistance II§r.",
       "korean": "§3저항 II§r & §b마법 저항 II§r 효과를 얻습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Arkenplate checks health <= maxHealth/2 and active armor slot, applies resistance and magic resistance amplifier 1 (level II). SHA256 633a5b666dc0fdc16130d6b9aceb5e18d438b7f71c669722c534b84d47a076b4"
     },
     {
       "mod": "soulsweapons",
@@ -85507,13 +85515,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.bane_of_arthropods_description_1",
       "english": "- Natural increased damage against §3Arthropods§r.",
-      "korean": "- §3절지동물§r에 대해 자연적으로 증가된 피해.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "- §3절지동물§r에게 추가 피해를 줍니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "EnchantmentHelperMixin adds configured sting_bonus_arthropod_damage to enchantment damage for STING against arthropods. SHA256 fcf388653dd38359916789dba83bc2e39af3ed005bf9701553a1fa7f771b69d1"
     },
     {
       "mod": "soulsweapons",
