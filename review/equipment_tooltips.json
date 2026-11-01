@@ -85614,12 +85614,13 @@
       "key": "tooltip.soulsweapons.doom_description_1",
       "english": "- Has massive attack damage for the next",
       "korean": "- 다음 공격에 막대한 피해를 입히며,",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "CrucibleSword attribute switches between empowered and normal damage while on cooldown. Successful postHit sets cooldown, multiplied by configurable Nether modifier (client config 0.4). SHA256 059343aed33783c77d6c23858cc3ce6181e4178f4ecdc59381d2f949bc0796a4"
     },
     {
       "mod": "soulsweapons",
@@ -85628,12 +85629,13 @@
       "key": "tooltip.soulsweapons.doom_description_2",
       "english": "strike, then will go on cooldown.",
       "korean": "이후 재사용 대기시간 상태에 들어갑니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "CrucibleSword attribute switches between empowered and normal damage while on cooldown. Successful postHit sets cooldown, multiplied by configurable Nether modifier (client config 0.4). SHA256 059343aed33783c77d6c23858cc3ce6181e4178f4ecdc59381d2f949bc0796a4"
     },
     {
       "mod": "soulsweapons",
@@ -85642,12 +85644,13 @@
       "key": "tooltip.soulsweapons.doom_description_3",
       "english": "- Cooldown is reduced in the Nether",
       "korean": "- 네더에서는 재사용 대기시간이 감소합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "CrucibleSword attribute switches between empowered and normal damage while on cooldown. Successful postHit sets cooldown, multiplied by configurable Nether modifier (client config 0.4). SHA256 059343aed33783c77d6c23858cc3ce6181e4178f4ecdc59381d2f949bc0796a4"
     },
     {
       "mod": "soulsweapons",
@@ -85683,13 +85686,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.transformation_description_2",
       "english": "§bBlue§r and §cRed§r souls based on whether the mob",
-      "korean": "몬스터가 수동적이거나 원거리 무기를 사용하거나",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "수동적인 생명체나 원거리 공격을 하는 적은",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "handleKill chooses BLUE for ranged-mob tag, held RangedWeaponItem, or PassiveEntity; all remaining targets yield RED, not only hostile entities. Boss-tagged victims yield 20 instead of one. SHA256 9c61d7ef70ff87ca2aabcb42de11e9a6c9c3f667ac1b6656c9ef05cff34e9ea7"
     },
     {
       "mod": "soulsweapons",
@@ -85697,13 +85701,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.transformation_description_3",
       "english": "was passive, wielding a ranged weapon, or whether the",
-      "korean": "적대적인 몬스터인지에 따라",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "§b파란 영혼§r을, 그 밖의 생명체는",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "handleKill chooses BLUE for ranged-mob tag, held RangedWeaponItem, or PassiveEntity; all remaining targets yield RED, not only hostile entities. Boss-tagged victims yield 20 instead of one. SHA256 9c61d7ef70ff87ca2aabcb42de11e9a6c9c3f667ac1b6656c9ef05cff34e9ea7"
     },
     {
       "mod": "soulsweapons",
@@ -85711,13 +85716,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.transformation_description_4",
       "english": "mob was a hostile monster. Each number of souls increases",
-      "korean": "§b파란§r 영혼과 §c빨간§r 영혼으로 구분됩니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "§c빨간 영혼§r을 줍니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "handleKill chooses BLUE for ranged-mob tag, held RangedWeaponItem, or PassiveEntity; all remaining targets yield RED, not only hostile entities. Boss-tagged victims yield 20 instead of one. SHA256 9c61d7ef70ff87ca2aabcb42de11e9a6c9c3f667ac1b6656c9ef05cff34e9ea7"
     },
     {
       "mod": "soulsweapons",

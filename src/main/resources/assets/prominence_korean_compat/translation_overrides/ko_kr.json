@@ -505,5 +505,8 @@
   "tooltip.soulsweapons.bane_of_arthropods_description_1": "- §3절지동물§r에게 추가 피해를 줍니다.",
   "tooltip.soulsweapons.grand_skyfall_description_1": "- 보조 손에 들고 충전해 사용하면",
   "tooltip.soulsweapons.grand_skyfall_description_2": "§3급류§r로 돌진한 뒤, 착지할 때 지면을 강타해",
-  "tooltip.soulsweapons.grand_skyfall_description_3": "낙하 거리에 따라 주변 몬스터에게 범위 피해를 줍니다."
+  "tooltip.soulsweapons.grand_skyfall_description_3": "낙하 거리에 따라 주변 몬스터에게 범위 피해를 줍니다.",
+  "tooltip.soulsweapons.transformation_description_2": "수동적인 생명체나 원거리 공격을 하는 적은",
+  "tooltip.soulsweapons.transformation_description_3": "§b파란 영혼§r을, 그 밖의 생명체는",
+  "tooltip.soulsweapons.transformation_description_4": "§c빨간 영혼§r을 줍니다."
 }
