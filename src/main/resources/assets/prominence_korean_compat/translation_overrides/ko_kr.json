@@ -511,5 +511,16 @@
   "tooltip.soulsweapons.transformation_description_4": "§c빨간 영혼§r을 줍니다.",
   "tooltip.soulsweapons.transformation_description_6": "영혼을 다 모은 뒤 손에 들면, 더 많은 영혼의 종류에 따라 낫이 변형됩니다.",
   "tooltip.soulsweapons.sharpen_description_3": "일정 횟수 동안 공격 피해가 증가하고 적에게 §c출혈§r을 줍니다.",
-  "tooltip.soulsweapons.sharpen_description_2": "이 무기가 강화됩니다."
+  "tooltip.soulsweapons.sharpen_description_2": "이 무기가 강화됩니다.",
+  "tooltip.soulsweapons.umbral_trespass_description_3": "빠져나올 때 대상에게 큰 피해를 입힙니다.",
+  "prominent.challenge_end.cinders": "+%s 잿불 코인",
+  "prominent.command.cinders.add": "%2$s에게 잿불 코인 %1$s개를 추가했습니다. 현재: %3$s개",
+  "prominent.command.cinders.get": "%s의 잿불 코인: %s개",
+  "prominent.command.cinders.remove": "%2$s에서 잿불 코인 %1$s개를 차감했습니다. 현재: %3$s개",
+  "prominent.command.cinders.set": "%s의 잿불 코인을 %s개로 설정했습니다.",
+  "prominent.gui.lottery.reward_chance_cinders": "+%s 잿불 코인 (%s%%)",
+  "prominent.gui.lottery.reward_chance_with_cinders": "%s + 잿불 코인 %s개 (%s%%)",
+  "prominent.gui.primordial_forge.craft.missing_cinders": "  - 잿불 코인: %s/%s",
+  "prominent.tooltip.loot_box.entry_cinders_only": "+잿불 코인 %s개: %s%%",
+  "prominent.tooltip.loot_box.entry_with_cinders": "%s + 잿불 코인 %s개: %s%%"
 }

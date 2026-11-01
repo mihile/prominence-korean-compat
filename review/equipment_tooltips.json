@@ -85808,12 +85808,13 @@
       "key": "tooltip.soulsweapons.early_combat_description_1",
       "english": "- If not on cooldown, post hit, gain movement speed",
       "korean": "- 재사용 대기시간 상태가 아닐 때,",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "ShadowAssassinScythe postHit applies SHADOW_STEP when item cooldown is clear; duration configurable. EffectRegistry adds 0.3 multiply-total movement-speed modifier per effect level; weapon attributes use shadow-step state. EffectRegistry SHA256 cb6cd1ae1472941b8daa57329b9e8dace2ccbc0e7d8ca863e426c9278d66f8dd"
     },
     {
       "mod": "soulsweapons",
@@ -85822,12 +85823,13 @@
       "key": "tooltip.soulsweapons.early_combat_description_2",
       "english": "and bonus damage for this weapon.",
       "korean": "타격 후 이동 속도와 무기 피해가 증가합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "ShadowAssassinScythe postHit applies SHADOW_STEP when item cooldown is clear; duration configurable. EffectRegistry adds 0.3 multiply-total movement-speed modifier per effect level; weapon attributes use shadow-step state. EffectRegistry SHA256 cb6cd1ae1472941b8daa57329b9e8dace2ccbc0e7d8ca863e426c9278d66f8dd"
     },
     {
       "mod": "soulsweapons",
@@ -85836,12 +85838,13 @@
       "key": "tooltip.soulsweapons.early_combat_description_3",
       "english": "Time can be changed in config. Current time in seconds: ",
       "korean": "시간은 설정에서 변경할 수 있습니다. 현재 시간(초): ",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "ShadowAssassinScythe postHit applies SHADOW_STEP when item cooldown is clear; duration configurable. EffectRegistry adds 0.3 multiply-total movement-speed modifier per effect level; weapon attributes use shadow-step state. EffectRegistry SHA256 cb6cd1ae1472941b8daa57329b9e8dace2ccbc0e7d8ca863e426c9278d66f8dd"
     },
     {
       "mod": "soulsweapons",
@@ -85878,12 +85881,13 @@
       "key": "tooltip.soulsweapons.umbral_trespass_description_2",
       "english": "In this state, the user takes no damage. On dismount,",
       "korean": "이 상태에서는 사용자가 피해를 받지 않습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "UmbralTrespassItem applies GHOSTLY during ride; PlayerEntityMixin interceptDamage sets return false while GHOSTLY present. Other mods or nonstandard removal paths not proven. SHA256 d85546061ab744b03984485c3fe89837f8dc9533a4f0fe4c5824dadd55d84351"
     },
     {
       "mod": "soulsweapons",
@@ -85891,13 +85895,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.umbral_trespass_description_3",
       "english": "the user leaps out, and the target is dealt heavy damage.",
-      "korean": "탈출 시 사용자는 뛰어 나가며 목표에게 큰 피해를 입힙니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "빠져나올 때 대상에게 큰 피해를 입힙니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "LivingEntityMixin interceptDismount damages ridden target; no explicit leap velocity found in the reviewed dismount handler. Removes unsupported movement claim without asserting movement cannot occur elsewhere."
     },
     {
       "mod": "soulsweapons",
@@ -85911,7 +85916,8 @@
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "UmbralTrespassItem use checks getAttacking() non-null, squaredDistanceTo < 200, cooldown and successful startRiding; Minecraft lifetime/expiry semantics and death handling need verification. SHA256 4887362317ce0ffc58def907c4a681523763d17e2f68c3b52c671b3117eb61ae"
     },
     {
       "mod": "soulsweapons",
@@ -85925,7 +85931,8 @@
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "UmbralTrespassItem use checks getAttacking() non-null, squaredDistanceTo < 200, cooldown and successful startRiding; Minecraft lifetime/expiry semantics and death handling need verification. SHA256 4887362317ce0ffc58def907c4a681523763d17e2f68c3b52c671b3117eb61ae"
     },
     {
       "mod": "soulsweapons",
@@ -85939,7 +85946,8 @@
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "UmbralTrespassItem use checks getAttacking() non-null, squaredDistanceTo < 200, cooldown and successful startRiding; Minecraft lifetime/expiry semantics and death handling need verification. SHA256 4887362317ce0ffc58def907c4a681523763d17e2f68c3b52c671b3117eb61ae"
     },
     {
       "mod": "soulsweapons",
@@ -85962,12 +85970,13 @@
       "key": "tooltip.soulsweapons.trick_weapon_description_1",
       "english": "- Press %s to transform the weapon if in main hand.",
       "korean": "- 주 손에 들고 있을 때 %s를 눌러 무기를 변환합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "SwitchTrickWeaponC2S obtains MAIN_HAND, resolves alternate via TrickWeaponUtil and replaces selected inventory slot. SHA256 ed2fffe00b8825ef28bff6d4fcd461d6b52336f0d350ceda7fc66669e6cb2823"
     },
     {
       "mod": "soulsweapons",
