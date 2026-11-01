@@ -499,5 +499,7 @@
   "tooltip.soulsweapons.freeze_description": "- 타격 후 적에게 §b영구동토§r를 적용합니다.",
   "tooltip.soulsweapons.permafrost_description_2": "근처의 몬스터에게 §b영구동토§r를 전파하고 피해를 줍니다.",
   "tooltip.soulsweapons.crit_description_1": "- 던진 창의 피해는 §c체력이 20%§r 미만인 대상에게",
-  "tooltip.soulsweapons.disable_heal_description_1": "- 타격 후 §5저주받은 상처§r를 입혀,"
+  "tooltip.soulsweapons.disable_heal_description_1": "- 타격 후 §5저주받은 상처§r를 입혀,",
+  "tooltip.soulsweapons.chaos_robes_description_1": "- 땅에 서 있으면 주변의 풀과 흙을",
+  "tooltip.soulsweapons.chaos_robes_description_2": "§5시들게§r 만듭니다."
 }

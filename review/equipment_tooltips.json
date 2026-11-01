@@ -84671,13 +84671,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.chaos_robes_description_1",
       "english": "- Equip to §5Wither§r all nearby Grass",
-      "korean": "- 장착하면 가까운 풀과 흙 블록을",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "- 땅에 서 있으면 주변의 풀과 흙을",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "ChaosRobes requires wearer grounded and chaos_cape_wither_ground enabled. WitheredBlock restoration depends on scheduled/random ticks, age, light and neighboring blocks; no fixed short duration established. SHA256 be30c4d3f03d6d57f3f7303c5d3121dfc9150a2c3c05e9c6d365129be5229bc6"
     },
     {
       "mod": "soulsweapons",
@@ -84685,13 +84686,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.chaos_robes_description_2",
       "english": "and Dirt blocks for a short duration.",
-      "korean": "짧은 시간 동안 §5시듦§r 상태로 만듭니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "§5시들게§r 만듭니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "ChaosRobes requires wearer grounded and chaos_cape_wither_ground enabled. WitheredBlock restoration depends on scheduled/random ticks, age, light and neighboring blocks; no fixed short duration established. SHA256 be30c4d3f03d6d57f3f7303c5d3121dfc9150a2c3c05e9c6d365129be5229bc6"
     },
     {
       "mod": "soulsweapons",
@@ -84700,12 +84702,13 @@
       "key": "tooltip.soulsweapons.chaos_robes_description_3",
       "english": "- Every 2 seconds, apply §5Wither§r to",
       "korean": "- 2초마다 주변의 비플레이어 개체에",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Armor slot active: every 40 ticks applies Wither II for 80 ticks to nearby living entities excluding players. Queries expanded bounding box, not spherical radius. SHA256 1fa859bedd806bf322a2ec6af5549bc708bc572985f84993d7adee5df9d80b23"
     },
     {
       "mod": "soulsweapons",
@@ -84714,12 +84717,13 @@
       "key": "tooltip.soulsweapons.chaos_robes_description_4",
       "english": "nearby non-player entities.",
       "korean": "§5시듦§r를 적용합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Armor slot active: every 40 ticks applies Wither II for 80 ticks to nearby living entities excluding players. Queries expanded bounding box, not spherical radius. SHA256 1fa859bedd806bf322a2ec6af5549bc708bc572985f84993d7adee5df9d80b23"
     },
     {
       "mod": "soulsweapons",
