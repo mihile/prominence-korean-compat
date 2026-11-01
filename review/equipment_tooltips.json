@@ -70554,13 +70554,14 @@
       "resource": "assets/simplyswords/lang/en_us.json",
       "key": "item.simplyswords.plaguesworditem.tooltip2",
       "english": "Weapon hits inflict the target with fever. At %d fever, a plague bell tolls and damages nearby enemies.",
-      "korean": "공격이 대상에게 열기를 부여합니다. 열기가 %d에 도달하면 역병의 종이 울려 주변 적에게 피해를 줍니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "무기 공격으로 대상에게 열병을 부여합니다. 열병이 %d에 도달하면 역병의 종이 울려 주변 적에게 피해를 줍니다.",
+      "status": "language_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "onMeleeHit accumulates configured fever and starts outbreak at threshold; tryConvertEffects uses configured chance, conversion mapping and additional fever. Pending toll handles follow-up hits separately. SHA256 4df2ff0a57670e1c6b12f28e6a99b45c07fa790def7c3b003393e22fc3541ccd"
     },
     {
       "mod": "simplyswords",
@@ -70568,13 +70569,14 @@
       "resource": "assets/simplyswords/lang/en_us.json",
       "key": "item.simplyswords.plaguesworditem.tooltip3",
       "english": "The toll spreads fever and can cascade through up to %d enemies.",
-      "korean": "종소리는 열기를 퍼뜨리며 최대 %d명의 적에게 연쇄적으로 이어질 수 있습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "종소리는 열병을 퍼뜨리며 최대 %d번 연쇄적으로 울릴 수 있습니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "maxCascadeTolls limits total scheduled tolls, not enemies; executeToll damages nearby targets and spreads fever; addSpreadFever schedules another toll at threshold. SHA256 4df2ff0a57670e1c6b12f28e6a99b45c07fa790def7c3b003393e22fc3541ccd"
     },
     {
       "mod": "simplyswords",
@@ -70582,13 +70584,14 @@
       "resource": "assets/simplyswords/lang/en_us.json",
       "key": "item.simplyswords.plaguesworditem.tooltip4",
       "english": "Hits can convert positive effects into ailments, granting bonus fever and empowering the next toll.",
-      "korean": "공격이 이로운 효과를 해로운 효과로 바꾸기도 합니다. 이때 열기를 추가로 부여하고 다음 종소리를 강화합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "공격이 이로운 효과를 해로운 효과로 바꾸기도 합니다. 이때 열병을 추가로 부여하고 다음 종소리를 강화합니다.",
+      "status": "language_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "onMeleeHit accumulates configured fever and starts outbreak at threshold; tryConvertEffects uses configured chance, conversion mapping and additional fever. Pending toll handles follow-up hits separately. SHA256 4df2ff0a57670e1c6b12f28e6a99b45c07fa790def7c3b003393e22fc3541ccd"
     },
     {
       "mod": "simplyswords",
