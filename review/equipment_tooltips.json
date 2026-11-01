@@ -84741,13 +84741,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.freeze_description",
       "english": "- Apply §bPermafrost§r on enemies post hit.",
-      "korean": "- 타격 후 적들에게 §b영구동토§r을 적용합니다.",
-      "status": "pending",
+      "korean": "- 타격 후 적에게 §b영구동토§r를 적용합니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Corrected Korean particle; actual effect not yet verified."
     },
     {
       "mod": "soulsweapons",
@@ -84783,13 +84784,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.permafrost_description_2",
       "english": "damaging and spreading §bPermafrost§r to mobs nearby.",
-      "korean": "근처의 몬스터에게 §b영구동토§r을 전파하고 피해를 줍니다.",
-      "status": "pending",
+      "korean": "근처의 몬스터에게 §b영구동토§r를 전파하고 피해를 줍니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Corrected Korean particle; actual effect not yet verified."
     },
     {
       "mod": "soulsweapons",
@@ -84839,13 +84841,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.crit_description_1",
       "english": "- Thrown spear damage is §6doubled§r against",
-      "korean": "- 던진 창의 피해는 §c체력이 20%§r 이하인 대상에게",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "- 던진 창의 피해는 §c체력이 20%§r 미만인 대상에게",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "CometSpearEntity compares current/max health strictly less than 0.2 before doubling damage. SHA256 9974a97cb92c2c1bc4175ccbfbf88c808bf4fa15109314aef0d45cd063d9d25b"
     },
     {
       "mod": "soulsweapons",
@@ -84881,13 +84884,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.disable_heal_description_1",
       "english": "- Post hit will inflict §5Cursed Wounds§r, making",
-      "korean": "- 타격 후 §5저주받은 상처§r을 입혀,",
-      "status": "pending",
+      "korean": "- 타격 후 §5저주받은 상처§r를 입혀,",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Corrected Korean particle; actual effect not yet verified."
     },
     {
       "mod": "soulsweapons",

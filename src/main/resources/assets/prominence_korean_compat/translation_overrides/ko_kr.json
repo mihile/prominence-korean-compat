@@ -495,5 +495,9 @@
   "item.simplyswords.emberiresworditem.tooltip6": "일정 시간 집중하면 조준한 대상에게 자동으로 발사합니다.",
   "item.simplyswords.emberiresworditem.tooltip9": "대상을 조준해 발사하면 일정 확률로 신속, 성급함, 힘 효과를 얻습니다. 오래 집중할수록 확률이 높아집니다.",
   "item.simplyswords.brimstoneclaymoreitem.tooltip4": "대상 위에 브림스톤 클레이모어를 소환합니다. 대검은 주변에 반복해서 피해를 준 뒤 지면에 내리꽂혀 추가 피해를 줍니다.",
-  "tooltip.soulsweapons.dragon_staff_description_2": "안개는 플레이어와 플레이어가 길들인 생명체를 치유하고, 그 밖의 생명체에게 피해를 줍니다."
+  "tooltip.soulsweapons.dragon_staff_description_2": "안개는 플레이어와 플레이어가 길들인 생명체를 치유하고, 그 밖의 생명체에게 피해를 줍니다.",
+  "tooltip.soulsweapons.freeze_description": "- 타격 후 적에게 §b영구동토§r를 적용합니다.",
+  "tooltip.soulsweapons.permafrost_description_2": "근처의 몬스터에게 §b영구동토§r를 전파하고 피해를 줍니다.",
+  "tooltip.soulsweapons.crit_description_1": "- 던진 창의 피해는 §c체력이 20%§r 미만인 대상에게",
+  "tooltip.soulsweapons.disable_heal_description_1": "- 타격 후 §5저주받은 상처§r를 입혀,"
 }
