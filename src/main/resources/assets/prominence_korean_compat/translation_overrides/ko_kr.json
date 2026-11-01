@@ -486,5 +486,7 @@
   "item.prominent.ability.thunderwrath.warriors_devotion": "거인의 손아귀 효과가 활성화되면 발동 확률이 35%%로 증가합니다.",
   "item.simplyswords.stormscalesworditem.tooltip2": "피뢰침이 꽂혀 있는 동안 이 무기로 적을 맞히면 피뢰침 주변에 범위 피해를 줍니다.",
   "item.simplyswords.stormscalesworditem.tooltip4": "공격으로 발사한 파동이 피뢰침에 도착할 때마다 피해와 범위가 1% 증가하며 최대 80%까지 중첩됩니다.",
-  "item.simplyswords.ionbound_stormscalesworditem.tooltip3": "최대 체력의 일정 비율을 넘는 피해를 받으면 큐브를 소모해 피해를 막고 2초 동안 보호막을 펼칩니다. 무적을 무시하는 피해는 막지 못합니다."
+  "item.simplyswords.ionbound_stormscalesworditem.tooltip3": "최대 체력의 일정 비율을 넘는 피해를 받으면 큐브를 소모해 피해를 막고 2초 동안 보호막을 펼칩니다. 무적을 무시하는 피해는 막지 못합니다.",
+  "item.simplyswords.soulpyresworditem.tooltip7": "영역 안에서 자신이 처치한 적의 영혼을 모읍니다. 영혼이 일정량 쌓이면 적을 추적하는 투사체를 발사합니다.",
+  "item.simplyswords.moltenedgesworditem.tooltip2": "열기를 방출하지 않을 때 근접 공격을 적중시키거나 피해를 받으면 열기가 쌓여 주는 피해와 받는 피해가 증가합니다."
 }

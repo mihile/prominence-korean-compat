@@ -71021,13 +71021,14 @@
       "resource": "assets/simplyswords/lang/en_us.json",
       "key": "item.simplyswords.soulpyresworditem.tooltip7",
       "english": "Defeated enemies grant you souls, which are periodically fired as homing projectiles.",
-      "korean": "적을 처치하면 영혼을 얻으며, 영혼은 주기적으로 적을 추적하는 투사체로 발사됩니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "영역 안에서 자신이 처치한 적의 영혼을 모읍니다. 영혼이 일정량 쌓이면 적을 추적하는 투사체를 발사합니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "onDeath checks victim inside active field and damage source matching wielder or source owner; harvestSoul queues one volley per configured wispVolleySize souls, current client config=5. SHA256 bed8249a90e14cc10225d32a83bbabad3245acd7f01f273401ff0d7e7fec3399"
     },
     {
       "mod": "simplyswords",
@@ -71105,13 +71106,14 @@
       "resource": "assets/simplyswords/lang/en_us.json",
       "key": "item.simplyswords.moltenedgesworditem.tooltip2",
       "english": "Dealing or receiving damage builds Heat, increasing damage dealt and received.",
-      "korean": "피해를 주거나 받으면 열기가 쌓여 주는 피해와 받는 피해가 모두 증가합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "열기를 방출하지 않을 때 근접 공격을 적중시키거나 피해를 받으면 열기가 쌓여 주는 피해와 받는 피해가 증가합니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "gainHeatFromMelee adds configured heat per held weapon hit; gainHeatFromIncomingDamage requires positive accepted damage; both skip while venting. SHA256 4bb064b2f27a1f141a904cc8bc901487d57712f7aff2ac22db967839abe1c3c1"
     },
     {
       "mod": "simplyswords",
