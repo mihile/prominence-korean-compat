@@ -522,5 +522,9 @@
   "prominent.gui.lottery.reward_chance_with_cinders": "%s + 잿불 코인 %s개 (%s%%)",
   "prominent.gui.primordial_forge.craft.missing_cinders": "  - 잿불 코인: %s/%s",
   "prominent.tooltip.loot_box.entry_cinders_only": "+잿불 코인 %s개: %s%%",
-  "prominent.tooltip.loot_box.entry_with_cinders": "%s + 잿불 코인 %s개: %s%%"
+  "prominent.tooltip.loot_box.entry_with_cinders": "%s + 잿불 코인 %s개: %s%%",
+  "tooltip.advancednetherite.pickaxe.additional_gold_drop": "+ 금 광석을 채굴할 때 금 원석을 추가로 얻을 확률",
+  "tooltip.advancednetherite.armor.enderman_passive": "+ 엔더맨을 바라봐도 적대하지 않음",
+  "tooltip.advancednetherite.armor.piglin_passive": "+ 금 갑옷처럼 피글린의 적대 방지",
+  "tooltip.advancednetherite.armor.phantom_passive": "+ 팬텀이 먼저 공격하지 않음"
 }

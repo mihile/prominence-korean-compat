@@ -3467,13 +3467,14 @@
       "resource": "assets/advancednetherite/lang/en_us.json",
       "key": "tooltip.advancednetherite.armor.enderman_passive",
       "english": "+ Pacifies Endermen",
-      "korean": "+ 엔더맨과의 평화",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "+ 엔더맨을 바라봐도 적대하지 않음",
+      "status": "corrected",
+      "mechanics": "bytecode_verified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "EnderManMixin: isLookingAtMe returns false when a qualifying armor piece is worn; does not prevent retaliation. Runtime not tested."
     },
     {
       "mod": "advancednetherite",
@@ -3481,13 +3482,14 @@
       "resource": "assets/advancednetherite/lang/en_us.json",
       "key": "tooltip.advancednetherite.armor.piglin_passive",
       "english": "+ Pacifies Piglins",
-      "korean": "+ 피글린과의 평화",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "+ 금 갑옷처럼 피글린의 적대 방지",
+      "status": "corrected",
+      "mechanics": "bytecode_verified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "PiglinAiMixin: qualifying armor is treated as wearing gold; other aggression triggers still apply. Runtime not tested."
     },
     {
       "mod": "advancednetherite",
@@ -3495,13 +3497,14 @@
       "resource": "assets/advancednetherite/lang/en_us.json",
       "key": "tooltip.advancednetherite.armor.phantom_passive",
       "english": "+ Pacifies Phantoms",
-      "korean": "+ 팬텀과의 평화",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "+ 팬텀이 먼저 공격하지 않음",
+      "status": "corrected",
+      "mechanics": "bytecode_verified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "PhantomMixin: clears player target when qualifying armor is worn unless player is the recent attacker. Runtime not tested."
     },
     {
       "mod": "advancednetherite",
@@ -3551,13 +3554,14 @@
       "resource": "assets/advancednetherite/lang/en_us.json",
       "key": "tooltip.advancednetherite.pickaxe.additional_gold_drop",
       "english": "+ Chance of dropping additional Raw Gold while mining Gold ores",
-      "korean": "+ 금 광석을 채굴할 때 금 추 드롭 확률",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "+ 금 광석을 채굴할 때 금 원석을 추가로 얻을 확률",
+      "status": "corrected",
+      "mechanics": "bytecode_verified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Installed Advanced Netherite 2.1.3 ModLootTableModifiers checks gold and deepslate gold ore, configured raw-gold drop chance and netherite-gold pickaxe. Runtime not tested."
     },
     {
       "mod": "advancednetherite",
