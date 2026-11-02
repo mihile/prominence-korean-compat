@@ -3513,12 +3513,13 @@
       "key": "tooltip.advancednetherite.hoe.additional_crop_drops",
       "english": "+ Chance of dropping additional crop drops while harvesting grown crops",
       "korean": "+ 재배 중인 작물을 수확할 때 작물 추가 드롭 확률",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. ModLootTableModifiers contains matching loot-table routing and configured chance; intermediary item IDs, exact conditions and runtime remain to verify."
     },
     {
       "mod": "advancednetherite",
@@ -3527,12 +3528,13 @@
       "key": "tooltip.advancednetherite.pickaxe.additional_diamond_drop",
       "english": "+ Chance of dropping additional Diamond while mining Diamond ores",
       "korean": "+ 다이아몬드 광석을 채굴할 때 다이아몬드 추가 드롭 확률",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. ModLootTableModifiers contains matching loot-table routing and configured chance; intermediary item IDs, exact conditions and runtime remain to verify."
     },
     {
       "mod": "advancednetherite",
@@ -3541,12 +3543,13 @@
       "key": "tooltip.advancednetherite.pickaxe.additional_emerald_drop",
       "english": "+ Chance of dropping additional Emerald while mining Emerald ores",
       "korean": "+ 에메랄드 광석을 채굴할 때 에메랄드 추가 드롭 확률",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. ModLootTableModifiers contains matching loot-table routing and configured chance; intermediary item IDs, exact conditions and runtime remain to verify."
     },
     {
       "mod": "advancednetherite",
@@ -3569,13 +3572,14 @@
       "resource": "assets/advancednetherite/lang/en_us.json",
       "key": "tooltip.advancednetherite.pickaxe.additional_iron_drop",
       "english": "+ Chance of dropping additional Raw Iron while mining Iron ores",
-      "korean": "+ 철 광석을 채굴할 때 철 추가 드롭 확률",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "+ 철 광석을 채굴할 때 철 원석을 추가로 얻을 확률",
+      "status": "corrected",
+      "mechanics": "bytecode_verified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "ModLootTableModifiers checks iron and deepslate iron ore, configured raw-iron drop chance and netherite-iron pickaxe. Runtime not tested."
     },
     {
       "mod": "advancednetherite",
@@ -3584,12 +3588,13 @@
       "key": "tooltip.advancednetherite.sword.additional_enderman_mob_drop",
       "english": "+ Chance of dropping additional Ender Pearl on killing Enderman",
       "korean": "+ 엔더맨을 죽였을 때 엔더 진주 추가 드롭 확률",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. ModLootTableModifiers contains matching loot-table routing and configured chance; intermediary item IDs, exact conditions and runtime remain to verify."
     },
     {
       "mod": "advancednetherite",
@@ -3598,12 +3603,13 @@
       "key": "tooltip.advancednetherite.sword.additional_piglin_mob_drop",
       "english": "+ Chance of dropping additional Gold Ingot on killing Piglin",
       "korean": "+ 피글린을 죽였을 때 금 주괴 추가 드롭 확률",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. ModLootTableModifiers contains matching loot-table routing and configured chance; intermediary item IDs, exact conditions and runtime remain to verify."
     },
     {
       "mod": "advancednetherite",
@@ -3612,12 +3618,13 @@
       "key": "tooltip.advancednetherite.sword.additional_zombified_piglin_mob_drop",
       "english": "+ Chance of dropping additional Gold Nugget(s) on killing Zombified Piglin",
       "korean": "+ 좀비화 피글린을 죽였을 때 금 조각 추가 드롭 확률",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. ModLootTableModifiers contains matching loot-table routing and configured chance; intermediary item IDs, exact conditions and runtime remain to verify."
     },
     {
       "mod": "advancednetherite",
@@ -3626,12 +3633,13 @@
       "key": "tooltip.advancednetherite.sword.additional_phantom_mob_drop",
       "english": "+ Chance of dropping additional Phantom Membrane(s) on killing Phantom",
       "korean": "+ 팬텀을 죽였을 때 팬텀 막 추가 드롭 확률",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. ModLootTableModifiers contains matching loot-table routing and configured chance; intermediary item IDs, exact conditions and runtime remain to verify."
     },
     {
       "mod": "advancednetherite",
