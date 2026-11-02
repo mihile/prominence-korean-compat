@@ -64273,12 +64273,13 @@
       "key": "tooltip.simplybows.bow.echo.rune.bounty",
       "english": "One of the magical bows will now mirror your off-hand bow (cannot mirror another echo bow).",
       "korean": "마법 활 하나가 보조 손의 활을 따라 합니다. 다른 메아리 활은 따라 할 수 없습니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared; offhand bow mirroring conditions and runtime unverified."
     },
     {
       "mod": "simplybows",
@@ -64286,13 +64287,14 @@
       "resource": "assets/simplybows/lang/en_us.json",
       "key": "tooltip.simplybows.bow.echo.rune.chaos",
       "english": "  Arrows now create a black hole on impact that pulls in hostiles and deals damage over time. Kills expand the black hole radius.",
-      "korean": "화살이 충돌 지점에 블랙홀을 만들어 적을 끌어당기고 지속 피해를 줍니다. 적을 처치하면 블랙홀 반경이 커집니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "화살이 충돌 지점에 블랙홀을 만들어 적을 끌어당기고 지속 피해를 줍니다. 블랙홀의 피해로 적을 처치하면 반경이 커집니다.",
+      "status": "corrected",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "EchoChaosBlackHoleManager.applyPullAndDamage increments radius after its own successful damage kills a previously living target, capped at twice base radius. Gameplay unverified."
     },
     {
       "mod": "simplybows",
