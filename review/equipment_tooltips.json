@@ -64272,14 +64272,14 @@
       "resource": "assets/simplybows/lang/en_us.json",
       "key": "tooltip.simplybows.bow.echo.rune.bounty",
       "english": "One of the magical bows will now mirror your off-hand bow (cannot mirror another echo bow).",
-      "korean": "마법 활 하나가 보조 손의 활을 따라 합니다. 다른 메아리 활은 따라 할 수 없습니다.",
-      "status": "language_reviewed",
-      "mechanics": "unverified",
+      "korean": "마법 활 하나가 보조 손의 고유 활을 따라 합니다. 다른 메아리 활은 따라 할 수 없습니다.",
+      "status": "corrected",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "English and Korean compared; offhand bow mirroring conditions and runtime unverified."
+      "notes": "EchoShoulderBowManager requires offhand item instanceof SimplyBowItem and excludes EchoBowItem for BOUNTY; actual firing behavior and runtime unverified."
     },
     {
       "mod": "simplybows",
