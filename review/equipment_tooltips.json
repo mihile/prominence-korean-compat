@@ -63279,12 +63279,13 @@
       "key": "tooltip.simplybows.section.ability",
       "english": "◆ Ability",
       "korean": "◆ 능력",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63293,12 +63294,13 @@
       "key": "tooltip.simplybows.section.upgrades",
       "english": "◆ Upgrades",
       "korean": "◆ 강화",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63307,12 +63309,13 @@
       "key": "tooltip.simplybows.section.component",
       "english": "◆ Upgrade Component",
       "korean": "◆ 강화 재료",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63321,12 +63324,13 @@
       "key": "tooltip.simplybows.upgrades.slots",
       "english": "• Slots Used: %1$s/%2$s",
       "korean": "• 사용한 칸: %1$s/%2$s",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63335,12 +63339,13 @@
       "key": "tooltip.simplybows.upgrades.string_level",
       "english": "• Enchanted String: %1$s/%2$s",
       "korean": "• 마력이 깃든 활시위: %1$s/%2$s",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63349,12 +63354,13 @@
       "key": "tooltip.simplybows.upgrades.frame_level",
       "english": "• Reinforced Frame: %1$s/%2$s",
       "korean": "• 강화 활대: %1$s/%2$s",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63363,12 +63369,13 @@
       "key": "tooltip.simplybows.upgrades.rune",
       "english": "• Rune Etching: %1$s",
       "korean": "• 룬 각인: %1$s",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63377,12 +63384,13 @@
       "key": "tooltip.simplybows.hold_alt",
       "english": "  ◦ Hold Alt for upgrade details",
       "korean": "  ◦ 강화 정보를 보려면 Alt를 누르세요.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63391,12 +63399,13 @@
       "key": "tooltip.simplybows.rune.pain",
       "english": "Pain",
       "korean": "고통",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63405,12 +63414,13 @@
       "key": "tooltip.simplybows.rune.grace",
       "english": "Grace",
       "korean": "은총",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63419,12 +63429,13 @@
       "key": "tooltip.simplybows.rune.bounty",
       "english": "Bounty",
       "korean": "풍요",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63433,12 +63444,13 @@
       "key": "tooltip.simplybows.rune.chaos",
       "english": "Chaos",
       "korean": "혼돈",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63447,12 +63459,13 @@
       "key": "tooltip.simplybows.rune.none",
       "english": "None",
       "korean": "없음",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63461,12 +63474,13 @@
       "key": "tooltip.simplybows.rune.none_effect",
       "english": "  ◦ No rune etched.",
       "korean": "  ◦ 각인된 룬이 없습니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63475,12 +63489,13 @@
       "key": "tooltip.simplybows.bow.vine.ability",
       "english": "Fires an arrow that cultivates a flower field, healing allies and harming enemies.",
       "korean": "화살을 쏘아 꽃밭을 만듭니다. 아군을 치유하고 적에게 피해를 줍니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean base ability descriptions compared. Candidate native classes: net/sweenus/simplybows/config/SimplyBowsConfig$VineBowSection.class, net/sweenus/simplybows/entity/VineArrowEntity.class, net/sweenus/simplybows/entity/VineFlowerVisualEntity.class, net/sweenus/simplybows/item/unique/VineBowItem.class, net/sweenus/simplybows/world/VineFlowerFieldManager$1.class; actual activation and effects remain unverified."
     },
     {
       "mod": "simplybows",
@@ -63489,12 +63504,13 @@
       "key": "tooltip.simplybows.bow.ice.ability",
       "english": "Fires a fan of homing frost arrows.",
       "korean": "적을 추적하는 서리 화살을 여러 발 부채꼴로 발사합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "IceBowItem invokes getArrowQuantity and constructs HomingArrowEntity; chaos path calls setHomingEnabled(false). Rune and spread conditions need full verification; runtime untested."
     },
     {
       "mod": "simplybows",
@@ -63503,12 +63519,13 @@
       "key": "tooltip.simplybows.bow.bubble.ability",
       "english": "Fires arrows unaffected by water drag, and create short-lived bubble columns.",
       "korean": "물의 저항을 받지 않는 화살을 발사해 잠시 지속되는 거품 기둥을 만듭니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean base ability descriptions compared. Candidate native classes: net/sweenus/simplybows/config/SimplyBowsConfig$BubbleBowSection.class, net/sweenus/simplybows/entity/BubbleArrowEntity.class, net/sweenus/simplybows/entity/BubbleBountyVisualEntity.class, net/sweenus/simplybows/entity/BubbleChaosWaveVisualEntity.class, net/sweenus/simplybows/entity/BubbleGraceVisualEntity.class; actual activation and effects remain unverified."
     },
     {
       "mod": "simplybows",
@@ -63517,12 +63534,13 @@
       "key": "tooltip.simplybows.bow.bee.ability",
       "english": "Fires bees that inflict poison.",
       "korean": "독을 거는 벌을 발사합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "BeeBowItem creates BeeArrowEntity; BeeArrowEntity applies poison effect with configured duration. Other rune paths and runtime unverified."
     },
     {
       "mod": "simplybows",
@@ -63531,12 +63549,13 @@
       "key": "tooltip.simplybows.bow.blossom.ability",
       "english": "Fires arrows that create small blossom storms.",
       "korean": "작은 꽃 폭풍을 일으키는 화살을 발사합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BlossomBowItem creates BlossomArrowEntity, which calls BlossomStormManager.createStorm; exact storm behavior and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -63545,12 +63564,13 @@
       "key": "tooltip.simplybows.bow.earth.ability",
       "english": "Fires arrows that cause earth tremors.",
       "korean": "대지에 진동을 일으키는 화살을 발사합니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean base ability descriptions compared. Candidate native classes: net/sweenus/simplybows/config/SimplyBowsConfig$EarthBowSection.class, net/sweenus/simplybows/entity/EarthArrowEntity.class, net/sweenus/simplybows/entity/EarthSpikeVisualEntity.class, net/sweenus/simplybows/item/unique/EarthBowItem.class, net/sweenus/simplybows/world/EarthChaosSunderManager$ActiveSunderField.class; actual activation and effects remain unverified."
     },
     {
       "mod": "simplybows",
@@ -63559,12 +63579,13 @@
       "key": "tooltip.simplybows.bow.echo.ability",
       "english": "Summons two magical bows that fire at nearby targets and mimic your own arrow shots.",
       "korean": "마법 활 두 개를 소환합니다. 주변 대상을 향해 발사하며 내가 쏜 화살을 따라 쏩니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. EchoShoulderBowManager declares onOwnerFired, focused-target handling and potion-charge methods. Exact conditions, effects and runtime require verification."
     },
     {
       "mod": "simplybows",
@@ -63573,12 +63594,13 @@
       "key": "tooltip.simplybows.bow.cosmic.ability",
       "english": "Fires arrows that attach damaging constellations to enemies.",
       "korean": "적에게 피해를 주는 별자리를 붙이는 화살을 발사합니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean base ability descriptions compared. Candidate native classes: net/sweenus/simplybows/config/SimplyBowsConfig$CosmicBowSection.class, net/sweenus/simplybows/entity/CosmicArrowEntity.class, net/sweenus/simplybows/entity/CosmicBountyVisualEntity.class, net/sweenus/simplybows/entity/CosmicOrbitVisualEntity.class, net/sweenus/simplybows/entity/CosmicStrikeVisualEntity.class; actual activation and effects remain unverified."
     },
     {
       "mod": "simplybows",
@@ -63699,12 +63721,13 @@
       "key": "tooltip.simplybows.bow.ice.string_effect",
       "english": "  ◦ + Arrow count.",
       "korean": "  ◦ + 화살 수",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "IceBowItem.getArrowQuantity adds stringLevel to base quantity, subject to rune branches; runtime untested."
     },
     {
       "mod": "simplybows",
@@ -63713,12 +63736,13 @@
       "key": "tooltip.simplybows.bow.ice.frame_effect",
       "english": "  ◦ + Arrow damage.",
       "korean": "  ◦ + 화살 피해",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "IceBowItem uses BowUpgradeData.damageMultiplier; that method derives the multiplier from frameLevel and configuration. Runtime untested."
     },
     {
       "mod": "simplybows",
@@ -63727,12 +63751,13 @@
       "key": "tooltip.simplybows.bow.bee.string_effect",
       "english": "  ◦ + Poison.",
       "korean": "  ◦ + 독",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "BeeArrowEntity computes poison duration using stringLevel and configured bonus; amplifier also depends on stringLevel. Runtime unverified."
     },
     {
       "mod": "simplybows",
@@ -63741,12 +63766,13 @@
       "key": "tooltip.simplybows.bow.bee.frame_effect",
       "english": "  ◦ + Bee damage.",
       "korean": "  ◦ + 벌 피해",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "BeeBowItem creates BeeArrowEntity and sets projectile damage using upgrade data; precise rune interactions and runtime unverified."
     },
     {
       "mod": "simplybows",
@@ -63783,12 +63809,13 @@
       "key": "tooltip.simplybows.bow.blossom.string_effect",
       "english": "  ◦ + Duration.",
       "korean": "  ◦ + 지속 시간",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BlossomStormManager references stormDurationBonusPerString and stringLevel; rune-specific effects also exist. Complete path and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -63797,12 +63824,13 @@
       "key": "tooltip.simplybows.bow.blossom.frame_effect",
       "english": "  ◦ + Damage.",
       "korean": "  ◦ + 피해",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BlossomStormManager references frameLevel in damage-related logic; rune-specific conditions and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -63979,12 +64007,13 @@
       "key": "tooltip.simplybows.bow.ice.rune.pain",
       "english": "  Arrows focus on a single target and deal more damage.",
       "korean": "화살이 단일 대상에 집중되어 더 큰 피해를 줍니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Original and Korean compared. IceBowItem PAIN branch adjusts damage and sets target-lock flag when target exists. Full numeric configuration and runtime remain unverified."
     },
     {
       "mod": "simplybows",
@@ -63993,12 +64022,13 @@
       "key": "tooltip.simplybows.bow.ice.rune.grace",
       "english": "  Arrows apply stacking slowness on hit.",
       "korean": "화살이 적중하면 느려짐을 중첩합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Original and Korean compared. IceBowItem sets the stacking-slow flag on GRACE and propagates it to both homing projectile types. Effect details and runtime remain unverified."
     },
     {
       "mod": "simplybows",
@@ -64007,12 +64037,13 @@
       "key": "tooltip.simplybows.bow.ice.rune.bounty",
       "english": "  Fires additional arrows, but they deal less damage.",
       "korean": "화살을 더 발사하지만 피해가 감소합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Original and Korean compared. IceBowItem getArrowQuantity includes a BOUNTY branch; ability damage also branches on BOUNTY. Numeric configuration and runtime remain unverified."
     },
     {
       "mod": "simplybows",
@@ -64021,12 +64052,13 @@
       "key": "tooltip.simplybows.bow.ice.rune.chaos",
       "english": "  Arrows now create a frost wall where they land. The wall blocks all entities and projectiles.",
       "korean": "화살이 착지한 곳에 서리 장벽을 만듭니다. 장벽은 모든 엔티티와 투사체를 막습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Original and Korean compared. IceBowItem includes CHAOS branch and disables homing on the chaos-wall projectile path. Wall collision and runtime remain unverified."
     },
     {
       "mod": "simplybows",
@@ -64035,12 +64067,13 @@
       "key": "tooltip.simplybows.bow.bee.rune.pain",
       "english": "  Bees now home in on hostiles. Each String upgrade fires an additional bee.",
       "korean": "벌이 적을 추적합니다. 활시위를 강화할 때마다 벌을 한 마리 더 발사합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Original and Korean compared. BeeBowItem PAIN branch shoots max(1, stringLevel+1) projectiles; BeeArrowEntity has nearest-target selection, homing acceleration and configurable radius/start. Precise target filtering and gameplay remain unverified."
     },
     {
       "mod": "simplybows",
@@ -64049,12 +64082,13 @@
       "key": "tooltip.simplybows.bow.bee.rune.grace",
       "english": "  Shooting at allies will summon bees that orbit them, blocking the next incoming hit.",
       "korean": "아군을 쏘면 주위를 도는 벌을 소환해 다음 공격을 막습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BeeArrowEntity invokes tryApplyFromImpact; inverse friendly-fire filter uses OPAC party ally check and online member list; reflection failure returns attackable. LivingEntityMixin consumes shield to cancel damage. Actual compatibility and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -64063,12 +64097,13 @@
       "key": "tooltip.simplybows.bow.bee.rune.bounty",
       "english": "  Bees create a temporary beehive on impact that sends extra bees to attack nearby hostiles.",
       "korean": "벌이 적중 지점에 임시 벌집을 만들어 주변 적을 공격할 벌을 더 보냅니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BeeArrowEntity invokes createHive; BeeHiveSwarmManager selects a nearby offensive target and constructs BeeArrowEntity; duration and shots are configurable. Exact collision conditions and runtime unverified."
     },
     {
       "mod": "simplybows",
@@ -64077,12 +64112,13 @@
       "key": "tooltip.simplybows.bow.bee.rune.chaos",
       "english": "  Arrows create a localised honey storm, granting allies regeneration, while slowing hostiles. Bees periodically fall from the sky and explode on impact.",
       "korean": "화살이 국지적인 꿀 폭풍을 만들어 아군을 재생시키고 적을 느리게 합니다. 하늘에서 벌이 떨어져 충돌 시 폭발합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BeeChaosHoneyStormManager applies mapped REGENERATION to friendlies, SLOWNESS to offensive targets, and spawns dive-bomb BeeArrowEntity. BeeArrowEntity calls performChaosDiveBombImpact on entity/block hits; radius and offensive-target logic exist. Runtime untested."
     },
     {
       "mod": "simplybows",
@@ -64147,12 +64183,13 @@
       "key": "tooltip.simplybows.bow.blossom.rune.pain",
       "english": "  The blossom storm no longer leaps to new targets, but gains a much larger area and damages all hostiles caught within.",
       "korean": "꽃 폭풍이 새로운 대상으로 이동하지 않는 대신 범위가 크게 넓어지고 안에 있는 모든 적에게 피해를 줍니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BlossomStormManager declares applyPainAreaDamage and configured pain radius. Full activation and runtime remain unverified."
     },
     {
       "mod": "simplybows",
@@ -64161,12 +64198,13 @@
       "key": "tooltip.simplybows.bow.blossom.rune.grace",
       "english": "  The blossom storm targets allies (including you), granting Swiftness and Haste, and damaging nearby hostiles.",
       "korean": "꽃 폭풍이 자신을 포함한 아군을 대상으로 합니다. 신속과 가속을 주고 주변 적에게 피해를 줍니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BlossomStormManager declares applyGraceSupportPulse and swiftness/haste fields. Full activation and runtime remain unverified."
     },
     {
       "mod": "simplybows",
@@ -64175,12 +64213,13 @@
       "key": "tooltip.simplybows.bow.blossom.rune.bounty",
       "english": "  Multiple blossom storms can now be active at the same time. They no longer leap or deal damage over time, and instead deal heavy damage when hostiles step into them.",
       "korean": "꽃 폭풍을 여러 개 동시에 유지할 수 있습니다. 더는 이동하거나 지속 피해를 주지 않으며, 적이 들어오면 큰 피해를 줍니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BlossomStormManager declares processBountyTrapTriggers, configurable damage and maximum trap count. Full activation and runtime remain unverified."
     },
     {
       "mod": "simplybows",
@@ -64189,12 +64228,13 @@
       "key": "tooltip.simplybows.bow.blossom.rune.chaos",
       "english": "  Summons koi spirits that orbit the player, damaging hostiles on contact, and reflecting hostile projectiles.",
       "korean": "잉어 정령을 소환해 플레이어 주위를 돌게 합니다. 정령은 적에게 닿으면 피해를 주고 적의 투사체를 튕겨냅니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BlossomChaosKoiManager filters offensive candidates and friendly fire, applies configured contact damage, tracks next damage tick, and handles hostile projectile reflection. Exact timing and runtime unverified."
     },
     {
       "mod": "simplybows",
@@ -64203,12 +64243,13 @@
       "key": "tooltip.simplybows.bow.echo.rune.pain",
       "english": "  Magical bows focus your last target. When you or the magical bows kill a hostile, they will explode dealing area damage relative to their maximum HP.",
       "korean": "마법 활이 마지막 대상을 집중 공격합니다. 자신이나 마법 활이 적을 처치하면 최대 체력에 비례한 범위 피해를 주며 폭발합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. EchoShoulderBowManager declares onOwnerFired, focused-target handling and potion-charge methods. Exact conditions, effects and runtime require verification."
     },
     {
       "mod": "simplybows",
@@ -64216,13 +64257,14 @@
       "resource": "assets/simplybows/lang/en_us.json",
       "key": "tooltip.simplybows.bow.echo.rune.grace",
       "english": "  Drinking a potion from the offhand charges the magical bows with its effects for a number of shots. If the potion has positive effects, the magical bows will target nearby allies.",
-      "korean": "보조 손의 물약을 마시면 마법 활에 효과가 충전되어 몇 발 동안 유지됩니다. 물약에 이로운 효과가 있으면 마법 활이 주변 아군을 대상으로 합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "보조 손의 물약을 마시면 마법 활에 효과가 충전되어 몇 발 동안 유지됩니다. 물약의 모든 효과가 이로우면 마법 활이 주변 아군을 대상으로 합니다.",
+      "status": "corrected",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "registerGracePotionCharge initializes supportMode true then clears it for each effect whose mapped isBeneficial is false; mixed-effect potions therefore are not support mode. Target behavior and runtime unverified."
     },
     {
       "mod": "simplybows",
