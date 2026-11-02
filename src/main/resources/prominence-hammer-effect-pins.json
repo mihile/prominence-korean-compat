@@ -1,0 +1,27 @@
+{
+  "simplyskills": {
+    "version": "1.7.2+1.20.1",
+    "classes": {
+      "net/sweenus/simplyskills/client/effects/OrbitingRotatingEffectRenderer.class": "b4bcf0c8c8120471ac9d53f5d44bf022a57d98bf24b59f3d99231d74852fd69f",
+      "net/sweenus/simplyskills/client/effects/OrbitingEffectRenderer.class": "f176711d7312a1cbf94df384433444aafabe5d8d72eabeb43fab7096d6d54f4b",
+      "net/sweenus/simplyskills/client/effects/DeathMarkRenderer.class": "71189a58228c6fd433dae36abef4d8ad330c9d81bcc3b9208cf6c4bbb789f4de",
+      "net/sweenus/simplyskills/client/effects/MagicCircleRenderer.class": "d6fffb598567e14e0a39a33f7991a44550dc8a156fe10c17054c6aafe438b717",
+      "net/sweenus/simplyskills/client/effects/RighteousHammersRenderer.class": "f294413967db56d22cdc53b3e2d35414594a118c898163d68e612f8f73a340ba"
+    }
+  },
+  "spell_engine": {
+    "version": "0.15.12+1.20.1",
+    "classes": {
+      "net/spell_engine/api/render/OrbitingEffectRenderer.class": "8acbd26b21f1e358801c3b1764e2094dda57f94b344c3c835581933025262eb2",
+      "net/spell_engine/client/render/SpellCloudRenderer.class": "682f5f8e778bfdcbecbcc5c8e92ad417a61d98c0692374bff705df1bfb7117d0",
+      "net/spell_engine/mixin/client/render/LivingEntityRendererMixin.class": "d3551647d8c72039fc54ae8b806de2e13edbc41988817e411164a88b5c3fbea7"
+    }
+  },
+  "minecraft": {
+    "version": "1.20.1",
+    "classes": {
+      "net/minecraft/class_761.class": "f5f0a950a9bad6be00d24e2cb6aa688f5ad6db53c8e56300f6fb42f2616adb47",
+      "net/minecraft/class_922.class": "6b6111d85210b48615c1311ab913389c728f318b8090bdc99b5284a274461fb3"
+    }
+  }
+}

@@ -32,17 +32,19 @@ public final class RewardWire {
   if(legacyBytes==null)legacyBytes=encode(plans.stream().filter(p->p.bonusRolls()==0).toList(),2);
   return legacyBytes;
  }
- public static void send(class_3222 player){
+ public static boolean send(class_3222 player){
   try {
   var plans=RewardRegistry.snapshot(player.field_13995.method_3772());
   boolean modern=ServerPlayNetworking.canSend(player,DISPLAY_CHANNEL);
-  if(!modern&&!ServerPlayNetworking.canSend(player,CHANNEL))return;
+  if(!modern&&!ServerPlayNetworking.canSend(player,CHANNEL))return false;
   var bytes=modern?payload(plans):legacyPayload(plans);var buf=PacketByteBufs.create();buf.writeBytes(bytes);ServerPlayNetworking.send(player,modern?DISPLAY_CHANNEL:CHANNEL,buf);
   org.slf4j.LoggerFactory.getLogger("Prominence compatibility").info("Reward metadata sent: {} pools / {} compressed bytes",plans.size(),bytes.length);
+  return true;
   } catch(RuntimeException e) {
    // Optional display metadata must never reject login or disable gameplay bonuses.
    // Do not retry the same canSend/send operation from the failure handler.
    org.slf4j.LoggerFactory.getLogger("Prominence compatibility").warn("Rare reward metadata sync skipped; player login and gameplay are unchanged",e);
+   return false;
   }
  }
 }

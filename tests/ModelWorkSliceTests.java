@@ -27,6 +27,20 @@ public final class ModelWorkSliceTests {
         }
         check(!InitialWork.active());
         check(ModelWorkSlice.continueBatch(true,Long.MAX_VALUE));
-        System.out.println("PASS: model slice "+checks+" checks; FIFO, progress, native idle, nested/error/thread scope, overflow; no game/GL");
+        check(!ModelWorkSlice.isRenderGroupActive());
+        check(!ModelWorkSlice.shouldDeferToRenderGroup());
+        ModelWorkSlice.enterRenderGroup();
+        try {
+            check(ModelWorkSlice.isRenderGroupActive());
+            check(ModelWorkSlice.shouldDeferToRenderGroup());
+            try (var slice = ModelWorkSlice.begin(0)) {
+                check(!ModelWorkSlice.continueBatch(true, 100));
+            }
+        } finally {
+            ModelWorkSlice.exitRenderGroup();
+        }
+        check(!ModelWorkSlice.isRenderGroupActive());
+        check(!ModelWorkSlice.shouldDeferToRenderGroup());
+        System.out.println("PASS: model slice "+checks+" checks; FIFO, progress, native idle, render-group deferral, nested/error/thread scope, overflow; no game/GL");
     }
 }
