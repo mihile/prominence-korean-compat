@@ -530,5 +530,6 @@
   "tooltip.advancednetherite.pickaxe.additional_iron_drop": "+ 철 광석을 채굴할 때 철 원석을 추가로 얻을 확률",
   "tooltip.simplybows.bow.echo.rune.grace": "보조 손의 물약을 마시면 마법 활에 효과가 충전되어 몇 발 동안 유지됩니다. 물약의 모든 효과가 이로우면 마법 활이 주변 아군을 대상으로 합니다.",
   "tooltip.simplybows.bow.echo.rune.chaos": "화살이 충돌 지점에 블랙홀을 만들어 적을 끌어당기고 지속 피해를 줍니다. 블랙홀의 피해로 적을 처치하면 반경이 커집니다.",
-  "tooltip.simplybows.bow.echo.rune.bounty": "마법 활 하나가 보조 손의 고유 활을 따라 합니다. 다른 메아리 활은 따라 할 수 없습니다."
+  "tooltip.simplybows.bow.echo.rune.bounty": "마법 활 하나가 보조 손의 고유 활을 따라 합니다. 다른 메아리 활은 따라 할 수 없습니다.",
+  "tooltip.simplybows.bow.vine.rune.bounty": "꽃밭의 피해로 적을 처치하면 추가 전리품이 떨어질 수 있습니다."
 }

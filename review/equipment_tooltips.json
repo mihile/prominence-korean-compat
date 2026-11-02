@@ -63490,12 +63490,12 @@
       "english": "Fires an arrow that cultivates a flower field, healing allies and harming enemies.",
       "korean": "화살을 쏘아 꽃밭을 만듭니다. 아군을 치유하고 적에게 피해를 줍니다.",
       "status": "language_reviewed",
-      "mechanics": "unverified",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "English and Korean base ability descriptions compared. Candidate native classes: net/sweenus/simplybows/config/SimplyBowsConfig$VineBowSection.class, net/sweenus/simplybows/entity/VineArrowEntity.class, net/sweenus/simplybows/entity/VineFlowerVisualEntity.class, net/sweenus/simplybows/item/unique/VineBowItem.class, net/sweenus/simplybows/world/VineFlowerFieldManager$1.class; actual activation and effects remain unverified."
+      "notes": "English and Korean compared. VineFlowerFieldManager declares friendlyHealBase, hostileDamageBase and dealAuraDamage. Conditions and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -63520,12 +63520,12 @@
       "english": "Fires arrows unaffected by water drag, and create short-lived bubble columns.",
       "korean": "물의 저항을 받지 않는 화살을 발사해 잠시 지속되는 거품 기둥을 만듭니다.",
       "status": "language_reviewed",
-      "mechanics": "unverified",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "English and Korean base ability descriptions compared. Candidate native classes: net/sweenus/simplybows/config/SimplyBowsConfig$BubbleBowSection.class, net/sweenus/simplybows/entity/BubbleArrowEntity.class, net/sweenus/simplybows/entity/BubbleBountyVisualEntity.class, net/sweenus/simplybows/entity/BubbleChaosWaveVisualEntity.class, net/sweenus/simplybows/entity/BubbleGraceVisualEntity.class; actual activation and effects remain unverified."
+      "notes": "English and Korean compared. BubbleArrowEntity tick compensates velocity while touching water and not in ground. Block and entity hit paths attempt createOrReplaceColumn at hit position; details and gameplay remain unverified."
     },
     {
       "mod": "simplybows",
@@ -63565,12 +63565,12 @@
       "english": "Fires arrows that cause earth tremors.",
       "korean": "대지에 진동을 일으키는 화살을 발사합니다.",
       "status": "language_reviewed",
-      "mechanics": "unverified",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "English and Korean base ability descriptions compared. Candidate native classes: net/sweenus/simplybows/config/SimplyBowsConfig$EarthBowSection.class, net/sweenus/simplybows/entity/EarthArrowEntity.class, net/sweenus/simplybows/entity/EarthSpikeVisualEntity.class, net/sweenus/simplybows/item/unique/EarthBowItem.class, net/sweenus/simplybows/world/EarthChaosSunderManager$ActiveSunderField.class; actual activation and effects remain unverified."
+      "notes": "English and Korean compared. EarthArrowEntity invokes EarthSpikeFieldManager.createOrReplaceField or EarthChaosSunderManager.spawnAtImpact depending on path. Exact collision and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -63637,12 +63637,13 @@
       "key": "tooltip.simplybows.bow.vine.string_effect",
       "english": "  ◦ + Radius.",
       "korean": "  ◦ + 반경",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. VineFlowerFieldManager reads stringLevel and damageMultiplier and declares radius and heal/damage fields. Exact use by rune and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -63651,12 +63652,13 @@
       "key": "tooltip.simplybows.bow.vine.frame_effect",
       "english": "  ◦ + Healing, + Damage.",
       "korean": "  ◦ + 치유, + 피해",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. VineFlowerFieldManager reads stringLevel and damageMultiplier and declares radius and heal/damage fields. Exact use by rune and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -63665,12 +63667,13 @@
       "key": "tooltip.simplybows.bow.earth.string_effect",
       "english": "  ◦ + Radius.",
       "korean": "  ◦ + 반경",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. EarthSpikeFieldManager computes radius terms adding stringLevel multiplied by configured stringRadiusBonusPerLevel. Rune-specific behavior and runtime unverified."
     },
     {
       "mod": "simplybows",
@@ -63679,12 +63682,13 @@
       "key": "tooltip.simplybows.bow.earth.frame_effect",
       "english": "  ◦ + Damage, + Knock-up.",
       "korean": "  ◦ + 피해, + 공중에 띄우기",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. EarthSpikeFieldManager multiplies spikeDamage by BowUpgradeData.damageMultiplier (which derives from frameLevel) and computes upward knockback with frameLevel. Rune branches and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -63781,12 +63785,13 @@
       "key": "tooltip.simplybows.bow.bubble.string_effect",
       "english": "  ◦ + Duration.",
       "korean": "  ◦ + 지속 시간",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BubbleColumnFieldManager computes duration = base + stringLevel * configured duration bonus. Rune branches and gameplay remain unverified."
     },
     {
       "mod": "simplybows",
@@ -63795,12 +63800,13 @@
       "key": "tooltip.simplybows.bow.bubble.frame_effect",
       "english": "  ◦ + Radius.",
       "korean": "  ◦ + 반경",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BubbleColumnFieldManager computes radius includes frameLevel * configured radius bonus. Rune branches and gameplay remain unverified."
     },
     {
       "mod": "simplybows",
@@ -63895,12 +63901,13 @@
       "key": "tooltip.simplybows.bow.vine.rune.pain",
       "english": "  The flower field no longer heals, and now damages more frequently.",
       "korean": "꽃밭이 더는 치유하지 않고 더 자주 피해를 줍니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. PAIN sets FieldTuning.healFriendlies false and damageHostiles true, uses painAuraInterval. Local client config is 10 versus normal 20 ticks; server may differ. Runtime unverified."
     },
     {
       "mod": "simplybows",
@@ -63909,12 +63916,13 @@
       "key": "tooltip.simplybows.bow.vine.rune.grace",
       "english": "  The flower field no longer damages hostiles, instead, it grows a cherry blossom that cleanses negative effects.",
       "korean": "꽃밭이 적에게 피해를 주지 않습니다. 대신 부정적인 효과를 정화하는 벚꽃을 피웁니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. GRACE FieldTuning sets damageHostiles false, cleanseNegativeEffects true and cherryTreeVisual true. Actual cleansing and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -63922,13 +63930,14 @@
       "resource": "assets/simplybows/lang/en_us.json",
       "key": "tooltip.simplybows.bow.vine.rune.bounty",
       "english": "  Hostiles that are killed within the flower field have a chance to drop bonus loot.",
-      "korean": "꽃밭 안에서 적대적인 존재를 처치하면 추가 전리품이 떨어질 수 있습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "꽃밭의 피해로 적을 처치하면 추가 전리품이 떨어질 수 있습니다.",
+      "status": "corrected",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "VineFlowerFieldManager invokes bounty loot only if dealAuraDamage succeeds and a previously living target dies; chance is configured. Gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -63937,12 +63946,13 @@
       "key": "tooltip.simplybows.bow.vine.rune.chaos",
       "english": "  The flower field is replaced with a parasitic spore blossom. The spore blossom tendrils feed on those caught within their grasp, rooting smaller hostiles in place. When the blossom expires, it bursts, granting buffs to nearby allies.",
       "korean": "꽃밭이 기생 포자꽃으로 바뀝니다. 덩굴손이 붙잡힌 대상을 먹고 작은 적을 뿌리로 묶습니다. 꽃이 시들면 터지며 주변 아군을 강화합니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared; rune-specific effects, upgrade formulas and gameplay require implementation verification."
     },
     {
       "mod": "simplybows",
@@ -63951,12 +63961,13 @@
       "key": "tooltip.simplybows.bow.earth.rune.pain",
       "english": "  Spikes erupt outward from the center, dealing damage to enemies caught in their path.",
       "korean": "중심에서 가시가 솟아 경로에 걸린 적에게 피해를 줍니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. EarthSpikeFieldManager initializes PainWaveState and has wave-step damage processing; exact origin/direction and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -63965,12 +63976,13 @@
       "key": "tooltip.simplybows.bow.earth.rune.grace",
       "english": "  Now launches allies upward and grants Resistance and Slow Falling.",
       "korean": "아군을 위로 띄우고 저항과 느린 낙하를 부여합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. EarthSpikeFieldManager.applyGraceAllySupport filters via isFriendlyTo, calls applyUpwardKnockback, and applies mapped RESISTANCE and SLOW_FALLING. Runtime unverified."
     },
     {
       "mod": "simplybows",
@@ -63979,12 +63991,13 @@
       "key": "tooltip.simplybows.bow.earth.rune.bounty",
       "english": "  Creates a massive central spike. Hostiles close the center take increased damage and knock-up.",
       "korean": "중앙에 거대한 가시를 만듭니다. 가까이 있는 적은 피해와 공중에 뜨는 효과를 더 크게 받습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. applyBountyCenterImpact uses base and proximity damage multipliers, applies damage and upward knockback. Numeric scaling and runtime unverified."
     },
     {
       "mod": "simplybows",
@@ -63993,12 +64006,13 @@
       "key": "tooltip.simplybows.bow.earth.rune.chaos",
       "english": "  Arrows can sunder the earth, sending a trail of spikes that travel between nearby hostiles.",
       "korean": "화살이 대지를 가르며 주변 적 사이를 이동하는 가시 줄기를 만듭니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. EarthChaosSunderManager declares retargetOrBranch, steerTowardTarget and spike visuals. Full damage, targeting conditions and runtime unverified."
     },
     {
       "mod": "simplybows",
@@ -64127,12 +64141,13 @@
       "key": "tooltip.simplybows.bow.bubble.rune.pain",
       "english": "  Fires axolotls. String upgrades allow you to fire additional axolotls.",
       "korean": "아홀로틀을 발사합니다. 활시위를 강화하면 아홀로틀을 더 발사할 수 있습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BubbleBowItem PAIN branch computes max(1, stringLevel+1); creates BubblePainArrowEntity. Other branch conditions and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -64141,12 +64156,13 @@
       "key": "tooltip.simplybows.bow.bubble.rune.grace",
       "english": "  A protective axolotl orbits the bubble column, blocking hostile projectiles, granting Resistance to allies, and slowing hostiles.",
       "korean": "보호 아홀로틀이 거품 기둥 주위를 돌며 적 투사체를 막고, 아군에게 저항을 주며, 적을 느리게 합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BubbleColumnFieldManager declares resistance/slowness aura and hostile projectile blocking; targeting and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -64155,12 +64171,13 @@
       "key": "tooltip.simplybows.bow.bubble.rune.bounty",
       "english": "  The bubble column spawns an axolotl swarm damaging hostiles caught within.",
       "korean": "거품 기둥에서 아홀로틀 무리가 나타나 그 안에 갇힌 적에게 피해를 줍니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BubbleColumnFieldManager declares applyBountySwarmDamage, configurable damage and interval. Target rules and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -64169,12 +64186,13 @@
       "key": "tooltip.simplybows.bow.bubble.rune.chaos",
       "english": "  The bow now fires a wave that damages and knocks back hostiles.",
       "korean": "활이 적에게 피해를 주고 밀쳐내는 파도를 발사합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BubbleChaosWaveManager applies damage and computes configured base knockback plus frame-level bonus; full targeting and runtime remain unverified."
     },
     {
       "mod": "simplybows",
