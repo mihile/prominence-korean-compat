@@ -4,6 +4,23 @@ P=pathlib.Path(__file__).resolve().parent
 spec=importlib.util.spec_from_file_location('profiler',P/'profile.py');profiler=importlib.util.module_from_spec(spec);spec.loader.exec_module(profiler)
 
 class Tests(unittest.TestCase):
+ def test_reconnect_active_and_mat_without_starting_capture(self):
+  with tempfile.TemporaryDirectory() as temp:
+   instance=pathlib.Path(temp)/'instance';local=instance/'ClientProfiler';local.mkdir(parents=True)
+   root=pathlib.Path(temp)/'runs';run=root/'capture';run.mkdir(parents=True)
+   profiler.write(local/'settings.local.json',{'run_root':str(root)})
+   profiler.write(run/'state.json',{'instance':str(instance),'phase':'recording','workerPid':123})
+   profiler.write(local/'capture.lock',{'ownerPid':123,'runId':run.name})
+   with patch.object(profiler,'process_running',return_value=True),patch.object(profiler,'processes',side_effect=AssertionError('must not start a second capture')):
+    with contextlib.redirect_stdout(io.StringIO()):self.assertEqual(profiler.start(instance,argparse.Namespace()),run)
+    self.assertEqual(profiler.current(instance),run)
+    (local/'capture.lock').unlink()
+    profiler.write(run/'state.json',{'instance':str(instance),'phase':'waiting-for-client-exit-for-MAT','workerPid':123})
+    self.assertEqual(profiler.active_capture(instance),run)
+   with patch.object(profiler,'process_running',return_value=False):self.assertIsNone(profiler.active_capture(instance))
+   profiler.write(run/'state.json',{'instance':str(instance),'phase':'complete','workerPid':123})
+   with patch.object(profiler,'process_running',return_value=True):self.assertIsNone(profiler.active_capture(instance))
+
  def test_gpu_complete_rows_and_flush(self):
   import threading,csv
   with tempfile.TemporaryDirectory() as temp:
