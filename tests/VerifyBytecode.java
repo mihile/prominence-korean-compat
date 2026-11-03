@@ -11,16 +11,18 @@ public final class VerifyBytecode {
                 for(var m:node.methods)if((m.access&(Opcodes.ACC_ABSTRACT|Opcodes.ACC_NATIVE))==0){
                     new Analyzer<BasicValue>(new BasicVerifier()).analyze(node.name,m);methods++;
                     for(var ins:m.instructions){
-                        if(ins instanceof FieldInsnNode f && f.owner.endsWith("ClientLifecycleEvents") && f.name.equals("CLIENT_STARTED"))started++;
-                        if(ins instanceof FieldInsnNode f && f.owner.endsWith("ScreenEvents") && f.name.equals("AFTER_INIT"))titleInit++;
-                        if(ins instanceof MethodInsnNode call && call.owner.endsWith("PromptGate") && call.name.equals("canOpen"))promptGate++;
+                        // Other cumulative modules legitimately register their own screen hooks.
+                        boolean updaterEntry=node.name.equals("local/prominence/autoupdate/UpdateClient");
+                        if(updaterEntry && ins instanceof FieldInsnNode f && f.owner.endsWith("ClientLifecycleEvents") && f.name.equals("CLIENT_STARTED"))started++;
+                        if(updaterEntry && ins instanceof FieldInsnNode f && f.owner.endsWith("ScreenEvents") && f.name.equals("AFTER_INIT"))titleInit++;
+                        if(updaterEntry && ins instanceof MethodInsnNode call && call.owner.endsWith("PromptGate") && call.name.equals("canOpen"))promptGate++;
                         if(node.name.endsWith("UpdateScreen") && m.name.equals("method_25419") && ins instanceof MethodInsnNode call && call.name.equals("method_1507"))parentReturn++;
                     }
                 }
                 classes++;
             }
         }
-        if(started!=1 || titleInit!=1 || promptGate!=1 || parentReturn!=1)throw new AssertionError("Startup/menu/parent routing is not wired");
+        if(started!=1 || titleInit!=1 || promptGate!=1 || parentReturn!=1)throw new AssertionError("Startup/menu/parent routing is not wired: "+started+"/"+titleInit+"/"+promptGate+"/"+parentReturn);
         System.out.println("PASS: "+classes+" Java17 updater classes / "+methods+" methods; ASM BasicVerifier; no game classes loaded.");
     }
 }

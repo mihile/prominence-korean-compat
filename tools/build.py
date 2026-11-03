@@ -32,7 +32,7 @@ def main():
  new=dict(old)
  # These explicitly owned modules may be rebuilt; all other compatibility classes stay exact.
  managed_prefixes=('local/prominence/cinder/','local/prominence/arrival/','local/prominence/autoupdate/','local/prominence/memory/','local/prominence/backpackinline/','local/prominence/weaponhud/','local/prominence/swingscope/','local/prominence/hammereffect/','local/prominence/localization/','local/prominence/ftbime/','local/prominence/join/','local/prominence/work/','local/prominence/lootcredit/','local/prominence/rewards/',
-  'local/prominence/backpackcompat/client/PortableReforgeButton.class')
+  'local/prominence/combatreach/','local/prominence/backpackcompat/client/PortableReforgeButton.class')
  for n in list(new):
   if n.startswith((*managed_prefixes,'META-INF/prominence-korean-compat-source/auto-update/')):del new[n]
  added={p.relative_to(classes).as_posix():p.read_bytes() for p in classes.rglob('*.class')}

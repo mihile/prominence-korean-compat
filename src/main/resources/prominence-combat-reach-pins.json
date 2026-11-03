@@ -1,0 +1,16 @@
+{
+  "bettercombat": {
+    "version": "1.9.0+1.20.1",
+    "classes": {
+      "net/bettercombat/client/collision/TargetFinder.class": "b3ac5dc6244ecc7e15b61f62d18ae870aa18401b9411045a100affbf853ad0a7",
+      "net/bettercombat/api/client/AttackRangeExtensions.class": "bf40fc4b2683a867c56c8cff6923e7fdf6bf5594e4de860d2fe2def9a363f3f4",
+      "net/bettercombat/client/compat/PehkuiHelper.class": "c9438e285e8e4819e42877701eea0f5c6addee08df6c6f6864cb196b66e5dd0d"
+    }
+  },
+  "reach-entity-attributes": {
+    "version": "2.4.0",
+    "classes": {
+      "com/jamieswhiteshirt/reachentityattributes/ReachEntityAttributes.class": "beed4d360bbf9bd5dbd24119420d595887c3b30f672a91a786021d0421510cc6"
+    }
+  }
+}
