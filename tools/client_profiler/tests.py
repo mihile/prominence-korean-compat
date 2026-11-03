@@ -4,6 +4,24 @@ P=pathlib.Path(__file__).resolve().parent
 spec=importlib.util.spec_from_file_location('profiler',P/'profile.py');profiler=importlib.util.module_from_spec(spec);spec.loader.exec_module(profiler)
 
 class Tests(unittest.TestCase):
+ def test_duration_menu_persists_and_preserves_settings(self):
+  with tempfile.TemporaryDirectory() as temp:
+   instance=pathlib.Path(temp);path=instance/'ClientProfiler/settings.local.json'
+   original={'runtime_java':'keep-this-path','mat_heap':'3g','anotherSetting':{'keep':True}}
+   profiler.write(path,original);self.assertEqual(profiler.configured_seconds(instance),180)
+   args=argparse.Namespace(seconds=180)
+   with patch('builtins.input',side_effect=['5','0','31','bad','1.5','5','']),contextlib.redirect_stdout(io.StringIO()):
+    self.assertEqual(profiler.menu(instance,args),'1')
+   self.assertEqual(args.seconds,300);self.assertEqual(profiler.configured_seconds(instance),300)
+   self.assertEqual(json.loads(path.read_text('utf8')),{**original,'capture_seconds':300})
+   before=path.read_bytes();args=argparse.Namespace(seconds=300)
+   with patch('builtins.input',side_effect=['5','','0']),contextlib.redirect_stdout(io.StringIO()):self.assertEqual(profiler.menu(instance,args),'0')
+   self.assertEqual(path.read_bytes(),before)
+ def test_duration_cli_override_does_not_change_saved_setting(self):
+  with tempfile.TemporaryDirectory() as temp:
+   instance=pathlib.Path(temp);path=instance/'ClientProfiler/settings.local.json';profiler.write(path,{'capture_seconds':300})
+   with patch.object(sys,'argv',['profile.py','menu','--instance',str(instance),'--seconds','120']),patch('builtins.input',return_value='0'),contextlib.redirect_stdout(io.StringIO()) as output:profiler.main()
+   self.assertIn('2분',output.getvalue());self.assertEqual(profiler.configured_seconds(instance),300)
  def test_log_interval_excludes_before_and_after_and_handles_rotation(self):
   with tempfile.TemporaryDirectory() as temp:
    root=pathlib.Path(temp);instance=root/'instance';log=instance/'minecraft/logs/latest.log';log.parent.mkdir(parents=True);run=root/'run';run.mkdir()

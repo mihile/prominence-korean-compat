@@ -138,6 +138,27 @@ def publish_current(instance,run,owner=None):
  write(path,{'run':str(run),'runId':run.name,'ownerPid':owner})
 def settings(instance):
  p=instance/'ClientProfiler/settings.local.json';return json.loads(p.read_text('utf8')) if p.exists() else {}
+
+def configured_seconds(instance):
+ value=settings(instance).get('capture_seconds',180)
+ return value if type(value) is int and 60<=value<=1800 and value%60==0 else 180
+
+def menu(instance,args):
+ while True:
+  print(f'1. 새로 측정하기 ({args.seconds/60:g}분) / 진행 중이면 다시 연결\n2. 최근 자료의 JFR·MAT 분석 이어하기\n3. 최근 결과 폴더 열기\n4. 최근 결과 폴더 경로 복사\n5. 측정 시간 설정 (현재 {args.seconds/60:g}분)\n0. 종료',flush=True)
+  value=input('선택 [Enter = 1]: ').strip() or '1'
+  if value=='5':
+   while True:
+    minutes=input('몇 분 동안 측정할까요? [1~30분, Enter = 변경 취소]: ').strip()
+    if not minutes:break
+    if not minutes.isascii() or not minutes.isdecimal() or not 1<=int(minutes)<=30:
+     print('1~30 사이의 정수로 입력해 주세요.',flush=True);continue
+    cfg=settings(instance);args.seconds=int(minutes)*60;cfg['capture_seconds']=args.seconds
+    write(instance/'ClientProfiler/settings.local.json',cfg)
+    print(f'측정 시간을 {int(minutes)}분으로 저장했습니다. 다음 실행에도 유지됩니다.',flush=True);break
+   continue
+  if value in ('0','1','2','3','4'):return value
+  print('0~5 중에서 선택해 주세요.',flush=True)
 def activation(instance,build):
  path=instance/'ClientProfiler/policy.json';policy=json.loads(path.read_text('utf8')).get('clientProfiling',{}) if path.exists() else {}
  expected=list(policy.get('requiredOptimizationActivationMessages',[]))
@@ -484,14 +505,15 @@ def wait_capture(run,initial_duration,interval=.5):
  raise RuntimeError('완료 대기 시간이 초과됐습니다. 작업 상태와 로그를 확인하세요.')
 
 def main():
- parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('action',choices=['menu','run','resume','open','copy','start','status','stop','worker','resume-worker','mat','analyze','wait']);parser.add_argument('--instance',type=Path);parser.add_argument('--run',type=Path);parser.add_argument('--seconds',type=int,default=180);parser.add_argument('--label',default='client-3min');parser.add_argument('--diagnostic',action='store_true');parser.add_argument('--pid',type=int);parser.add_argument('--fixture-nonce');parser.add_argument('--report',type=Path);args=parser.parse_args()
+ parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('action',choices=['menu','run','resume','open','copy','start','status','stop','worker','resume-worker','mat','analyze','wait']);parser.add_argument('--instance',type=Path);parser.add_argument('--run',type=Path);parser.add_argument('--seconds',type=int,help='Override the saved duration for this run');parser.add_argument('--label');parser.add_argument('--diagnostic',action='store_true');parser.add_argument('--pid',type=int);parser.add_argument('--fixture-nonce');parser.add_argument('--report',type=Path);args=parser.parse_args()
  if os.name!='nt':raise SystemExit('Windows client profiler')
+ if args.seconds is None:args.seconds=configured_seconds(args.instance.resolve()) if args.instance else 180
  if args.action=='menu':
-  print('1. 새로 측정하기 (기본 3분) / 진행 중이면 다시 연결\n2. 최근 자료의 JFR·MAT 분석 이어하기\n3. 최근 결과 폴더 열기\n4. 최근 결과 폴더 경로 복사\n0. 종료',flush=True)
-  value=input('선택 [Enter = 1]: ').strip() or '1'
+  assert args.instance,'Pass --instance'
+  value=menu(args.instance.resolve(),args)
   if value=='0':return
-  if value not in ('1','2','3','4'):raise RuntimeError('0~4 중에서 선택해 주세요.')
   args.action={'1':'run','2':'resume','3':'open','4':'copy'}[value]
+ if args.label is None:args.label=f'client-{args.seconds}s'
  if args.action=='worker':worker(args.run.resolve());return
  if args.action=='resume-worker':resume_worker(args.run.resolve());return
  if args.action in ('start','run'):
