@@ -30,7 +30,7 @@ public final class VerifyWeaponHudTransforms {
         for(Config c:Mixins.getConfigs()){c.getConfig().decorate(FabricUtil.KEY_MOD_ID,"prominence_korean_compat");c.getConfig().decorate(FabricUtil.KEY_COMPATIBILITY,FabricUtil.COMPATIBILITY_LATEST);}
         phase.invoke(null,MixinEnvironment.Phase.DEFAULT);MixinEnvironment.getCurrentEnvironment().setObfuscationContext("named:intermediary");f=VerifyMixinTransforms.class.getDeclaredField("TRANSFORMER");f.setAccessible(true);var transformer=(IMixinTransformer)f.get(null);
         int verified=0;Path fixture=work.resolve("data-classes");
-        for(String target:List.of("net.minecraft.class_636","net.minecraft.class_1796$class_1797","net.minecraft.class_1796","net.sweenus.simplyswords.client.AbilityKeybindHandler","net.sweenus.simplyswords.entity.ThrownSwordEntity","net.spell_engine.client.gui.HudRenderHelper")){
+        for(String target:List.of("net.minecraft.class_636","net.minecraft.class_1796$class_1797","net.minecraft.class_1796","net.sweenus.simplyswords.client.AbilityKeybindHandler","net.sweenus.simplyswords.entity.ThrownSwordEntity","net.spell_engine.client.gui.HudRenderHelper","net.spell_engine.client.input.SpellHotbar")){
             byte[] raw;try(var in=resources.getResourceAsStream(target.replace('.','/')+".class")){raw=in.readAllBytes();}byte[] fixed=transformer.transformClassBytes(target,target,raw);if(Arrays.equals(raw,fixed))throw new AssertionError("Untransformed "+target);
             var before=new ClassNode();var after=new ClassNode();new ClassReader(raw).accept(before,0);new ClassReader(fixed).accept(after,0);
             for(var m:after.methods){new Analyzer<BasicValue>(new BasicVerifier()).analyze(after.name,m);verified++;}
@@ -42,6 +42,16 @@ public final class VerifyWeaponHudTransforms {
             }
             if(target.equals("net.minecraft.class_1796"))for(var m:before.methods){var same=after.methods.stream().filter(x->x.name.equals(m.name)&&x.desc.equals(m.desc)).findFirst().orElseThrow();if(!calls(m).equals(calls(same)))throw new AssertionError("Native cooldown mutations changed");}
             if(target.equals("net.spell_engine.client.gui.HudRenderHelper")&&after.methods.stream().noneMatch(m->m.name.contains("prominence$nativeWeaponCard")))throw new AssertionError("HUD hook absent");
+            if(target.equals("net.spell_engine.client.input.SpellHotbar")){
+                var update=after.methods.stream().filter(m->m.name.equals("update")).findFirst().orElseThrow();
+                var invoked=calls(update);
+                int all=-1,filter=-1;
+                for(int i=0;i<invoked.size();i++){
+                    if(invoked.get(i).contains("Keybindings$Wrapped.all"))all=i;
+                    if(invoked.get(i).contains("prominence$reserveItemUse"))filter=i;
+                }
+                if(all<0||filter!=all+1)throw new AssertionError("Spell keys must be filtered before slot assignment");
+            }
             Path file=fixture.resolve(target.replace('.','/')+".class");Files.createDirectories(file.getParent());Files.write(file,fixed);
         }
         // Run the transformed native cooldown manager/entry without constructing any item or world.
@@ -54,7 +64,7 @@ public final class VerifyWeaponHudTransforms {
             var type=loader.loadClass("net.minecraft.class_1796");var manager=type.getConstructor().newInstance();var item=Class.forName("net.minecraft.class_1792",false,loader);var set=type.getMethod("method_7906",item,int.class);var tick=type.getMethod("method_7903");var remaining=type.getMethod("prominence$remaining",item);var progress=type.getMethod("method_7905",item,float.class);
             set.invoke(manager,null,80);if(!remaining.invoke(manager,new Object[]{null}).equals(80))throw new AssertionError("Initial native cooldown");for(int i=0;i<20;i++)tick.invoke(manager);if(!remaining.invoke(manager,new Object[]{null}).equals(60))throw new AssertionError("Native tick countdown");if(Math.abs((Float)progress.invoke(manager,null,0f)-.75f)>.0001)throw new AssertionError("Native shaded progress");set.invoke(manager,null,5);for(int i=0;i<5;i++)tick.invoke(manager);if(!remaining.invoke(manager,new Object[]{null}).equals(0))throw new AssertionError("Expiry");
         }
-        Files.writeString(work.resolve("native-mixin-report.json"),"{\"status\":\"passed\",\"targets\":6,\"methodsBytecodeVerified\":"+verified+",\"nativeCooldownRuntimeChecks\":4,\"nativeCooldownMutationsPreserved\":true,\"gameStarted\":false}");
-        System.out.println("PASS native weapon HUD/input transforms: 6 targets, "+verified+" methods; original spell HUD scope and engine input mixins coexist; native cooldown countdown/progress/expiry verified without items or world");
+        Files.writeString(work.resolve("native-mixin-report.json"),"{\"status\":\"passed\",\"targets\":7,\"methodsBytecodeVerified\":"+verified+",\"nativeCooldownRuntimeChecks\":4,\"nativeCooldownMutationsPreserved\":true,\"gameStarted\":false}");
+        System.out.println("PASS native weapon HUD/input transforms: 7 targets, "+verified+" methods; original spell HUD scope and engine input mixins coexist; native cooldown countdown/progress/expiry verified without items or world");
     }
 }
