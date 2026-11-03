@@ -111,6 +111,16 @@ def process_running(pid):
  finally:
   if handle:KERNEL.CloseHandle(handle)
 
+def process_started_utc(pid):
+ handle=KERNEL.OpenProcess(0x1000,False,int(pid));times=[wt.FILETIME() for _ in range(4)]
+ KERNEL.GetProcessTimes.argtypes=[wt.HANDLE]+[ctypes.POINTER(wt.FILETIME)]*4
+ try:
+  if not handle or not KERNEL.GetProcessTimes(handle,*[ctypes.byref(t) for t in times]):raise RuntimeError('클라이언트 실행 시각을 조회하지 못했습니다.')
+  ticks=(times[0].dwHighDateTime<<32)|times[0].dwLowDateTime
+  return dt.datetime.fromtimestamp(ticks/1e7-11644473600,dt.timezone.utc).isoformat()
+ finally:
+  if handle:KERNEL.CloseHandle(handle)
+
 def active_capture(instance):
  """Reconnect the console without starting another recording or heap dump."""
  lock=instance/'ClientProfiler/capture.lock';candidates=[]
@@ -159,15 +169,42 @@ def menu(instance,args):
    continue
   if value in ('0','1','2','3','4'):return value
   print('0~5 중에서 선택해 주세요.',flush=True)
-def activation(instance,build):
+def activation(instance,build,started_utc=None):
  path=instance/'ClientProfiler/policy.json';policy=json.loads(path.read_text('utf8')).get('clientProfiling',{}) if path.exists() else {}
  expected=list(policy.get('requiredOptimizationActivationMessages',[]))
  for rule in policy.get('activationByBuild',[]):
   if (build or 0)>=rule['minimumBuild']:expected.extend(rule['messages'])
  for rule in policy.get('retiredActivationByBuild',[]):
   if (build or 0)>=rule['minimumBuild']:expected=[m for m in expected if m not in rule['messages']]
- deferred=set(policy.get('deferredActivationMessages',[]));log=instance/'minecraft/logs/latest.log';text=log.read_text('utf8',errors='replace') if log.exists() else ''
- return {'verified':[m for m in expected if m in text],'missing':[m for m in expected if m not in text and m not in deferred],'deferred':[m for m in expected if m not in text and m in deferred]}
+ expected=list(dict.fromkeys(expected));deferred=set(policy.get('deferredActivationMessages',[]));folder=instance/'minecraft/logs'
+ # latest.log rolls at midnight. Recover only this JVM's time window, never
+ # satisfy a failed guard using activation messages from an earlier launch.
+ cutoff=dt.datetime.fromisoformat(started_utc).astimezone()-dt.timedelta(seconds=2) if started_utc else None
+ candidates=[];latest=folder/'latest.log';found=set();sources=[];errors=[]
+ if cutoff:
+  for log in folder.glob('*.log.gz'):
+   match=re.fullmatch(r'(\d{4}-\d{2}-\d{2})-\d+\.log\.gz',log.name)
+   if not match:continue
+   date=dt.date.fromisoformat(match[1])
+   if cutoff.date()<=date<=dt.datetime.now().astimezone().date() and log.stat().st_mtime>=cutoff.timestamp():candidates.append((log,date))
+ if latest.exists():candidates.append((latest,dt.datetime.fromtimestamp(latest.stat().st_mtime).astimezone().date()))
+ for log,date in candidates:
+  hits=set()
+  try:
+   opener=gzip.open if log.suffix=='.gz' else open
+   with opener(log,'rt',encoding='utf8',errors='replace') as stream:
+    for line in stream:
+     if cutoff:
+      clock=re.match(r'\[(\d{2}):(\d{2}):(\d{2})\]',line)
+      if not clock:continue
+      when=dt.datetime.combine(date,dt.time(*map(int,clock.groups()))).astimezone()
+      if when<cutoff:continue
+     for message in expected:
+      if message in line:hits.add(message)
+  except (OSError,EOFError) as error:errors.append({'file':str(log),'error':str(error)})
+  found.update(hits);sources.append({'file':str(log),'matchedMessages':sorted(hits)})
+ return {'verified':[m for m in expected if m in found],'missing':[m for m in expected if m not in found and m not in deferred],
+         'deferred':[m for m in expected if m not in found and m in deferred],'processStartedUtc':started_utc,'sources':sources,'readErrors':errors}
 def lease(path,payload):
  try:
   with path.open('x',encoding='utf8') as out:json.dump(payload,out)
@@ -355,7 +392,7 @@ def worker(run):
   assert reply.returncode==0 and (run/'heap.hprof.gz').stat().st_size>1024,'Heap dump save failed'
   diagnostic([jcmd,pid,'GC.heap_info'],'heap-after-dump.log')
   if not state.get('fixture'):
-   capture_log(instance,run,'latest.log');state['activationAfter']=activation(instance,state.get('installedBuild'))
+   capture_log(instance,run,'latest.log');state['activationAfter']=activation(instance,state.get('installedBuild'),state.get('processStartedUtc'))
   phase('heap-saved-client-can-close',heapDumpPending=False,heapDumpSavedUtc=stamp(),heapDumpBytes=(run/'heap.hprof.gz').stat().st_size,heapDumpMayRequestFullGc=True,canCloseClient=True)
   release_lease(active,token);phase('JFR-analysis',canCloseClient=True);analyze(run,state)
   phase('waiting-for-client-exit-for-MAT',canCloseClient=True)
@@ -401,8 +438,11 @@ def start(instance,args):
   state['installedJarSha256']=sha(jar)
   with zipfile.ZipFile(jar) as z:state['installedBuild']=json.loads(z.read('fabric.mod.json')).get('custom',{}).get('prominenceAutoUpdate',{}).get('build')
  if not state['fixture']:
-  state['activationBefore']=activation(instance,state.get('installedBuild'));state['diagnosticRun']=getattr(args,'diagnostic',False)
-  assert not state['activationBefore']['missing'] or state['diagnosticRun'],'Missing current startup activation: '+str(state['activationBefore']['missing'])
+  state['processStartedUtc']=process_started_utc(row['ProcessId'])
+  state['activationBefore']=activation(instance,state.get('installedBuild'),state['processStartedUtc']);state['diagnosticRun']=getattr(args,'diagnostic',False)
+  write(run/'activation-before.json',state['activationBefore'])
+  missing=state['activationBefore']['missing']
+  if missing and not state['diagnosticRun']:raise RuntimeError(f'현재 실행의 최적화 활성화 확인이 {len(missing)}개 누락됐습니다. 자세한 확인 결과: '+str(run/'activation-before.json'))
  write(run/'state.json',state)
  print('측정 준비 중 · 결과 폴더: '+str(run),flush=True)
  with (run/'worker.log').open('w',encoding='utf8') as log:

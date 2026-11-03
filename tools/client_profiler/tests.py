@@ -4,6 +4,34 @@ P=pathlib.Path(__file__).resolve().parent
 spec=importlib.util.spec_from_file_location('profiler',P/'profile.py');profiler=importlib.util.module_from_spec(spec);spec.loader.exec_module(profiler)
 
 class Tests(unittest.TestCase):
+ def test_activation_reads_midnight_rollover_but_rejects_previous_launch(self):
+  import gzip,datetime as dt
+  with tempfile.TemporaryDirectory() as temp:
+   root=pathlib.Path(temp);logs=root/'minecraft/logs';logs.mkdir(parents=True)
+   policy={'clientProfiling':{'requiredOptimizationActivationMessages':['guard A','guard B','later','retired'],
+           'deferredActivationMessages':['later'],'retiredActivationByBuild':[{'minimumBuild':2,'messages':['retired']}]}}
+   profiler.write(root/'ClientProfiler/policy.json',policy)
+   today=dt.datetime.now().astimezone().date();yesterday=today-dt.timedelta(days=1)
+   started=dt.datetime.combine(yesterday,dt.time(20)).astimezone().isoformat()
+   with gzip.open(logs/f'{yesterday}-1.log.gz','wt',encoding='utf8') as out:out.write('[19:00:00] [main/INFO]: guard B\n')
+   with gzip.open(logs/f'{yesterday}-2.log.gz','wt',encoding='utf8') as out:out.write('[20:00:01] [main/INFO]: guard A\n')
+   (logs/'latest.log').write_text('[00:01:00] [Render thread/INFO]: Playing\n','utf8')
+   result=profiler.activation(root,2,started)
+   self.assertEqual(result['verified'],['guard A']);self.assertEqual(result['missing'],['guard B']);self.assertEqual(result['deferred'],['later'])
+   self.assertEqual(result['readErrors'],[]);self.assertEqual(len(result['sources']),3)
+   # A missing guard stays missing; no policy bypass or unscoped archive fallback.
+   self.assertIn('guard A',profiler.activation(root,2)['missing'])
+   with (logs/'latest.log').open('a',encoding='utf8') as out:out.write('[00:02:00] [main/INFO]: guard B\n')
+   self.assertEqual(profiler.activation(root,2,started)['missing'],[])
+ def test_activation_corrupt_archive_is_reported_not_verified(self):
+  import datetime as dt
+  with tempfile.TemporaryDirectory() as temp:
+   root=pathlib.Path(temp);logs=root/'minecraft/logs';logs.mkdir(parents=True)
+   profiler.write(root/'ClientProfiler/policy.json',{'clientProfiling':{'requiredOptimizationActivationMessages':['guard A']}})
+   day=dt.datetime.now().astimezone().date();started=dt.datetime.combine(day,dt.time()).astimezone().isoformat()
+   (logs/f'{day}-1.log.gz').write_bytes(b'not a gzip')
+   result=profiler.activation(root,1,started)
+   self.assertEqual(result['missing'],['guard A']);self.assertEqual(len(result['readErrors']),1)
  def test_duration_menu_persists_and_preserves_settings(self):
   with tempfile.TemporaryDirectory() as temp:
    instance=pathlib.Path(temp);path=instance/'ClientProfiler/settings.local.json'

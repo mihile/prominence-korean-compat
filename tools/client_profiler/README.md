@@ -15,3 +15,5 @@
 결과는 Temp/prominence-profile 아래에 저장한다. README.txt는 파일 설명, state.json은 실제 완료/실패 상태, log-summary.json은 측정 구간 오류 요약이다. 프레임 수집 실패는 완료 화면에서도 별도로 안내한다.
 
 settings.local.json은 개인 도구 경로, policy.json은 측정 정책, latest.json은 최근 결과 위치다. .cache/summary는 재사용하는 분석기 컴파일 캐시다. 이 폴더는 배포 복사에서 제외한다. 소스와 BAT 템플릿은 KoreanPatch/Compat/repository/tools/client_profiler에 함께 관리한다.
+
+최적화 활성화 검사는 자정에 분리된 압축 로그까지 현재 게임 실행 시각을 기준으로 확인한다. 과거 실행의 문구는 인정하지 않는다. 실제 누락이 있으면 결과 폴더의 activation-before.json에 확인 근거를 남긴다.
