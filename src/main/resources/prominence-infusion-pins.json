@@ -1,0 +1,18 @@
+{
+  "eldritch_end": {
+    "version": "0.3.4",
+    "classes": {
+      "elocindev/eldritch_end/api/infusion/InfusableItemMaterial.class": "8e14d7fe37efe642eb53701b91eb2ec4e2dc85c3baff8f2a99573929cc218b9f",
+      "elocindev/eldritch_end/api/infusion/InfusionAttributeHolder$Presets.class": "581005f3ea40425e347cd3bf4efb27928cdfa342f83a4d365cb2b5042669859b",
+      "elocindev/eldritch_end/api/infusion/InfusionAttributeHolder.class": "1722f30050dafc374befac284f2b76fbbd7c6a7970494ab5d05669f341a75b07",
+      "elocindev/eldritch_end/api/infusion/InfusionTemplate.class": "f922a7463c8f14a1476f86a10a61fbf8f77d165138c63b836eb33b5af6b968e1",
+      "elocindev/eldritch_end/item/infusion_materials/AberrationHeartItem.class": "21727772f2014564387a37487e8b28767a89ea1749975323452f5ef72523a66e",
+      "elocindev/eldritch_end/item/infusion_materials/AberrationLimbItem.class": "ee9e69d62fbee04d6741941bc810f5b41e62aa6312647c8868773067e7e8e369",
+      "elocindev/eldritch_end/item/infusion_materials/EtyrIngot.class": "5ebaf0bbbe593688e5a550b7ac744d10760e4a23c1d8784af1405994483a4586",
+      "elocindev/eldritch_end/item/infusion_templates/CorruptionTemplate.class": "23a55b02541f3b80b546b29a5dbfbf322b372b3e8a17f223e5c54b57ee02a61c",
+      "elocindev/eldritch_end/item/infusion_templates/EtyrTemplate.class": "efcc88dc63e387eaa87c1a6788953c44a4b4d73d1f95dc72fa055bb191f83f1c",
+      "elocindev/eldritch_end/item/relics/Xal.class": "4aefdc5b4c1bb433c72a57472047ad83139ec4661219d8f747e9cd292998f0ac",
+      "elocindev/eldritch_end/mixin/smithing/InfusionSmithingTableMixin.class": "4204f075c015f8b5611b444cbcf58026a0b9198c2486cb0eb0fab31dc915ada0"
+    }
+  }
+}

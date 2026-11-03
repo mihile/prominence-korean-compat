@@ -31,8 +31,8 @@ def main():
  meta=json.loads(old['fabric.mod.json']);assert meta['id']=='prominence_korean_compat' and meta['version']=='1.0.0'
  new=dict(old)
  # These explicitly owned modules may be rebuilt; all other compatibility classes stay exact.
- managed_prefixes=('local/prominence/cinder/','local/prominence/arrival/','local/prominence/autoupdate/','local/prominence/memory/','local/prominence/backpackinline/','local/prominence/weaponhud/','local/prominence/swingscope/','local/prominence/hammereffect/','local/prominence/localization/','local/prominence/ftbime/','local/prominence/join/','local/prominence/work/','local/prominence/lootcredit/','local/prominence/rewards/',
-  'local/prominence/backpackcompat/client/PortableReforgeButton.class')
+ managed_prefixes=('local/prominence/infusion/','local/prominence/cinder/','local/prominence/arrival/','local/prominence/autoupdate/','local/prominence/memory/','local/prominence/backpackinline/','local/prominence/weaponhud/','local/prominence/swingscope/','local/prominence/hammereffect/','local/prominence/localization/','local/prominence/ftbime/','local/prominence/join/','local/prominence/work/','local/prominence/lootcredit/','local/prominence/rewards/',
+  'local/prominence/combatreach/','local/prominence/backpackcompat/client/PortableReforgeButton.class')
  for n in list(new):
   if n.startswith((*managed_prefixes,'META-INF/prominence-korean-compat-source/auto-update/')):del new[n]
  added={p.relative_to(classes).as_posix():p.read_bytes() for p in classes.rglob('*.class')}
@@ -74,6 +74,9 @@ def main():
   if entry not in client:client.append(entry)
  if (ROOT/'src/main/java/local/prominence/memory/WorldCacheCleanupClient.java').exists():
   entry='local.prominence.memory.WorldCacheCleanupClient'
+  if entry not in client:client.append(entry)
+ if (ROOT/'src/main/java/local/prominence/memory/RetentionCleanupClient.java').exists():
+  entry='local.prominence.memory.RetentionCleanupClient'
   if entry not in client:client.append(entry)
  entry='local.prominence.localization.IntegratedKoreanPack'
  if entry not in client:client.append(entry)

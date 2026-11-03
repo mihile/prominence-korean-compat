@@ -113,6 +113,13 @@
           "Client shader source disk cache: retired",
           "Client experimental work retired: meshAdmission, unchangedStateRemap"
         ]
+      },
+      {
+        "minimumBuild": 2026110401,
+        "messages": [
+          "Client retained-owner cleanup:",
+          "Client frame-scoped spell container reads:"
+        ]
       }
     ],
     "toolVerification": "KoreanPatch/profiler/tool-verification-20261027c/fixture-report.json",

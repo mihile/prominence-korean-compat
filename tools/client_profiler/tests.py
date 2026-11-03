@@ -4,6 +4,86 @@ P=pathlib.Path(__file__).resolve().parent
 spec=importlib.util.spec_from_file_location('profiler',P/'profile.py');profiler=importlib.util.module_from_spec(spec);spec.loader.exec_module(profiler)
 
 class Tests(unittest.TestCase):
+ def test_activation_reads_midnight_rollover_but_rejects_previous_launch(self):
+  import gzip,datetime as dt
+  with tempfile.TemporaryDirectory() as temp:
+   root=pathlib.Path(temp);logs=root/'minecraft/logs';logs.mkdir(parents=True)
+   policy={'clientProfiling':{'requiredOptimizationActivationMessages':['guard A','guard B','later','retired'],
+           'deferredActivationMessages':['later'],'retiredActivationByBuild':[{'minimumBuild':2,'messages':['retired']}]}}
+   profiler.write(root/'ClientProfiler/policy.json',policy)
+   today=dt.datetime.now().astimezone().date();yesterday=today-dt.timedelta(days=1)
+   started=dt.datetime.combine(yesterday,dt.time(20)).astimezone().isoformat()
+   with gzip.open(logs/f'{yesterday}-1.log.gz','wt',encoding='utf8') as out:out.write('[19:00:00] [main/INFO]: guard B\n')
+   with gzip.open(logs/f'{yesterday}-2.log.gz','wt',encoding='utf8') as out:out.write('[20:00:01] [main/INFO]: guard A\n')
+   (logs/'latest.log').write_text('[00:01:00] [Render thread/INFO]: Playing\n','utf8')
+   result=profiler.activation(root,2,started)
+   self.assertEqual(result['verified'],['guard A']);self.assertEqual(result['missing'],['guard B']);self.assertEqual(result['deferred'],['later'])
+   self.assertEqual(result['readErrors'],[]);self.assertEqual(len(result['sources']),3)
+   # A missing guard stays missing; no policy bypass or unscoped archive fallback.
+   self.assertIn('guard A',profiler.activation(root,2)['missing'])
+   with (logs/'latest.log').open('a',encoding='utf8') as out:out.write('[00:02:00] [main/INFO]: guard B\n')
+   self.assertEqual(profiler.activation(root,2,started)['missing'],[])
+ def test_activation_corrupt_archive_is_reported_not_verified(self):
+  import datetime as dt
+  with tempfile.TemporaryDirectory() as temp:
+   root=pathlib.Path(temp);logs=root/'minecraft/logs';logs.mkdir(parents=True)
+   profiler.write(root/'ClientProfiler/policy.json',{'clientProfiling':{'requiredOptimizationActivationMessages':['guard A']}})
+   day=dt.datetime.now().astimezone().date();started=dt.datetime.combine(day,dt.time()).astimezone().isoformat()
+   (logs/f'{day}-1.log.gz').write_bytes(b'not a gzip')
+   result=profiler.activation(root,1,started)
+   self.assertEqual(result['missing'],['guard A']);self.assertEqual(len(result['readErrors']),1)
+ def test_duration_menu_persists_and_preserves_settings(self):
+  with tempfile.TemporaryDirectory() as temp:
+   instance=pathlib.Path(temp);path=instance/'ClientProfiler/settings.local.json'
+   original={'runtime_java':'keep-this-path','mat_heap':'3g','anotherSetting':{'keep':True}}
+   profiler.write(path,original);self.assertEqual(profiler.configured_seconds(instance),180)
+   args=argparse.Namespace(seconds=180)
+   with patch('builtins.input',side_effect=['5','0','31','bad','1.5','5','']),contextlib.redirect_stdout(io.StringIO()):
+    self.assertEqual(profiler.menu(instance,args),'1')
+   self.assertEqual(args.seconds,300);self.assertEqual(profiler.configured_seconds(instance),300)
+   self.assertEqual(json.loads(path.read_text('utf8')),{**original,'capture_seconds':300})
+   before=path.read_bytes();args=argparse.Namespace(seconds=300)
+   with patch('builtins.input',side_effect=['5','','0']),contextlib.redirect_stdout(io.StringIO()):self.assertEqual(profiler.menu(instance,args),'0')
+   self.assertEqual(path.read_bytes(),before)
+ def test_duration_cli_override_does_not_change_saved_setting(self):
+  with tempfile.TemporaryDirectory() as temp:
+   instance=pathlib.Path(temp);path=instance/'ClientProfiler/settings.local.json';profiler.write(path,{'capture_seconds':300})
+   with patch.object(sys,'argv',['profile.py','menu','--instance',str(instance),'--seconds','120']),patch('builtins.input',return_value='0'),contextlib.redirect_stdout(io.StringIO()) as output:profiler.main()
+   self.assertIn('2분',output.getvalue());self.assertEqual(profiler.configured_seconds(instance),300)
+ def test_log_interval_excludes_before_and_after_and_handles_rotation(self):
+  with tempfile.TemporaryDirectory() as temp:
+   root=pathlib.Path(temp);instance=root/'instance';log=instance/'minecraft/logs/latest.log';log.parent.mkdir(parents=True);run=root/'run';run.mkdir()
+   log.write_text('[time] [Render thread/ERROR]: old error\n','utf8');mark=profiler.log_mark(log)
+   with log.open('a',encoding='utf8') as stream:stream.write('[now] [Render thread/WARN]: repeated\n'*3+'[now] [Render thread/ERROR]: new error\n')
+   summary=profiler.capture_log(instance,run,'interval.txt',mark)
+   self.assertEqual(summary['errors'],1);self.assertEqual(summary['warnings'],3);self.assertNotIn('old error',(run/'interval.txt').read_text())
+   self.assertEqual(summary['topMessages'][0],('repeated',3));self.assertFalse(summary['rotated'])
+   log.write_text('rotated\n','utf8');summary=profiler.capture_log(instance,run,'rotated.txt',mark);self.assertTrue(summary['rotated'])
+ def test_disk_budget_before_capture(self):
+  with patch.object(profiler.shutil,'disk_usage',return_value=argparse.Namespace(free=1)):
+   with self.assertRaisesRegex(RuntimeError,'저장 공간 부족'):profiler.disk_preflight(pathlib.Path('.'),1024**3)
+  with patch.object(profiler.shutil,'disk_usage',return_value=argparse.Namespace(free=10*1024**3)):
+   self.assertEqual(profiler.disk_preflight(pathlib.Path('.'),1024**3)['estimatedRequiredBytes'],3*1024**3+512*1024**2)
+ def test_analyzer_compile_cache_reused(self):
+  with tempfile.TemporaryDirectory() as temp:
+   run=pathlib.Path(temp)/'run';run.mkdir();state={'instance':temp,'analysisJava':'C:/fake-java','maxHeapBytes':64}
+   calls=[]
+   def execute(args,**kw):
+    calls.append(args)
+    if str(args[0]).endswith('javac.exe'):(pathlib.Path(args[2])/'ProfileSummary.class').touch()
+    return subprocess.CompletedProcess(args,0,'','')
+   with patch.object(profiler,'command',side_effect=execute):profiler.analyze(run,state);profiler.analyze(run,state)
+   self.assertEqual(sum(str(c[0]).endswith('javac.exe') for c in calls),1);self.assertEqual(len(calls),3)
+ def test_resume_only_uses_saved_artifacts(self):
+  with tempfile.TemporaryDirectory() as temp:
+   run=pathlib.Path(temp);(run/'heap.hprof.gz').write_bytes(b'saved')
+   profiler.write(run/'state.json',{'instance':temp,'phase':'failed','error':'MAT interrupted','validJfr':True,'canCloseClient':True})
+   with patch.object(profiler,'active_capture',return_value=None),patch.object(profiler,'publish_current'),patch.object(profiler.subprocess,'Popen') as child:
+    child.return_value.pid=123;self.assertEqual(profiler.resume_analysis(run),run)
+    self.assertIn('resume-worker',child.call_args[0][0]);self.assertNotIn('worker',child.call_args[0][0])
+   state=json.loads((run/'state.json').read_text('utf8'));self.assertEqual(state['phase'],'resuming-analysis');self.assertNotIn('error',state)
+   state['canCloseClient']=False;profiler.write(run/'state.json',state)
+   with patch.object(profiler,'active_capture',return_value=None),self.assertRaises(AssertionError):profiler.resume_analysis(run)
  def test_reconnect_active_and_mat_without_starting_capture(self):
   with tempfile.TemporaryDirectory() as temp:
    instance=pathlib.Path(temp)/'instance';local=instance/'ClientProfiler';local.mkdir(parents=True)
@@ -101,6 +181,8 @@ def fixture(config,output):
   else:raise AssertionError('Post-recording heap did not finish')
   assert state['maxHeapBytes']==64*1024*1024,state
   assert state['heapDumpBytes']>1024 and state['traceSavedUtc']<state['heapDumpStartedUtc']<state['heapDumpSavedUtc'],state
+  metrics=[json.loads(l) for l in (run/'process-memory.jsonl').read_text('utf8').splitlines()]
+  assert any(m['cpuOneCorePercent'] is not None for m in metrics),metrics
   stop.touch();process.wait(timeout=10)
   deadline=time.monotonic()+150
   while time.monotonic()<deadline:
@@ -110,7 +192,7 @@ def fixture(config,output):
    time.sleep(.5)
   else:raise AssertionError('MAT fixture did not complete')
   summary=json.loads((run/'analysis/heap-summary.json').read_text('utf8'));assert summary['maxHeapBytes']==64*1024*1024 and summary['heapDumpExcluded'] and not summary['systemRamUsedAsHeapEvidence']
-  result={'status':'passed','run':str(run),'heapSavedAfterJfr':True,'actualHeapLimitBytes':state['maxHeapBytes'],'matReports':state['matReports'],'minecraftStarted':False,'serverStarted':False}
+  result={'status':'passed','run':str(run),'heapSavedAfterJfr':True,'actualHeapLimitBytes':state['maxHeapBytes'],'matReports':state['matReports'],'processCpuMetrics':True,'matLogStreamed':(run/'mat.log').stat().st_size>0,'minecraftStarted':False,'serverStarted':False}
   profiler.write(output/'fixture-report.json',result);print(json.dumps(result,indent=2))
  finally:
   stop.touch()
