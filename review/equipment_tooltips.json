@@ -63495,7 +63495,7 @@
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "English and Korean compared. VineFlowerFieldManager declares friendlyHealBase, hostileDamageBase and dealAuraDamage. Conditions and gameplay unverified."
+      "notes": "English and Korean compared. VineFlowerFieldManager reads damageHostiles and healFriendlies tuning flags and has configured friendly heal and hostile damage. Exact filters, activation and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -63947,12 +63947,12 @@
       "english": "  The flower field is replaced with a parasitic spore blossom. The spore blossom tendrils feed on those caught within their grasp, rooting smaller hostiles in place. When the blossom expires, it bursts, granting buffs to nearby allies.",
       "korean": "꽃밭이 기생 포자꽃으로 바뀝니다. 덩굴손이 붙잡힌 대상을 먹고 작은 적을 뿌리로 묶습니다. 꽃이 시들면 터지며 주변 아군을 강화합니다.",
       "status": "language_reviewed",
-      "mechanics": "unverified",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
       },
-      "notes": "English and Korean compared; rune-specific effects, upgrade formulas and gameplay require implementation verification."
+      "notes": "English and Korean compared. isLargeTendrilTarget uses width >0.65 or height >2.0; large targets receive slowness and are removed from root map, others enter timed root maintenance which zeros horizontal velocity. Expiry burst applies mapped STRENGTH, HASTE and SPEED to friendlies. Gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -105387,5 +105387,13 @@
       "nativeTooltipClasses": [],
       "status": "pending"
     }
-  ]
+  ],
+  "inventoryFilenameCheck": {
+    "checkedLocalDate": "2026-11-03",
+    "installedJarFilenamesNotInModList": [
+      "prominence-korean-compat-1.0.0.jar"
+    ],
+    "listedFilenamesMissingFromMods": [],
+    "limitation": "Filename comparison only; does not verify versions, contents, dynamic tooltips or nested JAR coverage. Compatibility JAR is intentionally excluded from mod list and must be reviewed separately."
+  }
 }
