@@ -26,6 +26,62 @@ def write(path,value):
    if attempt==19:raise
    time.sleep(.025)
 def command(args,cwd=None,timeout=120):return subprocess.run(list(map(str,args)),cwd=cwd,capture_output=True,text=True,encoding='utf8',errors='replace',creationflags=FLAGS,timeout=timeout)
+
+def tail(path,limit=4096):
+ try:
+  with Path(path).open('rb') as stream:
+   stream.seek(0,2);stream.seek(max(0,stream.tell()-limit));return stream.read().decode('utf8',errors='replace')
+ except OSError:return ''
+
+def log_mark(path):
+ try:
+  info=path.stat();return (info.st_ino,info.st_size)
+ except OSError:return None
+
+def capture_log(instance,run,name,mark=None):
+ """Bounded snapshots and exact trace interval, separate from the heap/GC pause."""
+ source=instance/'minecraft/logs/latest.log';limit=16*1024*1024
+ try:
+  info=source.stat();same=mark is not None and mark[0]==info.st_ino and info.st_size>=mark[1]
+  offset=mark[1] if same else max(0,info.st_size-limit) if mark is None else 0
+  size=min(limit,max(0,info.st_size-offset))
+  with source.open('rb') as src,(run/name).open('wb') as dest:
+   src.seek(offset);remaining=size
+   while remaining:
+    block=src.read(min(65536,remaining))
+    if not block:break
+    dest.write(block);remaining-=len(block)
+  counts={};errors=warnings=0
+  with (run/name).open(encoding='utf8',errors='replace') as stream:
+   for line in stream:
+    if '/ERROR]' not in line and '/WARN]' not in line:continue
+    errors+='/ERROR]' in line;warnings+='/WARN]' in line
+    text=line.split(']: ',1)[-1].strip()[:400]
+    if text in counts or len(counts)<1000:counts[text]=counts.get(text,0)+1
+  return {'file':name,'bytes':size-remaining,'capped':info.st_size-offset>limit,'rotated':mark is not None and not same,
+          'errors':errors,'warnings':warnings,'topMessages':sorted(counts.items(),key=lambda x:x[1],reverse=True)[:15]}
+ except OSError as error:return {'file':name,'error':str(error)}
+
+def disk_preflight(run,max_heap):
+ # Keep gzip, raw heap and MAT indexes; this is storage, not available RAM.
+ required=max_heap*3+512*1024*1024;free=shutil.disk_usage(run).free
+ if free<required:raise RuntimeError(f'결과 저장 공간 부족: 약 {required/2**30:.1f} GiB 필요, {free/2**30:.1f} GiB 남음. settings.local.json의 run_root를 여유 있는 드라이브로 지정하세요.')
+ return {'freeBytes':free,'estimatedRequiredBytes':required}
+
+def result_note(run,state):
+ parts=['클라이언트 성능 측정', '상태: '+state['phase'], '폴더: '+str(run),
+        'capture.jfr: 측정 구간 실행 스택·할당·GC·락 대기',
+        'frames.csv / frame-consistency.json: 동기화된 프레임 시간과 누락 구간',
+        'gpu.csv / process-metrics.csv: GPU와 대상 클라이언트 CPU·상주 RAM·private commit',
+        'client-log-during-trace.txt / log-summary.json: 측정 중 로그와 반복 오류',
+        'heap.hprof.gz: 기록 종료 후 저장한 힙 덤프',
+        'analysis/: JFR 요약, mat-uncompressed/: MAT 보고서·인덱스',
+        'state.json / worker.log / mat.log: 상태·실패 원인·분석 진행 상황', '',
+        '힙 덤프의 Full GC 정지는 본 측정 구간에서 제외됩니다.',
+        '상주 RAM과 JVM 힙은 다릅니다. JVM 한도는 state.json의 maxHeapBytes입니다.',
+        '완료 여부는 phase=complete와 MAT 보고서 파일을 함께 확인하세요.']
+ if state.get('error'):parts+=['오류: '+state['error'],'BAT의 2번으로 저장 자료 분석을 이어갈 수 있습니다.']
+ (run/'README.txt').write_text('\n'.join(parts)+'\n','utf-8-sig')
 def alive(handle):
  code=wt.DWORD();return bool(handle and KERNEL.GetExitCodeProcess(handle,ctypes.byref(code)) and code.value==259)
 def processes():
@@ -44,7 +100,7 @@ def target(rows,instance,pid=None,fixture_nonce=None):
   valid='org.prismlauncher.EntryPoint' in text and (native_path==root+'/natives' or game_path)
   if fixture_nonce is not None:valid='ClientProfileFixture' in text and fixture_nonce in text and pid==row['ProcessId']
   if valid and (pid is None or pid==row['ProcessId']):found.append(row)
- if len(found)!=1:raise RuntimeError('Could not identify exactly one client for this instance; start it in Prism and wait at the server list. Matching PIDs: '+str([r['ProcessId'] for r in found]))
+ if len(found)!=1:raise RuntimeError('이 인스턴트의 클라이언트를 하나로 식별하지 못했습니다. Prism에서 이 인스턴트를 켜고 서버 목록에서 대기해 주세요. 일치한 PID: '+str([r['ProcessId'] for r in found]))
  return found[0]
 def current(instance):
  path=instance/'ClientProfiler/latest.json';return Path(json.loads(path.read_text('utf8'))['run']) if path.exists() else None
@@ -114,11 +170,21 @@ class Counters(ctypes.Structure):
 
 def sample(handle,out,done):
  psapi=ctypes.WinDLL('psapi',use_last_error=True);psapi.GetProcessMemoryInfo.argtypes=[wt.HANDLE,ctypes.POINTER(Counters),wt.DWORD]
- with out.open('w',encoding='utf8') as stream:
+ KERNEL.GetProcessTimes.argtypes=[wt.HANDLE]+[ctypes.POINTER(wt.FILETIME)]*4
+ previous=None
+ with out.open('w',encoding='utf8') as stream,out.with_name('process-metrics.csv').open('w',encoding='utf-8-sig',newline='') as csvout:
+  fields=['utc','workingSetBytes','privateCommitBytes','pageFaults','cpuOneCorePercent','cpuMachinePercent'];writer=csv.DictWriter(csvout,fieldnames=fields);writer.writeheader()
   while not done.is_set() and alive(handle):
    values=Counters();values.cb=ctypes.sizeof(values)
    if not psapi.GetProcessMemoryInfo(handle,ctypes.byref(values),values.cb):break
-   stream.write(json.dumps({'utc':stamp(),'workingSetBytes':values.WorkingSetSize,'privateCommitBytes':values.PrivateUsage,'pageFaults':values.PageFaultCount})+'\n');stream.flush();done.wait(5)
+   times=[wt.FILETIME() for _ in range(4)];cpu=None;now=time.monotonic()
+   if KERNEL.GetProcessTimes(handle,*[ctypes.byref(t) for t in times]):cpu=sum((t.dwHighDateTime<<32)|t.dwLowDateTime for t in times[2:])/1e7
+   percent=None if previous is None or cpu is None else 100*max(0,cpu-previous[1])/max(.001,now-previous[0])
+   row={'utc':stamp(),'workingSetBytes':values.WorkingSetSize,'privateCommitBytes':values.PrivateUsage,'pageFaults':values.PageFaultCount,
+        'cpuOneCorePercent':percent,'cpuMachinePercent':None if percent is None else percent/(os.cpu_count() or 1)}
+   stream.write(json.dumps(row)+'\n');stream.flush();writer.writerow(row);csvout.flush()
+   if cpu is not None:previous=(now,cpu)
+   done.wait(1)
 
 def profile_settings(java,output):
  tree=ET.parse(java/'lib/jfr/profile.jfc');root=tree.getroot()
@@ -153,8 +219,12 @@ def normalize_frames(run,state):
  result={'available':True,'frames':count,'maxObservedStartGapMs':largest,'inconsistencies':warnings};write(run/'frame-consistency.json',result);return result
 
 def analyze(run,state):
- java=Path(state['analysisJava']);classes=run/'analysis/classes';classes.mkdir(parents=True,exist_ok=True)
- reply=command([java/'bin/javac.exe','-d',classes,SOURCE/'ProfileSummary.java']);(run/'analysis/compile.log').write_text(reply.stdout+reply.stderr,'utf8');assert reply.returncode==0,reply.stderr
+ java=Path(state['analysisJava']);source=SOURCE/'ProfileSummary.java';identity=sha(source)+str(java)
+ classes=Path(state['instance'])/'ClientProfiler/.cache/summary'/hashlib.sha256(identity.encode()).hexdigest()[:16];classes.mkdir(parents=True,exist_ok=True)
+ (run/'analysis').mkdir(exist_ok=True)
+ if not (classes/'ProfileSummary.class').exists():
+  reply=command([java/'bin/javac.exe','-d',classes,source]);(run/'analysis/compile.log').write_text(reply.stdout+reply.stderr,'utf8');assert reply.returncode==0,reply.stderr
+ else:(run/'analysis/compile.log').write_text('Reused compiled analyzer for the same source and JDK.\n','utf8')
  reply=command([java/'bin/java.exe','-Xmx512m','-cp',classes,'ProfileSummary',run/'capture.jfr',run/'analysis',state.get('maxHeapBytes',0)]);(run/'analysis/jfr-analysis.log').write_text(reply.stdout+reply.stderr,'utf8');assert reply.returncode==0,reply.stderr
 
 def mat(run,state,report=None):
@@ -167,7 +237,13 @@ def mat(run,state,report=None):
  work=run/'mat-uncompressed';work.mkdir(exist_ok=True);heap=work/'heap.hprof';partial=work/'heap.hprof.partial'
  if not heap.exists():
   try:
-   with gzip.open(run/'heap.hprof.gz','rb') as source,partial.open('wb') as output:shutil.copyfileobj(source,output,8*1024*1024)
+   with gzip.open(run/'heap.hprof.gz','rb') as source,partial.open('wb') as output:
+    written=0;last=0
+    while True:
+     block=source.read(8*1024*1024)
+     if not block:break
+     output.write(block);written+=len(block)
+     if time.monotonic()-last>=2:write(run/'progress.json',{'stage':'MAT 압축 해제','bytes':written});last=time.monotonic()
    os.replace(partial,heap)
   except BaseException:
    partial.unlink(missing_ok=True);raise
@@ -176,9 +252,14 @@ def mat(run,state,report=None):
   script=run/'fixture-retention.xml';script.write_text('<section xmlns="http://www.eclipse.org/mat/report.xsd" name="Fixture"><query name="Dominators"><command>dominator_tree</command></query><query name="Histogram"><command>histogram</command></query></section>','utf8')
  safe_script=work/'report.xml';shutil.copy2(script,safe_script)
  args=[java/'bin/java.exe','-Xms128m','-Xmx'+state.get('matHeap','3g'),'-XX:ActiveProcessorCount=2','--add-exports=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED','-jar',launcher,'-configuration',config,'-data',run/'mat-workspace','-consoleLog','-nosplash','-application','org.eclipse.mat.api.parse',heap,'org.eclipse.mat.api:suspects','org.eclipse.mat.api:overview',safe_script]
- reply=command(args,cwd=home,timeout=7200);(run/'mat.log').write_text(reply.stdout+reply.stderr,'utf8')
+ write(run/'progress.json',{'stage':'MAT 힙 인덱스·보고서 생성'})
+ # Stream MAT output to disk so the BAT can show current progress immediately.
+ with (run/'mat.log').open('w',encoding='utf8') as log:
+  process=subprocess.Popen(list(map(str,args)),cwd=home,stdout=log,stderr=subprocess.STDOUT,creationflags=FLAGS)
+  try:code=process.wait(timeout=7200)
+  except subprocess.TimeoutExpired:process.kill();process.wait();raise RuntimeError('MAT 분석 시간이 2시간을 초과했습니다. mat.log를 확인하세요.')
  reports=[str(p) for p in work.glob('heap*.zip')]
- assert reply.returncode==0 and len(reports)>=3 and all(zipfile.is_zipfile(p) for p in reports),'MAT failed or did not produce all three report archives; inspect mat.log'
+ assert code==0 and len(reports)>=3 and all(zipfile.is_zipfile(p) for p in reports),'MAT failed or did not produce all three report archives; inspect mat.log'
  return reports
 
 def sample_gpu(run,done):
@@ -206,7 +287,7 @@ def sample_gpu(run,done):
 def worker(run):
  state=json.loads((run/'state.json').read_text('utf8'));instance=Path(state['instance']);cfg=settings(instance);pid=state['pid'];handle=KERNEL.OpenProcess(0x0400|0x0010,False,pid)
  java=Path(state['runtimeJava']);jcmd=java/'bin/jcmd.exe';name='client_profile_'+state['runId'];active=instance/'ClientProfiler/capture.lock';token={'ownerPid':os.getpid(),'runId':state['runId']};recording=False;frames=gpu=None;logs=[];done=threading.Event();sampler=None
- def phase(value,**extra):state.update(phase=value,updatedUtc=stamp(),**extra);write(run/'state.json',state)
+ def phase(value,**extra):state.update(phase=value,updatedUtc=stamp(),**extra);write(run/'state.json',state);result_note(run,state)
  def diagnostic(args,filename,timeout=120):
   reply=command(args,timeout=timeout);(run/filename).write_text(reply.stdout+reply.stderr,'utf8');return reply
  try:
@@ -217,7 +298,13 @@ def worker(run):
   reply=diagnostic([jcmd,pid,'JFR.check'],'recordings-before.log');assert reply.returncode==0 and 'No available recordings' in reply.stdout,'An existing JFR is active; do not stop someone else\'s trace'
   reply=diagnostic([jcmd,pid,'VM.flags','-all'],'vm-flags.log');match=re.search(r'\bMaxHeapSize\s*(?::?=)\s*(\d+)',reply.stdout);state['maxHeapBytes']=int(match[1]) if match else 0
   assert state['maxHeapBytes']>0,'Cannot verify the client heap limit; do not substitute process/system RAM'
+  state['diskPreflight']=disk_preflight(run,state['maxHeapBytes'])
+  if not state.get('fixture'):
+   state['logBefore']=capture_log(instance,run,'client-log-before.txt')
+   diagnostic([jcmd,pid,'Thread.print','-l'],'threads-before.log')
+   diagnostic([jcmd,pid,'VM.native_memory','summary','scale=MB'],'native-memory-before.log')
   diagnostic([jcmd,pid,'GC.heap_info'],'heap-before.log');profile_settings(java,run/'profile.jfc')
+  trace_log_mark=log_mark(instance/'minecraft/logs/latest.log')
   reply=diagnostic([jcmd,pid,'JFR.start','name='+name,'settings='+jcpath(run/'profile.jfc'),'duration='+str(state['durationSeconds'])+'s','filename='+jcpath(run/'capture.jfr'),'maxsize=256m','dumponexit=true'],'jfr-start.log');assert reply.returncode==0 and 'Started recording' in reply.stdout,reply.stdout+reply.stderr;recording=True
   reply=diagnostic([jcmd,pid,'JFR.check','name='+name],'jfr-confirmed.log');assert reply.returncode==0 and name in reply.stdout
   state['clockAnchor']=qpc()
@@ -235,6 +322,9 @@ def worker(run):
    try:frames.wait(timeout=10)
    except subprocess.TimeoutExpired:frames.terminate();frames.wait(timeout=5)
   if gpu:gpu.join(timeout=5)
+  if not state.get('fixture'):
+   state['logDuring']=capture_log(instance,run,'client-log-during-trace.txt',trace_log_mark)
+   write(run/'log-summary.json',{'before':state.get('logBefore'),'during':state['logDuring']})
   reply=diagnostic([java/'bin/jfr.exe','summary',run/'capture.jfr'],'jfr-summary.txt');assert reply.returncode==0 and 'Duration:' in reply.stdout,'JFR save not confirmed'
   phase('trace-saved',validJfr=True,traceSavedUtc=stamp());state['frameSummary']=normalize_frames(run,state)
   assert alive(handle),'Client exited before required post-recording heap dump'
@@ -243,17 +333,16 @@ def worker(run):
   reply=diagnostic([jcmd,pid,'GC.heap_dump','-gz=1',jcpath(run/'heap.hprof.gz')],'heap-dump.log',timeout=900)
   assert reply.returncode==0 and (run/'heap.hprof.gz').stat().st_size>1024,'Heap dump save failed'
   diagnostic([jcmd,pid,'GC.heap_info'],'heap-after-dump.log')
-  source=instance/'minecraft/logs/latest.log'
-  if source.exists() and not state.get('fixture'):shutil.copy2(source,run/'latest.log')
-  if not state.get('fixture'):state['activationAfter']=activation(instance,state.get('installedBuild'))
+  if not state.get('fixture'):
+   capture_log(instance,run,'latest.log');state['activationAfter']=activation(instance,state.get('installedBuild'))
   phase('heap-saved-client-can-close',heapDumpPending=False,heapDumpSavedUtc=stamp(),heapDumpBytes=(run/'heap.hprof.gz').stat().st_size,heapDumpMayRequestFullGc=True,canCloseClient=True)
-  release_lease(active,token);analyze(run,state)
+  release_lease(active,token);phase('JFR-analysis',canCloseClient=True);analyze(run,state)
   phase('waiting-for-client-exit-for-MAT',canCloseClient=True)
   deadline=time.monotonic()+6*3600
   while alive(handle) and time.monotonic()<deadline:time.sleep(2)
   if alive(handle):phase('MAT-pending-client-still-running');return
   lock=Path(state['runRoot'])/'mat.lock';matToken={'ownerPid':os.getpid(),'runId':state['runId']}
-  while not lease(lock,matToken):time.sleep(2)
+  while not lease(lock,matToken):phase('MAT-queued',canCloseClient=True);time.sleep(2)
   try:phase('MAT-running');reports=mat(run,state);phase('complete',matReports=reports)
   finally:release_lease(lock,matToken)
  except BaseException as error:phase('failed',error=repr(error),canCloseClient=state.get('validJfr',False) and not state.get('heapDumpPending',True))
@@ -294,23 +383,60 @@ def start(instance,args):
   state['activationBefore']=activation(instance,state.get('installedBuild'));state['diagnosticRun']=getattr(args,'diagnostic',False)
   assert not state['activationBefore']['missing'] or state['diagnosticRun'],'Missing current startup activation: '+str(state['activationBefore']['missing'])
  write(run/'state.json',state)
+ print('측정 준비 중 · 결과 폴더: '+str(run),flush=True)
  with (run/'worker.log').open('w',encoding='utf8') as log:
   child=subprocess.Popen([sys.executable,'-u',str(Path(__file__).resolve()),'worker','--run',str(run)],stdout=log,stderr=subprocess.STDOUT,creationflags=FLAGS)
- for _ in range(120):
+ for attempt in range(120):
   state=json.loads((run/'state.json').read_text('utf8'))
   if state['phase']!='starting':break
   if child.poll() is not None:raise RuntimeError('측정 프로세스가 시작 중 종료됐습니다. 로그: '+str(run/'worker.log'))
+  if attempt and attempt%20==0:print('JFR·수집 도구 준비 중 · 아직 접속하지 마세요.',flush=True)
   time.sleep(.25)
  if state['phase']=='failed':raise RuntimeError('측정 시작 실패: '+str(state.get('error'))+' / '+str(run/'worker.log'))
  if state['phase']=='starting':raise RuntimeError('측정 준비가 지연되고 있습니다. BAT를 다시 실행하면 같은 작업으로 연결됩니다: '+str(run))
  publish_current(instance,run)
- print(json.dumps({'phase':state['phase'],'run':str(run),'seconds':args.seconds,'notice':'Recording confirmed. Enter the server now. After recording, heap dumping can pause the game/request Full GC; keep the client open until canCloseClient=true. MAT runs after client exit.'},ensure_ascii=False,indent=2));return run
+ print('결과 폴더: '+str(run),flush=True)
+ if state.get('canCloseClient'):print('기록과 힙 저장이 끝났습니다. 클라이언트를 종료하면 MAT 분석이 진행됩니다.',flush=True)
+ elif state['phase']=='recording':print(f'검증용 JVM {args.seconds}초 기록 중.' if state.get('fixture') else f'측정 시작! 지금 서버에 접속하세요. {args.seconds}초 동안 평소처럼 플레이해 주세요.',flush=True)
+ else:print('측정 작업에 연결했습니다. 아래 진행 상황을 확인하세요.',flush=True)
+ return run
+
+def resume_analysis(run):
+ """Resume only saved artifacts; never record or dump the live game again."""
+ state=json.loads((run/'state.json').read_text('utf8'));instance=Path(state['instance'])
+ existing=active_capture(instance)
+ if existing:
+  assert existing==run,'다른 측정이 실행 중입니다. 그 측정을 먼저 완료해 주세요.'
+  return run
+ assert state.get('validJfr') and state.get('canCloseClient') and (run/'heap.hprof.gz').is_file(),'저장된 JFR과 힙 덤프가 필요합니다. 1번으로 새로 측정해 주세요.'
+ state.pop('error',None);state.update(phase='resuming-analysis',workerPid=None);write(run/'state.json',state)
+ with (run/'worker.log').open('a',encoding='utf8') as log:
+  child=subprocess.Popen([sys.executable,'-u',str(Path(__file__).resolve()),'resume-worker','--run',str(run)],stdout=log,stderr=subprocess.STDOUT,creationflags=FLAGS)
+ publish_current(instance,run,child.pid)
+ return run
+
+def resume_worker(run):
+ state=json.loads((run/'state.json').read_text('utf8'));instance=Path(state['instance'])
+ lock=Path(state['runRoot'])/'mat.lock';token={'ownerPid':os.getpid(),'runId':state['runId']};locked=False
+ def phase(value,**extra):state.update(phase=value,updatedUtc=stamp(),workerPid=os.getpid(),**extra);write(run/'state.json',state);result_note(run,state)
+ try:
+  phase('JFR-analysis');publish_current(instance,run);analyze(run,state)
+  phase('waiting-for-client-exit-for-MAT')
+  deadline=time.monotonic()+6*3600
+  while process_running(state['pid']) and time.monotonic()<deadline:time.sleep(2)
+  if process_running(state['pid']):phase('MAT-pending-client-still-running');return
+  while not lease(lock,token):phase('MAT-queued');time.sleep(2)
+  locked=True;phase('MAT-running');reports=mat(run,state);phase('complete',matReports=reports)
+ except BaseException as error:phase('failed',error=repr(error))
+ finally:
+  if locked:release_lease(lock,token)
 
 def wait_capture(run,initial_duration,interval=.5):
  """Display capture and MAT progress; success means reports were produced."""
- last=None;announced=False;deadline=time.monotonic()+initial_duration+1000;last_reminder=time.monotonic()
- labels={'starting':'측정 준비 중', 'recording':'3분 측정 중', 'trace-saved':'측정 기록 저장 완료',
+ last=None;announced=False;deadline=time.monotonic()+initial_duration+1000;last_reminder=time.monotonic();last_progress=0;last_detail=None
+ labels={'starting':'측정 준비 중', 'recording':'성능 기록 중', 'trace-saved':'측정 기록 저장 완료',
          'dumping-heap':'힙 덤프 저장 중 — 게임을 종료하지 마세요',
+         'JFR-analysis':'JFR 요약 분석 중', 'resuming-analysis':'저장한 자료로 분석 재개 중', 'MAT-queued':'다른 MAT 작업 완료 대기 중',
          'waiting-for-client-exit-for-MAT':'클라이언트 종료 대기 중 — 종료하면 MAT가 시작됩니다',
          'MAT-running':'MAT 분석 중 — 완료될 때까지 기다려 주세요'}
  while time.monotonic()<deadline:
@@ -332,22 +458,57 @@ def wait_capture(run,initial_duration,interval=.5):
    reports=state.get('matReports') or []
    if not reports or not all(Path(p).is_file() for p in reports):raise RuntimeError('MAT 완료 상태지만 보고서가 없거나 일부를 찾을 수 없습니다.')
    print('MAT 분석 완료. 이제 Codex에게 알려주세요.',flush=True)
+   frames=state.get('frameSummary',{})
+   if frames.get('available'):print(f"프레임 {frames.get('frames',0):,}개 저장 / 관측된 최대 프레임 간격 {frames.get('maxObservedStartGapMs',0):.1f} ms",flush=True)
+   elif not state.get('fixture'):print('주의: 프레임 기록이 없습니다. presentmon.log를 확인해 주세요. JFR·힙·MAT 결과는 보존됐습니다.',flush=True)
    print('분석 자료 폴더: '+str(run),flush=True);return
   if phase=='MAT-pending-client-still-running':raise RuntimeError('MAT 대기 시간이 끝났습니다. 클라이언트 종료 후 MAT 분석을 다시 실행해야 합니다.')
-  if phase=='MAT-running' and time.monotonic()-last_reminder>=60:
-   print('MAT가 계속 분석 중입니다. 창을 유지해 주세요.',flush=True);last_reminder=time.monotonic()
+  if time.monotonic()-last_progress>=10:
+   detail=None
+   if phase=='recording' and state.get('recordingStartedUtc'):
+    elapsed=max(0,(dt.datetime.now(dt.timezone.utc)-dt.datetime.fromisoformat(state['recordingStartedUtc'])).total_seconds());duration=state.get('durationSeconds',initial_duration)
+    detail=f'기록 중: {min(int(elapsed),duration)}/{duration}초 · 남은 시간 {max(0,int(duration-elapsed))}초'
+   elif phase=='dumping-heap':
+    heap=run/'heap.hprof.gz';size=heap.stat().st_size/2**20 if heap.exists() else 0
+    detail=f'힙 덤프 저장 중: {size:.1f} MiB · 저장 완료 안내 전에는 게임을 종료하지 마세요'
+   elif phase=='MAT-running':
+    progress=run/'progress.json'
+    if progress.exists():
+     data=json.loads(progress.read_text('utf8'));detail=data['stage']
+     if data.get('bytes'):detail+=f" · {data['bytes']/2**20:,.0f} MiB"
+    lines=tail(run/'mat.log',2048).splitlines()
+    if lines:detail=(detail or 'MAT 분석')+' · '+lines[-1].strip()[-180:]
+   if detail and (detail!=last_detail or time.monotonic()-last_reminder>=60):print(detail,flush=True);last_detail=detail;last_reminder=time.monotonic()
+   last_progress=time.monotonic()
   time.sleep(interval)
  raise RuntimeError('완료 대기 시간이 초과됐습니다. 작업 상태와 로그를 확인하세요.')
 
 def main():
- parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('action',choices=['start','status','stop','worker','mat','analyze','wait']);parser.add_argument('--instance',type=Path);parser.add_argument('--run',type=Path);parser.add_argument('--seconds',type=int,default=180);parser.add_argument('--label',default='client-3min');parser.add_argument('--diagnostic',action='store_true');parser.add_argument('--pid',type=int);parser.add_argument('--fixture-nonce');parser.add_argument('--report',type=Path);args=parser.parse_args()
+ parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('action',choices=['menu','run','resume','open','copy','start','status','stop','worker','resume-worker','mat','analyze','wait']);parser.add_argument('--instance',type=Path);parser.add_argument('--run',type=Path);parser.add_argument('--seconds',type=int,default=180);parser.add_argument('--label',default='client-3min');parser.add_argument('--diagnostic',action='store_true');parser.add_argument('--pid',type=int);parser.add_argument('--fixture-nonce');parser.add_argument('--report',type=Path);args=parser.parse_args()
  if os.name!='nt':raise SystemExit('Windows client profiler')
+ if args.action=='menu':
+  print('1. 새로 측정하기 (기본 3분) / 진행 중이면 다시 연결\n2. 최근 자료의 JFR·MAT 분석 이어하기\n3. 최근 결과 폴더 열기\n4. 최근 결과 폴더 경로 복사\n0. 종료',flush=True)
+  value=input('선택 [Enter = 1]: ').strip() or '1'
+  if value=='0':return
+  if value not in ('1','2','3','4'):raise RuntimeError('0~4 중에서 선택해 주세요.')
+  args.action={'1':'run','2':'resume','3':'open','4':'copy'}[value]
  if args.action=='worker':worker(args.run.resolve());return
- if args.action=='start':
+ if args.action=='resume-worker':resume_worker(args.run.resolve());return
+ if args.action in ('start','run'):
   assert args.instance and 1<=args.seconds<=1800
-  start(args.instance.resolve(),args);return
+  if args.action=='run':print('서버 목록 화면에서 시작하세요. 기록 종료 후 힙 덤프 중 Full GC로 잠시 멈출 수 있습니다.\n힙 저장 완료까지 게임을, MAT 완료까지 이 창을 열어 두세요.',flush=True)
+  run=start(args.instance.resolve(),args)
+  if args.action=='run':wait_capture(run,args.seconds)
+  return
  run=args.run or (current(args.instance.resolve()) if args.instance else None);assert run,'Pass --instance or --run'
+ if not run.is_dir():raise RuntimeError('최근 결과 폴더가 없습니다. 1번으로 새로 측정해 주세요.')
+ if args.action=='open':os.startfile(run);return
+ if args.action=='copy':
+  subprocess.run(['clip.exe'],input=str(run),text=True,encoding='utf-16le',creationflags=FLAGS,check=True);print('결과 폴더 경로를 복사했습니다: '+str(run));return
  state=json.loads((run/'state.json').read_text('utf8'))
+ if args.action=='resume':
+  if state['phase']!='complete':resume_analysis(run)
+  wait_capture(run,state['durationSeconds']);return
  if args.action=='status':print(json.dumps(state,ensure_ascii=False,indent=2))
  elif args.action=='wait':
   wait_capture(run,state['durationSeconds'])
