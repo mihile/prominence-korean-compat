@@ -1,0 +1,8 @@
+{
+  "required": true,
+  "package": "local.prominence.infusion.mixin",
+  "plugin": "local.prominence.infusion.InfusionGuard",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": ["SmithingInfusionMixin"],
+  "injectors": {"defaultRequire": 1}
+}
