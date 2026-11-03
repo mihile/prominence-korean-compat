@@ -75,6 +75,9 @@ def main():
  if (ROOT/'src/main/java/local/prominence/memory/WorldCacheCleanupClient.java').exists():
   entry='local.prominence.memory.WorldCacheCleanupClient'
   if entry not in client:client.append(entry)
+ if (ROOT/'src/main/java/local/prominence/memory/RetentionCleanupClient.java').exists():
+  entry='local.prominence.memory.RetentionCleanupClient'
+  if entry not in client:client.append(entry)
  entry='local.prominence.localization.IntegratedKoreanPack'
  if entry not in client:client.append(entry)
  pack=ROOT/'translation/Prominence_II_Korean_Translate.zip'

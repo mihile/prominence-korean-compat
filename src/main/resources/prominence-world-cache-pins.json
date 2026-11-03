@@ -59,5 +59,127 @@
         "mod/azure/azurelib/core/molang/MolangQueries.class": "1a18d8afa7b73c6e231f582663fc53844d583e0c8d9b9203639c688fecf7b8ee"
       }
     }
+  ],
+  "retentionBadPackets": [
+    {
+      "mod": "badpackets",
+      "version": "0.4.3",
+      "classes": {
+        "lol/bai/badpackets/impl/registry/ChannelRegistry.class": "445a2eb4aa8c7094fc38184f81678810f5afa9af234ef5d82ec246669cc33fc1",
+        "lol/bai/badpackets/impl/handler/ClientPacketHandler.class": "f15efa674dc94a538640ece899c804c2811f95644bb0eca78c14f2a09a828bf2",
+        "lol/bai/badpackets/impl/handler/AbstractPacketHandler.class": "194675f3a7150a645b4937cefb1deee067d56ee52e2d1726f51fc98e8d05f867"
+      }
+    },
+    {
+      "mod": "minecraft",
+      "version": "1.20.1",
+      "classes": {
+        "net/minecraft/class_2535.class": "fcbdcf3b632b20353a57997569a929d8ddf1f85f30422cff2a2820c2903e4351"
+      }
+    }
+  ],
+  "retentionAe2": [
+    {
+      "mod": "ae2wtlib",
+      "version": "15.2.1-fabric",
+      "classes": {
+        "de/mari_023/ae2wtlib/wct/CraftingTerminalHandler.class": "4ce968ce31407470ed8d69ef99d262ba86fd61388b9273ee9b995933f1cd89e7"
+      }
+    }
+  ],
+  "retentionLegendary": [
+    {
+      "mod": "legendarytooltips",
+      "version": "1.4.5",
+      "classes": {
+        "com/anthonyhilyard/legendarytooltips/config/LegendaryTooltipsConfig.class": "5392e1f4a4501f440e7d859815379403a9b8920582204999c50488b12f3f75c3"
+      }
+    }
+  ],
+  "retentionZenith": [
+    {
+      "mod": "zenith",
+      "version": "2.0.2",
+      "classes": {
+        "dev/shadowsoffire/apotheosis/mixin/ench/anvil/AnvilMenuMixin.class": "37a40d5c0d788b86cbb40a1868ab4399d307774d3ed2896d9a066151c91cf2d2",
+        "dev/shadowsoffire/apotheosis/util/Events$RepairEvent.class": "a379d6979ab0ebb5fae701c9d3a44df61051354b92565973ab324177f43a671d"
+      }
+    }
+  ],
+  "retentionAzure": [
+    {
+      "mod": "azurelib",
+      "version": "3.0.27",
+      "classes": {
+        "mod/azure/azurelib/rewrite/render/AzRendererPipelineContext.class": "b21d329c252c8579eb8e1a6a988c872f133cf9da626d60e8a162105dd6d11dee",
+        "mod/azure/azurelib/rewrite/render/AzRendererPipeline.class": "e16638beed5d71c3857d2a667c61f5db26dc61ea42c92d547b69eecaa79d7ca0"
+      }
+    }
+  ],
+  "retentionScreens": [
+    {
+      "mod": "ftblibrary",
+      "version": "2001.2.12",
+      "classes": {
+        "dev/ftb/mods/ftblibrary/ui/BaseScreen.class": "078c8d05911ef966cfee3e1f119fedff901d94bd64d5e86dc814160f2a63b1d7"
+      }
+    },
+    {
+      "mod": "minecraft",
+      "version": "1.20.1",
+      "classes": {
+        "net/minecraft/class_1723.class": "3e98c6a7c0f7ee0fb54900a56bcb8223dab8e91747740c2413913a94536c3cd0",
+        "net/minecraft/class_490.class": "823af94f0f70d304e05a198efa4fe8fc3806e2bfd98e95008cb1d95443292c88"
+      }
+    }
+  ],
+  "retentionArmor": [
+    {
+      "mod": "azurelibarmor",
+      "version": "2.0.14",
+      "classes": {
+        "mod/azure/azurelibarmor/model/GeoModel.class": "b56c657a2e618cc4d74e0aecc9ede4d33a58d85ea44a7e0cc26dffd9f91ba27d",
+        "mod/azure/azurelibarmor/core/molang/MolangParser.class": "2ad0df0fa5f1a326b200b61c1eb42d3075b85b5d6c1d7bbe64326b30ee294249",
+        "mod/azure/azurelibarmor/core/molang/MolangParser$1.class": "95cc8daeaf9679056b92c04ecdbcf46ed7974472320792a91ca356aa1ffca9b7",
+        "mod/azure/azurelibarmor/core/molang/LazyVariable.class": "d042db31e7133cb51f5904341828b9b2cfcd7788df3d0bc4f6949c0f95595d06"
+      }
+    }
+  ],
+  "retentionStackKeys": [
+    {
+      "mod": "sophisticatedcore",
+      "version": "1.20.1-1.2.7.15.166",
+      "classes": {
+        "net/p3pp3rf1y/sophisticatedcore/inventory/ItemStackKey.class": "046b1d93a47dfc9a8e7859ef438dcb077fb52920631ea0c2d279d8ea194611b3",
+        "net/p3pp3rf1y/sophisticatedcore/common/CommonEventHandler.class": "a9c2c04b0cbaddb1d7242f3dd7a75aa48af37b14e60f2f8bf53010f983fa41c8"
+      }
+    }
+  ],
+  "retentionHud": [
+    {
+      "mod": "spell_engine",
+      "version": "0.15.12+1.20.1",
+      "classes": {
+        "net/spell_engine/client/gui/HudRenderHelper.class": "f8d2e5bcdba771bb6b9d040d6197b0b203b513e0e71abf86b3da214b1ad5ed3d",
+        "net/spell_engine/internals/SpellContainerHelper.class": "92e184c82d0d377fc0ec6571575ded487425d07c787eae4e72eea2f5c3482c06",
+        "net/spell_engine/api/spell/SpellContainer.class": "b5bc1021786db0cf8f05e2be8364f6d9f2759dd1293ee653ee1d487112d2f9f6"
+      }
+    }
+  ],
+  "retentionArmorRenderers": [
+    {
+      "mod": "azurelib",
+      "version": "3.0.27",
+      "classes": {
+        "mod/azure/azurelib/renderer/GeoArmorRenderer.class": "3f74df66087e2d28494c02de48cffb730e4d0ed521f55c12af4a693bdd514ae8"
+      }
+    },
+    {
+      "mod": "azurelibarmor",
+      "version": "2.0.14",
+      "classes": {
+        "mod/azure/azurelibarmor/renderer/GeoArmorRenderer.class": "7b6333803f534bf6dec39405f5a9580f8a9202cd571566b20dfa31222d4240a0"
+      }
+    }
   ]
 }
