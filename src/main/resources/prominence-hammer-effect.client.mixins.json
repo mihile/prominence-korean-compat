@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "local.prominence.hammereffect.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "plugin": "local.prominence.hammereffect.HammerEffectGuard",
+  "client": [
+    "SimplySkillsOrbitingRotatingMixin",
+    "SimplySkillsOrbitingMixin",
+    "SimplySkillsOverlayRotationMixin",
+    "SpellEngineOrbitingMixin",
+    "SpellCloudRotationMixin",
+    "FirstPersonOrbitEffectWorldMixin",
+    "FirstPersonShadowOrbitEffectMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

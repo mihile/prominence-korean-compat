@@ -48,6 +48,38 @@ def target(rows,instance,pid=None,fixture_nonce=None):
  return found[0]
 def current(instance):
  path=instance/'ClientProfiler/latest.json';return Path(json.loads(path.read_text('utf8'))['run']) if path.exists() else None
+
+def process_running(pid):
+ handle=KERNEL.OpenProcess(0x1000,False,int(pid))
+ try:return alive(handle)
+ finally:
+  if handle:KERNEL.CloseHandle(handle)
+
+def active_capture(instance):
+ """Reconnect the console without starting another recording or heap dump."""
+ lock=instance/'ClientProfiler/capture.lock';candidates=[]
+ if lock.exists():
+  token=json.loads(lock.read_text('utf8'));cfg=settings(instance)
+  root=Path(cfg.get('run_root') or Path(os.environ['LOCALAPPDATA'])/'Temp/prominence-profile')
+  if not str(root).isascii() or len(str(root))>100:root=Path(cfg.get('ascii_run_root','C:/Temp/ProminenceProfiles'))
+  candidates.append((root/token['runId'],token['ownerPid']))
+ latest=current(instance)
+ if latest:
+  pointer=json.loads((instance/'ClientProfiler/latest.json').read_text('utf8'))
+  candidates.append((latest,pointer.get('ownerPid')))
+ for run,owner in candidates:
+  if not (run/'state.json').is_file():continue
+  state=json.loads((run/'state.json').read_text('utf8'))
+  if Path(state['instance']).resolve()!=instance.resolve() or state['phase'] in ('complete','failed','MAT-pending-client-still-running'):continue
+  pid=owner or state.get('workerPid')
+  if pid and process_running(pid):return run
+ return None
+
+def publish_current(instance,run,owner=None):
+ state=json.loads((run/'state.json').read_text('utf8'));path=instance/'ClientProfiler/latest.json'
+ previous=json.loads(path.read_text('utf8')) if path.exists() else {}
+ owner=owner or state.get('workerPid') or (previous.get('ownerPid') if previous.get('run')==str(run) else None)
+ write(path,{'run':str(run),'runId':run.name,'ownerPid':owner})
 def settings(instance):
  p=instance/'ClientProfiler/settings.local.json';return json.loads(p.read_text('utf8')) if p.exists() else {}
 def activation(instance,build):
@@ -179,6 +211,7 @@ def worker(run):
   reply=command(args,timeout=timeout);(run/filename).write_text(reply.stdout+reply.stderr,'utf8');return reply
  try:
   assert lease(active,token),'Another client capture is active'
+  state['workerPid']=os.getpid();phase('starting');publish_current(instance,run)
   row=target(processes(),instance,pid,state.get('fixtureNonce'));assert hashlib.sha256((row.get('CommandLine') or '').encode()).hexdigest()==state['commandDigest'],'PID/command changed'
   assert alive(handle),'Client exited before recording'
   reply=diagnostic([jcmd,pid,'JFR.check'],'recordings-before.log');assert reply.returncode==0 and 'No available recordings' in reply.stdout,'An existing JFR is active; do not stop someone else\'s trace'
@@ -234,6 +267,11 @@ def worker(run):
   if handle:KERNEL.CloseHandle(handle)
 
 def start(instance,args):
+ existing=active_capture(instance)
+ if existing:
+  publish_current(instance,existing)
+  print('진행 중인 측정/MAT 작업에 다시 연결합니다: '+str(existing),flush=True)
+  return existing
  cfg=settings(instance);row=target(processes(),instance,args.pid,args.fixture_nonce);java=Path(cfg.get('runtime_java') or Path(row['ExecutablePath']).parent.parent)
  assert (java/'bin/jcmd.exe').is_file(),'Use a JDK matching the client runtime in settings.local.json'
  requested=Path(cfg.get('run_root') or Path(os.environ['LOCALAPPDATA'])/'Temp/prominence-profile')
@@ -256,13 +294,16 @@ def start(instance,args):
   state['activationBefore']=activation(instance,state.get('installedBuild'));state['diagnosticRun']=getattr(args,'diagnostic',False)
   assert not state['activationBefore']['missing'] or state['diagnosticRun'],'Missing current startup activation: '+str(state['activationBefore']['missing'])
  write(run/'state.json',state)
- log=(run/'worker.log').open('w',encoding='utf8');subprocess.Popen([sys.executable,str(Path(__file__).resolve()),'worker','--run',str(run)],stdout=log,stderr=subprocess.STDOUT,creationflags=FLAGS)
+ with (run/'worker.log').open('w',encoding='utf8') as log:
+  child=subprocess.Popen([sys.executable,'-u',str(Path(__file__).resolve()),'worker','--run',str(run)],stdout=log,stderr=subprocess.STDOUT,creationflags=FLAGS)
  for _ in range(120):
   state=json.loads((run/'state.json').read_text('utf8'))
   if state['phase']!='starting':break
+  if child.poll() is not None:raise RuntimeError('측정 프로세스가 시작 중 종료됐습니다. 로그: '+str(run/'worker.log'))
   time.sleep(.25)
- assert state['phase']=='recording',state
- write(instance/'ClientProfiler/latest.json',{'run':str(run),'runId':ident})
+ if state['phase']=='failed':raise RuntimeError('측정 시작 실패: '+str(state.get('error'))+' / '+str(run/'worker.log'))
+ if state['phase']=='starting':raise RuntimeError('측정 준비가 지연되고 있습니다. BAT를 다시 실행하면 같은 작업으로 연결됩니다: '+str(run))
+ publish_current(instance,run)
  print(json.dumps({'phase':state['phase'],'run':str(run),'seconds':args.seconds,'notice':'Recording confirmed. Enter the server now. After recording, heap dumping can pause the game/request Full GC; keep the client open until canCloseClient=true. MAT runs after client exit.'},ensure_ascii=False,indent=2));return run
 
 def wait_capture(run,initial_duration,interval=.5):
@@ -276,6 +317,8 @@ def wait_capture(run,initial_duration,interval=.5):
   state=json.loads((run/'state.json').read_text('utf8'));phase=state['phase']
   if phase=='failed':
    raise RuntimeError('측정 또는 MAT 분석 실패: '+str(state.get('error','원인은 작업 로그를 확인하세요')))
+  if phase not in ('complete','MAT-pending-client-still-running') and state.get('workerPid') and not process_running(state['workerPid']):
+   raise RuntimeError('측정/MAT 프로세스가 종료됐습니다. 작업 로그: '+str(run/'worker.log'))
   if state.get('canCloseClient') and not announced:
    if phase in ('MAT-running','complete'):
     print('힙 덤프 저장 완료. MAT 완료까지 이 창이 진행 상황을 보여줍니다.',flush=True)
@@ -326,4 +369,7 @@ def main():
    state.update(phase='failed',error=repr(error),canCloseClient=True);write(run/'state.json',state);raise
   finally:release_lease(lock,token)
 
-if __name__=='__main__':main()
+if __name__=='__main__':
+ try:main()
+ except Exception as error:
+  print('오류: '+str(error),file=sys.stderr,flush=True);sys.exit(1)

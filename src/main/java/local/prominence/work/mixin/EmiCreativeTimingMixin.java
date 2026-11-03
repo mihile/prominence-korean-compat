@@ -3,6 +3,7 @@ package local.prominence.work.mixin;
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import java.util.Map;
+import local.prominence.work.ModelWorkSlice;
 import net.minecraft.class_1761;
 import org.slf4j.LoggerFactory;
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,8 +15,10 @@ public abstract class EmiCreativeTimingMixin {
     private static void prominence$timeGroup(class_1761.class_8128 context, Map<?, ?> stacks,
                                              class_1761 group, Operation<Void> original) {
         long started = System.nanoTime();
+        ModelWorkSlice.enterRenderGroup();
         try { original.call(context, stacks, group); }
         finally {
+            ModelWorkSlice.exitRenderGroup();
             double millis = (System.nanoTime() - started) / 1_000_000.0;
             if (millis >= 20) {
                 // Diagnostics must not replace the native callback's exception handling.

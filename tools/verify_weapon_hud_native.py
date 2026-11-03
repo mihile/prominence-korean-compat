@@ -1,6 +1,12 @@
 """CPU-only native input/HUD transformations and cooldown data fixture; no game/world/GL."""
 from pathlib import Path
-import argparse,json,os,subprocess
+import argparse,json,os,subprocess,ctypes
+def short(path):
+ path=str(Path(path).resolve())
+ if os.name=='nt':
+  buf=ctypes.create_unicode_buffer(32768)
+  if ctypes.windll.kernel32.GetShortPathNameW(path,buf,len(buf)):return buf.value
+ return path
 p=argparse.ArgumentParser()
 for n in ['build-dir','classpath','java-home']:p.add_argument('--'+n,type=Path,required=True)
 a=p.parse_args();repo=Path(__file__).resolve().parents[1];out=a.build_dir/'native-weapons';classes=out/'classes';classes.mkdir(parents=True,exist_ok=True)
@@ -11,4 +17,6 @@ params=['--release','17','-encoding','UTF-8','-proc:none','-cp',os.pathsep.join(
 af=out/'compile.args';af.write_text('\n'.join('"'+s.replace('\\','/')+'"' for s in params),encoding='utf8');run([a.java_home/'bin/javac.exe','@'+str(af)],'compile.log')
 services=classes/'META-INF/services';services.mkdir(exist_ok=True,parents=True)
 for name,impl in {'org.spongepowered.asm.service.IMixinService':'batchverification.VerifyMixinTransforms','org.spongepowered.asm.service.IMixinServiceBootstrap':'batchverification.VerifyMixinTransforms$Bootstrap','org.spongepowered.asm.service.IGlobalPropertyService':'batchverification.VerifyMixinTransforms$Props'}.items():(services/name).write_text(impl+'\n',encoding='utf8')
-run([a.java_home/'bin/java.exe','-Xmx768m','-ea','-cp',os.pathsep.join([str(classes),*cp]),'inlineverification.VerifyWeaponHudTransforms',repo/'src/main/resources',out/'verification'],'transform.log')
+runtime=['-Xmx768m','-ea','-cp',os.pathsep.join(short(p) for p in [classes,*cp]),'inlineverification.VerifyWeaponHudTransforms',short(repo/'src/main/resources'),short(out)+'/verification']
+runtime_file=out/'runtime.args';runtime_file.write_text('\n'.join('"'+s.replace('\\','/')+'"' for s in runtime),encoding='utf8')
+run([a.java_home/'bin/java.exe','@'+str(runtime_file)],'transform.log')

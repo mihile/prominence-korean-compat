@@ -32,6 +32,12 @@ public final class RewardScalingTests {
   var chest=gate(false);check(RewardClientText.lines(new RewardClientText.Attachment(chest,chest.outputs().get(0)),10,10,true,false).get(0).equals("드롭 확률: 15% (기본 10%)"),"chest excludes Looting");
   var weighted=new RewardDefinition("test:chests/gear","weighted",1,0,.05,false,List.of(new RewardDefinition.Output("test:gear",.1,20,1,true)),List.of(9,1),List.of(false,true),List.of(0.,0.,1.));check(weighted.valid(),"weighted metadata");var lines=RewardClientText.lines(new RewardClientText.Attachment(weighted,weighted.outputs().get(0)),3,10,true,true);check(lines.get(0).startsWith("드롭 확률: 26.53%"),"weighted repeated-draw probability "+lines);
   check(RewardPolicy.INSTANCE.quests.size()>1000&&RewardPolicy.INSTANCE.lootingRate==.4&&RewardPolicy.INSTANCE.luckRate==.05,"data policy and quest input");
+  var sentMap=new HashMap<Object,Long>();Object conn=new Object();
+  check(RewardCommonInit.shouldQueue(conn,sentMap,0L),"unindexed epoch still queues");
+  check(RewardCommonInit.shouldQueue(conn,sentMap,2L),"unsent epoch queues");
+  sentMap.put(conn,2L);
+  check(!RewardCommonInit.shouldQueue(conn,sentMap,2L),"duplicate REGISTER+JOIN in same epoch suppressed");
+  check(RewardCommonInit.shouldQueue(conn,sentMap,3L),"new reload epoch queues again");
   System.out.println("PASS "+checks+" reward calibration, bounds, exact zero-bonus, weight/RNG consistency, probability-vs-mean, packet/session/old-server safety and actual UI formula checks; no game");
  }
 }

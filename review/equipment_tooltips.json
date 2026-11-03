@@ -3467,13 +3467,14 @@
       "resource": "assets/advancednetherite/lang/en_us.json",
       "key": "tooltip.advancednetherite.armor.enderman_passive",
       "english": "+ Pacifies Endermen",
-      "korean": "+ 엔더맨과의 평화",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "+ 엔더맨을 바라봐도 적대하지 않음",
+      "status": "corrected",
+      "mechanics": "bytecode_verified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "EnderManMixin: isLookingAtMe returns false when a qualifying armor piece is worn; does not prevent retaliation. Runtime not tested."
     },
     {
       "mod": "advancednetherite",
@@ -3481,13 +3482,14 @@
       "resource": "assets/advancednetherite/lang/en_us.json",
       "key": "tooltip.advancednetherite.armor.piglin_passive",
       "english": "+ Pacifies Piglins",
-      "korean": "+ 피글린과의 평화",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "+ 금 갑옷처럼 피글린의 적대 방지",
+      "status": "corrected",
+      "mechanics": "bytecode_verified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "PiglinAiMixin: qualifying armor is treated as wearing gold; other aggression triggers still apply. Runtime not tested."
     },
     {
       "mod": "advancednetherite",
@@ -3495,13 +3497,14 @@
       "resource": "assets/advancednetherite/lang/en_us.json",
       "key": "tooltip.advancednetherite.armor.phantom_passive",
       "english": "+ Pacifies Phantoms",
-      "korean": "+ 팬텀과의 평화",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "+ 팬텀이 먼저 공격하지 않음",
+      "status": "corrected",
+      "mechanics": "bytecode_verified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "PhantomMixin: clears player target when qualifying armor is worn unless player is the recent attacker. Runtime not tested."
     },
     {
       "mod": "advancednetherite",
@@ -3510,12 +3513,13 @@
       "key": "tooltip.advancednetherite.hoe.additional_crop_drops",
       "english": "+ Chance of dropping additional crop drops while harvesting grown crops",
       "korean": "+ 재배 중인 작물을 수확할 때 작물 추가 드롭 확률",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. ModLootTableModifiers contains matching loot-table routing and configured chance; intermediary item IDs, exact conditions and runtime remain to verify."
     },
     {
       "mod": "advancednetherite",
@@ -3524,12 +3528,13 @@
       "key": "tooltip.advancednetherite.pickaxe.additional_diamond_drop",
       "english": "+ Chance of dropping additional Diamond while mining Diamond ores",
       "korean": "+ 다이아몬드 광석을 채굴할 때 다이아몬드 추가 드롭 확률",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. ModLootTableModifiers contains matching loot-table routing and configured chance; intermediary item IDs, exact conditions and runtime remain to verify."
     },
     {
       "mod": "advancednetherite",
@@ -3538,12 +3543,13 @@
       "key": "tooltip.advancednetherite.pickaxe.additional_emerald_drop",
       "english": "+ Chance of dropping additional Emerald while mining Emerald ores",
       "korean": "+ 에메랄드 광석을 채굴할 때 에메랄드 추가 드롭 확률",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. ModLootTableModifiers contains matching loot-table routing and configured chance; intermediary item IDs, exact conditions and runtime remain to verify."
     },
     {
       "mod": "advancednetherite",
@@ -3551,13 +3557,14 @@
       "resource": "assets/advancednetherite/lang/en_us.json",
       "key": "tooltip.advancednetherite.pickaxe.additional_gold_drop",
       "english": "+ Chance of dropping additional Raw Gold while mining Gold ores",
-      "korean": "+ 금 광석을 채굴할 때 금 추 드롭 확률",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "+ 금 광석을 채굴할 때 금 원석을 추가로 얻을 확률",
+      "status": "corrected",
+      "mechanics": "bytecode_verified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Installed Advanced Netherite 2.1.3 ModLootTableModifiers checks gold and deepslate gold ore, configured raw-gold drop chance and netherite-gold pickaxe. Runtime not tested."
     },
     {
       "mod": "advancednetherite",
@@ -3565,13 +3572,14 @@
       "resource": "assets/advancednetherite/lang/en_us.json",
       "key": "tooltip.advancednetherite.pickaxe.additional_iron_drop",
       "english": "+ Chance of dropping additional Raw Iron while mining Iron ores",
-      "korean": "+ 철 광석을 채굴할 때 철 추가 드롭 확률",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "+ 철 광석을 채굴할 때 철 원석을 추가로 얻을 확률",
+      "status": "corrected",
+      "mechanics": "bytecode_verified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "ModLootTableModifiers checks iron and deepslate iron ore, configured raw-iron drop chance and netherite-iron pickaxe. Runtime not tested."
     },
     {
       "mod": "advancednetherite",
@@ -3580,12 +3588,13 @@
       "key": "tooltip.advancednetherite.sword.additional_enderman_mob_drop",
       "english": "+ Chance of dropping additional Ender Pearl on killing Enderman",
       "korean": "+ 엔더맨을 죽였을 때 엔더 진주 추가 드롭 확률",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. ModLootTableModifiers contains matching loot-table routing and configured chance; intermediary item IDs, exact conditions and runtime remain to verify."
     },
     {
       "mod": "advancednetherite",
@@ -3594,12 +3603,13 @@
       "key": "tooltip.advancednetherite.sword.additional_piglin_mob_drop",
       "english": "+ Chance of dropping additional Gold Ingot on killing Piglin",
       "korean": "+ 피글린을 죽였을 때 금 주괴 추가 드롭 확률",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. ModLootTableModifiers contains matching loot-table routing and configured chance; intermediary item IDs, exact conditions and runtime remain to verify."
     },
     {
       "mod": "advancednetherite",
@@ -3608,12 +3618,13 @@
       "key": "tooltip.advancednetherite.sword.additional_zombified_piglin_mob_drop",
       "english": "+ Chance of dropping additional Gold Nugget(s) on killing Zombified Piglin",
       "korean": "+ 좀비화 피글린을 죽였을 때 금 조각 추가 드롭 확률",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. ModLootTableModifiers contains matching loot-table routing and configured chance; intermediary item IDs, exact conditions and runtime remain to verify."
     },
     {
       "mod": "advancednetherite",
@@ -3622,12 +3633,13 @@
       "key": "tooltip.advancednetherite.sword.additional_phantom_mob_drop",
       "english": "+ Chance of dropping additional Phantom Membrane(s) on killing Phantom",
       "korean": "+ 팬텀을 죽였을 때 팬텀 막 추가 드롭 확률",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. ModLootTableModifiers contains matching loot-table routing and configured chance; intermediary item IDs, exact conditions and runtime remain to verify."
     },
     {
       "mod": "advancednetherite",
@@ -63267,12 +63279,13 @@
       "key": "tooltip.simplybows.section.ability",
       "english": "◆ Ability",
       "korean": "◆ 능력",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63281,12 +63294,13 @@
       "key": "tooltip.simplybows.section.upgrades",
       "english": "◆ Upgrades",
       "korean": "◆ 강화",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63295,12 +63309,13 @@
       "key": "tooltip.simplybows.section.component",
       "english": "◆ Upgrade Component",
       "korean": "◆ 강화 재료",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63309,12 +63324,13 @@
       "key": "tooltip.simplybows.upgrades.slots",
       "english": "• Slots Used: %1$s/%2$s",
       "korean": "• 사용한 칸: %1$s/%2$s",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63323,12 +63339,13 @@
       "key": "tooltip.simplybows.upgrades.string_level",
       "english": "• Enchanted String: %1$s/%2$s",
       "korean": "• 마력이 깃든 활시위: %1$s/%2$s",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63337,12 +63354,13 @@
       "key": "tooltip.simplybows.upgrades.frame_level",
       "english": "• Reinforced Frame: %1$s/%2$s",
       "korean": "• 강화 활대: %1$s/%2$s",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63351,12 +63369,13 @@
       "key": "tooltip.simplybows.upgrades.rune",
       "english": "• Rune Etching: %1$s",
       "korean": "• 룬 각인: %1$s",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63365,12 +63384,13 @@
       "key": "tooltip.simplybows.hold_alt",
       "english": "  ◦ Hold Alt for upgrade details",
       "korean": "  ◦ 강화 정보를 보려면 Alt를 누르세요.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63379,12 +63399,13 @@
       "key": "tooltip.simplybows.rune.pain",
       "english": "Pain",
       "korean": "고통",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63393,12 +63414,13 @@
       "key": "tooltip.simplybows.rune.grace",
       "english": "Grace",
       "korean": "은총",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63407,12 +63429,13 @@
       "key": "tooltip.simplybows.rune.bounty",
       "english": "Bounty",
       "korean": "풍요",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63421,12 +63444,13 @@
       "key": "tooltip.simplybows.rune.chaos",
       "english": "Chaos",
       "korean": "혼돈",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63435,12 +63459,13 @@
       "key": "tooltip.simplybows.rune.none",
       "english": "None",
       "korean": "없음",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63449,12 +63474,13 @@
       "key": "tooltip.simplybows.rune.none_effect",
       "english": "  ◦ No rune etched.",
       "korean": "  ◦ 각인된 룬이 없습니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean UI labels compared; placeholder indices preserved. Dynamic upgrade/rune behavior remains unverified."
     },
     {
       "mod": "simplybows",
@@ -63463,12 +63489,13 @@
       "key": "tooltip.simplybows.bow.vine.ability",
       "english": "Fires an arrow that cultivates a flower field, healing allies and harming enemies.",
       "korean": "화살을 쏘아 꽃밭을 만듭니다. 아군을 치유하고 적에게 피해를 줍니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. VineFlowerFieldManager reads damageHostiles and healFriendlies tuning flags and has configured friendly heal and hostile damage. Exact filters, activation and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -63477,12 +63504,13 @@
       "key": "tooltip.simplybows.bow.ice.ability",
       "english": "Fires a fan of homing frost arrows.",
       "korean": "적을 추적하는 서리 화살을 여러 발 부채꼴로 발사합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "IceBowItem invokes getArrowQuantity and constructs HomingArrowEntity; chaos path calls setHomingEnabled(false). Rune and spread conditions need full verification; runtime untested."
     },
     {
       "mod": "simplybows",
@@ -63491,12 +63519,13 @@
       "key": "tooltip.simplybows.bow.bubble.ability",
       "english": "Fires arrows unaffected by water drag, and create short-lived bubble columns.",
       "korean": "물의 저항을 받지 않는 화살을 발사해 잠시 지속되는 거품 기둥을 만듭니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BubbleArrowEntity tick compensates velocity while touching water and not in ground. Block and entity hit paths attempt createOrReplaceColumn at hit position; details and gameplay remain unverified."
     },
     {
       "mod": "simplybows",
@@ -63505,12 +63534,13 @@
       "key": "tooltip.simplybows.bow.bee.ability",
       "english": "Fires bees that inflict poison.",
       "korean": "독을 거는 벌을 발사합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "BeeBowItem creates BeeArrowEntity; BeeArrowEntity applies poison effect with configured duration. Other rune paths and runtime unverified."
     },
     {
       "mod": "simplybows",
@@ -63519,12 +63549,13 @@
       "key": "tooltip.simplybows.bow.blossom.ability",
       "english": "Fires arrows that create small blossom storms.",
       "korean": "작은 꽃 폭풍을 일으키는 화살을 발사합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BlossomBowItem creates BlossomArrowEntity, which calls BlossomStormManager.createStorm; exact storm behavior and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -63533,12 +63564,13 @@
       "key": "tooltip.simplybows.bow.earth.ability",
       "english": "Fires arrows that cause earth tremors.",
       "korean": "대지에 진동을 일으키는 화살을 발사합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. EarthArrowEntity invokes EarthSpikeFieldManager.createOrReplaceField or EarthChaosSunderManager.spawnAtImpact depending on path. Exact collision and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -63547,12 +63579,13 @@
       "key": "tooltip.simplybows.bow.echo.ability",
       "english": "Summons two magical bows that fire at nearby targets and mimic your own arrow shots.",
       "korean": "마법 활 두 개를 소환합니다. 주변 대상을 향해 발사하며 내가 쏜 화살을 따라 쏩니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. EchoShoulderBowManager declares onOwnerFired, focused-target handling and potion-charge methods. Exact conditions, effects and runtime require verification."
     },
     {
       "mod": "simplybows",
@@ -63561,12 +63594,13 @@
       "key": "tooltip.simplybows.bow.cosmic.ability",
       "english": "Fires arrows that attach damaging constellations to enemies.",
       "korean": "적에게 피해를 주는 별자리를 붙이는 화살을 발사합니다.",
-      "status": "pending",
+      "status": "language_reviewed",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean base ability descriptions compared. Candidate native classes: net/sweenus/simplybows/config/SimplyBowsConfig$CosmicBowSection.class, net/sweenus/simplybows/entity/CosmicArrowEntity.class, net/sweenus/simplybows/entity/CosmicBountyVisualEntity.class, net/sweenus/simplybows/entity/CosmicOrbitVisualEntity.class, net/sweenus/simplybows/entity/CosmicStrikeVisualEntity.class; actual activation and effects remain unverified."
     },
     {
       "mod": "simplybows",
@@ -63603,12 +63637,13 @@
       "key": "tooltip.simplybows.bow.vine.string_effect",
       "english": "  ◦ + Radius.",
       "korean": "  ◦ + 반경",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. VineFlowerFieldManager reads stringLevel and damageMultiplier and declares radius and heal/damage fields. Exact use by rune and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -63617,12 +63652,13 @@
       "key": "tooltip.simplybows.bow.vine.frame_effect",
       "english": "  ◦ + Healing, + Damage.",
       "korean": "  ◦ + 치유, + 피해",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. VineFlowerFieldManager reads stringLevel and damageMultiplier and declares radius and heal/damage fields. Exact use by rune and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -63631,12 +63667,13 @@
       "key": "tooltip.simplybows.bow.earth.string_effect",
       "english": "  ◦ + Radius.",
       "korean": "  ◦ + 반경",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. EarthSpikeFieldManager computes radius terms adding stringLevel multiplied by configured stringRadiusBonusPerLevel. Rune-specific behavior and runtime unverified."
     },
     {
       "mod": "simplybows",
@@ -63645,12 +63682,13 @@
       "key": "tooltip.simplybows.bow.earth.frame_effect",
       "english": "  ◦ + Damage, + Knock-up.",
       "korean": "  ◦ + 피해, + 공중에 띄우기",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. EarthSpikeFieldManager multiplies spikeDamage by BowUpgradeData.damageMultiplier (which derives from frameLevel) and computes upward knockback with frameLevel. Rune branches and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -63687,12 +63725,13 @@
       "key": "tooltip.simplybows.bow.ice.string_effect",
       "english": "  ◦ + Arrow count.",
       "korean": "  ◦ + 화살 수",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "IceBowItem.getArrowQuantity adds stringLevel to base quantity, subject to rune branches; runtime untested."
     },
     {
       "mod": "simplybows",
@@ -63701,12 +63740,13 @@
       "key": "tooltip.simplybows.bow.ice.frame_effect",
       "english": "  ◦ + Arrow damage.",
       "korean": "  ◦ + 화살 피해",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "IceBowItem uses BowUpgradeData.damageMultiplier; that method derives the multiplier from frameLevel and configuration. Runtime untested."
     },
     {
       "mod": "simplybows",
@@ -63715,12 +63755,13 @@
       "key": "tooltip.simplybows.bow.bee.string_effect",
       "english": "  ◦ + Poison.",
       "korean": "  ◦ + 독",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "BeeArrowEntity computes poison duration using stringLevel and configured bonus; amplifier also depends on stringLevel. Runtime unverified."
     },
     {
       "mod": "simplybows",
@@ -63729,12 +63770,13 @@
       "key": "tooltip.simplybows.bow.bee.frame_effect",
       "english": "  ◦ + Bee damage.",
       "korean": "  ◦ + 벌 피해",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "BeeBowItem creates BeeArrowEntity and sets projectile damage using upgrade data; precise rune interactions and runtime unverified."
     },
     {
       "mod": "simplybows",
@@ -63743,12 +63785,13 @@
       "key": "tooltip.simplybows.bow.bubble.string_effect",
       "english": "  ◦ + Duration.",
       "korean": "  ◦ + 지속 시간",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BubbleColumnFieldManager computes duration = base + stringLevel * configured duration bonus. Rune branches and gameplay remain unverified."
     },
     {
       "mod": "simplybows",
@@ -63757,12 +63800,13 @@
       "key": "tooltip.simplybows.bow.bubble.frame_effect",
       "english": "  ◦ + Radius.",
       "korean": "  ◦ + 반경",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BubbleColumnFieldManager computes radius includes frameLevel * configured radius bonus. Rune branches and gameplay remain unverified."
     },
     {
       "mod": "simplybows",
@@ -63771,12 +63815,13 @@
       "key": "tooltip.simplybows.bow.blossom.string_effect",
       "english": "  ◦ + Duration.",
       "korean": "  ◦ + 지속 시간",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BlossomStormManager references stormDurationBonusPerString and stringLevel; rune-specific effects also exist. Complete path and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -63785,12 +63830,13 @@
       "key": "tooltip.simplybows.bow.blossom.frame_effect",
       "english": "  ◦ + Damage.",
       "korean": "  ◦ + 피해",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BlossomStormManager references frameLevel in damage-related logic; rune-specific conditions and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -63855,12 +63901,13 @@
       "key": "tooltip.simplybows.bow.vine.rune.pain",
       "english": "  The flower field no longer heals, and now damages more frequently.",
       "korean": "꽃밭이 더는 치유하지 않고 더 자주 피해를 줍니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. PAIN sets FieldTuning.healFriendlies false and damageHostiles true, uses painAuraInterval. Local client config is 10 versus normal 20 ticks; server may differ. Runtime unverified."
     },
     {
       "mod": "simplybows",
@@ -63869,12 +63916,13 @@
       "key": "tooltip.simplybows.bow.vine.rune.grace",
       "english": "  The flower field no longer damages hostiles, instead, it grows a cherry blossom that cleanses negative effects.",
       "korean": "꽃밭이 적에게 피해를 주지 않습니다. 대신 부정적인 효과를 정화하는 벚꽃을 피웁니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. GRACE FieldTuning sets damageHostiles false, cleanseNegativeEffects true and cherryTreeVisual true. Actual cleansing and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -63882,13 +63930,14 @@
       "resource": "assets/simplybows/lang/en_us.json",
       "key": "tooltip.simplybows.bow.vine.rune.bounty",
       "english": "  Hostiles that are killed within the flower field have a chance to drop bonus loot.",
-      "korean": "꽃밭 안에서 적대적인 존재를 처치하면 추가 전리품이 떨어질 수 있습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "꽃밭의 피해로 적을 처치하면 추가 전리품이 떨어질 수 있습니다.",
+      "status": "corrected",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "VineFlowerFieldManager invokes bounty loot only if dealAuraDamage succeeds and a previously living target dies; chance is configured. Gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -63897,12 +63946,13 @@
       "key": "tooltip.simplybows.bow.vine.rune.chaos",
       "english": "  The flower field is replaced with a parasitic spore blossom. The spore blossom tendrils feed on those caught within their grasp, rooting smaller hostiles in place. When the blossom expires, it bursts, granting buffs to nearby allies.",
       "korean": "꽃밭이 기생 포자꽃으로 바뀝니다. 덩굴손이 붙잡힌 대상을 먹고 작은 적을 뿌리로 묶습니다. 꽃이 시들면 터지며 주변 아군을 강화합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. isLargeTendrilTarget uses width >0.65 or height >2.0; large targets receive slowness and are removed from root map, others enter timed root maintenance which zeros horizontal velocity. Expiry burst applies mapped STRENGTH, HASTE and SPEED to friendlies. Gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -63911,12 +63961,13 @@
       "key": "tooltip.simplybows.bow.earth.rune.pain",
       "english": "  Spikes erupt outward from the center, dealing damage to enemies caught in their path.",
       "korean": "중심에서 가시가 솟아 경로에 걸린 적에게 피해를 줍니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. EarthSpikeFieldManager initializes PainWaveState and has wave-step damage processing; exact origin/direction and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -63925,12 +63976,13 @@
       "key": "tooltip.simplybows.bow.earth.rune.grace",
       "english": "  Now launches allies upward and grants Resistance and Slow Falling.",
       "korean": "아군을 위로 띄우고 저항과 느린 낙하를 부여합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. EarthSpikeFieldManager.applyGraceAllySupport filters via isFriendlyTo, calls applyUpwardKnockback, and applies mapped RESISTANCE and SLOW_FALLING. Runtime unverified."
     },
     {
       "mod": "simplybows",
@@ -63939,12 +63991,13 @@
       "key": "tooltip.simplybows.bow.earth.rune.bounty",
       "english": "  Creates a massive central spike. Hostiles close the center take increased damage and knock-up.",
       "korean": "중앙에 거대한 가시를 만듭니다. 가까이 있는 적은 피해와 공중에 뜨는 효과를 더 크게 받습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. applyBountyCenterImpact uses base and proximity damage multipliers, applies damage and upward knockback. Numeric scaling and runtime unverified."
     },
     {
       "mod": "simplybows",
@@ -63953,12 +64006,13 @@
       "key": "tooltip.simplybows.bow.earth.rune.chaos",
       "english": "  Arrows can sunder the earth, sending a trail of spikes that travel between nearby hostiles.",
       "korean": "화살이 대지를 가르며 주변 적 사이를 이동하는 가시 줄기를 만듭니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. EarthChaosSunderManager declares retargetOrBranch, steerTowardTarget and spike visuals. Full damage, targeting conditions and runtime unverified."
     },
     {
       "mod": "simplybows",
@@ -63967,12 +64021,13 @@
       "key": "tooltip.simplybows.bow.ice.rune.pain",
       "english": "  Arrows focus on a single target and deal more damage.",
       "korean": "화살이 단일 대상에 집중되어 더 큰 피해를 줍니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Original and Korean compared. IceBowItem PAIN branch adjusts damage and sets target-lock flag when target exists. Full numeric configuration and runtime remain unverified."
     },
     {
       "mod": "simplybows",
@@ -63981,12 +64036,13 @@
       "key": "tooltip.simplybows.bow.ice.rune.grace",
       "english": "  Arrows apply stacking slowness on hit.",
       "korean": "화살이 적중하면 느려짐을 중첩합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Original and Korean compared. IceBowItem sets the stacking-slow flag on GRACE and propagates it to both homing projectile types. Effect details and runtime remain unverified."
     },
     {
       "mod": "simplybows",
@@ -63995,12 +64051,13 @@
       "key": "tooltip.simplybows.bow.ice.rune.bounty",
       "english": "  Fires additional arrows, but they deal less damage.",
       "korean": "화살을 더 발사하지만 피해가 감소합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Original and Korean compared. IceBowItem getArrowQuantity includes a BOUNTY branch; ability damage also branches on BOUNTY. Numeric configuration and runtime remain unverified."
     },
     {
       "mod": "simplybows",
@@ -64009,12 +64066,13 @@
       "key": "tooltip.simplybows.bow.ice.rune.chaos",
       "english": "  Arrows now create a frost wall where they land. The wall blocks all entities and projectiles.",
       "korean": "화살이 착지한 곳에 서리 장벽을 만듭니다. 장벽은 모든 엔티티와 투사체를 막습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Original and Korean compared. IceBowItem includes CHAOS branch and disables homing on the chaos-wall projectile path. Wall collision and runtime remain unverified."
     },
     {
       "mod": "simplybows",
@@ -64023,12 +64081,13 @@
       "key": "tooltip.simplybows.bow.bee.rune.pain",
       "english": "  Bees now home in on hostiles. Each String upgrade fires an additional bee.",
       "korean": "벌이 적을 추적합니다. 활시위를 강화할 때마다 벌을 한 마리 더 발사합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Original and Korean compared. BeeBowItem PAIN branch shoots max(1, stringLevel+1) projectiles; BeeArrowEntity has nearest-target selection, homing acceleration and configurable radius/start. Precise target filtering and gameplay remain unverified."
     },
     {
       "mod": "simplybows",
@@ -64037,12 +64096,13 @@
       "key": "tooltip.simplybows.bow.bee.rune.grace",
       "english": "  Shooting at allies will summon bees that orbit them, blocking the next incoming hit.",
       "korean": "아군을 쏘면 주위를 도는 벌을 소환해 다음 공격을 막습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BeeArrowEntity invokes tryApplyFromImpact; inverse friendly-fire filter uses OPAC party ally check and online member list; reflection failure returns attackable. LivingEntityMixin consumes shield to cancel damage. Actual compatibility and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -64051,12 +64111,13 @@
       "key": "tooltip.simplybows.bow.bee.rune.bounty",
       "english": "  Bees create a temporary beehive on impact that sends extra bees to attack nearby hostiles.",
       "korean": "벌이 적중 지점에 임시 벌집을 만들어 주변 적을 공격할 벌을 더 보냅니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BeeArrowEntity invokes createHive; BeeHiveSwarmManager selects a nearby offensive target and constructs BeeArrowEntity; duration and shots are configurable. Exact collision conditions and runtime unverified."
     },
     {
       "mod": "simplybows",
@@ -64065,12 +64126,13 @@
       "key": "tooltip.simplybows.bow.bee.rune.chaos",
       "english": "  Arrows create a localised honey storm, granting allies regeneration, while slowing hostiles. Bees periodically fall from the sky and explode on impact.",
       "korean": "화살이 국지적인 꿀 폭풍을 만들어 아군을 재생시키고 적을 느리게 합니다. 하늘에서 벌이 떨어져 충돌 시 폭발합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BeeChaosHoneyStormManager applies mapped REGENERATION to friendlies, SLOWNESS to offensive targets, and spawns dive-bomb BeeArrowEntity. BeeArrowEntity calls performChaosDiveBombImpact on entity/block hits; radius and offensive-target logic exist. Runtime untested."
     },
     {
       "mod": "simplybows",
@@ -64079,12 +64141,13 @@
       "key": "tooltip.simplybows.bow.bubble.rune.pain",
       "english": "  Fires axolotls. String upgrades allow you to fire additional axolotls.",
       "korean": "아홀로틀을 발사합니다. 활시위를 강화하면 아홀로틀을 더 발사할 수 있습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BubbleBowItem PAIN branch computes max(1, stringLevel+1); creates BubblePainArrowEntity. Other branch conditions and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -64093,12 +64156,13 @@
       "key": "tooltip.simplybows.bow.bubble.rune.grace",
       "english": "  A protective axolotl orbits the bubble column, blocking hostile projectiles, granting Resistance to allies, and slowing hostiles.",
       "korean": "보호 아홀로틀이 거품 기둥 주위를 돌며 적 투사체를 막고, 아군에게 저항을 주며, 적을 느리게 합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BubbleColumnFieldManager declares resistance/slowness aura and hostile projectile blocking; targeting and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -64107,12 +64171,13 @@
       "key": "tooltip.simplybows.bow.bubble.rune.bounty",
       "english": "  The bubble column spawns an axolotl swarm damaging hostiles caught within.",
       "korean": "거품 기둥에서 아홀로틀 무리가 나타나 그 안에 갇힌 적에게 피해를 줍니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BubbleColumnFieldManager declares applyBountySwarmDamage, configurable damage and interval. Target rules and gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -64121,12 +64186,13 @@
       "key": "tooltip.simplybows.bow.bubble.rune.chaos",
       "english": "  The bow now fires a wave that damages and knocks back hostiles.",
       "korean": "활이 적에게 피해를 주고 밀쳐내는 파도를 발사합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BubbleChaosWaveManager applies damage and computes configured base knockback plus frame-level bonus; full targeting and runtime remain unverified."
     },
     {
       "mod": "simplybows",
@@ -64135,12 +64201,13 @@
       "key": "tooltip.simplybows.bow.blossom.rune.pain",
       "english": "  The blossom storm no longer leaps to new targets, but gains a much larger area and damages all hostiles caught within.",
       "korean": "꽃 폭풍이 새로운 대상으로 이동하지 않는 대신 범위가 크게 넓어지고 안에 있는 모든 적에게 피해를 줍니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BlossomStormManager declares applyPainAreaDamage and configured pain radius. Full activation and runtime remain unverified."
     },
     {
       "mod": "simplybows",
@@ -64149,12 +64216,13 @@
       "key": "tooltip.simplybows.bow.blossom.rune.grace",
       "english": "  The blossom storm targets allies (including you), granting Swiftness and Haste, and damaging nearby hostiles.",
       "korean": "꽃 폭풍이 자신을 포함한 아군을 대상으로 합니다. 신속과 가속을 주고 주변 적에게 피해를 줍니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BlossomStormManager declares applyGraceSupportPulse and swiftness/haste fields. Full activation and runtime remain unverified."
     },
     {
       "mod": "simplybows",
@@ -64163,12 +64231,13 @@
       "key": "tooltip.simplybows.bow.blossom.rune.bounty",
       "english": "  Multiple blossom storms can now be active at the same time. They no longer leap or deal damage over time, and instead deal heavy damage when hostiles step into them.",
       "korean": "꽃 폭풍을 여러 개 동시에 유지할 수 있습니다. 더는 이동하거나 지속 피해를 주지 않으며, 적이 들어오면 큰 피해를 줍니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BlossomStormManager declares processBountyTrapTriggers, configurable damage and maximum trap count. Full activation and runtime remain unverified."
     },
     {
       "mod": "simplybows",
@@ -64177,12 +64246,13 @@
       "key": "tooltip.simplybows.bow.blossom.rune.chaos",
       "english": "  Summons koi spirits that orbit the player, damaging hostiles on contact, and reflecting hostile projectiles.",
       "korean": "잉어 정령을 소환해 플레이어 주위를 돌게 합니다. 정령은 적에게 닿으면 피해를 주고 적의 투사체를 튕겨냅니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. BlossomChaosKoiManager filters offensive candidates and friendly fire, applies configured contact damage, tracks next damage tick, and handles hostile projectile reflection. Exact timing and runtime unverified."
     },
     {
       "mod": "simplybows",
@@ -64191,12 +64261,13 @@
       "key": "tooltip.simplybows.bow.echo.rune.pain",
       "english": "  Magical bows focus your last target. When you or the magical bows kill a hostile, they will explode dealing area damage relative to their maximum HP.",
       "korean": "마법 활이 마지막 대상을 집중 공격합니다. 자신이나 마법 활이 적을 처치하면 최대 체력에 비례한 범위 피해를 주며 폭발합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "language_reviewed",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "English and Korean compared. EchoShoulderBowManager declares onOwnerFired, focused-target handling and potion-charge methods. Exact conditions, effects and runtime require verification."
     },
     {
       "mod": "simplybows",
@@ -64204,13 +64275,14 @@
       "resource": "assets/simplybows/lang/en_us.json",
       "key": "tooltip.simplybows.bow.echo.rune.grace",
       "english": "  Drinking a potion from the offhand charges the magical bows with its effects for a number of shots. If the potion has positive effects, the magical bows will target nearby allies.",
-      "korean": "보조 손의 물약을 마시면 마법 활에 효과가 충전되어 몇 발 동안 유지됩니다. 물약에 이로운 효과가 있으면 마법 활이 주변 아군을 대상으로 합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "보조 손의 물약을 마시면 마법 활에 효과가 충전되어 몇 발 동안 유지됩니다. 물약의 모든 효과가 이로우면 마법 활이 주변 아군을 대상으로 합니다.",
+      "status": "corrected",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "registerGracePotionCharge initializes supportMode true then clears it for each effect whose mapped isBeneficial is false; mixed-effect potions therefore are not support mode. Target behavior and runtime unverified."
     },
     {
       "mod": "simplybows",
@@ -64218,13 +64290,14 @@
       "resource": "assets/simplybows/lang/en_us.json",
       "key": "tooltip.simplybows.bow.echo.rune.bounty",
       "english": "One of the magical bows will now mirror your off-hand bow (cannot mirror another echo bow).",
-      "korean": "마법 활 하나가 보조 손의 활을 따라 합니다. 다른 메아리 활은 따라 할 수 없습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "마법 활 하나가 보조 손의 고유 활을 따라 합니다. 다른 메아리 활은 따라 할 수 없습니다.",
+      "status": "corrected",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "EchoShoulderBowManager requires offhand item instanceof SimplyBowItem and excludes EchoBowItem for BOUNTY; actual firing behavior and runtime unverified."
     },
     {
       "mod": "simplybows",
@@ -64232,13 +64305,14 @@
       "resource": "assets/simplybows/lang/en_us.json",
       "key": "tooltip.simplybows.bow.echo.rune.chaos",
       "english": "  Arrows now create a black hole on impact that pulls in hostiles and deals damage over time. Kills expand the black hole radius.",
-      "korean": "화살이 충돌 지점에 블랙홀을 만들어 적을 끌어당기고 지속 피해를 줍니다. 적을 처치하면 블랙홀 반경이 커집니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "화살이 충돌 지점에 블랙홀을 만들어 적을 끌어당기고 지속 피해를 줍니다. 블랙홀의 피해로 적을 처치하면 반경이 커집니다.",
+      "status": "corrected",
+      "mechanics": "partial_bytecode_evidence",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "EchoChaosBlackHoleManager.applyPullAndDamage increments radius after its own successful damage kills a previously living target, capped at twice base radius. Gameplay unverified."
     },
     {
       "mod": "simplybows",
@@ -70224,13 +70298,14 @@
       "resource": "assets/simplyswords/lang/en_us.json",
       "key": "item.simplyswords.brimstoneclaymoreitem.tooltip4",
       "english": "Summon a Brimstone Claymore above the target that pulses area damage before plunging into the ground.",
-      "korean": "대상 위에 브림스톤 클레이모어를 소환합니다. 대검은 주위에 반복해서 범위 피해를 준 뒤 지면으로 내리꽂힙니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "대상 위에 브림스톤 클레이모어를 소환합니다. 대검은 주변에 반복해서 피해를 준 뒤 지면에 내리꽂혀 추가 피해를 줍니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "tickInstance calls pulse at configured intervals then startPlunge and impact; both pulse and impact call damageInRadius with separate scaling. SHA256 bb00bef0e04f7c1f552b2beaa42d92d490baa38c9cfb6560212ff55320faa153"
     },
     {
       "mod": "simplyswords",
@@ -70554,13 +70629,14 @@
       "resource": "assets/simplyswords/lang/en_us.json",
       "key": "item.simplyswords.plaguesworditem.tooltip2",
       "english": "Weapon hits inflict the target with fever. At %d fever, a plague bell tolls and damages nearby enemies.",
-      "korean": "공격이 대상에게 열기를 부여합니다. 열기가 %d에 도달하면 역병의 종이 울려 주변 적에게 피해를 줍니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "무기 공격으로 대상에게 열병을 부여합니다. 열병이 %d에 도달하면 역병의 종이 울려 주변 적에게 피해를 줍니다.",
+      "status": "language_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "onMeleeHit accumulates configured fever and starts outbreak at threshold; tryConvertEffects uses configured chance, conversion mapping and additional fever. Pending toll handles follow-up hits separately. SHA256 4df2ff0a57670e1c6b12f28e6a99b45c07fa790def7c3b003393e22fc3541ccd"
     },
     {
       "mod": "simplyswords",
@@ -70568,13 +70644,14 @@
       "resource": "assets/simplyswords/lang/en_us.json",
       "key": "item.simplyswords.plaguesworditem.tooltip3",
       "english": "The toll spreads fever and can cascade through up to %d enemies.",
-      "korean": "종소리는 열기를 퍼뜨리며 최대 %d명의 적에게 연쇄적으로 이어질 수 있습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "종소리는 열병을 퍼뜨리며 최대 %d번 연쇄적으로 울릴 수 있습니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "maxCascadeTolls limits total scheduled tolls, not enemies; executeToll damages nearby targets and spreads fever; addSpreadFever schedules another toll at threshold. SHA256 4df2ff0a57670e1c6b12f28e6a99b45c07fa790def7c3b003393e22fc3541ccd"
     },
     {
       "mod": "simplyswords",
@@ -70582,13 +70659,14 @@
       "resource": "assets/simplyswords/lang/en_us.json",
       "key": "item.simplyswords.plaguesworditem.tooltip4",
       "english": "Hits can convert positive effects into ailments, granting bonus fever and empowering the next toll.",
-      "korean": "공격이 이로운 효과를 해로운 효과로 바꾸기도 합니다. 이때 열기를 추가로 부여하고 다음 종소리를 강화합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "공격이 이로운 효과를 해로운 효과로 바꾸기도 합니다. 이때 열병을 추가로 부여하고 다음 종소리를 강화합니다.",
+      "status": "language_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "onMeleeHit accumulates configured fever and starts outbreak at threshold; tryConvertEffects uses configured chance, conversion mapping and additional fever. Pending toll handles follow-up hits separately. SHA256 4df2ff0a57670e1c6b12f28e6a99b45c07fa790def7c3b003393e22fc3541ccd"
     },
     {
       "mod": "simplyswords",
@@ -70624,13 +70702,14 @@
       "resource": "assets/simplyswords/lang/en_us.json",
       "key": "item.simplyswords.emberiresworditem.tooltip6",
       "english": "Releasing the channel within the last second allows you to fire an additional piece of shrapnel.",
-      "korean": "집중 시간이 끝나기 전 마지막 1초 안에 집중을 풀면 파편을 하나 더 발사합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "일정 시간 집중하면 조준한 대상에게 자동으로 발사합니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "method_7852 invokes release below 20 ticks; method_7840 finds one target, applies one damage call and checks charge-dependent buff chance only when target exists. No second projectile found in release bytecode. SHA256 0dae441dc5b721a5413a3a683f84864bdc6300311bc9a1514778024c2a5954c2 Use duration is 80 ticks; automatic release at remaining 10 ticks; target existence required but damage success not checked."
     },
     {
       "mod": "simplyswords",
@@ -70638,13 +70717,14 @@
       "resource": "assets/simplyswords/lang/en_us.json",
       "key": "item.simplyswords.emberiresworditem.tooltip9",
       "english": "When releasing shrapnel, you have a chance relative to your channel time to gain Speed, Haste, and Strength.",
-      "korean": "파편을 발사할 때 집중한 시간에 비례한 확률로 신속, 성급함, 힘 효과를 얻습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "대상을 조준해 발사하면 일정 확률로 신속, 성급함, 힘 효과를 얻습니다. 오래 집중할수록 확률이 높아집니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "method_7852 invokes release below 20 ticks; method_7840 finds one target, applies one damage call and checks charge-dependent buff chance only when target exists. No second projectile found in release bytecode. SHA256 0dae441dc5b721a5413a3a683f84864bdc6300311bc9a1514778024c2a5954c2 Use duration is 80 ticks; automatic release at remaining 10 ticks; target existence required but damage success not checked."
     },
     {
       "mod": "simplyswords",
@@ -71021,13 +71101,14 @@
       "resource": "assets/simplyswords/lang/en_us.json",
       "key": "item.simplyswords.soulpyresworditem.tooltip7",
       "english": "Defeated enemies grant you souls, which are periodically fired as homing projectiles.",
-      "korean": "적을 처치하면 영혼을 얻으며, 영혼은 주기적으로 적을 추적하는 투사체로 발사됩니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "영역 안에서 자신이 처치한 적의 영혼을 모읍니다. 영혼이 일정량 쌓이면 적을 추적하는 투사체를 발사합니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "onDeath checks victim inside active field and damage source matching wielder or source owner; harvestSoul queues one volley per configured wispVolleySize souls, current client config=5. SHA256 bed8249a90e14cc10225d32a83bbabad3245acd7f01f273401ff0d7e7fec3399"
     },
     {
       "mod": "simplyswords",
@@ -71105,13 +71186,14 @@
       "resource": "assets/simplyswords/lang/en_us.json",
       "key": "item.simplyswords.moltenedgesworditem.tooltip2",
       "english": "Dealing or receiving damage builds Heat, increasing damage dealt and received.",
-      "korean": "피해를 주거나 받으면 열기가 쌓여 주는 피해와 받는 피해가 모두 증가합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "열기를 방출하지 않을 때 근접 공격을 적중시키거나 피해를 받으면 열기가 쌓여 주는 피해와 받는 피해가 증가합니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "gainHeatFromMelee adds configured heat per held weapon hit; gainHeatFromIncomingDamage requires positive accepted damage; both skip while venting. SHA256 4bb064b2f27a1f141a904cc8bc901487d57712f7aff2ac22db967839abe1c3c1"
     },
     {
       "mod": "simplyswords",
@@ -83076,12 +83158,13 @@
       "key": "item.soulsweapons.chungus_disc.desc",
       "english": "Endigo - Big Chungus (Official Main Theme)",
       "korean": "Endigo - Big Chungus (공식 메인 테마)",
-      "status": "pending",
+      "status": "not_equipment",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Music disc description; excluded from gear scope."
     },
     {
       "mod": "soulsweapons",
@@ -83090,12 +83173,13 @@
       "key": "item.soulsweapons.fallen_icon_disc.desc",
       "english": "NoRestForWicked - The Fallen Icon",
       "korean": "NoRestForWicked - The Fallen Icon",
-      "status": "pending",
+      "status": "not_equipment",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": true
-      }
+      },
+      "notes": "Music disc description; excluded from gear scope."
     },
     {
       "mod": "soulsweapons",
@@ -83104,12 +83188,13 @@
       "key": "item.soulsweapons.draugr_boss_disc.desc",
       "english": "NoRestForWicked - Gladius ad Gladium",
       "korean": "NoRestForWicked - Gladius ad Gladium",
-      "status": "pending",
+      "status": "not_equipment",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": true
-      }
+      },
+      "notes": "Music disc description; excluded from gear scope."
     },
     {
       "mod": "soulsweapons",
@@ -83118,12 +83203,13 @@
       "key": "item.soulsweapons.frenzied_shade_disc.desc",
       "english": "NoRestForWicked - Frenzied Shade",
       "korean": "NoRestForWicked - Frenzied Shade",
-      "status": "pending",
+      "status": "not_equipment",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": true
-      }
+      },
+      "notes": "Music disc description; excluded from gear scope."
     },
     {
       "mod": "soulsweapons",
@@ -83363,12 +83449,13 @@
       "key": "tooltip.soulsweapons.omnivamp_description",
       "english": "- §cHeal§r for every mob hit with the weapons ability.",
       "korean": "- 무기의 능력으로 몬스터를 타격할 때마다 §c회복§r합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "DarkinBlade uses IDetonateGround: heal is applied per valid target when healMod positive and hit succeeds, or if calculated_fall_hits_immune_entities permits immune targets. DarkinScythePrime enables healing on mounted-ability resolution. Values depend on config. IDetonateGround SHA256 5fee730160e7762773a3a7de2c4a8d75876600b5fa9f1347da18ef0c76207c4a"
     },
     {
       "mod": "soulsweapons",
@@ -83630,12 +83717,13 @@
       "key": "tooltip.soulsweapons.returning_description_1",
       "english": "- Press keybind to return the thrown weapon to yourself.",
       "korean": "- 단축키를 눌러 던진 무기를 자신에게 되돌립니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "ReturnThrownWeaponC2S looks up player saved projectile UUID in current server world and sets shouldReturn; actual flight starts when projectile has hit something or is grounded. SHA256 ce03921c0bc1bb25e4d78849ddc7065b85a49711c0ef9a837653c76f799fd6bd"
     },
     {
       "mod": "soulsweapons",
@@ -83644,12 +83732,13 @@
       "key": "tooltip.soulsweapons.returning_description_2",
       "english": "- Damage and effects trigger on collision on the way back.",
       "korean": "- 돌아오는 동안 충돌 시 피해와 효과가 발동합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "method_5773 scans non-owner, non-teammate living entities every return tick and calls subtype collide; separately inserts item when owner intersects projectile after dealtDamage, under pickup and inventory rules. SHA256 5b9779102d1faec78e3b42f5433d75bbf040f5666ffd72260ece0be85f8e1f71"
     },
     {
       "mod": "soulsweapons",
@@ -83658,12 +83747,13 @@
       "key": "tooltip.soulsweapons.returning_description_3",
       "english": "Walking over it will auto pick it up. Returning keybind: ",
       "korean": "위를 지나가면 자동으로 줍습니다. 귀환 단축키: ",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "method_5773 scans non-owner, non-teammate living entities every return tick and calls subtype collide; separately inserts item when owner intersects projectile after dealtDamage, under pickup and inventory rules. SHA256 5b9779102d1faec78e3b42f5433d75bbf040f5666ffd72260ece0be85f8e1f71"
     },
     {
       "mod": "soulsweapons",
@@ -84011,13 +84101,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.dragon_staff_description_2",
       "english": "The mist will damage mobs, while healing players.",
-      "korean": "이 안개는 적에게 피해를 주고, 플레이어를 치유합니다",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "안개는 플레이어와 플레이어가 길들인 생명체를 치유하고, 그 밖의 생명체에게 피해를 줍니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "HallowedDragonMist.method_5572 heals players or Tameable whose owner is player, damages other living targets. Actual mist target selection still requires game verification. SHA256 8fc09211543cba626b0645c708f007fb3c00fc972c0e45c53d5489a001d54233"
     },
     {
       "mod": "soulsweapons",
@@ -84488,12 +84579,13 @@
       "key": "tooltip.soulsweapons.lunar_herald_description_1",
       "english": "- Use to gain the §dLunar Herald§r effect. Press ",
       "korean": "- §d달의 전령§r 효과를 얻습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "MoonstoneRing use grants MOON_HERALD if absent; configurable effect duration. KeyBindRegistry registers effect_shoot_moonlight and sends MOONLIGHT packet; server calls summonSmallProjectile, subject to cooldown. Ring SHA256 42bfebdbba900a1ce661ff47c8f840b98bf615175ddd26c80335a75dd36441b9 keybind SHA256 b323fd61f874806839489b165343a9a9d7322a3370497c2cf75c744da999f5ac"
     },
     {
       "mod": "soulsweapons",
@@ -84502,12 +84594,13 @@
       "key": "tooltip.soulsweapons.lunar_herald_description_2",
       "english": "to shoot moonlight beams with the effect.",
       "korean": "이 효과로 달빛 광선을 발사하려면 단축키를 누르세요.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "MoonstoneRing use grants MOON_HERALD if absent; configurable effect duration. KeyBindRegistry registers effect_shoot_moonlight and sends MOONLIGHT packet; server calls summonSmallProjectile, subject to cooldown. Ring SHA256 42bfebdbba900a1ce661ff47c8f840b98bf615175ddd26c80335a75dd36441b9 keybind SHA256 b323fd61f874806839489b165343a9a9d7322a3370497c2cf75c744da999f5ac"
     },
     {
       "mod": "soulsweapons",
@@ -84658,13 +84751,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.chaos_robes_description_1",
       "english": "- Equip to §5Wither§r all nearby Grass",
-      "korean": "- 장착하면 가까운 풀과 흙 블록을",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "- 땅에 서 있으면 주변의 풀과 흙을",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "ChaosRobes requires wearer grounded and chaos_cape_wither_ground enabled. WitheredBlock restoration depends on scheduled/random ticks, age, light and neighboring blocks; no fixed short duration established. SHA256 be30c4d3f03d6d57f3f7303c5d3121dfc9150a2c3c05e9c6d365129be5229bc6"
     },
     {
       "mod": "soulsweapons",
@@ -84672,13 +84766,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.chaos_robes_description_2",
       "english": "and Dirt blocks for a short duration.",
-      "korean": "짧은 시간 동안 §5시듦§r 상태로 만듭니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "§5시들게§r 만듭니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "ChaosRobes requires wearer grounded and chaos_cape_wither_ground enabled. WitheredBlock restoration depends on scheduled/random ticks, age, light and neighboring blocks; no fixed short duration established. SHA256 be30c4d3f03d6d57f3f7303c5d3121dfc9150a2c3c05e9c6d365129be5229bc6"
     },
     {
       "mod": "soulsweapons",
@@ -84687,12 +84782,13 @@
       "key": "tooltip.soulsweapons.chaos_robes_description_3",
       "english": "- Every 2 seconds, apply §5Wither§r to",
       "korean": "- 2초마다 주변의 비플레이어 개체에",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Armor slot active: every 40 ticks applies Wither II for 80 ticks to nearby living entities excluding players. Queries expanded bounding box, not spherical radius. SHA256 1fa859bedd806bf322a2ec6af5549bc708bc572985f84993d7adee5df9d80b23"
     },
     {
       "mod": "soulsweapons",
@@ -84701,12 +84797,13 @@
       "key": "tooltip.soulsweapons.chaos_robes_description_4",
       "english": "nearby non-player entities.",
       "korean": "§5시듦§r를 적용합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Armor slot active: every 40 ticks applies Wither II for 80 ticks to nearby living entities excluding players. Queries expanded bounding box, not spherical radius. SHA256 1fa859bedd806bf322a2ec6af5549bc708bc572985f84993d7adee5df9d80b23"
     },
     {
       "mod": "soulsweapons",
@@ -84728,13 +84825,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.freeze_description",
       "english": "- Apply §bPermafrost§r on enemies post hit.",
-      "korean": "- 타격 후 적들에게 §b영구동토§r을 적용합니다.",
-      "status": "pending",
+      "korean": "- 타격 후 적에게 §b영구동토§r를 적용합니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Corrected Korean particle; actual effect not yet verified."
     },
     {
       "mod": "soulsweapons",
@@ -84770,13 +84868,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.permafrost_description_2",
       "english": "damaging and spreading §bPermafrost§r to mobs nearby.",
-      "korean": "근처의 몬스터에게 §b영구동토§r을 전파하고 피해를 줍니다.",
-      "status": "pending",
+      "korean": "근처의 몬스터에게 §b영구동토§r를 전파하고 피해를 줍니다.",
+      "status": "corrected",
       "mechanics": "unverified",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Corrected Korean particle; actual effect not yet verified."
     },
     {
       "mod": "soulsweapons",
@@ -84826,13 +84925,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.crit_description_1",
       "english": "- Thrown spear damage is §6doubled§r against",
-      "korean": "- 던진 창의 피해는 §c체력이 20%§r 이하인 대상에게",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "- 던진 창의 피해는 §c체력이 20%§r 미만인 대상에게",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "CometSpearEntity compares current/max health strictly less than 0.2 before doubling damage. SHA256 9974a97cb92c2c1bc4175ccbfbf88c808bf4fa15109314aef0d45cd063d9d25b"
     },
     {
       "mod": "soulsweapons",
@@ -84868,13 +84968,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.disable_heal_description_1",
       "english": "- Post hit will inflict §5Cursed Wounds§r, making",
-      "korean": "- 타격 후 §5저주받은 상처§r을 입혀,",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "- 타격 후 §5저주받은 상처§r를 입혀,",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Skofnung postHit applies configured DISABLE_HEAL duration plus enchant scaling; LivingEntityMixin interceptHeal cancels healing while effect active. Skofnung SHA256 81ab05ef868ee585124740e41b6c57f1fbbe10fa2e51fcf830d8d55fc560b830 mixin SHA256 9ad4b4cebf171f250ddafda346bb5d38e1179e8e48808c5c250a42272560b3f0"
     },
     {
       "mod": "soulsweapons",
@@ -84883,12 +84984,13 @@
       "key": "tooltip.soulsweapons.disable_heal_description_2",
       "english": "the target unable to heal for said time.",
       "korean": "대상이 해당 시간 동안 치유되지 않도록 만듭니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Skofnung postHit applies configured DISABLE_HEAL duration plus enchant scaling; LivingEntityMixin interceptHeal cancels healing while effect active. Skofnung SHA256 81ab05ef868ee585124740e41b6c57f1fbbe10fa2e51fcf830d8d55fc560b830 mixin SHA256 9ad4b4cebf171f250ddafda346bb5d38e1179e8e48808c5c250a42272560b3f0"
     },
     {
       "mod": "soulsweapons",
@@ -84980,13 +85082,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.sharpen_description_2",
       "english": "is in hand to empower this weapon. It will then",
-      "korean": "이 무기가 강화됩니다. 그러면 공격 피해가 증가하고",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "이 무기가 강화됩니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Joined with following line to describe finite empowered hit count; SkofnungStone sets empowered_attacks_left."
     },
     {
       "mod": "soulsweapons",
@@ -84994,13 +85097,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.sharpen_description_3",
       "english": "gain more attack damage and §cBleed§r post hit.",
-      "korean": "타격 후 §c출혈§r 효과가 추가됩니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "일정 횟수 동안 공격 피해가 증가하고 적에게 §c출혈§r을 줍니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "SkofnungStone sets configured empowered_attacks_left; Skofnung applies bleed and boosted attributes while empowered and decrements counter on hit. SHA256 81ab05ef868ee585124740e41b6c57f1fbbe10fa2e51fcf830d8d55fc560b830"
     },
     {
       "mod": "soulsweapons",
@@ -85248,13 +85352,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.grand_skyfall_description_1",
       "english": "- Use in off-hand to §3Riptide§r the user,",
-      "korean": "- 보조 손에 사용하여",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "- 보조 손에 들고 충전해 사용하면",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "CometSpear.method_7840 requires chargeTime >= 10 and offhand stack, launches player and adds CALCULATED_FALL; IDetonateGround applies fall-distance scaled impact. SHA256 240631a8402c8dc23b7dd7f2109f5bf02d6fe6bbcffa023cb8dfaf0d974f7f38"
     },
     {
       "mod": "soulsweapons",
@@ -85262,13 +85367,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.grand_skyfall_description_2",
       "english": "then upon landing, smash the ground, damaging",
-      "korean": "사용자에게 §3급류§r을 적용한 후, 착지 시 지면을 가격하여",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "§3급류§r로 돌진한 뒤, 착지할 때 지면을 강타해",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "CometSpear.method_7840 requires chargeTime >= 10 and offhand stack, launches player and adds CALCULATED_FALL; IDetonateGround applies fall-distance scaled impact. SHA256 240631a8402c8dc23b7dd7f2109f5bf02d6fe6bbcffa023cb8dfaf0d974f7f38"
     },
     {
       "mod": "soulsweapons",
@@ -85276,13 +85382,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.grand_skyfall_description_3",
       "english": "all mobs in a radius based on falling distance.",
-      "korean": "낙하 거리에 따라 반경 내 모든 몬스터에 피해를 줍니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "낙하 거리에 따라 주변 몬스터에게 범위 피해를 줍니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "CometSpear.method_7840 requires chargeTime >= 10 and offhand stack, launches player and adds CALCULATED_FALL; IDetonateGround applies fall-distance scaled impact. SHA256 240631a8402c8dc23b7dd7f2109f5bf02d6fe6bbcffa023cb8dfaf0d974f7f38"
     },
     {
       "mod": "soulsweapons",
@@ -85305,12 +85412,13 @@
       "key": "tooltip.soulsweapons.arkenplate_description_1",
       "english": "- When the user is under §c50% Health§r, gain",
       "korean": "- 사용자의 체력이 §c50%§r 이하일 때,",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Arkenplate checks health <= maxHealth/2 and active armor slot, applies resistance and magic resistance amplifier 1 (level II). SHA256 633a5b666dc0fdc16130d6b9aceb5e18d438b7f71c669722c534b84d47a076b4"
     },
     {
       "mod": "soulsweapons",
@@ -85319,12 +85427,13 @@
       "key": "tooltip.soulsweapons.arkenplate_description_2",
       "english": "§3Resistance II§r & §bMagic Resistance II§r.",
       "korean": "§3저항 II§r & §b마법 저항 II§r 효과를 얻습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Arkenplate checks health <= maxHealth/2 and active armor slot, applies resistance and magic resistance amplifier 1 (level II). SHA256 633a5b666dc0fdc16130d6b9aceb5e18d438b7f71c669722c534b84d47a076b4"
     },
     {
       "mod": "soulsweapons",
@@ -85486,13 +85595,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.bane_of_arthropods_description_1",
       "english": "- Natural increased damage against §3Arthropods§r.",
-      "korean": "- §3절지동물§r에 대해 자연적으로 증가된 피해.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "- §3절지동물§r에게 추가 피해를 줍니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "EnchantmentHelperMixin adds configured sting_bonus_arthropod_damage to enchantment damage for STING against arthropods. SHA256 fcf388653dd38359916789dba83bc2e39af3ed005bf9701553a1fa7f771b69d1"
     },
     {
       "mod": "soulsweapons",
@@ -85581,12 +85691,13 @@
       "key": "tooltip.soulsweapons.doom_description_1",
       "english": "- Has massive attack damage for the next",
       "korean": "- 다음 공격에 막대한 피해를 입히며,",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "CrucibleSword attribute switches between empowered and normal damage while on cooldown. Successful postHit sets cooldown, multiplied by configurable Nether modifier (client config 0.4). SHA256 059343aed33783c77d6c23858cc3ce6181e4178f4ecdc59381d2f949bc0796a4"
     },
     {
       "mod": "soulsweapons",
@@ -85595,12 +85706,13 @@
       "key": "tooltip.soulsweapons.doom_description_2",
       "english": "strike, then will go on cooldown.",
       "korean": "이후 재사용 대기시간 상태에 들어갑니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "CrucibleSword attribute switches between empowered and normal damage while on cooldown. Successful postHit sets cooldown, multiplied by configurable Nether modifier (client config 0.4). SHA256 059343aed33783c77d6c23858cc3ce6181e4178f4ecdc59381d2f949bc0796a4"
     },
     {
       "mod": "soulsweapons",
@@ -85609,12 +85721,13 @@
       "key": "tooltip.soulsweapons.doom_description_3",
       "english": "- Cooldown is reduced in the Nether",
       "korean": "- 네더에서는 재사용 대기시간이 감소합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "CrucibleSword attribute switches between empowered and normal damage while on cooldown. Successful postHit sets cooldown, multiplied by configurable Nether modifier (client config 0.4). SHA256 059343aed33783c77d6c23858cc3ce6181e4178f4ecdc59381d2f949bc0796a4"
     },
     {
       "mod": "soulsweapons",
@@ -85650,13 +85763,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.transformation_description_2",
       "english": "§bBlue§r and §cRed§r souls based on whether the mob",
-      "korean": "몬스터가 수동적이거나 원거리 무기를 사용하거나",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "수동적인 생명체나 원거리 공격을 하는 적은",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "handleKill chooses BLUE for ranged-mob tag, held RangedWeaponItem, or PassiveEntity; all remaining targets yield RED, not only hostile entities. Boss-tagged victims yield 20 instead of one. SHA256 9c61d7ef70ff87ca2aabcb42de11e9a6c9c3f667ac1b6656c9ef05cff34e9ea7"
     },
     {
       "mod": "soulsweapons",
@@ -85664,13 +85778,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.transformation_description_3",
       "english": "was passive, wielding a ranged weapon, or whether the",
-      "korean": "적대적인 몬스터인지에 따라",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "§b파란 영혼§r을, 그 밖의 생명체는",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "handleKill chooses BLUE for ranged-mob tag, held RangedWeaponItem, or PassiveEntity; all remaining targets yield RED, not only hostile entities. Boss-tagged victims yield 20 instead of one. SHA256 9c61d7ef70ff87ca2aabcb42de11e9a6c9c3f667ac1b6656c9ef05cff34e9ea7"
     },
     {
       "mod": "soulsweapons",
@@ -85678,13 +85793,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.transformation_description_4",
       "english": "mob was a hostile monster. Each number of souls increases",
-      "korean": "§b파란§r 영혼과 §c빨간§r 영혼으로 구분됩니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "§c빨간 영혼§r을 줍니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "handleKill chooses BLUE for ranged-mob tag, held RangedWeaponItem, or PassiveEntity; all remaining targets yield RED, not only hostile entities. Boss-tagged victims yield 20 instead of one. SHA256 9c61d7ef70ff87ca2aabcb42de11e9a6c9c3f667ac1b6656c9ef05cff34e9ea7"
     },
     {
       "mod": "soulsweapons",
@@ -85693,12 +85809,13 @@
       "key": "tooltip.soulsweapons.transformation_description_5",
       "english": "the damage of the weapon. When reaching max number of",
       "korean": "영혼의 수가 증가할수록 무기의 피해도 증가합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "getBonusDamage scales with total souls / configured maximum; transformation copies enchantment entries to new item. SHA256 9c61d7ef70ff87ca2aabcb42de11e9a6c9c3f667ac1b6656c9ef05cff34e9ea7"
     },
     {
       "mod": "soulsweapons",
@@ -85706,13 +85823,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.transformation_description_6",
       "english": "souls, the item transforms based on the dominant soul type.",
-      "korean": "최대 영혼 수에 도달하면, 주된 영혼 유형에 따라 아이템이 변형됩니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "영혼을 다 모은 뒤 손에 들면, 더 많은 영혼의 종류에 따라 낫이 변형됩니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "Inventory tick transforms only selected hotbar slot after soul threshold; dominant color decides result; tie chooses RED. SHA256 9c61d7ef70ff87ca2aabcb42de11e9a6c9c3f667ac1b6656c9ef05cff34e9ea7"
     },
     {
       "mod": "soulsweapons",
@@ -85721,12 +85839,13 @@
       "key": "tooltip.soulsweapons.transformation_description_7",
       "english": "Enchants will carry over to the transforming weapon.",
       "korean": "마법 부여는 변형된 무기로 이어집니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "getBonusDamage scales with total souls / configured maximum; transformation copies enchantment entries to new item. SHA256 9c61d7ef70ff87ca2aabcb42de11e9a6c9c3f667ac1b6656c9ef05cff34e9ea7"
     },
     {
       "mod": "soulsweapons",
@@ -85763,12 +85882,13 @@
       "key": "tooltip.soulsweapons.early_combat_description_1",
       "english": "- If not on cooldown, post hit, gain movement speed",
       "korean": "- 재사용 대기시간 상태가 아닐 때,",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "ShadowAssassinScythe postHit applies SHADOW_STEP when item cooldown is clear; duration configurable. EffectRegistry adds 0.3 multiply-total movement-speed modifier per effect level; weapon attributes use shadow-step state. EffectRegistry SHA256 cb6cd1ae1472941b8daa57329b9e8dace2ccbc0e7d8ca863e426c9278d66f8dd"
     },
     {
       "mod": "soulsweapons",
@@ -85777,12 +85897,13 @@
       "key": "tooltip.soulsweapons.early_combat_description_2",
       "english": "and bonus damage for this weapon.",
       "korean": "타격 후 이동 속도와 무기 피해가 증가합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "ShadowAssassinScythe postHit applies SHADOW_STEP when item cooldown is clear; duration configurable. EffectRegistry adds 0.3 multiply-total movement-speed modifier per effect level; weapon attributes use shadow-step state. EffectRegistry SHA256 cb6cd1ae1472941b8daa57329b9e8dace2ccbc0e7d8ca863e426c9278d66f8dd"
     },
     {
       "mod": "soulsweapons",
@@ -85791,12 +85912,13 @@
       "key": "tooltip.soulsweapons.early_combat_description_3",
       "english": "Time can be changed in config. Current time in seconds: ",
       "korean": "시간은 설정에서 변경할 수 있습니다. 현재 시간(초): ",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "ShadowAssassinScythe postHit applies SHADOW_STEP when item cooldown is clear; duration configurable. EffectRegistry adds 0.3 multiply-total movement-speed modifier per effect level; weapon attributes use shadow-step state. EffectRegistry SHA256 cb6cd1ae1472941b8daa57329b9e8dace2ccbc0e7d8ca863e426c9278d66f8dd"
     },
     {
       "mod": "soulsweapons",
@@ -85833,12 +85955,13 @@
       "key": "tooltip.soulsweapons.umbral_trespass_description_2",
       "english": "In this state, the user takes no damage. On dismount,",
       "korean": "이 상태에서는 사용자가 피해를 받지 않습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "UmbralTrespassItem applies GHOSTLY during ride; PlayerEntityMixin interceptDamage sets return false while GHOSTLY present. Other mods or nonstandard removal paths not proven. SHA256 d85546061ab744b03984485c3fe89837f8dc9533a4f0fe4c5824dadd55d84351"
     },
     {
       "mod": "soulsweapons",
@@ -85846,13 +85969,14 @@
       "resource": "assets/soulsweapons/lang/en_us.json",
       "key": "tooltip.soulsweapons.umbral_trespass_description_3",
       "english": "the user leaps out, and the target is dealt heavy damage.",
-      "korean": "탈출 시 사용자는 뛰어 나가며 목표에게 큰 피해를 입힙니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "korean": "빠져나올 때 대상에게 큰 피해를 입힙니다.",
+      "status": "corrected",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "LivingEntityMixin interceptDismount damages ridden target; no explicit leap velocity found in the reviewed dismount handler. Removes unsupported movement claim without asserting movement cannot occur elsewhere."
     },
     {
       "mod": "soulsweapons",
@@ -85866,7 +85990,8 @@
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "UmbralTrespassItem use checks getAttacking() non-null, squaredDistanceTo < 200, cooldown and successful startRiding; Minecraft lifetime/expiry semantics and death handling need verification. SHA256 4887362317ce0ffc58def907c4a681523763d17e2f68c3b52c671b3117eb61ae"
     },
     {
       "mod": "soulsweapons",
@@ -85880,7 +86005,8 @@
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "UmbralTrespassItem use checks getAttacking() non-null, squaredDistanceTo < 200, cooldown and successful startRiding; Minecraft lifetime/expiry semantics and death handling need verification. SHA256 4887362317ce0ffc58def907c4a681523763d17e2f68c3b52c671b3117eb61ae"
     },
     {
       "mod": "soulsweapons",
@@ -85894,7 +86020,8 @@
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "UmbralTrespassItem use checks getAttacking() non-null, squaredDistanceTo < 200, cooldown and successful startRiding; Minecraft lifetime/expiry semantics and death handling need verification. SHA256 4887362317ce0ffc58def907c4a681523763d17e2f68c3b52c671b3117eb61ae"
     },
     {
       "mod": "soulsweapons",
@@ -85917,12 +86044,13 @@
       "key": "tooltip.soulsweapons.trick_weapon_description_1",
       "english": "- Press %s to transform the weapon if in main hand.",
       "korean": "- 주 손에 들고 있을 때 %s를 눌러 무기를 변환합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "SwitchTrickWeaponC2S obtains MAIN_HAND, resolves alternate via TrickWeaponUtil and replaces selected inventory slot. SHA256 ed2fffe00b8825ef28bff6d4fcd461d6b52336f0d350ceda7fc66669e6cb2823"
     },
     {
       "mod": "soulsweapons",
@@ -85959,12 +86087,13 @@
       "key": "tooltip.soulsweapons.heavy_weapon_description_1",
       "english": "- Gain §6Haste§r post hit while having §4Strength§r effect.",
       "korean": "- §4힘§r 효과를 보유하고 있을 때 타격 후 §6성급함§r을 얻습니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "IUltraHeavy requires heavy flag and configuration ultra_heavy_haste_when_strength; with Strength applies Haste II 200 ticks on hit. applyPostureLoss adds getPostureLoss to target when heavy. SHA256 8a1f737adfed8647fe800201ee42bcd867e3f4d09db939acb53faf32eae87f1d"
     },
     {
       "mod": "soulsweapons",
@@ -86001,12 +86130,13 @@
       "key": "tooltip.soulsweapons.heavy_weapon_description_4",
       "english": "- Apply %s §fPosture Loss§r post hit.",
       "korean": "- 적중 후 %s의 §f균형 피해§r를 줍니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "IUltraHeavy requires heavy flag and configuration ultra_heavy_haste_when_strength; with Strength applies Haste II 200 ticks on hit. applyPostureLoss adds getPostureLoss to target when heavy. SHA256 8a1f737adfed8647fe800201ee42bcd867e3f4d09db939acb53faf32eae87f1d"
     },
     {
       "mod": "soulsweapons",
@@ -86015,12 +86145,13 @@
       "key": "tooltip.soulsweapons.heavy_weapon_description_5",
       "english": "- This weapon disables shields.",
       "korean": "- 이 무기는 방패를 무력화합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "LivingEntityMixin.interceptDisablesShield returns true for main-hand IUltraHeavy with isHeavy when ultra_heavy_disables_shields enabled; standard shield-disable mechanics still apply. SHA256 9ad4b4cebf171f250ddafda346bb5d38e1179e8e48808c5c250a42272560b3f0"
     },
     {
       "mod": "soulsweapons",
@@ -86043,12 +86174,13 @@
       "key": "tooltip.soulsweapons.righteous_description_1",
       "english": "- Does increased damage against §fUndead§r.",
       "korean": "- §f언데드§r에 대해 피해가 증가합니다.",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "EnchantmentHelperMixin adds IUndeadBonus.getUndeadBonus plus Fire Aspect enchantment level to damage against undead when isRighteous is true. SHA256 fcf388653dd38359916789dba83bc2e39af3ed005bf9701553a1fa7f771b69d1"
     },
     {
       "mod": "soulsweapons",
@@ -86057,12 +86189,13 @@
       "key": "tooltip.soulsweapons.righteous_description_2",
       "english": "Scales with Fire Aspect, current bonus: ",
       "korean": "발화 레벨에 따라 증가되며, 현재 추가 피해량: ",
-      "status": "pending",
-      "mechanics": "unverified",
+      "status": "mechanics_reviewed",
+      "mechanics": "installed_native_bytecode_checked",
       "screening": {
         "missingKorean": false,
         "sameAsEnglish": false
-      }
+      },
+      "notes": "EnchantmentHelperMixin adds IUndeadBonus.getUndeadBonus plus Fire Aspect enchantment level to damage against undead when isRighteous is true. SHA256 fcf388653dd38359916789dba83bc2e39af3ed005bf9701553a1fa7f771b69d1"
     },
     {
       "mod": "soulsweapons",
@@ -105254,5 +105387,13 @@
       "nativeTooltipClasses": [],
       "status": "pending"
     }
-  ]
+  ],
+  "inventoryFilenameCheck": {
+    "checkedLocalDate": "2026-11-03",
+    "installedJarFilenamesNotInModList": [
+      "prominence-korean-compat-1.0.0.jar"
+    ],
+    "listedFilenamesMissingFromMods": [],
+    "limitation": "Filename comparison only; does not verify versions, contents, dynamic tooltips or nested JAR coverage. Compatibility JAR is intentionally excluded from mod list and must be reviewed separately."
+  }
 }

@@ -31,7 +31,7 @@ def main():
  meta=json.loads(old['fabric.mod.json']);assert meta['id']=='prominence_korean_compat' and meta['version']=='1.0.0'
  new=dict(old)
  # These explicitly owned modules may be rebuilt; all other compatibility classes stay exact.
- managed_prefixes=('local/prominence/arrival/','local/prominence/autoupdate/','local/prominence/memory/','local/prominence/backpackinline/','local/prominence/weaponhud/','local/prominence/swingscope/','local/prominence/localization/','local/prominence/ftbime/','local/prominence/join/','local/prominence/work/','local/prominence/lootcredit/','local/prominence/rewards/',
+ managed_prefixes=('local/prominence/cinder/','local/prominence/arrival/','local/prominence/autoupdate/','local/prominence/memory/','local/prominence/backpackinline/','local/prominence/weaponhud/','local/prominence/swingscope/','local/prominence/hammereffect/','local/prominence/localization/','local/prominence/ftbime/','local/prominence/join/','local/prominence/work/','local/prominence/lootcredit/','local/prominence/rewards/',
   'local/prominence/backpackcompat/client/PortableReforgeButton.class')
  for n in list(new):
   if n.startswith((*managed_prefixes,'META-INF/prominence-korean-compat-source/auto-update/')):del new[n]
@@ -95,6 +95,10 @@ def main():
  if 'local.prominence.rewards.RewardCommonInit' not in common:common.append('local.prominence.rewards.RewardCommonInit')
  if 'local.prominence.arrival.ArrivalServer' not in common:common.append('local.prominence.arrival.ArrivalServer')
  if 'local.prominence.arrival.client.ArrivalClient' not in entry:entry.append('local.prominence.arrival.client.ArrivalClient')
+ for entry in ['local.prominence.cinder.CinderRewards']:
+  if entry not in meta.setdefault('entrypoints',{}).setdefault('main',[]):meta['entrypoints']['main'].append(entry)
+ for entry in ['local.prominence.cinder.client.CinderClient']:
+  if entry not in meta.setdefault('entrypoints',{}).setdefault('client',[]):meta['entrypoints']['client'].append(entry)
  meta.setdefault('custom',{})['prominenceAutoUpdate']={'build':args.build,'channel':'client','pack':'4.1.3'}
  for p in sorted((ROOT/'src/main/resources').rglob('*')):
   if p.is_file():
