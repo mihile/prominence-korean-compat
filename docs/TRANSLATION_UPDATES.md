@@ -15,3 +15,7 @@ Reviewed20 enchantment descriptions now distinguish maximum equipped level, summ
 ## Armor coverage expansion — nightly-20261104.5
 
 Extended20 reviewed descriptions to74 armor/worn-equipment descriptions after inventorying29 mod archives. Acrobat now explicitly states maximum-level behavior. Per-piece triggers, item-local effects, protection totals and slot-limited effects are distinguished; current configurable Spell Power stacking is documented. See [coverage and evidence](ENCHANTMENT_STACKING_HINTS.md).
+
+## Mixed protection effects — nightly-20261104.6
+
+Fire/Blast Protection now distinguish summed damage protection from maximum-level burn-time/knockback reductions. This completes the74-entry worn-equipment wording expansion without changing gameplay.

@@ -446,8 +446,8 @@
     },
     {
       "key": "enchantment.minecraft.fire_protection.desc",
-      "mode": "armor_protection_sum",
-      "hint": "방어구별 효과 합산"
+      "mode": "protection_sum_secondary_maximum",
+      "hint": "피해 감소는 합산, 연소 시간은 최고 레벨만 적용"
     },
     {
       "key": "enchantment.minecraft.feather_falling.desc",
@@ -456,8 +456,8 @@
     },
     {
       "key": "enchantment.minecraft.blast_protection.desc",
-      "mode": "armor_protection_sum",
-      "hint": "방어구별 효과 합산"
+      "mode": "protection_sum_secondary_maximum",
+      "hint": "피해 감소는 합산, 밀려남은 최고 레벨만 적용"
     },
     {
       "key": "enchantment.minecraft.projectile_protection.desc",
