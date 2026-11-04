@@ -11,3 +11,7 @@ Validation: source-pack 10,999 files byte-compared with the JAR; earlier cumulat
 ## Enchantment stacking hints — nightly-20261104.4
 
 Reviewed20 enchantment descriptions now distinguish maximum equipped level, summed levels, boots-only and main-hand-only activation. Existing effects are unchanged. [Scope and native-code evidence](ENCHANTMENT_STACKING_HINTS.md).
+
+## Armor coverage expansion — nightly-20261104.5
+
+Extended20 reviewed descriptions to74 armor/worn-equipment descriptions after inventorying29 mod archives. Acrobat now explicitly states maximum-level behavior. Per-piece triggers, item-local effects, protection totals and slot-limited effects are distinguished; current configurable Spell Power stacking is documented. See [coverage and evidence](ENCHANTMENT_STACKING_HINTS.md).

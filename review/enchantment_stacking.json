@@ -1,16 +1,141 @@
 {
   "minecraft": "1.20.1",
-  "reviewedAgainst": "installed Fabric bytecode, client/server JAR hashes matched",
-  "scope": "20 description keys; language only; no gameplay changes",
+  "reviewedAgainst": "installed Fabric bytecode, registered activation slots, callback paths and current server configuration",
+  "scope": "74 armor/worn-equipment description keys; includes prior 20; language only",
+  "previousReleaseCoverage": 20,
+  "newDescriptions": 54,
+  "languageBearingModArchivesInventoried": 29,
+  "coverageByNamespace": {
+    "mcda": 19,
+    "extraspellattributes": 6,
+    "mcdw": 1,
+    "combatroll": 3,
+    "spell_power": 8,
+    "more_rpg_classes": 1,
+    "death_knights": 1,
+    "ad_astra_giselle_addon": 4,
+    "betterend": 1,
+    "betterarcheology": 1,
+    "estrogen": 1,
+    "zenith": 5,
+    "sortilege": 3,
+    "the_bumblezone": 1,
+    "yigd": 2,
+    "create": 1,
+    "minecraft": 16
+  },
   "mods": {
-    "mcda-5.0.2.jar": {
-      "sha256": "cf3e3a0ed472b6e9af30708286b7232ceeab8cf5d755c5e91cd446cda0b8a359"
+    "Ad-Astra-Giselle-Addon-fabric-1.20.1-6.19.jar": {
+      "id": "ad_astra_giselle_addon",
+      "version": "6.19",
+      "sha256": "836d14396366fb370f432683aaecb85aa124bf3cff761e3fc224ecbce46a7aec",
+      "clientServerEqual": true
     },
-    "mcdw-9.0.4.jar": {
-      "sha256": "831cef36d489191bde9037a1a677fc3fcd2ad3e22101fffd0445ecd424b48856"
+    "better-end-4.0.11.jar": {
+      "id": "betterend",
+      "version": "4.0.11",
+      "sha256": "285feee4a2602ac66f7b4d92f0d972ac872aec513c2b61a8f6f447ca3dc08420",
+      "clientServerEqual": true
+    },
+    "betterarcheology-1.2.1-1.20.1.jar": {
+      "id": "betterarcheology",
+      "version": "1.2.1-1.20.1",
+      "sha256": "5bb95c809c158cbe4f765593ef0490166dd4e4923993fc31959a95f7368b7877",
+      "clientServerEqual": true
+    },
+    "combatroll-fabric-1.3.3+1.20.1.jar": {
+      "id": "combatroll",
+      "version": "1.3.3+1.20.1",
+      "sha256": "660026ba5bffd797a051fb8fe762ad6579feebf25f23c51d415ea251bdf75260",
+      "clientServerEqual": true
+    },
+    "create-fabric-6.0.8.1+build.1744-mc1.20.1.jar": {
+      "id": "create",
+      "version": "6.0.8.1+build.1744-mc1.20.1",
+      "sha256": "a613603fb08d967c5a4138d1adb7374c4a347b91e489fe21579a4cff4f40105a",
+      "clientServerEqual": true
+    },
+    "death_knights-fabric-1.0.0-1.20.1.jar": {
+      "id": "death_knights",
+      "version": "1.0.0",
+      "sha256": "6e1911b9872a4d9079db9a786fa8117d0ec9ab852094efc513c78cb79afaa4d7",
+      "clientServerEqual": true
+    },
+    "estrogen-5.0.8+1.20.1-fabric.jar": {
+      "id": "estrogen",
+      "version": "5.0.8+1.20.1",
+      "sha256": "c8c98b9a9b1c38f21aa9ca853966287ea4326d425595c39c828b3b608e400aa8",
+      "clientServerEqual": true
     },
     "extraspellattributes-1.3.2.jar": {
-      "sha256": "c964bf77681c6db37334f8a660d999370ae5d3af5c8096a5dd6870982cf741c3"
+      "id": "extraspellattributes",
+      "version": "1.3.2",
+      "sha256": "c964bf77681c6db37334f8a660d999370ae5d3af5c8096a5dd6870982cf741c3",
+      "clientServerEqual": true
+    },
+    "mcda-5.0.2.jar": {
+      "id": "mcda",
+      "version": "5.0.2",
+      "sha256": "cf3e3a0ed472b6e9af30708286b7232ceeab8cf5d755c5e91cd446cda0b8a359",
+      "clientServerEqual": true
+    },
+    "mcdw-9.0.4.jar": {
+      "id": "mcdw",
+      "version": "9.0.4",
+      "sha256": "831cef36d489191bde9037a1a677fc3fcd2ad3e22101fffd0445ecd424b48856",
+      "clientServerEqual": true
+    },
+    "more_rpg_classes-1.2.22-1.20.1.jar": {
+      "id": "more_rpg_classes",
+      "version": "1.2.22-1.20.1",
+      "sha256": "5f06147c615df9f690b0815ed7c6da321021866e17d1d6eac9bb25d6749c4c43",
+      "clientServerEqual": true
+    },
+    "Sortilege-1.20.1-9.0.jar": {
+      "id": "sortilege",
+      "version": "9.0",
+      "sha256": "846f63f1ffec981d4916c5f3f104ad2e177da7b9a22bee30b25bdafd2b966d10",
+      "clientServerEqual": true
+    },
+    "spell_power-0.12.0+1.20.1.jar": {
+      "id": "spell_power",
+      "version": "0.12.0+1.20.1",
+      "sha256": "896008ae5bf2869074f7b0a64a18bf12ea258b24da2ffb1ad9a87426db8b8662",
+      "clientServerEqual": true
+    },
+    "the_bumblezone-7.9.10+1.20.1-fabric.jar": {
+      "id": "the_bumblezone",
+      "version": "7.9.10+1.20.1-fabric",
+      "sha256": "a7239e3a574ac46b9a2576130dee3e06475cfbc6d42644663f5053833d7ddbf2",
+      "clientServerEqual": true
+    },
+    "youre-in-grave-danger-fabric-2.0.16.jar": {
+      "id": "yigd",
+      "version": "2.0.16",
+      "sha256": "f86c5d1d8766a384be61ac7f456edb654b91cb9b73b6b1b327db26a47dc0a829",
+      "clientServerEqual": true
+    },
+    "zenith_renewed-2.0.2.jar": {
+      "id": "zenith",
+      "version": "2.0.2",
+      "sha256": "e3a589ebc4ca43b4f02a8a18259e8b5fd1e796fbb0557d28edf0461bef11777c",
+      "clientServerEqual": true
+    }
+  },
+  "configuration": {
+    "spell_power/enchantments.json": {
+      "allow_stacking": true,
+      "sha256": "7216ccc4341f5ed81618e1de4fbcbdf571bc8d3ab82771fef0731f248c00ca31"
+    },
+    "more_rpg_classes/enchantments.json": {
+      "registeredSchoolEnchantments": [
+        "elemental"
+      ],
+      "legacyUnregisteredLanguageKeys": [
+        "air_mastery",
+        "earth_mastery",
+        "water_mastery"
+      ]
     }
   },
   "entries": [
@@ -114,6 +239,285 @@
       "mode": "main_hand_only",
       "hint": "주손 무기의 레벨만 적용",
       "statusEffectStacksRemain": true
+    },
+    {
+      "key": "enchantment.mcda.deflect.desc",
+      "mode": "maximum_equipped_level",
+      "hint": "중복 착용 시 최고 레벨만 적용"
+    },
+    {
+      "key": "enchantment.mcda.heal_allies.desc",
+      "mode": "maximum_equipped_level",
+      "hint": "중복 착용 시 최고 레벨만 적용"
+    },
+    {
+      "key": "enchantment.mcda.bag_of_souls.desc",
+      "mode": "sum_equipped_levels",
+      "hint": "장비별 레벨 합산"
+    },
+    {
+      "key": "enchantment.mcda.burning.desc",
+      "mode": "per_piece_trigger",
+      "hint": "장비마다 개별 발동 판정"
+    },
+    {
+      "key": "enchantment.mcda.recycler.desc",
+      "mode": "per_piece_trigger",
+      "hint": "장비마다 개별 발동 판정"
+    },
+    {
+      "key": "enchantment.mcda.snowball.desc",
+      "mode": "per_piece_trigger",
+      "hint": "장비마다 개별 발동 판정"
+    },
+    {
+      "key": "enchantment.combatroll.acrobat.desc",
+      "mode": "maximum_equipped_level",
+      "hint": "중복 착용 시 최고 레벨만 적용"
+    },
+    {
+      "key": "enchantment.combatroll.longfooted.desc",
+      "mode": "feet_slot_only",
+      "hint": "착용한 신발에만 적용"
+    },
+    {
+      "key": "enchantment.combatroll.multi_roll.desc",
+      "mode": "head_slot_only",
+      "hint": "착용한 투구에만 적용"
+    },
+    {
+      "key": "enchantment.spell_power.spell_power.desc",
+      "mode": "configured_equipment_sum",
+      "hint": "장비별 레벨 합산",
+      "condition": "spell_power/enchantments.json allow_stacking=true (current server setting)"
+    },
+    {
+      "key": "enchantment.spell_power.soulfrost.desc",
+      "mode": "configured_equipment_sum",
+      "hint": "장비별 레벨 합산",
+      "condition": "spell_power/enchantments.json allow_stacking=true (current server setting)"
+    },
+    {
+      "key": "enchantment.spell_power.sunfire.desc",
+      "mode": "configured_equipment_sum",
+      "hint": "장비별 레벨 합산",
+      "condition": "spell_power/enchantments.json allow_stacking=true (current server setting)"
+    },
+    {
+      "key": "enchantment.spell_power.energize.desc",
+      "mode": "configured_equipment_sum",
+      "hint": "장비별 레벨 합산",
+      "condition": "spell_power/enchantments.json allow_stacking=true (current server setting)"
+    },
+    {
+      "key": "enchantment.spell_power.critical_chance.desc",
+      "mode": "configured_equipment_sum",
+      "hint": "장비별 레벨 합산",
+      "condition": "spell_power/enchantments.json allow_stacking=true (current server setting)"
+    },
+    {
+      "key": "enchantment.spell_power.critical_damage.desc",
+      "mode": "configured_equipment_sum",
+      "hint": "장비별 레벨 합산",
+      "condition": "spell_power/enchantments.json allow_stacking=true (current server setting)"
+    },
+    {
+      "key": "enchantment.spell_power.haste.desc",
+      "mode": "configured_equipment_sum",
+      "hint": "장비별 레벨 합산",
+      "condition": "spell_power/enchantments.json allow_stacking=true (current server setting)"
+    },
+    {
+      "key": "enchantment.spell_power.magic_protection.desc",
+      "mode": "armor_protection_sum",
+      "hint": "방어구별 효과 합산"
+    },
+    {
+      "key": "enchantment.more_rpg_classes.elemental.desc",
+      "mode": "configured_equipment_sum",
+      "hint": "장비별 레벨 합산",
+      "condition": "spell_power/enchantments.json allow_stacking=true (current server setting)"
+    },
+    {
+      "key": "enchantment.death_knights.decaying.desc",
+      "mode": "configured_equipment_sum",
+      "hint": "장비별 레벨 합산",
+      "condition": "spell_power/enchantments.json allow_stacking=true (current server setting)"
+    },
+    {
+      "key": "enchantment.ad_astra_giselle_addon.space_breathing.desc",
+      "mode": "head_slot_only",
+      "hint": "착용한 투구에만 적용"
+    },
+    {
+      "key": "enchantment.ad_astra_giselle_addon.space_fire_proof.desc",
+      "mode": "chest_slot_only",
+      "hint": "착용한 흉갑에만 적용"
+    },
+    {
+      "key": "enchantment.ad_astra_giselle_addon.acid_rain_proof.desc",
+      "mode": "chest_slot_only",
+      "hint": "착용한 흉갑에만 적용"
+    },
+    {
+      "key": "enchantment.ad_astra_giselle_addon.gravity_normalizing.desc",
+      "mode": "feet_slot_only",
+      "hint": "착용한 신발에만 적용"
+    },
+    {
+      "key": "enchantment.betterend.end_veil.desc",
+      "mode": "head_slot_only",
+      "hint": "착용한 투구에만 적용"
+    },
+    {
+      "key": "enchantment.betterarcheology.soaring_winds.desc",
+      "mode": "elytra_only",
+      "hint": "착용한 겉날개에만 적용"
+    },
+    {
+      "key": "enchantment.estrogen.uwufy_curse.desc",
+      "mode": "head_slot_only",
+      "hint": "착용한 투구에만 적용"
+    },
+    {
+      "key": "enchantment.zenith.berserkers_fury.desc",
+      "mode": "chest_slot_only",
+      "hint": "착용한 흉갑에만 적용"
+    },
+    {
+      "key": "enchantment.zenith.stable_footing.desc",
+      "mode": "feet_slot_only",
+      "hint": "착용한 신발에만 적용"
+    },
+    {
+      "key": "enchantment.zenith.icy_thorns.desc",
+      "mode": "per_piece_trigger",
+      "hint": "장비마다 개별 발동 판정"
+    },
+    {
+      "key": "enchantment.zenith.rebounding.desc",
+      "mode": "per_piece_max_strength",
+      "hint": "부위별 발동, 최고 레벨 기준"
+    },
+    {
+      "key": "enchantment.zenith.life_mending.desc",
+      "mode": "per_item_repair",
+      "hint": "장비마다 개별 수리"
+    },
+    {
+      "key": "enchantment.sortilege.magic_protection.desc",
+      "mode": "armor_protection_sum",
+      "hint": "방어구별 효과 합산"
+    },
+    {
+      "key": "enchantment.sortilege.soulbound.desc",
+      "mode": "per_item_rule",
+      "hint": "해당 장비에만 적용"
+    },
+    {
+      "key": "enchantment.sortilege.storytelling_curse.desc",
+      "mode": "per_item_rule",
+      "hint": "해당 장비에만 적용"
+    },
+    {
+      "key": "enchantment.the_bumblezone.hive_lifeline.desc",
+      "mode": "per_item_cooldown",
+      "hint": "방어구별 재사용 대기시간 적용"
+    },
+    {
+      "key": "enchantment.yigd.soulbound.desc",
+      "mode": "per_item_rule",
+      "hint": "해당 장비에만 적용"
+    },
+    {
+      "key": "enchantment.yigd.death_sight.desc",
+      "mode": "head_slot_only",
+      "hint": "착용한 투구에만 적용"
+    },
+    {
+      "key": "enchantment.create.capacity.desc",
+      "mode": "per_item_capacity",
+      "hint": "해당 장비의 용량에만 적용"
+    },
+    {
+      "key": "enchantment.minecraft.protection.desc",
+      "mode": "armor_protection_sum",
+      "hint": "방어구별 효과 합산"
+    },
+    {
+      "key": "enchantment.minecraft.fire_protection.desc",
+      "mode": "armor_protection_sum",
+      "hint": "방어구별 효과 합산"
+    },
+    {
+      "key": "enchantment.minecraft.feather_falling.desc",
+      "mode": "armor_protection_sum",
+      "hint": "방어구별 효과 합산"
+    },
+    {
+      "key": "enchantment.minecraft.blast_protection.desc",
+      "mode": "armor_protection_sum",
+      "hint": "방어구별 효과 합산"
+    },
+    {
+      "key": "enchantment.minecraft.projectile_protection.desc",
+      "mode": "armor_protection_sum",
+      "hint": "방어구별 효과 합산"
+    },
+    {
+      "key": "enchantment.minecraft.respiration.desc",
+      "mode": "maximum_equipped_level",
+      "hint": "중복 착용 시 최고 레벨만 적용"
+    },
+    {
+      "key": "enchantment.minecraft.depth_strider.desc",
+      "mode": "maximum_equipped_level",
+      "hint": "중복 착용 시 최고 레벨만 적용"
+    },
+    {
+      "key": "enchantment.minecraft.aqua_affinity.desc",
+      "mode": "presence_only",
+      "hint": "하나만 착용해도 적용"
+    },
+    {
+      "key": "enchantment.minecraft.thorns.desc",
+      "mode": "per_piece_trigger",
+      "hint": "장비마다 개별 발동 판정"
+    },
+    {
+      "key": "enchantment.minecraft.frost_walker.desc",
+      "mode": "feet_slot_only",
+      "hint": "착용한 신발에만 적용"
+    },
+    {
+      "key": "enchantment.minecraft.soul_speed.desc",
+      "mode": "feet_slot_only",
+      "hint": "착용한 신발에만 적용"
+    },
+    {
+      "key": "enchantment.minecraft.swift_sneak.desc",
+      "mode": "legs_slot_only",
+      "hint": "착용한 각반에만 적용"
+    },
+    {
+      "key": "enchantment.minecraft.unbreaking.desc",
+      "mode": "per_item_rule",
+      "hint": "장비마다 개별 적용"
+    },
+    {
+      "key": "enchantment.minecraft.mending.desc",
+      "mode": "shared_xp_repair",
+      "hint": "경험치를 여러 장비가 나눠 사용"
+    },
+    {
+      "key": "enchantment.minecraft.binding_curse.desc",
+      "mode": "per_item_rule",
+      "hint": "해당 장비에만 적용"
+    },
+    {
+      "key": "enchantment.minecraft.vanishing_curse.desc",
+      "mode": "per_item_rule",
+      "hint": "해당 장비에만 적용"
     }
   ]
 }
