@@ -1,0 +1,1 @@
+package net.minecraft;public class class_2588 {String key;public class_2588(String k){key=k;}public String method_11022(){return key;}}

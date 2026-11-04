@@ -348,5 +348,25 @@
         "data/botania/loot_tables/elementium_axe_beheading.json": "35b8a075ee230ea769dde4818a34232d7458a45a4c6856d3ec2feb2ca91e448f"
       }
     }
+  },
+  "lootDirect": {
+    "emi_loot": {
+      "version": "0.7.9+1.20.1+fabric",
+      "classes": {
+        "fzzyhmstrs/emi_loot/emi/MobLootRecipe.class": "15c5df5096107c9c298286f66603c9a9d56db3d005feec554837acc9f052dcf7",
+        "fzzyhmstrs/emi_loot/emi/EmiClientPlugin.class": "e3eafc1cbc79131cf2381775910fb025adc3d934486267f0d6e12718b5aa459c",
+        "fzzyhmstrs/emi_loot/emi/MobLootRecipe$MobLootRecipeData.class": "df308c38f6545fe1720380c374540657138657a62ae53a2d42dccb9f8d2b2921",
+        "fzzyhmstrs/emi_loot/util/stack/EntityEmiStack.class": "592a845ade14b0ec876fe235314efa40a351a87723b81ddc565ea184991230ed"
+      }
+    }
+  },
+  "effekGc": {
+    "aaa_particles": {
+      "version": "2.2.3",
+      "classes": {
+        "mod/chloeprime/aaaparticles/api/client/EffectRegistry.class": "4eddcf227906768b2db5c88e78b998b6dc58c952138486b958a905f7011158c7",
+        "mod/chloeprime/aaaparticles/api/client/EffectHolder.class": "fdf35d120bc37fe757caf2230aab9244fd7ac82149612df69c5cad85228b9ff8"
+      }
+    }
   }
 }

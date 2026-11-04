@@ -1,0 +1,12 @@
+{
+  "prominence_korean_compat.direct_loot.wither": "Dropped by the Wither",
+  "prominence_korean_compat.direct_loot.faceless": "Granted directly to eligible nearby players",
+  "prominence_korean_compat.plain_boss.wither": "Wither",
+  "prominence_korean_compat.plain_boss.ender_dragon": "Ender Dragon",
+  "prominence_korean_compat.direct_loot.dragon": "Dropped by the Ender Dragon",
+  "prominence_korean_compat.direct_loot.eye": "1% when The Eye dies",
+  "prominence_korean_compat.direct_loot.charged": "Killed by a charged Creeper explosion",
+  "prominence_korean_compat.direct_loot.charged_config": "Charged Creeper kill; server setting required",
+  "prominence_korean_compat.direct_loot.cornelia_normal": "20% outside the winter event",
+  "prominence_korean_compat.direct_loot.cornelia_winter": "20% during the winter event"
+}

@@ -22,6 +22,71 @@ def distribution(value):
             return [(k,1/(hi-lo+1)) for k in range(lo,hi+1)]
     return None
 
+def kind(value):
+    return value.removeprefix('minecraft:')
+
+def positive_count(functions):
+    """Probability of a nonempty stack; unknown context-dependent functions stay symbolic."""
+    zero=0.
+    safe={'set_damage','set_nbt','set_name','set_lore','set_enchantments','enchant_randomly','enchant_with_levels','set_potion','copy_nbt','copy_name','set_attributes','set_stew_effect','set_instrument','fill_player_head','exploration_map'}
+    for f in functions:
+        name=kind(f.get('function',''))
+        if f.get('conditions'):return None
+        if name=='set_count':
+            d=distribution(f.get('count'))
+            if d is None:return None
+            z=sum(p for n,p in d if n==0)
+            zero=zero*z if f.get('add',False) else z
+        elif name=='looting_enchant':
+            # A positive base count stays positive with a nonnegative bonus.
+            # Zero base counts need the current Looting/float provider/rounding context.
+            count=f.get('count');d=distribution(count)
+            if zero or d is None or f.get('limit',0)<0:return None
+        elif name not in safe:return None
+    return 1-zero
+
+def catalog(tables):
+    out={};details={}
+    for table,data in tables.items():
+        rows={};bad=set();sources={}
+        for pool in data.get('pools',[]):
+            entries=pool.get('entries',[])
+            def record(e):
+                if kind(e.get('type',''))=='item' and isinstance(e.get('name'),str):
+                    sources.setdefault(e['name'],[]).append({'rolls':pool.get('rolls',1),'bonus':pool.get('bonus_rolls',0),
+                        'weight':e.get('weight',1),'total':sum(x.get('weight',1) for x in entries),'quality':e.get('quality',0),
+                        'simple':all(kind(x.get('type','')) in ('item','empty') and not x.get('conditions') and not x.get('quality',0) for x in entries),
+                        'conditions':pool.get('conditions',[]),'entryConditions':e.get('conditions',[]),
+                        'functions':e.get('functions',[])+pool.get('functions',[])+data.get('functions',[])})
+                for child in e.get('children',[]):record(child)
+            for e in entries:record(e)
+            dist=distribution(pool.get('rolls',1))
+            if not dist or not entries or pool.get('bonus_rolls',0)!=0:continue
+            if any(kind(e.get('type','')) not in ('item','empty') or e.get('quality',0)!=0 for e in entries):continue
+            # Entry predicates affect selection normalization. A sole entry with one
+            # draw is safe: EMI's live predicates are applied once by the tooltip.
+            if any(e.get('conditions') for e in entries) and (len(entries)!=1 or dist!=[(1,1.)]):continue
+            total=sum(e.get('weight',1) for e in entries)
+            if total<=0:continue
+            for e in entries:
+                if kind(e['type'])!='item':continue
+                item=e['name'];positive=positive_count(e.get('functions',[])+pool.get('functions',[])+data.get('functions',[]))
+                if positive is None:
+                    bad.add(item);continue
+                q=e.get('weight',1)/total;mean=sum(n*w for n,w in dist)*q*100
+                hit=sum((1-(1-q*positive)**n)*w for n,w in dist)*100
+                gate=1.
+                for condition in pool.get('conditions',[])+e.get('conditions',[]):
+                    if kind(condition.get('condition',''))=='random_chance':gate*=condition.get('chance',0)
+                    else:gate=None;break
+                row=[mean,hit,gate]
+                if item in rows:bad.add(item)
+                rows[item]=row
+        rows={k:v for k,v in rows.items() if k not in bad and len(sources.get(k,[]))==1}
+        if rows:out[table]=rows
+        if sources:details[table]=sources
+    return out,details
+
 def main():
     p=argparse.ArgumentParser();p.add_argument('--classpath',type=Path,required=True);p.add_argument('--output',type=Path,required=True);a=p.parse_args()
     tables={};adventure=None
@@ -35,38 +100,7 @@ def main():
                     ns,tail=name[5:].split('/loot_tables/',1)
                     try:tables[ns+':'+tail[:-5]]=json.loads(z.read(name))
                     except (ValueError,UnicodeError):pass
-    out={}
-    for table,data in tables.items():
-        rows={};bad=set()
-        for pool in data.get('pools',[]):
-            dist=distribution(pool.get('rolls',1));entries=pool.get('entries',[])
-            if not dist or not entries or pool.get('bonus_rolls',0)!=0:continue
-            if any(e.get('type') not in ('minecraft:item','minecraft:empty') or e.get('conditions') or e.get('quality',0)!=0 for e in entries):continue
-            total=sum(e.get('weight',1) for e in entries)
-            if total<=0:continue
-            for e in entries:
-                if e['type']!='minecraft:item':continue
-                item=e['name']
-                # Zero-producing and conditional item functions need the full server context.
-                invalid=False
-                for f in pool.get('functions',[])+e.get('functions',[]):
-                    if f.get('conditions'):invalid=True
-                    if f.get('function')=='minecraft:set_count':
-                        count=f.get('count');minimum=count.get('min',count.get('value',0)) if isinstance(count,dict) else count
-                        if not isinstance(minimum,(int,float)) or minimum<1:invalid=True
-                if invalid:continue
-                q=e.get('weight',1)/total;mean=sum(n*w for n,w in dist)*q*100
-                hit=sum((1-(1-q)**n)*w for n,w in dist)*100
-                gate=1.
-                for condition in pool.get('conditions',[]):
-                    if condition.get('condition','').split(':')[-1]=='random_chance':gate*=condition.get('chance',0)
-                    else:gate=None;break
-                row=[mean,hit,gate]
-                # Do not collapse repeated independent pools into an invented single chance.
-                if item in rows:bad.add(item)
-                rows[item]=row
-        rows={k:v for k,v in rows.items() if k not in bad}
-        if rows:out[table]=rows
+    out,details=catalog(tables)
     # AdventureZ's MODIFY callback injects a single Binomial draw, not a chance condition.
     # Reviewed against the installed class; reject upgrades until its callback is audited.
     if adventure:
@@ -76,6 +110,10 @@ def main():
             assert b'GILDED_BLACKSTONE_SHARD' in raw
         for table,chance in [('minecraft:entities/piglin_brute',10),('minecraft:gameplay/piglin_bartering',1),*[(f'minecraft:chests/bastion_{s}',1) for s in ('bridge','hoglin_stable','other','treasure')]]:
             out.setdefault(table,{})['adventurez:gilded_blackstone_shard']=[chance,chance,1.]
-    a.output.write_text(json.dumps({'tables':out,'adventureZLootInitSha256':adventure},ensure_ascii=False,separators=(',',':'))+'\n','utf8')
+    # Detailed models are only needed where exact rows are unavailable; avoid loading
+    # thousands of redundant JSON objects into the client's retained display cache.
+    details={t:{i:v for i,v in rows.items() if i not in out.get(t,{})} for t,rows in details.items()}
+    details={t:r for t,r in details.items() if r}
+    a.output.write_text(json.dumps({'tables':out,'details':details,'adventureZLootInitSha256':adventure},ensure_ascii=False,separators=(',',':'))+'\n','utf8')
     print('Conditional probability catalog:',len(out),'tables,',sum(map(len,out.values())),'items; AdventureZ callback',adventure)
 if __name__=='__main__':main()

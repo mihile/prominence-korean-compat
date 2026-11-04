@@ -35,6 +35,7 @@ public final class VerifyTranslationTransforms {
         var factory=after.methods.stream().filter(m->m.name.equals("method_4675")).findFirst().orElseThrow();
         if(calls(factory).stream().filter(c->c.contains("reviewedLanguage")).count()!=1)throw new AssertionError("Exactly one final map overlay expected");
         Path fixture=work.resolve("classes/net/minecraft/class_1078.class");Files.createDirectories(fixture.getParent());Files.write(fixture,fixed);
+        int descriptionChecks=0;
         try(var loader=new URLClassLoader(new URL[]{work.resolve("classes").toUri().toURL()},VerifyTranslationTransforms.class.getClassLoader()){
             protected Class<?> loadClass(String name,boolean resolve)throws ClassNotFoundException{
                 if(name.equals("net.minecraft.class_1078")){synchronized(getClassLoadingLock(name)){var c=findLoadedClass(name);if(c==null)c=findClass(name);if(resolve)resolveClass(c);return c;}}
@@ -48,7 +49,11 @@ public final class VerifyTranslationTransforms {
                 throw new AssertionError("Unexpected pack call "+method);
             });
             var stream=java.lang.reflect.Proxy.newProxyInstance(loader,new Class<?>[]{supplierType},(proxy,method,values)->{
-                if(method.getName().equals("get"))return new java.io.ByteArrayInputStream("{\"item.croptopia.calamari\":\"오징어\",\"unrelated.key\":\"팩의 기존 문구\"}".getBytes(java.nio.charset.StandardCharsets.UTF_8));
+                if(method.getName().equals("get"))return new java.io.ByteArrayInputStream(new com.google.gson.Gson().toJson(Map.of(
+                    "item.croptopia.calamari","오징어","unrelated.key","팩의 기존 문구",
+                    "enchantment.mcda.frenzied.desc","기존 팩의 광분 설명",
+                    "enchantment.extraspellattributes.battlerouse.desc","기존 팩의 전투 자극 설명",
+                    "enchantment.mcdw.rampaging.desc","기존 팩의 광란 설명")).getBytes(java.nio.charset.StandardCharsets.UTF_8));
                 throw new AssertionError("Unexpected supplier call "+method);
             });
             var resource=Class.forName("net.minecraft.class_3298",false,loader).getConstructor(packType,supplierType).newInstance(oldPack,stream);
@@ -70,11 +75,19 @@ public final class VerifyTranslationTransforms {
             var en=load.invoke(null,empty,List.of("en_us"),true);
             if(!get.invoke(en,"item.croptopia.calamari","English fallback").equals("English fallback"))throw new AssertionError("Korean leaked into English");
             if(!nativeLanguage.getMethod("method_29428").invoke(en).equals(true))throw new AssertionError("Native RTL flag changed");
+
+            var reviewed=com.google.gson.JsonParser.parseString(Files.readString(root.resolve("assets/prominence_korean_compat/translation_overrides/ko_kr.json"))).getAsJsonObject();
+            for(var entry:reviewed.entrySet())if(entry.getKey().startsWith("enchantment.")&&entry.getKey().endsWith(".desc")){
+                if(!get.invoke(ko,entry.getKey(),"missing description").equals(entry.getValue().getAsString()))throw new AssertionError("Reviewed description missing or shadowed: "+entry.getKey());
+                if(!get.invoke(en,entry.getKey(),"English description").equals("English description"))throw new AssertionError("Korean description leaked into English: "+entry.getKey());
+                descriptionChecks+=2;
+            }
+
             var koAgain=load.invoke(null,empty,List.of("en_us","ko_kr"),false);
             if(!get.invoke(koAgain,"item.croptopia.calamari","fallback").equals("오징어 다리"))throw new AssertionError("Resource reload failed");
         }
-        Files.writeString(work.resolve("report.json"),"{\"status\":\"passed\",\"nativeTargets\":1,\"nativeMethodsVerified\":"+after.methods.size()+",\"nativeLanguageRuntimeChecks\":10,\"oldPaxiLikeResourceLoaded\":true,\"gameStarted\":false}");
-        System.out.println("PASS native language mixin, "+after.methods.size()+" bytecode methods and 10 actual language factory/old pack priority/lookup/reload checks; no Minecraft client, world or graphics launched");
+        Files.writeString(work.resolve("report.json"),"{\"status\":\"passed\",\"nativeTargets\":1,\"nativeMethodsVerified\":"+after.methods.size()+",\"nativeLanguageRuntimeChecks\":"+(10+descriptionChecks)+",\"oldPaxiLikeResourceLoaded\":true,\"gameStarted\":false}");
+        System.out.println("PASS native language mixin, "+after.methods.size()+" bytecode methods and "+(10+descriptionChecks)+" actual language factory/old pack priority/lookup/reload checks; no Minecraft client, world or graphics launched");
     }
     private static List<String> calls(MethodNode method){var out=new ArrayList<String>();for(var i:method.instructions)if(i instanceof MethodInsnNode c)out.add(c.owner+"."+c.name+c.desc);return out;}
 }

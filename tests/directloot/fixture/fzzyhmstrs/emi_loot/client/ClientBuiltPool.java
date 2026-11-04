@@ -1,0 +1,1 @@
+package fzzyhmstrs.emi_loot.client;import java.util.*;import net.minecraft.*;import fzzyhmstrs.emi_loot.util.*;public record ClientBuiltPool(List<class_3545<Integer,class_2561>> conditions,List<ConditionalStack> stacks) {}

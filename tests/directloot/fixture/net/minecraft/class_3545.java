@@ -1,0 +1,1 @@
+package net.minecraft;public record class_3545<A,B>(A first,B second) {}

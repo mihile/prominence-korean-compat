@@ -33,6 +33,7 @@ public final class VerifyRewards {
   if(!emptyNode.superName.equals("net/minecraft/class_85")||alternativeNode.superName.equals("net/minecraft/class_85"))throw new AssertionError("native leaf/combined hierarchy mismatch");
   System.out.println("PASS actual EmptyEntry73 and AlternativeEntry65 hierarchy boundary");
   var targets=new ArrayList<>(List.of("net.minecraft.class_73","net.minecraft.class_65","net.minecraft.class_55","net.minecraft.class_85","net.minecraft.class_219","net.minecraft.class_40","net.minecraft.class_85$class_88","net.minecraft.class_77","net.minecraft.class_79","net.minecraft.class_44","net.minecraft.class_5662","net.minecraft.class_141","net.minecraft.class_52","fzzyhmstrs.emi_loot.parser.LootTableParser"));
+  targets.add("net.minecraft.class_125");
   if(!a[1].equals("server"))targets.add("dev.emi.emi.api.widget.SlotWidget");
   int hooks=0;for(String target:targets){byte[] bytes=transformer.transformClassBytes(target,target,read(loader,target));var n=new ClassNode();new ClassReader(bytes).accept(n,0);int local=0;
    var original=new ClassNode();new ClassReader(read(loader,target)).accept(original,0);
@@ -40,6 +41,13 @@ public final class VerifyRewards {
    for(var m:n.methods){new Analyzer<BasicValue>(new BasicVerifier()).analyze(n.name,m);for(var ins:m.instructions)if(ins instanceof MethodInsnNode x&&x.owner.startsWith("local/prominence/rewards/")){local++;hooks++;}}
    if(List.of("net.minecraft.class_55","net.minecraft.class_219","net.minecraft.class_40","net.minecraft.class_85$class_88","fzzyhmstrs.emi_loot.parser.LootTableParser","dev.emi.emi.api.widget.SlotWidget").contains(target)&&local==0)throw new AssertionError("missing reward injection: "+target);
    if(target.equals("net.minecraft.class_85")&&!n.interfaces.contains("local/prominence/rewards/RewardLeaf"))throw new AssertionError("quality accessor missing");
+   if(target.equals("net.minecraft.class_125")){
+    if(!n.interfaces.contains("local/prominence/rewards/RewardQuantity"))throw new AssertionError("quantity inspection interface missing");
+    for(var originalMethod:original.methods)if(originalMethod.name.equals("method_522")){
+     var afterMethod=n.methods.stream().filter(m->m.name.equals(originalMethod.name)&&m.desc.equals(originalMethod.desc)).findFirst().orElseThrow();
+     if(afterMethod.instructions.size()!=originalMethod.instructions.size())throw new AssertionError("native quantity behavior changed");
+    }
+   }
    System.out.println("PASS actual "+a[1]+" transform + ASM verification "+target+" hooks="+local);
   }if(hooks<8)throw new AssertionError("missing hooks");System.out.println("PASS native transforms completed; no game/server/world started");
  }

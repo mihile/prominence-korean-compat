@@ -105,7 +105,10 @@ def main():
  meta.setdefault('custom',{})['prominenceAutoUpdate']={'build':args.build,'channel':'client','pack':'4.1.3'}
  for p in sorted((ROOT/'src/main/resources').rglob('*')):
   if p.is_file():
-   name=p.relative_to(ROOT/'src/main/resources').as_posix();new[name]=p.read_bytes()
+   name=p.relative_to(ROOT/'src/main/resources').as_posix();data=p.read_bytes()
+   if name in ('assets/prominence_korean_compat/lang/ko_kr.json','assets/prominence_korean_compat/lang/en_us.json') and name in old:
+    lang=json.loads(old[name]);lang.update(json.loads(data));data=enc(lang)
+   new[name]=data
    if name.endswith('.mixins.json'):
     entry={'config':name,'environment':'client'} if name.endswith('.client.mixins.json') else name
     if entry not in meta.setdefault('mixins',[]):meta['mixins'].append(entry)

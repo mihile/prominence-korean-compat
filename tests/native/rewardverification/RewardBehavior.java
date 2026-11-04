@@ -20,6 +20,29 @@ public final class RewardBehavior {
   check(RewardPlan.inspect(p,new class_44(1))==null,"native bonus rolls protected");
   ((class_85)p.entries[0]).quality=1;check(plan(p)==null,"native luck quality protected");((class_85)p.entries[0]).quality=0;
   ((class_85)p.entries[0]).functions=new class_117[]{new class_117("minecraft:looting_enchant")};check(plan(p)==null,"native Looting function protected");((class_85)p.entries[0]).functions=new class_117[0];
+  var heart=gate("eldritch_end:aberration_heart",.01f,true);RewardRegistry.required.add("eldritch_end:aberration_heart");heart.rolls=new class_44(1);var heartGate=new class_219(.01f);
+  var heartEntry=(class_85)heart.entries[0];heartEntry.conditions=new class_5341[]{heartGate};var quantity=new class_125(new class_5662(new class_44(0),new class_44(1)),0);
+  heartEntry.functions=new class_117[]{new class_141(new class_5662(new class_44(1),new class_44(1)),false),quantity};
+  var heartPlan=plan(heart);check(heartPlan!=null&&heartPlan.eligible()&&heartPlan.gate()==heartGate,"quantity bonus must not suppress occurrence scaling");
+  near(heartPlan.definition().lootingRate(),.4,"heart authoritative metadata bonus");
+  for(int level=0;level<=3;level++){c.actor=new class_1657(level,0);try(var ignored=RewardScope.enter(heartPlan,c)){near(RewardScope.probability(heartGate,c,.01f),.01*(1+.4*level),"heart Looting occurrence level "+level);}}
+  check(heartEntry.functions[1]==quantity,"native quantity function identity preserved");
+  heartEntry.functions=new class_117[]{new class_141(new class_44(0),false),quantity};check(plan(heart)==null,"zero-base quantity must not claim guaranteed output");
+  heartEntry.functions=new class_117[]{new class_125(new class_5662(new class_44(-1),new class_44(1)),0)};check(plan(heart)==null,"negative quantity provider remains unsupported");
+  heartEntry.functions=new class_117[]{new class_125(new class_44(Float.NaN),0)};check(plan(heart)==null,"nonfinite quantity provider remains unsupported");
+  heartEntry.functions=new class_117[]{quantity};heartEntry.conditions=new class_5341[]{new class_5341("minecraft:random_chance_with_looting")};check(plan(heart)==null,"native occurrence bonus never doubled");
+  c.actor=new class_1657(3,10);
+  // Inspect the actual installed Eldritch End tables rather than only synthetic shapes.
+  for(String nativeTable:List.of("aberration","ominous_eye"))try(var in=RewardBehavior.class.getResourceAsStream("/data/eldritch_end/loot_tables/entities/"+nativeTable+".json")){
+   var json=com.google.gson.JsonParser.parseReader(new java.io.InputStreamReader(in,java.nio.charset.StandardCharsets.UTF_8)).getAsJsonObject();int found=0;
+   for(var poolJson:json.getAsJsonArray("pools")){
+    var entry=poolJson.getAsJsonObject().getAsJsonArray("entries").get(0).getAsJsonObject();String id=entry.get("name").getAsString();if(!id.equals("eldritch_end:aberration_heart")&&!id.equals("eldritch_end:ominous_eye"))continue;
+    var chanceJson=entry.getAsJsonArray("conditions").get(0).getAsJsonObject();float base=chanceJson.get("chance").getAsFloat();var nativeGate=new class_219(base);var nativePool=gate(id,base,true);nativePool.rolls=new class_44(1);var nativeEntry=(class_85)nativePool.entries[0];nativeEntry.conditions=new class_5341[]{nativeGate};
+    var fs=new ArrayList<class_117>();for(var fn:entry.getAsJsonArray("functions")){var f=fn.getAsJsonObject();var range=f.getAsJsonObject("count");var provider=new class_5662(new class_44(range.get("min").getAsFloat()),new class_44(range.get("max").getAsFloat()));if(f.get("function").getAsString().equals("minecraft:set_count"))fs.add(new class_141(provider,false));else fs.add(new class_125(provider,0));}nativeEntry.functions=fs.toArray(class_117[]::new);RewardRegistry.required.add(id);
+    var nativePlan=plan(nativePool);check(nativePlan!=null&&nativePlan.eligible(),"installed quantity-only occurrence gap: "+id);
+    c.actor=new class_1657(3,0);try(var ignored=RewardScope.enter(nativePlan,c)){near(RewardScope.probability(nativeGate,c,base),base*2.2,"installed native Looting III: "+id);}found++;
+   }check(found==1,"native table coverage: "+nativeTable);
+  }catch(Exception e){throw new AssertionError(e);}
   p.conditions=new class_5341[]{new class_5341("minecraft:random_chance_with_looting")};check(plan(p)==null,"native Looting condition protected");
   p.conditions=new class_5341[]{new class_5341("foreign:condition")};check(plan(p)==null,"unknown predicate stays native");p.conditions=new class_5341[0];
   p.functions=new class_117[]{new class_141(new class_5662(new class_44(0),new class_44(2)),false)};check(plan(p)==null,"zero-output set_count cannot claim true drop chance");p.functions=new class_117[0];

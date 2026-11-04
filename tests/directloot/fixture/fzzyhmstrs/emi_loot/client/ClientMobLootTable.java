@@ -1,0 +1,1 @@
+package fzzyhmstrs.emi_loot.client;import java.util.*;import net.minecraft.*;public class ClientMobLootTable implements LootReceiver {public final class_2960 id,mobId;public ClientMobLootTable(class_2960 a,class_2960 b,Map<?,?> c){id=a;mobId=b;}}

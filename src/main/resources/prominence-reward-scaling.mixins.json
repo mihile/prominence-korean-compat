@@ -10,7 +10,8 @@
     "RewardChanceMixin",
     "RewardBinomialMixin",
     "RewardParserMixin",
-    "RewardWeightMixin"
+    "RewardWeightMixin",
+    "RewardQuantityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

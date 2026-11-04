@@ -1,0 +1,1 @@
+package net.minecraft;public class class_1792 {public final String id;public class_1792(String id){this.id=id;}}

@@ -1,0 +1,66 @@
+{
+  "souls": {
+    "soulsweapons": {
+      "version": "1.3.1-1.20.1-fabric",
+      "classes": {
+        "net/soulsweaponry/mixin/WitherEntityMixin.class": "50917dd823d6580eb52845ac16edecf5a141f93c52476d829a3b5d3e6e61eb7c",
+        "net/soulsweaponry/mixin/EnderDragonEntityMixin.class": "cfdaefb1c4ffd6aaa17afb4ff17a8cf7aa57248bb57ab4cbe08b9a4ce727f388",
+        "net/soulsweaponry/registry/ItemRegistry.class": "bad701c2288ca99ddeb3214ed7dcfeddd999b04f5d0eea2b398721dd02c56376"
+      }
+    }
+  },
+  "faceless": {
+    "eldritch_end": {
+      "version": "0.3.4",
+      "classes": {
+        "elocindev/eldritch_end/entity/faceless/FacelessEntity.class": "984122dc2c88b3e5a2b85222cf6208eb49705b46fdb27b2c05de0d8ca04f5c24"
+      }
+    }
+  },
+  "eye": {
+    "adventurez": {
+      "version": "1.4.20",
+      "classes": {
+        "net/adventurez/entity/TheEyeEntity.class": "d17b6c7195fa32613b6efeea127fa04ea78ed978d44cde037df4ec7c28356725",
+        "net/adventurez/init/ItemInit.class": "18ea7c94ae98588b87c0f89280ea59461412b17e0755cd1dfb1b1291aff4e770"
+      }
+    }
+  },
+  "shattered": {
+    "deeperdarker": {
+      "version": "1.3.3-plus-b",
+      "classes": {
+        "com/kyanite/deeperdarker/content/entities/Shattered.class": "8494e432ac7ec304fe602fc654c05d158a5663b3d2c246d3d36bf7bda0cd4fef",
+        "com/kyanite/deeperdarker/content/DDItems.class": "ebda500810a95592b6e9a505feae10f08bd5f085cbb76152cb32e0c3809c46b4"
+      }
+    }
+  },
+  "skeleton": {
+    "graveyard": {
+      "version": "3.0",
+      "classes": {
+        "com/lion/graveyard/entities/SkeletonCreeper.class": "721ba179008612d85628b26fa3dea92dd05b0653f0e41e35581981a366c70e71",
+        "com/lion/graveyard/init/TGBlocks.class": "ebc0418393ac00105bce901cf11a1c1c923db5478349bcdb6a00ef24ce01d246"
+      }
+    }
+  },
+  "enderman": {
+    "supplementaries": {
+      "version": "1.20-3.1.43",
+      "classes": {
+        "net/mehvahdjukaar/supplementaries/mixins/EndermanMixin.class": "f8db7cff1a04b07b985b89e34fc8a76598383c802afc5c21b792f1c135f1c478",
+        "net/mehvahdjukaar/supplementaries/reg/ModRegistry.class": "61317b9b25c67468aa5e63cdbab95efd5b80837438260ad942c1fd02de5ba58b"
+      }
+    }
+  },
+  "cornelia": {
+    "aquamirae": {
+      "version": "7.1.14",
+      "classes": {
+        "dev/obscuria/aquamirae/common/entity/CaptainCorneliaBoss.class": "f38636153ea83f8c9b7a3250b333bf7d1eec3f84ab7e54eb66cf80f4d58566d4",
+        "dev/obscuria/aquamirae/AquamiraeHelper.class": "a76761a63cba93d1b7200bcb9decaa8c85bffc8ed9c346859bca0d6973143f04",
+        "dev/obscuria/aquamirae/registry/AquamiraeItems.class": "6a313e82c1d23f3131b691860d7038a9398bb49bc9e14521d5aef9ee791c196f"
+      }
+    }
+  }
+}

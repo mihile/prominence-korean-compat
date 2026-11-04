@@ -1,0 +1,1 @@
+package net.minecraft;public class class_1799 {class_1792 item;public class_1799(class_1792 i){item=i;}public class_1792 method_7909(){return item;}}

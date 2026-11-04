@@ -7,3 +7,15 @@ The existing final-language override `translation_overrides/ko_kr.json` keeps pr
 FTB quest prose is separate from resource packs. The client-side `quest_reviewed_text.json` continues to map exact input strings. Based on matching quest IDs between the official 4.1.3 origin instance and the current translated client, 2,586 unambiguous English-to-Korean exact-string pairs were added while preserving 84 prior rules. Fourteen conflicting source strings and 78 descriptions with differing line counts were excluded; the exact-line parser cannot distinguish identical source text by quest ID or translate every changed list. Raw quests, IDs, rewards, progress and server files are unchanged. Record and review those remaining cases before representing the quest translation as complete.
 
 Validation: source-pack 10,999 files byte-compared with the JAR; earlier cumulative classes and update helper preserved; native language Mixin and legacy-Paxi-like language fixture passed. Existing client regression checks use the final built JAR first on the classpath. Actual registration, pack priority, book rendering, FTB quest display and update/restart behavior require in-game validation. The included `glossary/` contains historical terminology and structure-name review records, with source versions recorded in their filenames; they are references rather than a single authoritative spelling table.
+
+## Enchantment stacking hints — nightly-20261104.4
+
+Reviewed20 enchantment descriptions now distinguish maximum equipped level, summed levels, boots-only and main-hand-only activation. Existing effects are unchanged. [Scope and native-code evidence](ENCHANTMENT_STACKING_HINTS.md).
+
+## Armor coverage expansion — nightly-20261104.5
+
+Extended20 reviewed descriptions to74 armor/worn-equipment descriptions after inventorying29 mod archives. Acrobat now explicitly states maximum-level behavior. Per-piece triggers, item-local effects, protection totals and slot-limited effects are distinguished; current configurable Spell Power stacking is documented. See [coverage and evidence](ENCHANTMENT_STACKING_HINTS.md).
+
+## Mixed protection effects — nightly-20261104.6
+
+Fire/Blast Protection now distinguish summed damage protection from maximum-level burn-time/knockback reductions. This completes the74-entry worn-equipment wording expansion without changing gameplay.
