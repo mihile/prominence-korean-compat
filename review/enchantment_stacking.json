@@ -1,0 +1,119 @@
+{
+  "minecraft": "1.20.1",
+  "reviewedAgainst": "installed Fabric bytecode, client/server JAR hashes matched",
+  "scope": "20 description keys; language only; no gameplay changes",
+  "mods": {
+    "mcda-5.0.2.jar": {
+      "sha256": "cf3e3a0ed472b6e9af30708286b7232ceeab8cf5d755c5e91cd446cda0b8a359"
+    },
+    "mcdw-9.0.4.jar": {
+      "sha256": "831cef36d489191bde9037a1a677fc3fcd2ad3e22101fffd0445ecd424b48856"
+    },
+    "extraspellattributes-1.3.2.jar": {
+      "sha256": "c964bf77681c6db37334f8a660d999370ae5d3af5c8096a5dd6870982cf741c3"
+    }
+  },
+  "entries": [
+    {
+      "key": "enchantment.mcda.fire_trail.desc",
+      "mode": "feet_slot_only",
+      "hint": "착용한 신발에만 적용"
+    },
+    {
+      "key": "enchantment.mcda.food_reserves.desc",
+      "mode": "maximum_equipped_level",
+      "hint": "중복 착용 시 최고 레벨만 적용"
+    },
+    {
+      "key": "enchantment.mcda.potion_barrier.desc",
+      "mode": "maximum_equipped_level",
+      "hint": "중복 착용 시 최고 레벨만 적용"
+    },
+    {
+      "key": "enchantment.mcda.surprise_gift.desc",
+      "mode": "maximum_equipped_level",
+      "hint": "중복 착용 시 최고 레벨만 적용"
+    },
+    {
+      "key": "enchantment.mcda.lucky_explorer.desc",
+      "mode": "feet_slot_only",
+      "hint": "착용한 신발에만 적용"
+    },
+    {
+      "key": "enchantment.mcda.fire_focus.desc",
+      "mode": "maximum_equipped_level",
+      "hint": "중복 착용 시 최고 레벨만 적용"
+    },
+    {
+      "key": "enchantment.mcda.poison_focus.desc",
+      "mode": "maximum_equipped_level",
+      "hint": "중복 착용 시 최고 레벨만 적용"
+    },
+    {
+      "key": "enchantment.mcda.chilling.desc",
+      "mode": "maximum_equipped_level",
+      "hint": "중복 착용 시 최고 레벨만 적용"
+    },
+    {
+      "key": "enchantment.mcda.death_barter.desc",
+      "mode": "maximum_equipped_level",
+      "hint": "중복 착용 시 최고 레벨만 적용"
+    },
+    {
+      "key": "enchantment.mcda.cowardice.desc",
+      "mode": "maximum_equipped_level",
+      "hint": "중복 착용 시 최고 레벨만 적용"
+    },
+    {
+      "key": "enchantment.mcda.frenzied.desc",
+      "mode": "maximum_equipped_level",
+      "hint": "중복 착용 시 최고 레벨만 적용"
+    },
+    {
+      "key": "enchantment.mcda.reckless.desc",
+      "mode": "maximum_equipped_level",
+      "hint": "중복 착용 시 최고 레벨만 적용"
+    },
+    {
+      "key": "enchantment.mcda.swiftfooted.desc",
+      "mode": "feet_slot_only",
+      "hint": "착용한 신발에만 적용"
+    },
+    {
+      "key": "enchantment.extraspellattributes.battlerouse.desc",
+      "mode": "sum_equipped_levels",
+      "hint": "장비별 레벨 합산"
+    },
+    {
+      "key": "enchantment.extraspellattributes.defiance.desc",
+      "mode": "sum_equipped_levels",
+      "hint": "장비별 레벨 합산"
+    },
+    {
+      "key": "enchantment.extraspellattributes.glancingblow.desc",
+      "mode": "sum_equipped_levels",
+      "hint": "장비별 레벨 합산"
+    },
+    {
+      "key": "enchantment.extraspellattributes.spellbreak.desc",
+      "mode": "sum_equipped_levels",
+      "hint": "장비별 레벨 합산"
+    },
+    {
+      "key": "enchantment.extraspellattributes.suppression.desc",
+      "mode": "sum_equipped_levels",
+      "hint": "장비별 레벨 합산"
+    },
+    {
+      "key": "enchantment.extraspellattributes.warding.desc",
+      "mode": "sum_equipped_levels",
+      "hint": "장비별 레벨 합산"
+    },
+    {
+      "key": "enchantment.mcdw.rampaging.desc",
+      "mode": "main_hand_only",
+      "hint": "주손 무기의 레벨만 적용",
+      "statusEffectStacksRemain": true
+    }
+  ]
+}
