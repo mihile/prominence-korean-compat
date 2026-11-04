@@ -65,7 +65,8 @@ public final class LootDropTooltip {
         boolean axe=nodes.stream().anyMatch(n->LootEntityRule.contains(n,"item.botania.elementium_axe"));
         Double conditional=null;
         for(var item:items){
-            Double h=hit(table(recipe),item,expected);
+            Double h=SpecialLootDisplay.observedChance(item,expected,conditions);
+            if(h==null)h=hit(table(recipe),item,expected);
             // Botania's reviewed beheading pools have exactly one draw; entity/weapon
             // predicates remain mandatory, and random-chance-with-looting is separate.
             if(h==null&&axe)h=hit("botania:elementium_axe_beheading",item,expected);

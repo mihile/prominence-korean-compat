@@ -1,1 +1,1 @@
-package net.minecraft;public class class_2561 {public String key;public static class_2561 method_43471(String k){var x=new class_2561();x.key=k;return x;}}
+package net.minecraft;public class class_2561 {public String key;public Object method_10851(){return new class_2588(key);}public String getString(){return key;}public static class_2561 method_43471(String k){var x=new class_2561();x.key=k;return x;}}

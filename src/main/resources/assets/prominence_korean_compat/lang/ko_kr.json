@@ -1,4 +1,12 @@
 {
   "prominence_korean_compat.direct_loot.wither": "위더 처치 시 드롭",
-  "prominence_korean_compat.direct_loot.faceless": "처치 시 주변 조건을 만족한 플레이어에게 직접 지급"
+  "prominence_korean_compat.direct_loot.faceless": "처치 시 주변 조건을 만족한 플레이어에게 직접 지급",
+  "prominence_korean_compat.plain_boss.wither": "위더",
+  "prominence_korean_compat.plain_boss.ender_dragon": "엔더 드래곤",
+  "prominence_korean_compat.direct_loot.dragon": "엔더 드래곤 처치 시 드롭",
+  "prominence_korean_compat.direct_loot.eye": "눈의 보스 처치 시 1% 확률",
+  "prominence_korean_compat.direct_loot.charged": "충전된 크리퍼의 폭발로 처치",
+  "prominence_korean_compat.direct_loot.charged_config": "충전된 크리퍼로 처치 · 서버 설정 필요",
+  "prominence_korean_compat.direct_loot.cornelia_normal": "일반 기간에 20% 확률",
+  "prominence_korean_compat.direct_loot.cornelia_winter": "겨울 이벤트 기간에 20% 확률"
 }

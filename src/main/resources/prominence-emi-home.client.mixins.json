@@ -38,7 +38,10 @@
     "LootMobEntityFilterMixin",
     "LootDirectMobMixin",
     "LootDirectInitMixin",
-    "LootDirectNameMixin"
+    "LootDirectNameMixin",
+    "LootBossStackNameMixin",
+    "EffekGcScopeMixin",
+    "EffekSurgeLifetimeMixin"
   ],
   "injectors": {
     "defaultRequire": 1

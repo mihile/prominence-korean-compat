@@ -1,0 +1,1 @@
+package local.prominence.work;import java.util.*;public class DirectLootGuard {public static Set<String> disabled=new HashSet<>();public static boolean allowed(String s){return !disabled.contains(s);}}

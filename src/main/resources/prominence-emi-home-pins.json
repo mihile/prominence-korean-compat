@@ -355,19 +355,17 @@
       "classes": {
         "fzzyhmstrs/emi_loot/emi/MobLootRecipe.class": "15c5df5096107c9c298286f66603c9a9d56db3d005feec554837acc9f052dcf7",
         "fzzyhmstrs/emi_loot/emi/EmiClientPlugin.class": "e3eafc1cbc79131cf2381775910fb025adc3d934486267f0d6e12718b5aa459c",
-        "fzzyhmstrs/emi_loot/emi/MobLootRecipe$MobLootRecipeData.class": "df308c38f6545fe1720380c374540657138657a62ae53a2d42dccb9f8d2b2921"
+        "fzzyhmstrs/emi_loot/emi/MobLootRecipe$MobLootRecipeData.class": "df308c38f6545fe1720380c374540657138657a62ae53a2d42dccb9f8d2b2921",
+        "fzzyhmstrs/emi_loot/util/stack/EntityEmiStack.class": "592a845ade14b0ec876fe235314efa40a351a87723b81ddc565ea184991230ed"
       }
-    },
-    "eldritch_end": {
-      "version": "0.3.4",
+    }
+  },
+  "effekGc": {
+    "aaa_particles": {
+      "version": "2.2.3",
       "classes": {
-        "elocindev/eldritch_end/entity/faceless/FacelessEntity.class": "984122dc2c88b3e5a2b85222cf6208eb49705b46fdb27b2c05de0d8ca04f5c24"
-      }
-    },
-    "soulsweapons": {
-      "version": "1.3.1-1.20.1-fabric",
-      "classes": {
-        "net/soulsweaponry/mixin/WitherEntityMixin.class": "50917dd823d6580eb52845ac16edecf5a141f93c52476d829a3b5d3e6e61eb7c"
+        "mod/chloeprime/aaaparticles/api/client/EffectRegistry.class": "4eddcf227906768b2db5c88e78b998b6dc58c952138486b958a905f7011158c7",
+        "mod/chloeprime/aaaparticles/api/client/EffectHolder.class": "fdf35d120bc37fe757caf2230aab9244fd7ac82149612df69c5cad85228b9ff8"
       }
     }
   }

@@ -49,11 +49,14 @@ def main():
                 item=e['name']
                 # Zero-producing and conditional item functions need the full server context.
                 invalid=False
+                safe_functions={'set_count','set_damage','set_nbt','set_name','set_lore','set_enchantments','enchant_randomly','enchant_with_levels','set_potion','copy_nbt','copy_name','set_attributes','set_stew_effect','set_instrument','fill_player_head','looting_enchant','exploration_map'}
                 for f in pool.get('functions',[])+e.get('functions',[]):
-                    if f.get('conditions'):invalid=True
-                    if f.get('function')=='minecraft:set_count':
+                    raw=f.get('function','');parts=raw.split(':',1)
+                    kind=parts[-1] if len(parts)==1 or parts[0]=='minecraft' else raw
+                    if f.get('conditions') or kind not in safe_functions:invalid=True
+                    if kind=='set_count':
                         count=f.get('count');minimum=count.get('min',count.get('value',0)) if isinstance(count,dict) else count
-                        if not isinstance(minimum,(int,float)) or minimum<1:invalid=True
+                        if not isinstance(minimum,(int,float)) or isinstance(minimum,bool) or minimum<1:invalid=True
                 if invalid:continue
                 q=e.get('weight',1)/total;mean=sum(n*w for n,w in dist)*q*100
                 hit=sum((1-(1-q)**n)*w for n,w in dist)*100
