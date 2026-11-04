@@ -35,7 +35,10 @@
     "LootChestChanceMixin",
     "LootConditionsVisibleMixin",
     "LootGroupConditionsMixin",
-    "LootMobEntityFilterMixin"
+    "LootMobEntityFilterMixin",
+    "LootDirectMobMixin",
+    "LootDirectInitMixin",
+    "LootDirectNameMixin"
   ],
   "injectors": {
     "defaultRequire": 1

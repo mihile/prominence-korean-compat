@@ -1,0 +1,1 @@
+package fzzyhmstrs.emi_loot.util;import java.util.*;import net.minecraft.*;public record ConditionalStack(List<class_3545<Integer,class_2561>> conditions,float weight,List<class_1799> stacks) {public List<class_1799> getRawStacks(){return stacks;}}

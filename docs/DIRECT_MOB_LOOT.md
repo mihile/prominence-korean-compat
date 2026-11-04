@@ -1,0 +1,5 @@
+# Direct mob rewards in EMI Loot
+
+EMI Loot reads loot tables, but Souls Weapons grants the Shard of Uncertainty from the Wither equipment-drop callback and Eldritch End grants X'al directly to eligible nearby players on Faceless death. These rewards are displayed in the mob loot category without changing server drops. Existing pools are preserved and duplicate items are not added. If a mob has no transmitted loot table, a display-only page is created. When the Faceless render entity cannot be constructed, its registered name is still shown.
+
+The three display hooks are guarded by installed mod versions and exact target class hashes. Unknown versions disable this integration rather than assuming the reward mechanics. A small fixture covers mob identity, existing and missing pages, duplicate prevention, missing items and immutability. Native client Mixin transformations and existing loot UI regression checks were run without starting the game; actual display remains to be checked in game.

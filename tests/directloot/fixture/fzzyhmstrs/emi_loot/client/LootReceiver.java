@@ -1,0 +1,1 @@
+package fzzyhmstrs.emi_loot.client;public interface LootReceiver {}
