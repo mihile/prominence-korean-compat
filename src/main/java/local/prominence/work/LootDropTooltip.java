@@ -99,6 +99,7 @@ public final class LootDropTooltip {
             else label+=(ko?" · 약탈 I/II/III: ":" · Looting I/II/III: ")+LootNumbers.percent(levels[1])+"/"+LootNumbers.percent(levels[2])+"/"+LootNumbers.percent(levels[3])+"%";
         }
         result.add(class_2561.method_43470(label));
+        if(!Double.isFinite(base))result.addAll(LootFormula.lines(table(recipe),items,0,0,ko,false));
         boolean head=!items.isEmpty()&&items.stream().allMatch(item->hit("botania:elementium_axe_beheading",item,expected)!=null);
         var consumed=new HashSet<Integer>();var excluded=new LinkedHashSet<String>();var exclusionIndices=new HashSet<Integer>();int victimIndex=-1;Set<String> targets=null;boolean ambiguous=false;
         if(ko&&axe&&head){
@@ -128,7 +129,7 @@ public final class LootDropTooltip {
         boolean chest=source.table().contains(":chests/");
         boolean axe=source.conditions().stream().map(t->LootEntityDisplay.node(t,0)).anyMatch(n->LootEntityRule.contains(n,"item.botania.elementium_axe"));
         for(String item:source.items()){Double p=chest?chestHit(source.table(),item,source.expected()):hit(source.table(),item,source.expected());if(p==null&&axe)p=hit("botania:elementium_axe_beheading",item,source.expected());if(p==null||Double.isFinite(base)&&Math.abs(base-p)>.0001){known=false;break;}base=p;}
-        if(!known||!Double.isFinite(base))return source.nativeLines();current=base;
+        if(!known||!Double.isFinite(base))return unavailable(source,looting,luck,ko,formula);current=base;
         for(var c:source.conditions()){
             if(chance(c)&&c.method_10855().isEmpty()){try{var a=args(c);double p=numeric(a[0]),inc=a.length>1?numeric(a[1]):0;if(!Double.isFinite(p)||p<0||p>100||!Double.isFinite(inc)||inc<0)return source.nativeLines();current*=Math.min(100,p+inc*Math.max(0,looting))/100;factors.add("("+LootNumbers.percent(p)+"% + "+LootNumbers.percent(inc)+"% × "+Math.max(0,looting)+")");}catch(Exception e){return source.nativeLines();}}
             else {var n=LootEntityDisplay.node(c,0);if(LootEntityRule.contains(n,"emi_loot.condition.chance")||LootEntityRule.contains(n,"emi_loot.condition.chance_looting"))return source.nativeLines();}
@@ -139,6 +140,13 @@ public final class LootDropTooltip {
         // Preserve the already reviewed compact weapon/victim summary.
         if(source.nativeLines().size()>1)out.addAll(source.nativeLines().subList(1,source.nativeLines().size()));return out;
     }
+    private static List<class_2561> unavailable(local.prominence.rewards.client.RewardClientText.TooltipSource source,int looting,double luck,boolean ko,boolean expanded){
+        var out=new ArrayList<class_2561>();out.add(class_2561.method_43470(ko?"드롭 확률: 확인 불가":"Drop chance: unavailable"));
+        out.addAll(LootFormula.lines(source.table(),source.items(),looting,luck,ko,expanded));
+        // Keep live server predicates, including chance gates, even without an exact model.
+        for(var c:source.conditions())if(!key(c).equals("emi_loot.no_conditions")&&!key(c).equals("emi_loot.function.set_nbt"))out.add(compact(c,ko));
+        return out;
+    }
     public static SlotWidget appendChest(SlotWidget slot,double expected,EmiRecipe recipe){
         var id=recipe.getId();Double probability=null;
         for(var s:slot.getStack().getEmiStacks()){
@@ -146,7 +154,9 @@ public final class LootDropTooltip {
             var h=chestHit(table(id==null?"":id.toString()),item,expected);
             if(h==null||probability!=null&&Math.abs(probability-h)>.0001){probability=null;break;}probability=h;
         }
-        return local.prominence.rewards.client.RewardClientText.present(slot,expected,List.of(),recipe,List.of(class_2561.method_43470((LootUiText.korean()?"드롭 확률: ":"Drop chance: ")+(probability==null?(LootUiText.korean()?"확인 불가":"unavailable"):LootNumbers.percent(probability)+"%"))),List.of());
+        var fallback=new ArrayList<class_2561>();fallback.add(class_2561.method_43470((LootUiText.korean()?"드롭 확률: ":"Drop chance: ")+(probability==null?(LootUiText.korean()?"확인 불가":"unavailable"):LootNumbers.percent(probability)+"%")));
+        if(probability==null)fallback.addAll(LootFormula.lines(table(id==null?"":id.toString()),slot.getStack().getEmiStacks().stream().map(s->class_7923.field_41178.method_10221(s.getItemStack().method_7909()).toString()).toList(),0,0,LootUiText.korean(),false));
+        return local.prominence.rewards.client.RewardClientText.present(slot,expected,List.of(),recipe,fallback,List.of());
     }
     public static SlotWidget append(SlotWidget slot,ConditionalStack entry,EmiRecipe recipe){
         var conditions=entry.conditions().stream().map(p->p.method_15441()).toList();

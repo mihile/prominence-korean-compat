@@ -66,6 +66,18 @@ public final class LootUiTests {
   if(gold.size()!=1||!gold.get(0).getString().equals("드롭 확률: 10%"))throw new AssertionError("actual binomial summary");
   var unknown=LootDropTooltip.lines("emi_loot:/mob/custom/entities/unknown",List.of("custom:item"),200,List.of(),true,key->key);
   if(!unknown.get(0).getString().equals("드롭 확률: 확인 불가"))throw new AssertionError("mean is not a probability");
+  if(unknown.stream().noneMatch(t->t.getString().contains("계산식:")))throw new AssertionError("unknown probability must retain formula");
+  var heartGate=text("emi_loot.condition.chance",literal("1"));
+  var heart=LootDropTooltip.lines("emi_loot:/mob/eldritch_end/entities/aberration",List.of("eldritch_end:aberration_heart"),100,List.of(heartGate),true,key->key);
+  if(!heart.get(0).getString().equals("드롭 확률: 1%"))throw new AssertionError("installed aberration heart item-level gate "+heart);
+  var heartSource=new local.prominence.rewards.client.RewardClientText.TooltipSource("eldritch_end:entities/aberration",List.of("eldritch_end:aberration_heart"),100,List.of(heartGate),heart,List.of());
+  var liveHeart=LootDropTooltip.currentNative(heartSource,3,0,true,true).stream().map(net.minecraft.class_2561::getString).toList();
+  if(!liveHeart.get(0).equals("드롭 확률: 1%")||!liveHeart.toString().contains("100% × (1% + 0% × 3)"))throw new AssertionError("heart gate must apply exactly once "+liveHeart);
+  var limbSource=new local.prominence.rewards.client.RewardClientText.TooltipSource("eldritch_end:entities/aberration",List.of("eldritch_end:aberration_limb"),100,List.of(),List.of(literal("unavailable")),List.of());
+  var limb=LootDropTooltip.currentNative(limbSource,3,0,true,true).stream().map(net.minecraft.class_2561::getString).toList();
+  if(!limb.toString().contains("Q = 균등(0, 1) + 반올림(균등(0, 1) × 3)")||!limb.toString().contains("계산식:"))throw new AssertionError("quantity/Looting formula missing "+limb);
+  var fallbackEn=LootDropTooltip.currentNative(limbSource,2,0,false,false).stream().map(net.minecraft.class_2561::getString).toList();
+  if(!fallbackEn.toString().contains("Formula:")||!fallbackEn.toString().contains("round(Uniform(0, 1) × 2)"))throw new AssertionError("English fallback formula "+fallbackEn);
   var runner=LootDropTooltip.lines("emi_loot:/mob/minecells/entities/runner",List.of("minecells:guts","minecells:monster_cell","minecells:metal_shards"),50,List.of(),true,key->key);
   if(!runner.get(0).getString().equals("드롭 확률: 50%"))throw new AssertionError("actual untyped Mine Cells uniform counts "+runner);
   var sweeper=LootDropTooltip.lines("emi_loot:/mob/minecells/entities/sweeper",List.of("minecells:metal_shards","minecells:molten_chunk"),75,List.of(),true,key->key);
