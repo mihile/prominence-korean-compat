@@ -38,6 +38,13 @@ public final class RewardScalingTests {
   sentMap.put(conn,2L);
   check(!RewardCommonInit.shouldQueue(conn,sentMap,2L),"duplicate REGISTER+JOIN in same epoch suppressed");
   check(RewardCommonInit.shouldQueue(conn,sentMap,3L),"new reload epoch queues again");
+  var heart=new RewardDefinition("eldritch_end:entities/aberration","chance",.01,.4,.05,true,List.of(new RewardDefinition.Output("eldritch_end:aberration_heart",1,100,0,true)),List.of(),List.of(),List.of());
+  RewardClientState.install(List.of(heart));var nativeChance=net.minecraft.class_2561.method_43469("emi_loot.condition.chance",net.minecraft.class_2561.method_43470("1"));var nativeQuantity=net.minecraft.class_2561.method_43470("약탈 수량 추첨 유지");
+  var heartSource=new RewardClientText.TooltipSource(heart.table(),List.of("eldritch_end:aberration_heart"),100,List.of(nativeChance),List.of(),List.of(nativeQuantity));
+  String[] expectedHeart={"1%","1.4%","1.8%","2.2%"};for(int level=0;level<=3;level++){
+   var actual=RewardClientText.resolved(heartSource,level,0,true,true,id->id).stream().map(net.minecraft.class_2561::getString).toList();
+   check(actual.get(0).equals("드롭 확률: "+expectedHeart[level]+" (기본 1%)"),"authoritative heart occurrence UI "+actual);check(actual.get(actual.size()-1).equals("약탈 수량 추첨 유지"),"quantity predicate preserved alongside boosted probability");
+  }RewardClientState.clear();
   System.out.println("PASS "+checks+" reward calibration, bounds, exact zero-bonus, weight/RNG consistency, probability-vs-mean, packet/session/old-server safety and actual UI formula checks; no game");
  }
 }

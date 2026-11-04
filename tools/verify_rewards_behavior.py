@@ -10,6 +10,7 @@ stubs={
 'net/minecraft/class_5341':'public class class_5341 {String id;public class_5341(String id){this.id=id;}public Object method_29325(){return id;}}',
 'net/minecraft/class_219':'public class class_219 extends class_5341 implements fzzyhmstrs.emi_loot.mixins.RandomChanceLootConditionAccessor {float p;public class_219(float p){super("minecraft:random_chance");this.p=p;}public float getChance(){return p;}}',
 'net/minecraft/class_117':'public class class_117 {String id;public class_117(String id){this.id=id;}public Object method_29321(){return id;}}',
+'net/minecraft/class_125':'public class class_125 extends class_117 implements local.prominence.rewards.RewardQuantity {class_5658 count;int limit;public class_125(class_5658 n,int l){super("minecraft:looting_enchant");count=n;limit=l;}public class_5658 prominence$count(){return count;}public int prominence$limit(){return limit;}}',
 'net/minecraft/class_141':'public class class_141 extends class_117 implements fzzyhmstrs.emi_loot.mixins.SetCountLootFunctionAccessor {class_5658 count;boolean add;public class_141(class_5658 c,boolean a){super("minecraft:set_count");count=c;add=a;}public class_5658 getCountRange(){return count;}public boolean getAdd(){return add;}}',
 'net/minecraft/class_85':'public class class_85 extends class_79 implements fzzyhmstrs.emi_loot.mixins.LeafEntryAccessor,fzzyhmstrs.emi_loot.mixins.LootPoolEntryAccessor,local.prominence.rewards.RewardLeaf {public int weight,quality;public class_117[] functions=new class_117[0];public class_5341[] conditions=new class_5341[0];public class_85(int w,int q){weight=w;quality=q;}public int getWeight(){return weight;}public int prominence$quality(){return quality;}public class_117[] getFunctions(){return functions;}public class_5341[] getConditions(){return conditions;}}',
 'net/minecraft/class_77':'public class class_77 extends class_85 implements fzzyhmstrs.emi_loot.mixins.ItemEntryAccessor {public class_1792 item;public class_77(class_1792 i,int w,int q){super(w,q);item=i;}public class_1792 getItem(){return item;}}',
@@ -32,7 +33,7 @@ interfaces={'ConstantLootNumberProviderAccessor':'float getValue();','BinomialLo
 for n,b in interfaces.items():stubs['fzzyhmstrs/emi_loot/mixins/'+n]='public interface '+n+' {'+b+'}'
 for n,b in stubs.items():
  f=src/(n+'.java');f.parent.mkdir(parents=True,exist_ok=True);f.write_text('package '+n.rsplit('/',1)[0].replace('/','.')+';'+b,'utf8')
-sources=list(src.rglob('*.java'))+[r/'src/main/java/local/prominence/rewards'/n for n in ['RewardMath.java','RewardDefinition.java','RewardPlan.java','RewardPolicy.java','RewardScope.java','RewardLeaf.java']]+[r/'tests/native/rewardverification/RewardBehavior.java']
+sources=list(src.rglob('*.java'))+[r/'src/main/java/local/prominence/rewards'/n for n in ['RewardMath.java','RewardDefinition.java','RewardPlan.java','RewardPolicy.java','RewardScope.java','RewardLeaf.java','RewardQuantity.java']]+[r/'tests/native/rewardverification/RewardBehavior.java']
 cp=os.pathsep.join(json.loads(a.classpath.read_text('utf8')))
 opts=['--release','17','-encoding','UTF-8','-proc:none','-cp',cp,'-d',safe_arg(c),*[safe_arg(x) for x in sources]];af=w/'compile.args';af.write_text('\n'.join('"'+x.replace('\\','/')+'"' for x in opts),'utf8')
 def run(cmd,name):

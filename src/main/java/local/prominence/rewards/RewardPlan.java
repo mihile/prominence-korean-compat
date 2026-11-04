@@ -2,7 +2,7 @@ package local.prominence.rewards;
 import fzzyhmstrs.emi_loot.mixins.*;
 import java.util.*;import net.minecraft.*;
 
-/** Live native loot data. Unknown structures or existing luck/enchantment scaling stay native. */
+/** Live native loot data. Existing occurrence bonuses stay native; quantity bonuses are independent. */
 public record RewardPlan(RewardRegistry.Route route,Object gate,String kind,double base,List<Item> items,List<Object> leaves,List<Integer> weights,List<Boolean> boosts,List<Double> draws,boolean eligible,double bonusRolls){
  public record Item(String id,int weight,boolean valuable,boolean edible){}
  public RewardPlan {items=List.copyOf(items);leaves=List.copyOf(leaves);weights=List.copyOf(weights);boosts=List.copyOf(boosts);draws=List.copyOf(draws);}
@@ -19,6 +19,15 @@ public record RewardPlan(RewardRegistry.Route route,Object gate,String kind,doub
  private static String functionId(class_117 f){var id=class_7923.field_41134.method_10221(f.method_29321());return id==null?"":id.toString();}
  private static boolean functions(class_117[] functions){
   for(var f:functions){String id=functionId(f);
+   if(id.equals("minecraft:looting_enchant")){
+    // Native Looting adds quantity after a gate succeeds. It is not an occurrence
+    // bonus and must not exclude an otherwise eligible rare probability gate.
+    if(!(f instanceof class_125)||!(f instanceof RewardQuantity q)||q.prominence$limit()<0)return false;
+    var n=q.prominence$count();var min=minimum(n);Double max=constant(n);
+    if(n instanceof class_5662)max=constant(((UniformLootNumberProviderAccessor)n).getMax());
+    if(min==null||max==null||!Double.isFinite(min)||!Double.isFinite(max)||min<0||max<min||max>64)return false;
+    continue;
+   }
    if(!Set.of("minecraft:set_count","minecraft:set_nbt","minecraft:set_name","minecraft:set_lore","minecraft:set_attributes","minecraft:set_damage","minecraft:enchant_randomly","minecraft:enchant_with_levels","minecraft:fill_player_head").contains(id))return false;
    if(f instanceof class_141){var count=(SetCountLootFunctionAccessor)f;var min=minimum(count.getCountRange());if(min==null||min<(count.getAdd()?0:1))return false;}
   }return true;
